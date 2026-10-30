@@ -1,0 +1,38 @@
+{
+  "key": "4a61d58852c6beca",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (inference): The required approach must learn what normal looks like on a specific site and raises a flag when behaviour drifts from that baseline.\n  C0",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"quote does not mention 'realistic protocol conditions' or that it is for validation\", \"rewrite\": \"The company uses hardware-in-the-loop bench testing with physical PLC simulators.\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"quote specifies Siemens-compatible PLCs, not just 'equipped with'; does not explicitly state 'enables controlled method validation'\", \"rewrite\": \"A dedicated ICS testbed equipped with Siemens-compatible PLCs, Modbus/TCP and DNP3 traffic generators.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 661,
+    "outputTokens": 171,
+    "totalTokens": 832,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 661,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 171,
+    "service_tier": "standard"
+  },
+  "ms": 1714
+}

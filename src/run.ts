@@ -27,7 +27,8 @@ import { PublicationIndex } from "./tools/search"
 const mode = process.argv.includes("--replay") ? "replay" : process.argv.includes("--fresh") ? "fresh" : "record"
 // --paced[=N]: replayed answers arrive after their recorded latency (divided by N), so the trace keeps the live run's shape.
 const paced = process.argv.find((arg) => arg.startsWith("--paced"))
-const pace = paced ? Number(paced.split("=")[1] ?? 1) || 1 : undefined
+// A replay is always paced (16x unless asked): with no waits the race leaves the recorded path and finds no fixture.
+const pace = paced ? Number(paced.split("=")[1] ?? 1) || 1 : mode === "replay" ? 16 : undefined
 // For measurements: --in-flight=N caps model calls at once (1 = one at a time); --fixtures=DIR records elsewhere.
 const flag = (name: string) => process.argv.find((arg) => arg.startsWith(`--${name}=`))?.split("=")[1]
 const maxInFlight = Number(flag("in-flight")) || undefined

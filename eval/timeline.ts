@@ -1,10 +1,10 @@
 // npm run eval:timeline [-- <trace.jsonl> [name]]: the concurrency timeline of a run, from its trace. One row per kind of
 // participant, one bar per model call (inference.started -> inference.completed, waiting for a slot included).
-// Default trace: out/trace-recording.jsonl, the live recording run. Writes out/eval/<name>.svg and <name>.json
+// Default trace: out/eval/trace-replay-1x.jsonl, the demo set replayed at recorded latency. Writes out/eval/<name>.svg and <name>.json
 // (name defaults to "timeline").
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs"
 
-const tracePath = process.argv[2] ?? "out/trace-recording.jsonl"
+const tracePath = process.argv[2] ?? "out/eval/trace-replay-1x.jsonl"
 const name = process.argv[3] ?? "timeline"
 const GROUPS: [string, RegExp][] = [
   ["Analysts", /^analyst/],

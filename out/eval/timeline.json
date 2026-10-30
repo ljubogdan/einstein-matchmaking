@@ -1,15 +1,15 @@
 {
-  "trace": "out/trace-recording.jsonl",
-  "calls": 68,
-  "wallClockSeconds": 137,
-  "sumOfCallSeconds": 438.5,
-  "averageOpenCalls": 3.2,
+  "trace": "out/eval/trace-replay-1x.jsonl",
+  "calls": 66,
+  "wallClockSeconds": 117.8,
+  "sumOfCallSeconds": 365.6,
+  "averageOpenCalls": 3.1,
   "peakOpenCalls": 15,
   "byGroup": {
     "Profilers": 14,
     "Critic support check": 34,
     "Arbiter": 1,
-    "Negotiators": 13,
+    "Negotiators": 11,
     "Writers": 6
   },
   "note": "A call's time includes waiting for one of the runner's 8 slots and retries after 429s, so the sum of call times is not the time one-at-a-time calls would take."

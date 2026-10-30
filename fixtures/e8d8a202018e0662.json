@@ -1,0 +1,38 @@
+{
+  "key": "e8d8a202018e0662",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Round 1 of 4. Open with the term sheet you would prefer. action must be \"propose\".",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"action\":\"propose\",\"sheet\":{\"engagement\":\"joint_project\",\"scope\":\"Develop an unsupervised anomaly detection method for Modbus TCP and BACnet/IP traffic that learns site-specific normal behaviour and can run on-device within ArmaturaSec hardware constraints, targeting integration into the ProtoSense module.\",\"ip\":\"company_owns_uni_academic_use\",\"exclusivity\":{\"field\":\"OT network anomaly detection appliances and protocol inspection modules\",\"months\":24},\"publication\":{\"reviewDays\":60,\"companyMayRemoveConfidential\":true},\"backgroundIp\":[\"ArmaturaSec retains all rights to ProtoSense firmware, NetGuard-OT codebase, traffic archives, and hardware designs\",\"University retains all rights to prior published methods and pre-existing research tools\"],\"contributions\":{\"company\":[\"One to two engineers part-time\",\"Access to Modbus TCP and BACnet/IP traffic archives under NDA\",\"Hardware bench with PLC simulators for testing\",\"Existing firmware codebase access under NDA\"],\"university\":[\"Research expertise in unsupervised anomaly detection for ICS\",\"Algorithm design and validation\",\"Supervision and research staff time\"]},\"money\":\"to be agreed\",\"timeline\":{\"months\":18,\"milestones\":[\"M6: baseline anomaly detection algorithm validated on traffic archives\",\"M12: on-device prototype integrated into ProtoSense hardware bench\",\"M18: final method documented and ready for firmware integration\"]},\"contact\":{\"company\":\"Technical lead engineer (ArmaturaSec)\",\"university\":\"Principal investigator (Faculty of Technical Sciences)\"}},\"reason\":\"We want company ownership of results to enable direct integration into ProtoSense and the planned fifth hardware variant without licensing delays [C001 plans]. A 60-day review period and right to remove confidential information protects our client traffic data and know-how shared under NDA [C001 rd_capacity].\",\"citations\":[\"C001 plans\",\"C001 rd_capacity\"]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 449,
+    "totalTokens": 452,
+    "inputTokenDetails": {
+      "cached_tokens": 2750
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 2750,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 26,
+      "ephemeral_1h_input_tokens": 2724
+    },
+    "output_tokens": 449,
+    "service_tier": "standard"
+  },
+  "ms": 6160
+}

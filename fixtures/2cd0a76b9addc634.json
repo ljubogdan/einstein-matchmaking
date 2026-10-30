@@ -1,0 +1,47 @@
+{
+  "key": "2cd0a76b9addc634",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Pair id: C032-CH1__R1015\n\nRecords:\n{\"id\":\"C032-CH1\",\"text\":\"We need to detect unusual behaviour on Modbus and BACnet networks without labelled attack data.\",\"de",
+  "items": [
+    {
+      "type": "reasoning",
+      "content": {
+        "text": "Let me craft the collaboration proposal JSON based on the provided records and term sheet.",
+        "type": "input_text"
+      },
+      "encryptedContent": "ErkCCnwIExABGAIqQIHDLgan5hr+bHj35R89vwq6AqER2beJ6QZ0+kE2v8cuBIDde6p3rj2BCTwGBDz1HF5Un45W2omwEHqrxaHd9H4yEWNsYXVkZS1zb25uZXQtNC02OABCCHRoaW5raW5nWgw2NjU3Njc3MDczNzKoAeGlk9cGEgz3HoJdvVP/AjPCyS0aDIvcQAgRM5uNGMXNASIwU6EiWM5pPTOvwelBsQCkIFiF5iK+MXTs79ez2W/qv7kGcZk3vZOyKJQUEuXRjmlHKmu0MwLsTbxgDxHNy7TnZZX6oczLwqIaf/tYu/7R37AEukZRjLVh3/pqdl1TFYe4JqT7IgeNWqj1CSNZhxfAoMlC8ZODYFKcBf7BJPRL28Qc1mOK9fngYqiZIMg7W7hOcrBxBkE1r55h8+mJChgB",
+      "summary": []
+    },
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"title\":\"Edge-deployable anomaly detection for unlabelled OT network traffic\",\"problem\":[{\"subject\":\"C032-CH1\",\"text\":\"Modbus and BACnet networks must be monitored for intrusions without any labelled attack examples, because real incidents are rare and customers do not permit attack simulations on live plant.\",\"sources\":[{\"id\":\"C032-CH1\",\"field\":\"detail\",\"quote\":\"we have almost no labelled examples of actual attacks on these networks\"}],\"kind\":\"fact\"},{\"subject\":\"C032-CH1\",\"text\":\"Hand-written rules catch obvious cases but miss slow, low-volume probing, while statistical baselines drift with shift patterns and seasonal production changes.\",\"sources\":[{\"id\":\"C032-CH1\",\"field\":\"detail\",\"quote\":\"misses slow, low-volume probing entirely\"}],\"kind\":\"fact\"},{\"subject\":\"C032-CH1\",\"text\":\"Any detection model must run inference on an edge sensor with constrained resources, making large deep-learning architectures impractical without explicit optimisation for the target hardware.\",\"sources\":[{\"id\":\"C032-CH1\",\"field\":\"detail\",\"quote\":\"model has to run inference on the edge sensor, which has 512 MB of RAM and a modest ARM core\"}],\"kind\":\"fact\"}],\"researchQuestions\":[\"Can autoencoder-based models trained only on benign OT traffic reliably flag anomalous sequences across Modbus and BACnet simultaneously?\",\"What windowing and encoding granularity choices allow an anomaly detection model to fit within the memory and compute budget of an ARM edge device?\",\"How should detection thresholds be tuned to remain stable as production patterns shift across seasons and operating shifts?\",\"Can a federated training scheme across multiple customer sites improve model generalisation without exposing raw customer traffic?\"],\"plan\":[{\"phase\":\"Phase 1 — Data preparation and baseline architecture (M1–M3)\",\"work\":\"Define anonymisation pipeline for packet logs; analyse traffic structure and session patterns across three sites; agree on feature encoding and window size; train and evaluate candidate autoencoder architectures on anonymised logs.\",\"result\":\"Baseline model architecture agreed and validated on anonymised logs (Milestone M3).\"},{\"phase\":\"Phase 2 — Edge optimisation and prototype (M4–M6)\",\"work\":\"Apply model compression, quantisation, and pruning to meet the RAM and compute constraints of the ARM target; implement edge inference code in the existing Rust processing pipeline; verify latency and memory footprint on sensor hardware.\",\"result\":\"Edge-feasible model prototype running on ARM target hardware (Milestone M6).\"},{\"phase\":\"Phase 3 — Threshold tuning and field validation (M7–M9)\",\"work\":\"Deploy prototype at one customer site; collect false-positive and detection feedback from SOC analysts; iteratively tune decision thresholds to handle concept drift from shift and seasonal patterns without retraining from scratch.\",\"result\":\"Low-false-positive threshold configuration validated in a live OT environment (Milestone M9).\"},{\"phase\":\"Phase 4 — Final artefacts and reporting (M10–M12)\",\"work\":\"Harden model artefacts for production deployment; complete integration testing across all three sites; write validation report covering detection performance, resource consumption, and operational constraints; prepare publication draft for company review.\",\"result\":\"Deployable model artefacts, edge integration code, and validation report delivered (Milestone M12).\"}],\"companyBrings\":[{\"subject\":\"C032\",\"text\":\"The company holds eighteen months of raw packet logs from three customer sites, averaging around four gigabytes per day per site, providing the volume of unlabelled OT traffic needed to train and evaluate detection models.\",\"sources\":[{\"id\":\"C032-CH1\",\"field\":\"detail\",\"quote\":\"eighteen months of raw packet logs from three customer sites, averaging around four gigabytes per day per site\"}],\"kind\":\"fact\"},{\"subject\":\"C032\",\"text\":\"In-house Modbus and BACnet protocol parsers and the EdgeWatch sensor hardware give the research team direct access to parsed OT records and the exact deployment target for edge inference.\",\"sources\":[{\"id\":\"C032\",\"field\":\"products\",\"quote\":\"EdgeWatch sensor — passive network tap and protocol parser for OT environments\"}],\"kind\":\"fact\"},{\"subject\":\"C032\",\"text\":\"Four security engineers who work exclusively on OT detection logic and SOC operations bring domain knowledge needed to validate whether flagged events correspond to genuinely suspicious behaviour.\",\"sources\":[{\"id\":\"C032\",\"field\":\"rd_capacity\",\"quote\":\"Four security engineers.\"}],\"kind\":\"fact\"}],\"universityBrings\":[{\"subject\":\"R1015\",\"text\":\"Prior work on autoencoder-based frameworks shows that unsupervised anomaly detection on industrial protocols can reach high detection rates without any labelled attack data, directly matching the company's constraint.\",\"sources\":[{\"id\":\"SYN-PUB-10523\",\"field\":\"abstract\",\"quote\":\"autoencoder-based neural networks trained exclusively on benign traffic to establish a baseline behavioural profile\"}],\"kind\":\"fact\"},{\"subject\":\"R1015\",\"text\":\"Experience with federated learning architectures in which each edge node trains locally and shares only gradient updates offers a path to improving models across customer sites without centralising raw traffic.\",\"sources\":[{\"id\":\"SYN-PUB-10526\",\"field\":\"abstract\",\"quote\":\"each edge node trains a local anomaly detection model on its own traffic and periodically shares only model gradient updates\"}],\"kind\":\"fact\"},{\"subject\":\"R1015\",\"text\":\"A comparative evaluation of intrusion detection architectures for SCADA networks, including analysis of resource consumption and concept drift, provides practical guidance applicable to the target deployment environment.\",\"sources\":[{\"id\":\"SYN-PUB-10525\",\"field\":\"abstract\",\"quote\":\"resource consumption, and adaptability to concept drift\"}],\"kind\":\"fact\"}],\"whyThisPair\":[{\"subject\":\"C032-CH1__R1015\",\"text\":\"The researcher's published framework for unsupervised anomaly detection on Modbus traffic maps directly onto the challenge of building detection models without labelled attack examples that the company cannot collect.\",\"sources\":[{\"id\":\"SYN-PUB-10523\",\"field\":\"abstract\",\"quote\":\"unsupervised anomaly detection framework specifically designed for Modbus traffic analysis\"}],\"kind\":\"inference\"},{\"subject\":\"C032-CH1__R1015\",\"text\":\"The paper's analysis of traffic window size and encoding granularity for resource-constrained environments addresses the exact edge deployment constraint imposed by the sensor's limited RAM and ARM core.\",\"sources\":[{\"id\":\"SYN-PUB-10523\",\"field\":\"abstract\",\"quote\":\"practical guidance for deployment in resource-constrained industrial environments\"}],\"kind\":\"inference\"},{\"subject\":\"C032-CH1__R1015\",\"text\":\"Both parties are located at or near Novi Sad, enabling close collaboration on sensor hardware integration and field validation at customer sites, which requires hands-on coordination between research and engineering staff.\",\"sources\":[{\"id\":\"C032\",\"field\":\"location\",\"quote\":\"NTP Novi Sad\"}],\"kind\":\"inference\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 1625,
+    "totalTokens": 1628,
+    "inputTokenDetails": {
+      "cached_tokens": 4336
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 2584,
+    "cache_read_input_tokens": 1752,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 2584,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 1625,
+    "service_tier": "standard"
+  },
+  "ms": 18688
+}

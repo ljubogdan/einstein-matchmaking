@@ -43,13 +43,12 @@ The Arbiter's prompt lists the two challenges in id order, never as holder and r
    ```json
    {"type":"prenup.match.proposed","producer":"matchmaker-2","payload":{"pairId":"C032-CH1__R1015", "...": "..."}}
    {"type":"prenup.reservation.conflict","producer":"matchmaker-1","payload":{"researcherId":"R1015","challengeId":"C001-CH1","holder":"C032-CH1","seenVersion":0,"version":1}}
-   {"type":"prenup.pair.cancelled","producer":"arbiter:R1015","payload":{"pairId":"C032-CH1__R1015","reason":"the Arbiter gave R1015 to C001-CH1"}}
-   {"type":"prenup.arbiter.decided","producer":"arbiter:R1015","payload":{"researcherId":"R1015","winner":"C001-CH1","loser":"C032-CH1", "...": "..."}}
-   {"type":"prenup.rematch","producer":"matchmaker-2","payload":{"challengeId":"C032-CH1","from":"R1015", "...": "..."}}
-   {"type":"prenup.match.proposed","producer":"matchmaker-2","payload":{"pairId":"C032-CH1__R1008", "...": "..."}}
+   {"type":"prenup.arbiter.decided","producer":"arbiter:R1015","payload":{"researcherId":"R1015","winner":"C032-CH1","loser":"C001-CH1", "...": "..."}}
+   {"type":"prenup.rematch","producer":"matchmaker-1","payload":{"challengeId":"C001-CH1","from":"R1015", "...": "..."}}
+   {"type":"prenup.match.proposed","producer":"matchmaker-1","payload":{"pairId":"C001-CH1__R1008", "...": "..."}}
    ```
 
-   Matchmaker-2 reserved R1015 first and its negotiation had started; matchmaker-1's write then failed the version check. The Arbiter gave R1015 to C001-CH1, so the C032-CH1 negotiation was cancelled mid-way and matchmaker-2 re-matched to R1008. Who writes first depends on timing: in a plain `--replay`, where every answer arrives at once, matchmaker-1 wins the race; this trace comes from `--paced`, which keeps the recording run's timing. The Arbiter is never told which side holds the researcher, so it decides the same way both times.
+   Matchmaker-2 reserved R1015 first; matchmaker-1's write then failed the version check. The Arbiter kept R1015 with C032-CH1, and matchmaker-1 re-matched C001-CH1 to R1008 by itself. Who writes first depends on timing: in the live recording ([`out/trace-recording.jsonl`](out/trace-recording.jsonl)) matchmaker-1 wrote first, so its negotiation was cancelled mid-way when the Arbiter decided. The Arbiter is never told which side holds the researcher, so it decides the same way both times.
 
 2. **Negotiation ends in no deal -> the challenge goes back to its matchmaker**, which tries its next card (at most 2 negotiations per challenge, then a no-match). Built; no negotiation in the demo run ended without a deal, so it is shown in `test/matchmaker.test.ts`.
 3. **The Critic stops a claim -> it goes back to its author once.** Built: the writer gets its stopped claims back in the same conversation, a stopped profile claim goes to a fresh Profiler agent, each with the reason and the Critic's suggested sentence. The fix is checked again; what still fails is dropped (`prenup.claim.dropped`) and listed on the page. In the demo run all 3 writers and 14 of 15 profile cards sent claims back once.
@@ -69,6 +68,6 @@ The Arbiter's prompt lists the two challenges in id order, never as holder and r
 
 Concurrent vs one call at a time, on 30 Oct: the demo set (4 challenges) run twice live with `--fresh`, same code and models, up to 8 model calls at once vs `--in-flight=1`. **170.7 s vs 380.3 s, 2.2x faster**, 89 model calls each. The concurrent run hit the gateway's rate limit 11 times and retried. The answers were fresh, so the runs took slightly different paths: the concurrent one wrote more (42k vs 26k strong-model output tokens) and still finished first. Raw data: [`out/eval/concurrency.json`](out/eval/concurrency.json), with both runs' logs and traces next to it.
 
-The recording run's trace, drawn: [`out/eval/timeline.svg`](out/eval/timeline.svg) (68 calls in 137 s, up to 15 open at once).
+The demo set replayed at recorded latency, drawn: [`out/eval/timeline.svg`](out/eval/timeline.svg) (66 calls in 118 s, up to 15 open at once).
 
 Without the version check, the same matchmaker code would double-book 104 researchers across 264 of the 489 challenges; with it, none ([`out/eval/arbiter-*.json`](out/eval/), a code-only simulation with stand-ins for the model agents).

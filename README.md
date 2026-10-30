@@ -41,17 +41,17 @@ Open http://localhost:4173 and press **Run the demo set** (the moon button switc
 
 ### A two-minute tour of the board
 
-Press **Run the demo set**. It takes about 40 s at 4x and ends with 3 proposals, 1 no-match and 46 claims stopped. Then look at:
+Press **Run the demo set**. It takes about 35 s at 4x and ends with 3 proposals, 1 no-match and 47 claims stopped. Then look at:
 
 1. **The conflict.** On the ArmaturaSec card (`C001-CH1`): "Conflict on R1015", held by `C032-CH1`. Two matchmakers wanted the same researcher, and the second write failed the version check. Nobody overwrote anybody.
-2. **The decision.** The blue callout below it: the Arbiter gives R1015 to `C001-CH1`. It's a close call, and "Show the reasoning" has the whole text ([what's weak in it](#limits-and-honest-notes)).
-3. **The re-match.** The tabs above the middle column: `C032-CH1 × R1015` is struck through and `C032-CH1 × R1008` is new. Nobody told matchmaker-2 to do that; it reacted to the Arbiter's event.
-4. **The negotiation.** Click the `C001-CH1 × R1015` tab and read down. The company wants to own the results, the researcher keeps ownership and ring-fences an earlier project, and they settle on an option to take the results over. Below that are the agreed terms and **Open the proposal**.
-5. **The Critic.** Scroll that column to the bottom. In the last red card, the writer had turned one 2021 student project into a "prior working relationship". The quote doesn't say that, so the sentence never reached the proposal.
+2. **The decision.** The blue callout below it: the Arbiter keeps R1015 with `C032-CH1`. It says the two are nearly identical and names the one difference it decided on; "Show the reasoning" has the whole text ([what's weak in it](#limits-and-honest-notes)).
+3. **The re-match.** The new tab above the middle column, `C001-CH1 × R1008`. Nobody told matchmaker-1 to do that; it reacted to the Arbiter's event.
+4. **The negotiation.** Click the `C032-CH1 × R1015` tab and read down. The company wants to own the results for 24 months of exclusivity, the researcher wants university ownership and offers 12 months, and they settle on the university owning the results with an option for the company to take them over. Below that are the agreed terms and **Open the proposal**.
+5. **The Critic.** Click the `C061-CH1 × R0231` tab and scroll down to the red card `companyBrings/1`. The writer said the company's ERP data links production variables to oxidation outcomes, but the source only lists the ERP as inventory tracking. It went back to the writer, and the rewrite passed.
 6. **The no.** On the KartografTech card (`C043-CH3`): raising a seed round isn't a research problem. On the Zlatna Njiva card (`C061-CH1`), R0128 is skipped because the notes are about another person.
 7. **The trap.** Press **Plant false claims**: 20 false claims we planted on purpose, all stopped in about 5 s. The first row credits R0881 with a paper by R0128, who has the same name. Click `SYN-PUB-01689` and check the author id.
 
-**Run the demo set** brings the demo back after that. The header counts 87 model calls if nothing has run yet and 68 once `out/cache/` exists, because analyst and profile answers are then reused; any earlier run fills it. The outcome is the same. A plain `npm run demo -- --replay` has no pacing, so `C001-CH1` reserves first and it counts 86, with the same proposals. The live measurements below are separate runs with no cache.
+**Run the demo set** brings the demo back after that. The header counts 85 model calls if nothing has run yet and 66 once `out/cache/` exists, because analyst and profile answers are then reused; any earlier run fills it. The outcome is the same. A plain `npm run demo -- --replay` runs the same path at 16x. The live measurements below are separate runs with no cache.
 
 The default run takes the demo set of four challenges. Other challenges (`npm run demo -- C012-CH3 C041-CH2`) need your own Anthropic key in `.env` the first time: `npm run demo` calls the model only for answers not yet recorded, and records them.
 
@@ -105,15 +105,14 @@ In the demo run, C001-CH1 (ArmaturaSec) and C032-CH1 (SecureEdge Labs) post almo
 ```json
 {"type":"prenup.match.proposed","producer":"matchmaker-2","payload":{"pairId":"C032-CH1__R1015", "...": "..."}}
 {"type":"prenup.reservation.conflict","producer":"matchmaker-1","payload":{"researcherId":"R1015","challengeId":"C001-CH1","holder":"C032-CH1","seenVersion":0,"version":1}}
-{"type":"prenup.pair.cancelled","producer":"arbiter:R1015","payload":{"pairId":"C032-CH1__R1015","reason":"the Arbiter gave R1015 to C001-CH1"}}
-{"type":"prenup.arbiter.decided","producer":"arbiter:R1015","payload":{"researcherId":"R1015","winner":"C001-CH1","loser":"C032-CH1", "...": "..."}}
-{"type":"prenup.rematch","producer":"matchmaker-2","payload":{"challengeId":"C032-CH1","from":"R1015", "...": "..."}}
-{"type":"prenup.match.proposed","producer":"matchmaker-2","payload":{"pairId":"C032-CH1__R1008", "...": "..."}}
+{"type":"prenup.arbiter.decided","producer":"arbiter:R1015","payload":{"researcherId":"R1015","winner":"C032-CH1","loser":"C001-CH1", "...": "..."}}
+{"type":"prenup.rematch","producer":"matchmaker-1","payload":{"challengeId":"C001-CH1","from":"R1015", "...": "..."}}
+{"type":"prenup.match.proposed","producer":"matchmaker-1","payload":{"pairId":"C001-CH1__R1008", "...": "..."}}
 ```
 
-Matchmaker-2 reserved R1015 first and its negotiation had started; matchmaker-1's write then failed the version check. The Arbiter gave R1015 to C001-CH1, so the C032-CH1 negotiation was cancelled mid-way and matchmaker-2 re-matched to R1008. Who writes first depends on timing: in a plain `--replay`, where every answer arrives at once, matchmaker-1 wins the race; this trace comes from `--paced`, which keeps the recording run's timing. The Arbiter is never told which side holds the researcher, so it decides the same way both times.
+Matchmaker-2 reserved R1015 first; matchmaker-1's write then failed the version check. The Arbiter kept R1015 with C032-CH1, and matchmaker-1 re-matched C001-CH1 to R1008 by itself. Who writes first depends on timing: in the live recording ([`out/trace-recording.jsonl`](out/trace-recording.jsonl)) matchmaker-1 wrote first, so its negotiation was cancelled mid-way when the Arbiter decided. The Arbiter is never told which side holds the researcher, so it decides the same way both times.
 
-From the Arbiter's reason, verbatim: *"Both challenges are nearly identical and [R1015] fits both strongly, but [C032-CH1] has an equally strong alternative in [R1008] with directly relevant work [SYN-PUB-10472, SYN-PUB-10477, SYN-PUB-10239] … [C001-CH1]'s card shows more precise alignment with [R1015]'s published hybrid deployment guidance [SYN-PUB-10525]"*. We checked its citations by hand: each publication is authored by the researcher it is cited for. Nobody told matchmaker-2 to pick R1008; it reacted to the decision.
+From the Arbiter's reason, verbatim: *"Both challenges are nearly identical in scope, [R1015] has strong fit for both, and [R1008] is rated a strong alternative for both [C001-CH1] and [C032-CH1]. The one differentiator on the cards is that the [C032-CH1] card covers a third publication, federated learning for edge-deployed intrusion detection [SYN-PUB-10526], which extends [R1015]'s relevance beyond what is listed for [C001-CH1]."*. We checked its citations by hand: each publication is authored by the researcher it is cited for. Nobody told matchmaker-1 to pick R1008; it reacted to the decision.
 
 ## Does it work?
 
@@ -123,10 +122,10 @@ Measured on the demo run (4 challenges, 3 matchmakers, models below):
 |---|---|
 | Challenges | 4: 3 proposals, 1 no-match (not a research problem) |
 | Reservation conflicts | 1, settled by the Arbiter; the loser re-matched; no researcher ends up with two challenges |
-| Claims checked by the Critic | 111. Profile cards: 45, of which 34 were stopped on the first pass (23 said more than their quotes, 7 quotes not word for word, 4 numbers not in any quote); after one rewrite 27 pass and 18 are dropped. Proposals: 36 sentences, 12 stopped by the support check; after one rewrite 32 pass and 4 are dropped. Negotiated terms: 30, all pass |
+| Claims checked by the Critic | 111. Profile cards: 45, of which 34 were stopped on the first pass (23 said more than their quotes, 7 quotes not word for word, 4 numbers not in any quote); after one rewrite 27 pass and 18 are dropped. Proposals: 36 sentences, 13 stopped by the support check; after one rewrite 31 pass and 5 are dropped. Negotiated terms: 30, all pass |
 | Traps the code flags across all 1,047 profiles | 22 stale (6 unavailable, 16 consulting only), 7 where `open_to` contradicts the notes, 2 notes about another person, 8 same-name profiles, 26 with Cyrillic text ([`out/traps.md`](out/traps.md)) |
-| Model calls per run (replay from a fresh clone) | 67 cheap (100,855 input / 18,120 output tokens), 19 strong (77,370 input / 23,994 output tokens) |
-| Cost of one demo run | $0.76 at list price ($0.19 cheap, $0.57 strong), about $0.25 per proposal; every run prints its own |
+| Model calls per run (replay from a fresh clone) | 67 cheap (100,740 input / 18,189 output tokens), 18 strong (73,510 input / 21,529 output tokens) |
+| Cost of one demo run | $0.73 at list price ($0.19 cheap, $0.54 strong), about $0.24 per proposal; every run prints its own |
 
 And three measurements made for the question "does the design hold up?" (`npm run eval`; results and raw data in [`out/eval/`](out/eval/)):
 
@@ -136,11 +135,11 @@ And three measurements made for the question "does the design hold up?" (`npm ru
 | **Planted false claims**: 20 claims of 7 kinds built from real records (fake ids, altered quotes, same-name swaps, engagement not in `open_to`, invented money, retired or departed researchers, sentences that say more than their quote), sent to the Critic as one check | **20/20 stopped.** The code checks stop 16 (exists 3, quote 4, ownership 3, policy 5, numbers 1); the 4 overstatements pass them and are stopped by the support check. Without the support check: 16/20. The faults go to the Critic directly, not through the writer ([`critic.json`](out/eval/critic.json)) |
 | **Version check + Arbiter vs last-writer-wins**: the real matchmaker code on all 489 challenges, with code stand-ins for the model agents (search on the one-line challenge text, every card a strong fit, real availability and trap flags, the holder keeps a contested researcher), seed 42 | **0 double-booked researchers vs 104** (promised to 264 challenges at once). The price: 438 conflicts settled by re-matching, and 50 challenges whose whole shortlist was already taken ([`arbiter-versioned.json`](out/eval/arbiter-versioned.json), [`arbiter-last-writer-wins.json`](out/eval/arbiter-last-writer-wins.json)) |
 
-![68 model calls of the recording run on a timeline, up to 15 open at once](out/eval/timeline.svg)
+![66 model calls of the demo set on a timeline, up to 15 open at once](out/eval/timeline.svg)
 
-The recording run on a timeline: 68 model calls in 137 s, 3.2 open on average and up to 15 at once (a call counts from its request to its answer, waiting for one of the 8 slots included). Analysts and profilers came from the local cache in that run, so they aren't on it.
+The demo set on a timeline, replayed at its recorded latency: 66 model calls in 118 s, 3.1 open on average and up to 15 at once (a call counts from its request to its answer, waiting for one of the 8 slots included). Analysts and first profile answers came from the local cache, so they aren't on it. The 170.7 s vs 380.3 s measurement above was made before the last change to the negotiator and Arbiter prompts.
 
-How often it stops a true claim: of the 46 first-pass stops in the demo run, **20 sentences were true, 17 really said more than their sources and 9 were judgement calls** ([`critic-false-stops.json`](out/eval/critic-false-stops.json) has each one). So the Critic is too strict: 9 of the 20 true sentences never came back after the rewrite. Claude, the coding agent that helped build this, did this review, not an independent person.
+How often it stops a true claim: of the 47 first-pass stops in the demo run, **21 sentences were true, 15 really said more than their sources and 11 were judgement calls** ([`critic-false-stops.json`](out/eval/critic-false-stops.json) has each one). So the Critic is too strict: 10 of the 21 true sentences never came back after the rewrite. Claude, the coding agent that helped build this, did this review, not an independent person.
 
 ## Where the Critic stepped in
 
@@ -151,20 +150,19 @@ The cheap model writes the profile cards, and it sometimes rewords a "verbatim" 
 {"type":"prenup.critic.verdict","producer":"critic","payload":{"pairId":"profile:C001-CH1__R1008","attempt":1,"claimId":"profile:C001-CH1__R1008/1","subject":"R1008","verdict":"block","check":"quote","reason":"quote not found in SYN-PUB-10477.abstract"}}
 ```
 
-A quote can be word for word and still not say what the sentence says. The support check catches that, the claim goes back to its author with the reason and a suggested sentence, and the fix is checked again. Here the writer said the company's hardware bench includes PLC simulators; the quote doesn't say so:
+A quote can be word for word and still not say what the sentence says. The support check catches that, the claim goes back to its author with the reason and a suggested sentence, and the fix is checked again. Here the writer said the company's ERP data links production variables to oxidation outcomes; the source only lists the ERP as inventory tracking:
 
 ```json
-{"type":"prenup.critic.verdict","producer":"critic","payload":{"pairId":"C001-CH1__R1015","attempt":1,"claimId":"C001-CH1__R1015/companyBrings/2","subject":"C001","verdict":"rewrite","check":"support","reason":"Quote confirms access to traffic archives, hardware bench, and firmware under NDA, but does not specify that hardware includes 'physical PLC simulators'.", "...": "..."}}
-{"type":"prenup.writer.rewrote","producer":"writer","payload":{"pairId":"C001-CH1__R1015","sentBack":["C001-CH1__R1015/companyBrings/1","C001-CH1__R1015/companyBrings/2","C001-CH1__R1015/whyThisPair/2","C001-CH1__R1015/whyThisPair/3"], "...": "..."}}
-{"type":"prenup.critic.verdict","producer":"critic","payload":{"pairId":"C001-CH1__R1015","attempt":2,"claimId":"C001-CH1__R1015/companyBrings/2","subject":"C001","verdict":"pass"}}
+{"type":"prenup.critic.verdict","producer":"critic","payload":{"pairId":"C061-CH1__R0231","attempt":1,"claimId":"C061-CH1__R0231/companyBrings/1","subject":"C061","verdict":"rewrite","check":"support","reason":"Quotes confirm field/harvest traceability and ERP tracking, but do not state that ERP data links production variables to oxidation outcomes; that is an inference.","...":"..."}}
+{"type":"prenup.critic.verdict","producer":"critic","payload":{"pairId":"C061-CH1__R0231","attempt":2,"claimId":"C061-CH1__R0231/companyBrings/1","subject":"C061","verdict":"pass"}}
 ```
 
 Each proposal lists, under "How we got here", every claim the Critic stopped, why, and whether the rewrite passed or was dropped.
 
 ## Proposals
 
-- [C001-CH1 x R1015](out/proposals/C001-CH1__R1015.md): unsupervised anomaly detection on Modbus and BACnet traffic for ArmaturaSec (joint project)
-- [C032-CH1 x R1008](out/proposals/C032-CH1__R1008.md): the same problem on SecureEdge Labs' edge sensors, after the Arbiter gave R1015 to C001-CH1 (contract research)
+- [C032-CH1 x R1015](out/proposals/C032-CH1__R1015.md): unsupervised anomaly detection on Modbus and BACnet traffic for SecureEdge Labs' edge sensors (joint project)
+- [C001-CH1 x R1008](out/proposals/C001-CH1__R1008.md): the same problem for ArmaturaSec, after the Arbiter gave R1015 to C032-CH1 (joint project)
 - [C061-CH1 x R0231](out/proposals/C061-CH1__R0231.md): why cold-pressed pumpkin seed oil goes rancid (contract research). R0128 was on this shortlist and skipped: its notes describe another person
 - [No match](out/nomatch.md): C043-CH3, raising a seed round, is not a research problem
 - [Traps](out/traps.md)
@@ -187,10 +185,10 @@ Each proposal lists, under "How we got here", every claim the Critic stopped, wh
 ## Limits and honest notes
 
 - Not built yet: the human approval step.
-- The support check is a cheap model and strict: it stopped a third of the proposal sentences on the first pass, and about 4 in 10 of all first-pass stops were true sentences (see [Does it work?](#does-it-work)). It reads only the claim's quotes, so a true sentence with too short a quote goes back: it stopped "physical PLC simulators" on `C001-CH1 × R1015`, which is true (`C001`'s tech stack), because the writer quoted a field that doesn't mention them. The people-praise check is a word list, and it also blocked a sentence that called a method's result "best".
-- The cheap model rates most shortlisted candidates as a strong fit, so search order often decides. The Arbiter's and the Profiler's fit reasons aren't checked by the Critic yet. We checked by hand that each paper the Arbiter cites is by the researcher it's cited for, but its reasoning is weaker than that: the two challenges are nearly identical, it says `SYN-PUB-10526` is cited only for `C032-CH1` when it's on both cards, and it credits "deployment guidance" to `SYN-PUB-10525` when that's in `SYN-PUB-10523`. What the design guarantees is that nobody is double-booked, not that the model picked the better side of a close call.
+- The support check is a cheap model and strict: it stopped a third of the proposal sentences on the first pass, and about 4 in 10 of all first-pass stops were true sentences (see [Does it work?](#does-it-work)). It reads only the claim's quotes, so a true sentence with too short a quote goes back: it stopped a sentence saying real incidents are rare and customers don't allow attack simulations on live plant, which `C032-CH1`'s text says outright, and the sentence was dropped. The people-praise check is a word list, and it also blocked a sentence that called a method's result "best".
+- The cheap model rates most shortlisted candidates as a strong fit, so search order often decides. The Arbiter's and the Profiler's fit reasons aren't checked by the Critic yet. We checked by hand that each paper the Arbiter cites is by the researcher it's cited for, but the decision is still thin: the two challenges are nearly identical, and the one difference it names is a sentence about `SYN-PUB-10526` that only `C032-CH1`'s card kept, though both cards list that paper. What the design guarantees is that nobody is double-booked, not that the model picked the better side of a close call.
 - After a no-deal the researcher stays reserved for that challenge.
-- Negotiators cite fields of their position cards in each move; the Critic doesn't check those citations yet, and some are loose. In `C001-CH1 × R1015`, round 2 cites `open_to` for university ownership, but `open_to` only lists engagement types: that stance comes from the role the negotiator is given. Rounds 1 and 3 tie ProtoSense to a late-2025 plan that names a hardware variant.
+- Negotiators are told to cite a field only for a fact it states and to word their stances as positions. All 17 citations in the recorded moves point to real fields, but the Critic doesn't check them yet and a few are still loose: `C032-CH1 × R1015` round 1 cites `C032 tech` for protecting customer data, `C061-CH1 × R0231` round 1 cites `C061 rd_capacity` for protecting production data, and `C001-CH1 × R1008` round 1 cites `C001 plans` for a ProtoSense roadmap the plan doesn't name.
 - Tested on Linux with Node 22 only.
 
 ## Tech

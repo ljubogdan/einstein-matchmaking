@@ -15,7 +15,7 @@ type Side = "company" | "researcher"
 
 const RULES = `Each turn, answer with JSON: action (propose | accept | walk_away), sheet, reason, citations.
 - propose: change at most two fields of the last sheet, and trade: give on one field to get another. accept: the other side's sheet as it is. walk_away: only if a hard limit would be crossed.
-- reason: one or two sentences that cite your position card in brackets, with the field, e.g. [C001 rd_capacity] or [SYN-PUB-00001]. citations: those ids.
+- reason: one or two sentences. Cite your position card in brackets, with the field, e.g. [C001 rd_capacity] or [SYN-PUB-00001], only right after a fact that field states, one citation per bracket. Never cite a field for something it doesn't say, and don't join facts your card keeps apart (a product and a plan, say). What you want is your side's position, not a fact: write "we want" or "our position is", with no citation, and call it a requirement only if your card does. citations: those ids.
 - ip, one of these Lambert Toolkit models:
 ${IP_MODELS.map((ip) => `  ${ip}: ${IP_LABELS[ip]}`).join("\n")}
 - publication: reviewDays is 0, 30, 60 or 90 (how long the company may review a paper before it goes out); companyMayRemoveConfidential: the company may remove its confidential information, never results.

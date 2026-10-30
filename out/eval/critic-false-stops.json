@@ -2,11 +2,11 @@
   "what": "Every first-pass Critic stop in the recorded demo run, checked against the cited records and the pair's own records. true = everything the sentence states is in the dataset, so the stop was a false stop.",
   "reviewer": "Claude (the coding agent that helped build Prenup), not an independent person. One run, one reviewer.",
   "date": "2026-10-30",
-  "stops": 46,
+  "stops": 47,
   "review": {
-    "true": 20,
-    "says more than the sources": 17,
-    "judgement call": 9
+    "true": 21,
+    "says more than the sources": 15,
+    "judgement call": 11
   },
   "byCheck": {
     "quote": {
@@ -15,9 +15,9 @@
       "judgement call": 1
     },
     "support": {
-      "true": 13,
-      "judgement call": 8,
-      "says more than the sources": 14
+      "true": 14,
+      "judgement call": 10,
+      "says more than the sources": 12
     },
     "numbers": {
       "says more than the sources": 2,
@@ -26,7 +26,7 @@
   },
   "trueSentencesAfterRewrite": {
     "passed": 11,
-    "dropped": 9
+    "dropped": 10
   },
   "items": [
     {
@@ -234,6 +234,36 @@
       "afterRewrite": "dropped"
     },
     {
+      "claimId": "C032-CH1__R1015/problem/1",
+      "check": "support",
+      "review": "true",
+      "afterRewrite": "dropped"
+    },
+    {
+      "claimId": "C032-CH1__R1015/problem/2",
+      "check": "support",
+      "review": "true",
+      "afterRewrite": "passed"
+    },
+    {
+      "claimId": "C032-CH1__R1015/companyBrings/2",
+      "check": "support",
+      "review": "judgement call",
+      "afterRewrite": "dropped"
+    },
+    {
+      "claimId": "C061-CH1__R0231/problem/3",
+      "check": "support",
+      "review": "says more than the sources",
+      "afterRewrite": "dropped"
+    },
+    {
+      "claimId": "C061-CH1__R0231/companyBrings/1",
+      "check": "support",
+      "review": "says more than the sources",
+      "afterRewrite": "passed"
+    },
+    {
       "claimId": "C061-CH1__R0231/companyBrings/2",
       "check": "support",
       "review": "says more than the sources",
@@ -242,68 +272,44 @@
     {
       "claimId": "C061-CH1__R0231/universityBrings/1",
       "check": "support",
-      "review": "true",
+      "review": "judgement call",
+      "afterRewrite": "passed"
+    },
+    {
+      "claimId": "C061-CH1__R0231/universityBrings/2",
+      "check": "support",
+      "review": "judgement call",
       "afterRewrite": "passed"
     },
     {
       "claimId": "C061-CH1__R0231/whyThisPair/1",
       "check": "support",
       "review": "says more than the sources",
-      "afterRewrite": "dropped"
-    },
-    {
-      "claimId": "C061-CH1__R0231/whyThisPair/2",
-      "check": "support",
-      "review": "says more than the sources",
       "afterRewrite": "passed"
     },
     {
-      "claimId": "C001-CH1__R1015/companyBrings/1",
+      "claimId": "C061-CH1__R0231/whyThisPair/3",
       "check": "support",
-      "review": "says more than the sources",
-      "afterRewrite": "dropped"
+      "review": "judgement call",
+      "afterRewrite": "passed"
     },
     {
-      "claimId": "C001-CH1__R1015/companyBrings/2",
+      "claimId": "C001-CH1__R1008/problem/3",
       "check": "support",
       "review": "true",
       "afterRewrite": "passed"
     },
     {
-      "claimId": "C001-CH1__R1015/whyThisPair/2",
-      "check": "support",
-      "review": "judgement call",
-      "afterRewrite": "dropped"
-    },
-    {
-      "claimId": "C001-CH1__R1015/whyThisPair/3",
+      "claimId": "C001-CH1__R1008/companyBrings/2",
       "check": "support",
       "review": "says more than the sources",
       "afterRewrite": "dropped"
     },
     {
-      "claimId": "C032-CH1__R1008/companyBrings/3",
-      "check": "support",
-      "review": "says more than the sources",
-      "afterRewrite": "passed"
-    },
-    {
-      "claimId": "C032-CH1__R1008/universityBrings/2",
+      "claimId": "C001-CH1__R1008/universityBrings/3",
       "check": "support",
       "review": "judgement call",
-      "afterRewrite": "passed"
-    },
-    {
-      "claimId": "C032-CH1__R1008/whyThisPair/1",
-      "check": "support",
-      "review": "judgement call",
-      "afterRewrite": "passed"
-    },
-    {
-      "claimId": "C032-CH1__R1008/whyThisPair/3",
-      "check": "support",
-      "review": "says more than the sources",
-      "afterRewrite": "passed"
+      "afterRewrite": "dropped"
     }
   ]
 }

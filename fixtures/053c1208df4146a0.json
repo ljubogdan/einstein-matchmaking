@@ -1,0 +1,38 @@
+{
+  "key": "053c1208df4146a0",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Modbus and BACnet networks must be monitored for intrusions without any labelled attack examples, because real incidents are rare and customers ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"Claim adds two causal reasons (real incidents are rare, customers do not permit simulations) not stated in the quote\", \"rewrite\": \"Modbus and BACnet networks must be monitored for intrusions without any labelled attack examples, because there are almost no labelled examples of actual attacks on these networks.\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Quote only mentions hand-written rules missing slow probing; statistical baseline drift with shift patterns and seasonal changes is not stated\", \"rewrite\": \"Hand-written rules miss slow, low-volume probing.\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 5, \"support\": \"partly\", \"reason\": \"Quote confirms EdgeWatch sensor exists and is a passive network tap and protocol parser for OT, but does not state the company has in-house parsers or that it gives direct access to parsed OT records\", \"rewrite\": \"EdgeWatch sensor hardware is a passive network tap and protocol parser for OT environments.\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 10, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 11, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 12, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1338,
+    "outputTokens": 433,
+    "totalTokens": 1771,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1338,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 433,
+    "service_tier": "standard"
+  },
+  "ms": 3417
+}

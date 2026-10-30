@@ -1,0 +1,38 @@
+{
+  "key": "e0a42fbf2d21c0d0",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The oil reaches peroxide values above 15 meq/kg by month four, well above the acceptable threshold, while competitors achieve shelf lives of 9–1",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":2,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":3,\"support\":\"partly\",\"reason\":\"Quote does not mention autoxidative pathway; lists enzymatic, photo-oxidative, and trace metals but not autoxidative.\",\"rewrite\":\"Without in-house GC or HPLC capability, the dominant oxidation pathway—whether enzymatic, photo-oxidative, or trace-metal catalysed—has never been identified, making targeted intervention impossible.\"},{\"claim\":4,\"support\":\"partly\",\"reason\":\"Quotes confirm field/harvest traceability and ERP tracking, but do not state that ERP data links production variables to oxidation outcomes; that is an inference.\",\"rewrite\":\"The company provides oil samples traceable to specific fields and harvests, plus ERP batch tracking data.\"},{\"claim\":5,\"support\":\"partly\",\"reason\":\"Quote confirms bottling line and nitrogen flushing exist, but does not state that direct access enables in-situ measurements or trials without production interruption.\",\"rewrite\":\"The bottling line includes a nitrogen-flush system.\"},{\"claim\":6,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":7,\"support\":\"partly\",\"reason\":\"Quote lists rancimat, GC-FID, HPLC, and UV/Vis but does not explicitly state these are needed to characterise oxidation pathways the company cannot assess; that is stated claim rather than quote fact.\",\"rewrite\":\"The research group operates a dedicated lipid analysis laboratory equipped with Rancimat, GC-FID, HPLC, and UV/Vis instruments.\"},{\"claim\":8,\"support\":\"partly\",\"reason\":\"Quote provides Arrhenius kinetic data for peroxide formation but does not state this provides a framework for predicting shelf-life outcomes under modified process conditions.\",\"rewrite\":\"Published kinetic models for peroxide formation in cold-pressed pumpkin seed oil include rate constants and activation energy parameters.\"},{\"claim\":9,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":10,\"support\":\"partly\",\"reason\":\"Quote confirms doctoral work on pumpkin seed oil peroxide kinetics; company quote shows unresolved oxidation problem, but does not state it is with pumpkin seed oil specifically or that the researcher's work maps directly to it.\",\"rewrite\":\"The researcher's doctoral thesis focused on peroxide formation kinetics in sunflower and pumpkin seed oils.\"},{\"claim\":11,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":12,\"support\":\"partly\",\"reason\":\"Quotes show company plans for organic cold-press line and researcher notes oxidative stability as commercial constraint, but do not state these align or that the target outcome is meaningful to both parties.\",\"rewrite\":\"The company plans to add a dedicated cold-press line for organic seeds, and the researcher identifies oxidative stability as a commercial constraint.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1592,
+    "outputTokens": 655,
+    "totalTokens": 2247,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1592,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 655,
+    "service_tier": "standard"
+  },
+  "ms": 5892
+}

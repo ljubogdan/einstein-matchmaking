@@ -1,0 +1,38 @@
+{
+  "key": "73bf398b97d00b19",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Round 1 of 4. Open with the term sheet you would prefer. action must be \"propose\".",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"action\":\"propose\",\"sheet\":{\"engagement\":\"joint_project\",\"scope\":\"Develop an unsupervised anomaly detection method for Modbus TCP and BACnet/IP traffic that learns site-specific normal baselines from unlabelled captures and runs inference on embedded hardware; delivered as an integrable software component for ProtoSense.\",\"ip\":\"company_owns_uni_academic_use\",\"exclusivity\":{\"field\":\"Modbus TCP and BACnet/IP passive anomaly detection in industrial network appliances\",\"months\":24},\"publication\":{\"reviewDays\":60,\"companyMayRemoveConfidential\":true},\"backgroundIp\":[\"ArmaturaSec retains all rights to ProtoSense firmware, NetGuard-OT hardware designs, and existing traffic archives\",\"Researcher retains all rights to prior published methods and ICS testbed infrastructure\"],\"contributions\":{\"company\":[\"1–2 engineers part-time\",\"access to multi-terabyte traffic archives under NDA\",\"hardware bench with physical PLC simulators\",\"existing firmware codebase for integration testing\"],\"university\":[\"anomaly detection algorithm design and validation\",\"access to ICS testbed\",\"dataset collection infrastructure\",\"supervision and research expertise\"]},\"money\":\"to be agreed\",\"timeline\":{\"months\":18,\"milestones\":[\"M6: baseline modelling method selected and prototyped on ArmaturaSec traffic archives\",\"M12: embedded-deployable detector integrated into ProtoSense test build\",\"M18: field validation on at least two client sites, final report\"]},\"contact\":{\"company\":\"ArmaturaSec lead engineer (ProtoSense module owner)\",\"university\":\"Full Professor, Department of Computing and Control Engineering\"}},\"reason\":\"We want company ownership of results to protect our ProtoSense product roadmap and the planned late-2025 hardware release [C001 plans], and 24-month exclusivity in our product field to ensure commercial advantage. We propose milestone-based checkpoints to avoid a repeat of the 2021 collaboration where there was no formal continuation mechanism [C001 past_collaborations].\",\"citations\":[\"C001 plans\",\"C001 past_collaborations\"]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 480,
+    "totalTokens": 483,
+    "inputTokenDetails": {
+      "cached_tokens": 2901
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 2901,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 26,
+      "ephemeral_1h_input_tokens": 2875
+    },
+    "output_tokens": 480,
+    "service_tier": "standard"
+  },
+  "ms": 6822
+}

@@ -1,0 +1,38 @@
+{
+  "key": "94159210aea20d42",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Modbus and BACnet networks must be monitored for intrusions without any labelled attack examples, because there are almost no labelled examples ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"The quote only states the fact about lack of labelled examples; it doesn't support the claim that networks 'must be monitored for intrusions without any labelled attack examples' because of this lack.\", \"rewrite\": \"There are almost no labelled examples of actual attacks on Modbus and BACnet networks.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"The quote does not mention that EdgeWatch is used as a 'hardware target for edge inference testing'.\", \"rewrite\": \"The EdgeWatch sensor is a passive network tap and protocol parser for OT environments.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 636,
+    "outputTokens": 175,
+    "totalTokens": 811,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 636,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 175,
+    "service_tier": "standard"
+  },
+  "ms": 1583
+}

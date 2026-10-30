@@ -1,0 +1,38 @@
+{
+  "key": "4f3f5b90326e706c",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): None of the clients has ever provided a packet capture that contains a confirmed attack, leaving the ProtoSense module with no labelled maliciou",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"quotes do not state that no attack examples are required\", \"rewrite\": \"The required approach must learn what normal looks like on a specific site and raises a flag when behaviour drifts from that baseline.\"}, {\"claim\": 4, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 5, \"support\": \"partly\", \"reason\": \"quotes do not mention validation before client site deployment\", \"rewrite\": \"The company uses hardware-in-the-loop bench testing with physical PLC simulators for controlled validation under realistic protocol conditions.\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"partly\", \"reason\": \"quotes do not mention long-term packet capture infrastructure or independent validation\", \"rewrite\": \"A dedicated ICS testbed equipped with Modbus/TCP and DNP3 traffic generators enables controlled method validation.\"}, {\"claim\": 10, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 11, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 12, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1558,
+    "outputTokens": 384,
+    "totalTokens": 1942,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1558,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 384,
+    "service_tier": "standard"
+  },
+  "ms": 3428
+}

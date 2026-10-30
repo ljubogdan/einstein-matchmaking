@@ -12,7 +12,7 @@ const INSTRUCTION = `Two company challenges want the same university researcher,
 Decide by: how well the researcher's work fits each challenge (the cards), the researcher's stated preferences (open_to, notes), and whether the other challenge has a good alternative researcher.
 Never decide by the size, prestige or worth of a company or a person. Answer with JSON:
 - winner: one of the two challenge ids.
-- reason: two sentences that cite ids in brackets, e.g. [C001-CH1], [R0001], [SYN-PUB-00001].
+- reason: two or three sentences that cite ids in brackets, e.g. [C001-CH1], [R0001], [SYN-PUB-00001]. State only what the cards say, and cite a paper only for what its card line says. Compare both cards before saying something appears on only one. If the two cases are close, say so and name the one difference on the cards that decided it.
 - citations: those ids.`
 
 export const ArbiterAnswer = z.object({ winner: z.string(), reason: z.string(), citations: z.array(z.string()) })
