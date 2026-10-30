@@ -4,7 +4,7 @@
 // recorded latency divided by N. No key, no network. A run started in a terminal (out/trace.jsonl) shows up too.
 // "Plant false claims" starts the Critic test (eval/critic.ts): 20 planted claims, checked as one writer draft would be.
 import { spawn, type ChildProcess } from "node:child_process"
-import { closeSync, existsSync, openSync, readFileSync, readSync, statSync } from "node:fs"
+import { closeSync, existsSync, mkdirSync, openSync, readFileSync, readSync, statSync, writeFileSync } from "node:fs"
 import { createServer, type ServerResponse } from "node:http"
 import { Dataset, hasDataset } from "../tools/dataset"
 
@@ -82,6 +82,22 @@ function poll(): void {
   }
 }
 
+// The human gate: a person approves or rejects each drafted proposal. Sending isn't built, so nobody is contacted either way.
+// Gitignored, like the board's own trace; a new run makes new drafts, so it starts empty.
+const DECISIONS = "out/tmp/decisions.json"
+let decisions: Record<string, string> = {}
+try {
+  decisions = JSON.parse(readFileSync(DECISIONS, "utf8"))
+} catch {
+  // no decisions yet
+}
+
+function saveDecisions(): void {
+  mkdirSync("out/tmp", { recursive: true })
+  writeFileSync(DECISIONS, JSON.stringify(decisions, null, 2) + "\n")
+  broadcast("decisions", JSON.stringify(decisions))
+}
+
 function status(): string {
   return JSON.stringify(run ? { running: true, speed: run.speed, scene: run.scene } : { running: false })
 }
@@ -120,6 +136,7 @@ const server = createServer((req, res) => {
     send(res, "reset", "{}")
     for (const line of lines) send(res, "trace", line)
     send(res, "status", status())
+    send(res, "decisions", JSON.stringify(decisions))
     clients.add(res)
     return void req.on("close", () => clients.delete(res))
   }
@@ -128,8 +145,21 @@ const server = createServer((req, res) => {
     if (run) return void res.writeHead(409).end("a run is in progress")
     // The planted claims run at recorded pace: one support-check call, a couple of seconds.
     const speed = path === "/plant" ? 1 : Math.min(Math.max(Number(url.searchParams.get("speed")) || 4, 1), 64)
+    if (path === "/run") {
+      decisions = {}
+      saveDecisions()
+    }
     startRun(path === "/run" ? "demo" : "plant", speed)
     return void res.writeHead(202).end()
+  }
+
+  const decide = /^\/decide\/([A-Za-z0-9_-]+)$/.exec(path)
+  if (decide && req.method === "POST") {
+    const decision = url.searchParams.get("decision")
+    if (!existsSync(`out/proposals/${decide[1]}.md`) || (decision !== "approved" && decision !== "rejected")) return void res.writeHead(400).end()
+    decisions[decide[1]] = decision
+    saveDecisions()
+    return void res.writeHead(204).end()
   }
 
   // Ids on the page link here: the cited record, straight from the dataset.

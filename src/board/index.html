@@ -181,6 +181,10 @@
   .stop .then .ic { width: 13px; height: 13px; stroke-width: 2.2; }
   .stop .then.fixed { color: var(--accent); font-weight: 600; }
   .stop .then.dropped, .stop .then.wait { color: var(--muted); }
+  .gate { margin: 0 0 14px; }
+  .gate .pill .ic { width: 12px; height: 12px; }
+  .gate .gate-note { margin: 6px 0 0; }
+  .linkish { border: 0; padding: 0 4px; background: none; color: var(--accent); font-size: 12.5px; cursor: pointer; }
   .open-cta { margin: 14px 0 6px; }
   .open-cta .cta { padding: 9px 16px; font-size: 13.5px; background: linear-gradient(180deg, #1a8cff, var(--accent)); color: #fff; box-shadow: 0 4px 14px rgba(0, 113, 227, .3); }
   .hero { text-align: center; padding: 48px 24px; color: var(--muted); }
@@ -703,7 +707,11 @@ function renderPair() {
     return `<div class="stop"${anim(v)}><span class="what">${icon("shield")}${esc(shortClaim(v.claimId))} · ${esc(v.check)}</span> ${linked(v.reason)}${v.suggestion ? `<br><span class="muted">Suggested: ${linked(v.suggestion)}</span>` : ""}${then}</div>`
   }).join("")
   const critic = p.verdicts.length ? `<div class="label">${icon("shield")}Critic on the proposal · ${p.verdicts.filter((v) => v.attempt === 1).length} claims, ${passed} passed first time</div>${stops}` : ""
-  const ready = p.ready ? `<div class="open-cta"><a class="cta" href="/proposal/${esc(p.pairId)}" target="_blank">${icon("doc")}Open the proposal</a></div>` : ""
+  const decided = decisions[p.pairId]
+  const gate = decided
+    ? `<span class="pill ${decided === "approved" ? "solid" : "dark"}">${icon(decided === "approved" ? "check" : "x")}${decided === "approved" ? "Approved" : "Rejected"} by you</span> <button class="linkish" data-decide="${esc(p.pairId)}" data-decision="">Change</button><p class="sub gate-note">Recorded. Sending isn't built, so nobody was contacted.</p>`
+    : `<button class="secondary" data-decide="${esc(p.pairId)}" data-decision="approved">${icon("check")}Approve</button> <button class="secondary" data-decide="${esc(p.pairId)}" data-decision="rejected">${icon("x")}Reject</button><p class="sub gate-note">A draft until a person approves it. Nobody is contacted before that.</p>`
+  const ready = p.ready ? `<div class="open-cta"><a class="cta" href="/proposal/${esc(p.pairId)}" target="_blank">${icon("doc")}Open the proposal</a></div><div class="gate">${gate}</div>` : ""
 
   $("pair").innerHTML = `${header}${parties}${chat}${ready}${terms}${critic}`
 }
@@ -798,7 +806,13 @@ function setTheme(theme) {
   buttons()
   dirty()
 }
+let decisions = {}
 document.addEventListener("click", (ev) => {
+  const gate = ev.target.closest("[data-decide]")
+  if (gate) {
+    if (gate.dataset.decision) fetch(`/decide/${gate.dataset.decide}?decision=${gate.dataset.decision}`, { method: "POST" })
+    else { delete decisions[gate.dataset.decide]; dirty() } // Change: the buttons again; the last decision stands until a new one
+  }
   const tab = ev.target.closest("[data-pair]")
   if (tab) { S.focus = tab.dataset.pair; S.pinned = true; dirty() }
   if (ev.target.closest("[data-follow]")) { S.pinned = false; S.focus = [...S.pairs.keys()].at(-1); dirty() }
@@ -821,6 +835,7 @@ document.documentElement.dataset.theme = new URLSearchParams(location.search).ge
 reset()
 buttons()
 const source = new EventSource("/events")
+source.addEventListener("decisions", (ev) => { decisions = JSON.parse(ev.data); dirty() })
 source.addEventListener("reset", () => reset())
 source.addEventListener("trace", (msg) => { try { apply(JSON.parse(msg.data)) } catch { /* a half-written line */ } dirty() })
 // The run's console: only the outcome and failures; everything else is already on the board as events.

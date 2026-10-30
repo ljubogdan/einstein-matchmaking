@@ -46,7 +46,7 @@ Press **Run the demo set**. It takes about 35 s at 4x and ends with 3 proposals,
 1. **The conflict.** On the ArmaturaSec card (`C001-CH1`): "Conflict on R1015", held by `C032-CH1`. Two matchmakers wanted the same researcher, and the second write failed the version check. Nobody overwrote anybody.
 2. **The decision.** The blue callout below it: the Arbiter keeps R1015 with `C032-CH1`. It says the two are nearly identical and names the one difference it decided on; "Show the reasoning" has the whole text ([what's weak in it](#limits-and-honest-notes)).
 3. **The re-match.** The new tab above the middle column, `C001-CH1 × R1008`. Nobody told matchmaker-1 to do that; it reacted to the Arbiter's event.
-4. **The negotiation.** Click the `C032-CH1 × R1015` tab and read down. The company wants to own the results for 24 months of exclusivity, the researcher wants university ownership and offers 12 months, and they settle on the university owning the results with an option for the company to take them over. Below that are the agreed terms and **Open the proposal**.
+4. **The negotiation.** Click the `C032-CH1 × R1015` tab and read down. The company wants to own the results for 24 months of exclusivity, the researcher wants university ownership and offers 12 months, and they settle on the university owning the results with an option for the company to take them over. Below that are **Open the proposal**, **Approve** and **Reject**, then the agreed terms. Every proposal stays a draft until a person decides. The decision is only recorded: sending isn't built, so nobody is contacted.
 5. **The Critic.** Click the `C061-CH1 × R0231` tab and scroll down to the red card `companyBrings/1`. The writer said the company's ERP data links production variables to oxidation outcomes, but the source only lists the ERP as inventory tracking. It went back to the writer, and the rewrite passed.
 6. **The no.** On the KartografTech card (`C043-CH3`): raising a seed round isn't a research problem. On the Zlatna Njiva card (`C061-CH1`), R0128 is skipped because the notes are about another person.
 7. **The trap.** Press **Plant false claims**: 20 false claims we planted on purpose, all stopped in about 5 s. The first row credits R0881 with a paper by R0128, who has the same name. Click `SYN-PUB-01689` and check the author id.
@@ -178,13 +178,13 @@ Each proposal lists, under "How we got here", every claim the Critic stopped, wh
 - Proposes collaborations; never scores or ranks people. Fit is per challenge.
 - Only offers what each researcher listed in `open_to`; respects retired and consulting-only status.
 - No personal attributes (age, gender, origin) reach any agent.
-- Planned: a human approves before anyone is contacted (not built yet).
+- A person approves or rejects each proposal on the board. Nothing is sent to anyone: sending isn't built.
 - Uses only the provided synthetic dataset; no external sources.
 - In a real deployment: data minimization, researchers can opt out, records refreshed from the university's own systems.
 
 ## Limits and honest notes
 
-- Not built yet: the human approval step.
+- The human approval step is a simple gate on the board: one person, one decision per proposal, saved on this machine (`out/tmp/decisions.json`) and cleared by a new run. Not built yet: sending, staff accounts, and editing a draft before approving it.
 - The support check is a cheap model and strict: it stopped a third of the proposal sentences on the first pass, and about 4 in 10 of all first-pass stops were true sentences (see [Does it work?](#does-it-work)). It reads only the claim's quotes, so a true sentence with too short a quote goes back: it stopped a sentence saying real incidents are rare and customers don't allow attack simulations on live plant, which `C032-CH1`'s text says outright, and the sentence was dropped. The people-praise check is a word list, and it also blocked a sentence that called a method's result "best".
 - The cheap model rates most shortlisted candidates as a strong fit, so search order often decides. The Arbiter's and the Profiler's fit reasons aren't checked by the Critic yet. We checked by hand that each paper the Arbiter cites is by the researcher it's cited for, but the decision is still thin: the two challenges are nearly identical, and the one difference it names is a sentence about `SYN-PUB-10526` that only `C032-CH1`'s card kept, though both cards list that paper. What the design guarantees is that nobody is double-booked, not that the model picked the better side of a close call.
 - After a no-deal the researcher stays reserved for that challenge.
