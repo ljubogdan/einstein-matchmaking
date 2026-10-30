@@ -11,6 +11,7 @@ import { createMatchmaker } from "./agents/matchmaker"
 import { createNegotiator } from "./agents/negotiator"
 import { createTraceObserver } from "./agents/observer"
 import { createProfiler } from "./agents/profiler"
+import { createReporter } from "./agents/reporter"
 import { createWriter } from "./agents/writer"
 import { ResultCache } from "./llm/cache"
 import { RecordingRunner } from "./llm/runner"
@@ -56,7 +57,9 @@ const challengeOf = (pairId: string) => pairId.split("__")[0]
 function settle(challengeId: string, line: string): void {
   outcomes.set(challengeId, line)
   console.log(line)
-  if (outcomes.size === challengeIds.length) finish(0, `done: ${challengeIds.length} challenges, ${[...outcomes.values()].filter((l) => l.startsWith("proposal")).length} proposals`)
+  if (outcomes.size < challengeIds.length) return
+  reporter.write()
+  finish(0, `done: ${challengeIds.length} challenges, ${[...outcomes.values()].filter((l) => l.startsWith("proposal")).length} proposals; reports: out/nomatch.md, out/traps.md`)
 }
 
 const outcome = createHuman({
@@ -76,8 +79,8 @@ const outcome = createHuman({
       specification: on("prenup.nomatch"),
       processor: {
         apply: ({ event }) => {
-          const { challengeId, reason, nearest } = event.payload as { challengeId: string; reason: string; nearest?: { researcherId: string; why?: string } }
-          settle(challengeId, `no match for ${challengeId}: ${reason}${nearest ? ` (nearest ${nearest.researcherId}: ${nearest.why})` : ""}`)
+          const { challengeId, verdict, reason, nearest } = event.payload as { challengeId: string; verdict: string; reason: string; nearest?: { researcherId: string; why?: string } }
+          settle(challengeId, `no match for ${challengeId} (${verdict}): ${reason}${nearest ? ` (nearest ${nearest.researcherId}: ${nearest.why})` : ""}`)
         },
       },
     },
@@ -110,12 +113,14 @@ const matchmakers = Array.from({ length: Math.min(MATCHMAKERS, challengeIds.leng
 )
 
 const cache = new ResultCache(mode !== "fresh")
+const reporter = createReporter(data)
 join(createTraceObserver("out/trace.jsonl"))
 join(createCritic({ data, move: (pairId, round) => board.move(pairId, round) }))
 join(createAnalyst(data, cache))
 join(createProfiler(data, cache))
 join(createArbiter(data, board))
 for (const matchmaker of matchmakers) join(matchmaker)
+join(reporter.participant)
 join(outcome)
 
 // Mozaik leaves loop errors (provider error, quota, replay miss) unhandled: record them in the trace, then stop.

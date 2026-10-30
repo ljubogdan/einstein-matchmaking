@@ -61,7 +61,7 @@ describe.skipIf(!hasDataset())("matchmakers: search -> shortlist -> reserve -> c
 
   test("not a research problem: no search, a no-match with the Analyst's reason", () => {
     send("prenup.challenge.analyzed", { challengeId: "C001-CH2", researchProblem: false, reason: "it is a procurement question", researchQuestions: [], searchTerms: [] })
-    expect(last("prenup.nomatch", "C001-CH2")).toMatchObject({ reason: "not a research problem: it is a procurement question" })
+    expect(last("prenup.nomatch", "C001-CH2")).toMatchObject({ verdict: "not a research problem", reason: "it is a procurement question" })
     expect(events.filter((e) => e.type === "prenup.shortlist.ready")).toHaveLength(0)
   })
 
@@ -103,8 +103,8 @@ describe.skipIf(!hasDataset())("matchmakers: search -> shortlist -> reserve -> c
     expect(last("prenup.match.proposed", "C032-CH1")).toMatchObject({ pairId: `C032-CH1__${id(4)}` })
 
     send("prenup.negotiation.no_deal", { pairId: `C032-CH1__${id(4)}`, reason: "exclusivity" })
-    const nomatch = last("prenup.nomatch", "C032-CH1") as { reason: string; nearest: { researcherId: string; why: string } }
-    expect(nomatch.reason).toBe("no deal after 2 negotiations; last: exclusivity")
+    const nomatch = last("prenup.nomatch", "C032-CH1") as { verdict: string; reason: string; nearest: { researcherId: string; why: string } }
+    expect(nomatch).toMatchObject({ verdict: "no deal", reason: "no deal after 2 negotiations; last: exclusivity" })
     expect(nomatch.nearest.researcherId).toBe(id(0))
     expect(nomatch.nearest.why).toMatch(/^the Arbiter gave/)
   })

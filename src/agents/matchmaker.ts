@@ -7,6 +7,7 @@ import type { Dataset } from "../tools/dataset"
 import type { PublicationIndex } from "../tools/search"
 
 export const SHORTLIST = 5
+export type NomatchVerdict = "not a research problem" | "no good match" | "match exists but unavailable" | "no deal"
 export const MAX_NEGOTIATIONS = 2 // per challenge: after this many no-deals the matchmaker says no-match
 
 export type MatchmakerOptions = {
@@ -93,7 +94,7 @@ export function createMatchmaker({ name, challengeIds, data, index, board, onPai
             const [challengeId, researcherId] = pairId.split("__")
             const slot = slots.get(challengeId)
             if (!mine.has(challengeId) || slot?.pair?.pairId !== pairId || board.cancelled.has(pairId)) return
-            if (slot.negotiations >= MAX_NEGOTIATIONS) return nomatch(challengeId, `no deal after ${slot.negotiations} negotiations; last: ${reason}`)
+            if (slot.negotiations >= MAX_NEGOTIATIONS) return nomatch(challengeId, "no deal", `no deal after ${slot.negotiations} negotiations; last: ${reason}`)
             rematch(challengeId, researcherId, `no deal: ${reason}`)
           },
         },
@@ -103,9 +104,9 @@ export function createMatchmaker({ name, challengeIds, data, index, board, onPai
 
   function shortlist(analysis: Analysis): void {
     const { challengeId } = analysis
-    if (!analysis.researchProblem) return emit("prenup.nomatch", { challengeId, reason: `not a research problem: ${analysis.reason}` })
+    if (!analysis.researchProblem) return emit("prenup.nomatch", { challengeId, verdict: "not a research problem", reason: analysis.reason })
     const candidates = index.shortlist(analysis.searchTerms.join(" "), SHORTLIST)
-    if (candidates.length === 0) return emit("prenup.nomatch", { challengeId, reason: "no publication matches the search terms" })
+    if (candidates.length === 0) return emit("prenup.nomatch", { challengeId, verdict: "no good match", reason: "no publication matches the search terms" })
     // The read half of the version-checked write: remember what the board said now; reserve against it later.
     const seen = new Map(candidates.map((c) => [c.researcherId, board.reservation(c.researcherId)?.version ?? 0]))
     slots.set(challengeId, { size: candidates.length, cards: [], seen, tried: new Map(), negotiations: 0 })
@@ -115,7 +116,10 @@ export function createMatchmaker({ name, challengeIds, data, index, board, onPai
   function choose(challengeId: string): void {
     const slot = slots.get(challengeId)!
     const card = pairable(slot.cards).find((c) => !slot.tried.has(c.researcherId))
-    if (!card) return nomatch(challengeId, `none of the ${slot.size} shortlisted researchers can be paired`)
+    if (!card) {
+      const fitsButUnavailable = slot.cards.some((c) => c.fit !== "none" && c.allowedEngagements.length === 0)
+      return nomatch(challengeId, fitsButUnavailable ? "match exists but unavailable" : "no good match", `none of the ${slot.size} shortlisted researchers can be paired`)
+    }
     const held = board.reservation(card.researcherId)
     const seen = slot.seen.get(card.researcherId) ?? 0
     // Already held when we looked: contest it instead of overwriting.
@@ -158,10 +162,10 @@ export function createMatchmaker({ name, challengeIds, data, index, board, onPai
     choose(challengeId)
   }
 
-  function nomatch(challengeId: string, reason: string): void {
+  function nomatch(challengeId: string, verdict: NomatchVerdict, reason: string): void {
     const slot = slots.get(challengeId)!
     const nearest = [...slot.cards].sort((a, b) => a.rank - b.rank)[0]
-    emit("prenup.nomatch", { challengeId, reason, nearest: { researcherId: nearest.researcherId, why: slot.tried.get(nearest.researcherId) ?? exclusion(nearest) }, skipped: skipped(slot) })
+    emit("prenup.nomatch", { challengeId, verdict, reason, nearest: { researcherId: nearest.researcherId, why: slot.tried.get(nearest.researcherId) ?? exclusion(nearest) }, skipped: skipped(slot) })
   }
 
   function skipped(slot: Slot): { researcherId: string; reason: string }[] {
