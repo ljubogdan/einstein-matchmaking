@@ -4,6 +4,8 @@ import { createHuman, type Human } from "@mozaik-ai/core"
 import { anyEvent, resolveRuntime } from "../runtime"
 
 const MAX_PAYLOAD_CHARS = 500
+// The trace is committed and goes public: key-shaped strings (Anthropic, Google, OpenAI) never reach it.
+const KEY_PATTERN = /sk-ant-[\w-]{10,}|AIza[\w-]{30,}|sk-(?:proj-)?[A-Za-z0-9]{20,}/g
 
 /**
  * Writes every event to a JSONL trace, one line each: { t, type, producer, loopId?, payload }.
@@ -39,5 +41,7 @@ function summarize(payload: unknown): unknown {
   } catch {
     return "[unserializable]"
   }
-  return text.length <= MAX_PAYLOAD_CHARS ? payload : text.slice(0, MAX_PAYLOAD_CHARS) + "…"
+  const safe = text.replace(KEY_PATTERN, "[redacted]")
+  if (safe.length > MAX_PAYLOAD_CHARS) return safe.slice(0, MAX_PAYLOAD_CHARS) + "…"
+  return safe === "" ? undefined : JSON.parse(safe)
 }

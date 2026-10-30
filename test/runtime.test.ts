@@ -4,7 +4,7 @@ import { expect, test } from "vitest"
 import { createTraceObserver } from "../src/agents/observer"
 import { Board, initializeRuntime, join, on, sendEvent } from "../src/runtime"
 
-test("a custom event reaches the other participant, not its producer, and lands in the trace", () => {
+test("a custom event reaches the other participant, not its producer, and lands in the trace without keys", () => {
   initializeRuntime({ state: new Board() })
   const tracePath = "out/tmp/trace.test.jsonl"
   const received: Array<{ by: string; payload: unknown }> = []
@@ -24,4 +24,10 @@ test("a custom event reaches the other participant, not its producer, and lands 
   expect(received).toEqual([{ by: "receiver", payload: { challengeId: "C001-CH1" } }])
   const lines = readFileSync(tracePath, "utf8").trim().split("\n").map((l) => JSON.parse(l))
   expect(lines.find((l) => l.type === "prenup.test.ping")).toMatchObject({ producer: "sender", payload: { challengeId: "C001-CH1" } })
+
+  const fakeKey = "sk-ant-" + "x".repeat(24)
+  sendEvent(SemanticEvent.create("prenup.test.leak", sender.getId(), { note: `key ${fakeKey}` }), sender.getId())
+  const trace = readFileSync(tracePath, "utf8")
+  expect(trace).not.toContain(fakeKey)
+  expect(trace).toContain("[redacted]")
 })
