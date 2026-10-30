@@ -24,7 +24,9 @@ Shortlisted researchers with trap flags (1):
 
 - [R0128] on [C061-CH1]: identity_conflict, same_name
 
-Claims the Critic blocked (11), by check:
+Times the Critic stopped a claim (67, rewrites included; stopped claims go back to their author once), by check:
 
-- numbers: 4 (e.g. profile:C001-CH1__R1015/2: 94 is not in any quoted source; profile:C032-CH1__R1015/3: 80 is not in any quoted source)
-- quote: 7 (e.g. profile:C001-CH1__R1008/1: quote not found in SYN-PUB-10477.abstract; profile:C001-CH1__R1008/2: quote not found in SYN-PUB-10472.abstract)
+- quote: 9 (e.g. profile:C001-CH1__R0817/2: quote not found in SYN-PUB-08881.abstract; profile:C001-CH1__R1008/1: quote not found in SYN-PUB-10477.abstract)
+- policy: 1 (e.g. profile:C001-CH1__R1015/3: ranks or praises a person)
+- numbers: 5 (e.g. profile:C001-CH1__R0634/2: 7 is not in any quoted source; profile:C001-CH1__R1015/2: 94 is not in any quoted source)
+- support: 52 (e.g. C001-CH1__R1015/companyBrings/1: Quote says 'several terabytes', claim says 'multi-terabyte' which is vaguer but acceptable; however claim adds 'over three years' as a specific timeframe detail.; C001-CH1__R1015/companyBrings/1: Quotes say 'captures' but claim specifies these are 'real Modbus TCP and BACnet/IP traffic'; protocol types not mentioned in quote)

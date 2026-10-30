@@ -1,0 +1,37 @@
+{
+  "key": "e00f712e178d5a22",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C061-CH1: Our cold-pressed pumpkin seed oil goes rancid within 4 months on shelf, but competitors manage 9–12 months; we lose about 15% of each batch ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Work on accelerated shelf-life testing of oil microcapsules includes kinetic modelling of peroxide value and thiobarbituric acid reactive substances.\",\"sources\":[{\"id\":\"SYN-PUB-01696\",\"field\":\"keywords\",\"quote\":\"Accelerated shelf-life testing of hemp seed oil microcapsules: kinetic modelling of peroxide value and thiobarbituric acid reactive substances\"}]},{\"claim\":2,\"text\":\"Research demonstrates that lipid oxidation markers including peroxide values increase during storage of encapsulated oils in acidic matrices, with peroxide values in fermented beverage increasing from 0.9 to 3.4 mEq O₂/kg fat by day 28.\",\"sources\":[{\"id\":\"SYN-PUB-01700\",\"field\":\"abstract\",\"quote\":\"Peroxide values in the beverage increased from 0.9 to 3.4 mEq O₂/kg fat by day 28\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2424,
+    "outputTokens": 236,
+    "totalTokens": 2660,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2424,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 236,
+    "service_tier": "standard"
+  }
+}

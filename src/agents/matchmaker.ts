@@ -16,7 +16,7 @@ export type MatchmakerOptions = {
   data: Dataset
   index: PublicationIndex
   board: Board
-  onPair: (pair: Pair) => void // joins the pair's negotiators and writer before the match is announced
+  onPair: (pair: Pair, profile: ProfileCard) => void // joins the pair's negotiators and writer before the match is announced
 }
 
 /** Why a card can't be paired, or undefined if it can. Fit is per challenge; nobody is ranked as a person. */
@@ -140,7 +140,7 @@ export function createMatchmaker({ name, challengeIds, data, index, board, onPai
     const pair = makePair(data, challengeId, card.researcherId)
     slot.pair = pair
     slot.negotiations += 1
-    onPair(pair)
+    onPair(pair, card)
     emit("prenup.match.proposed", {
       pairId: pair.pairId,
       challengeId,

@@ -1,0 +1,37 @@
+{
+  "key": "c749acac3263dd57",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Tocopherol content acts as a partial endogenous antioxidant that delays lipid oxidation, with a strong correlation between initial tocopherol le",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"Quote mentions delaying carotenoid oxidation specifically, not lipid oxidation; no mention of correlation between initial tocopherol levels and preservation of oxidation-susceptible compounds.\", \"rewrite\": \"Tocopherol content acts as a partial endogenous antioxidant that delays carotenoid oxidation.\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Quote does not state that nitrogen-packed dark storage 'outperforms air-exposed storage' or provide comparison data to other storage conditions; only states retention rates for nitrogen-packed dark storage.\", \"rewrite\": \"Nitrogen-packed dark storage preserves total carotenoids with retention of 91–96% at week 12.\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"Quote specifies tocopherol was recovered simultaneously without additional co-solvent adjustment, but does not mention it can be recovered to enhance antioxidant capacity of downstream products.\", \"rewrite\": \"Pumpkin seed press cake contains substantial tocopherol content (1.76 mg/g) that can be recovered simultaneously without additional co-solvent adjustment.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 757,
+    "outputTokens": 278,
+    "totalTokens": 1035,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 757,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 278,
+    "service_tier": "standard"
+  }
+}

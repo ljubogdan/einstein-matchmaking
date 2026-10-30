@@ -1,0 +1,37 @@
+{
+  "key": "4023fc8356c0c187",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C032-CH1: We need to detect unusual behaviour on Modbus and BACnet networks without labelled attack data.\nDetail: Our EdgeWatch sensor captures all tr",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Semi-supervised anomaly detection methods can incorporate labelled anomalies as must-outside constraints during kernel optimisation, and self-training iteratively assigns pseudo-labels to unlabelled samples and retrains a classifier.\",\"sources\":[{\"id\":\"SYN-PUB-00960\",\"field\":\"abstract\",\"quote\":\"incorporates labelled anomalies as must-outside constraints during kernel optimisation\"},{\"id\":\"SYN-PUB-00962\",\"field\":\"abstract\",\"quote\":\"Self-training iteratively assigns pseudo-labels to unlabelled samples and retrains a classifier\"}]},{\"claim\":2,\"text\":\"Anomaly detection at the network edge requires balancing model accuracy against strict memory budgets and latency targets, and the quantised convolutional network fits within 200 KB while achieving 97% of its full-precision AUPRC on the ARM board.\",\"sources\":[{\"id\":\"SYN-PUB-00963\",\"field\":\"abstract\",\"quote\":\"Deploying anomaly detection at the network edge requires balancing model accuracy against strict memory budgets and latency targets\"},{\"id\":\"SYN-PUB-00963\",\"field\":\"abstract\",\"quote\":\"The quantised convolutional network fits within 200 KB and achieves 97% of its full-precision AUPRC while meeting a 5 ms per-window latency budget on the ARM board\"}]},{\"claim\":3,\"text\":\"Concept drift and label scarcity in high-dimensional, heavily imbalanced time-series data can be addressed through anomaly detection and classification methods.\",\"sources\":[{\"id\":\"R0071\",\"field\":\"bio\",\"quote\":\"Her group focuses on anomaly detection and classification in high-dimensional, heavily imbalanced time-series data, including methods for handling concept drift and label scarcity\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2622,
+    "outputTokens": 417,
+    "totalTokens": 3039,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2622,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 417,
+    "service_tier": "standard"
+  }
+}

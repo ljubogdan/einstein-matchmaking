@@ -1,0 +1,37 @@
+{
+  "key": "fe6b28825c713363",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C001-CH1: We need to detect unusual behaviour on Modbus and BACnet networks without labelled attack data — our clients have never been breached (or do",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Unsupervised anomaly detection and one-class classification for industrial control system protocol traffic can exploit the statistical properties of ICS environments to identify deviations from learned baselines without requiring labelled attack examples.\",\"sources\":[{\"id\":\"R1008\",\"field\":\"bio\",\"quote\":\"unsupervised anomaly detection and one-class classification for industrial control system protocol traffic, using statistical baseline modelling\"},{\"id\":\"SYN-PUB-10477\",\"field\":\"abstract\",\"quote\":\"statistical properties of ICS traffic that distinguish it from enterprise IT traffic—determinism, periodicity, limited state space—and how these properties can be exploited by unsupervised methods\"}]},{\"claim\":2,\"text\":\"Kernel density estimators and one-class methods based on Mahalanobis distance thresholding can detect Modbus/TCP anomalies with empirical distributions of inter-request intervals, payload values, and function code sequences.\",\"sources\":[{\"id\":\"SYN-PUB-10472\",\"field\":\"abstract\",\"quote\":\"empirical distributions of inter-request intervals, payload values, and function code sequences were estimated using kernel density estimation\"},{\"id\":\"SYN-PUB-10472\",\"field\":\"abstract\",\"quote\":\"one-class detector based on Mahalanobis distance thresholding over a 20-feature vector was evaluated against 14 manually injected attack scenarios\"}]},{\"claim\":3,\"text\":\"Lightweight online learning algorithms suited to constrained embedded environments can maintain detection performance through recalibration schedules that adapt to normal traffic variation over time.\",\"sources\":[{\"id\":\"R1008\",\"field\":\"bio\",\"quote\":\"lightweight online learning algorithms suited to constrained embedded environments\"},{\"id\":\"SYN-PUB-10472\",\"field\":\"abstract\",\"quote\":\"sliding-window recalibration schedule with a 72-hour update period that maintains detection performance without human intervention\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2495,
+    "outputTokens": 436,
+    "totalTokens": 2931,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2495,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 436,
+    "service_tier": "standard"
+  }
+}

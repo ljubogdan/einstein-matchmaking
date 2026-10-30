@@ -32,8 +32,8 @@ The organizers' own example proposal ends with a section called **"Agreed up fro
 1. **Reads the challenge like a researcher would.** An Analyst rewrites each company challenge into research questions and academic search terms, or says it isn't a research problem.
 2. **Searches in code, reads only the shortlist.** BM25 over 10,779 publication titles, keywords and abstracts (Cyrillic transliterated) shortlists 5 researchers per challenge. A Profiler reads only those and writes a card where every fact cites a dataset id; code flags stale, retired and consulting-only profiles, notes about someone else, and same-name pairs.
 3. **Competes for limited capacity.** Three matchmakers reserve researchers on a shared board with a version check. When two want the same person, an Arbiter decides with cited reasons and the loser re-matches by itself.
-4. **Negotiates the terms up front.** For each pair, a company-side and a researcher-side negotiator agree the engagement type, IP, publication review and exclusivity in capped rounds, or walk away. The researcher side can only offer what that researcher listed as open to.
-5. **Checks every claim.** A Critic checks each fact before it is used: the cited record exists, the quote is in it word for word, the record belongs to that person (by id, never by name), no ranking or personal attributes, and every number is in a quote.
+4. **Negotiates the terms up front.** For each pair, a company-side and a researcher-side negotiator agree the engagement type, IP (Lambert Toolkit models), publication review and exclusivity in capped rounds, or walk away. Each side's position is built in code from the data: the company's R&D capacity, past collaborations and products; the researcher's `open_to`, earlier projects, patents, publication record and the Profiler's checked card. The researcher side can only offer what that researcher listed as open to.
+5. **Checks every claim.** A Critic checks each fact before it is used: the cited record exists, the quote is in it word for word, the record belongs to that person (by id, never by name), no ranking or personal attributes, and every number is in a quote. Then a cheap model checks that the sentence says no more than its quotes. A claim it stops goes back to its author once, with the reason; what still fails is dropped.
 6. **Writes it up, or says no.** One page per pair, a no-match report and a trap report.
 
 ## Architecture
@@ -45,8 +45,8 @@ flowchart LR
     AN -->|challenge.analyzed| MM
     MM -->|BM25 search, code| IDX[(Publication index)]
     MM -->|shortlist.ready| PR[Profiler, one agent per candidate]
-    PR -->|critic.check| CR{Critic}
-    CR -->|critic.done| PR
+    PR -->|critic.check| CR{Critic: code checks, then a support check}
+    CR -->|critic.done, stopped claims go back once| PR
     PR -->|profile.ready| MM
     MM -->|reserve, version-checked| BOARD[(Board)]
     MM -->|reservation.conflict| AR[Arbiter, one agent per conflict]
@@ -56,7 +56,7 @@ flowchart LR
     NEG -->|no_deal| MM
     NEG -->|negotiation.agreed| WR[Proposal Writer]
     WR -->|critic.check| CR
-    CR -->|critic.done| WR
+    CR -->|critic.done, stopped claims go back once| WR
     WR -->|proposal.ready| OUT[(out/proposals)]
     OBS[Observer, Reporter] -.->|all events| TRACE[(trace.jsonl, nomatch.md, traps.md)]
   end
@@ -77,7 +77,7 @@ In the demo run, C001-CH1 (ArmaturaSec) and C032-CH1 (SecureEdge Labs) post almo
 {"type":"prenup.match.proposed","producer":"matchmaker-2","payload":{"pairId":"C032-CH1__R1008", "...": "..."}}
 ```
 
-The Arbiter's reason, verbatim: *"Both challenges are nearly identical, and [R1015] fits both strongly. However, [C032-CH1] has an alternative [R1008] with edge-specific and BACnet-relevant work [SYN-PUB-10477, SYN-PUB-10239] that arguably covers [C032-CH1]'s requirements as well as [R1015] does, while [C001-CH1]'s alternative [R1008] lacks the hybrid architecture focus [SYN-PUB-10525] that [R1015] uniquely brings to practical operational deployment."* Nobody told matchmaker-2 to pick R1008; it reacted to the decision.
+From the Arbiter's reason, verbatim: *"Both challenges are nearly identical and [R1015] fits both strongly, but [C032-CH1] has an equally strong alternative in [R1008] with directly relevant work [SYN-PUB-10472, SYN-PUB-10477, SYN-PUB-10239] … [C001-CH1]'s card shows more precise alignment with [R1015]'s published hybrid deployment guidance [SYN-PUB-10525]"*. We checked its citations by hand: each publication is authored by the researcher it is cited for. Nobody told matchmaker-2 to pick R1008; it reacted to the decision.
 
 ## Does it work?
 
@@ -87,22 +87,30 @@ Measured on the demo run (4 challenges, 3 matchmakers, models below):
 |---|---|
 | Challenges | 4: 3 proposals, 1 no-match (not a research problem) |
 | Reservation conflicts | 1, settled by the Arbiter; the loser re-matched; no researcher ends up with two challenges |
-| Claims checked by the Critic | 111: 66 in proposals (0 blocked), 45 in profile cards (11 blocked: 7 quotes not word for word, 4 numbers not in any quote) |
+| Claims checked by the Critic | 111. Profile cards: 45, of which 34 were stopped on the first pass (23 said more than their quotes, 7 quotes not word for word, 4 numbers not in any quote); after one rewrite 27 pass and 18 are dropped. Proposals: 36 sentences, 12 stopped by the support check; after one rewrite 32 pass and 4 are dropped. Negotiated terms: 30, all pass |
 | Traps the code flags across all 1,047 profiles | 22 stale (6 unavailable, 16 consulting only), 7 where `open_to` contradicts the notes, 2 notes about another person, 8 same-name profiles, 26 with Cyrillic text ([`out/traps.md`](out/traps.md)) |
-| Model calls per run | 19 cheap (38,550 input / 8,186 output tokens), 15 strong (45,460 input / 33,724 output tokens) |
+| Model calls per run (replay from a fresh clone) | 67 cheap (100,855 input / 18,120 output tokens), 19 strong (77,370 input / 23,994 output tokens) |
 
 Not measured yet: concurrent vs sequential wall-clock, how many planted false facts the Critic catches, and double-bookings with the Arbiter vs last-writer-wins.
 
 ## Where the Critic stepped in
 
-The cheap model writes the profile cards, and it sometimes rewords a "verbatim" quote or adds a number its quote doesn't contain. The Critic blocks those claims before any matchmaker sees the card (`out/trace.jsonl`):
+The cheap model writes the profile cards, and it sometimes rewords a "verbatim" quote or adds a number its quote doesn't contain. The Critic's code checks block those claims before any matchmaker sees the card (`out/trace.jsonl`):
 
 ```json
 {"type":"prenup.critic.verdict","producer":"critic","payload":{"pairId":"profile:C001-CH1__R1015","claimId":"profile:C001-CH1__R1015/2","subject":"R1015","verdict":"block","check":"numbers","reason":"94 is not in any quoted source"}}
 {"type":"prenup.critic.verdict","producer":"critic","payload":{"pairId":"profile:C001-CH1__R1008","claimId":"profile:C001-CH1__R1008/1","subject":"R1008","verdict":"block","check":"quote","reason":"quote not found in SYN-PUB-10477.abstract"}}
 ```
 
-Blocked claims are dropped from the card and listed; nothing rewrites them yet.
+A quote can be word for word and still not say what the sentence says. The support check catches that, the claim goes back to its author with the reason and a suggested sentence, and the fix is checked again. Here the writer said the company's hardware bench includes PLC simulators; the quote doesn't say so:
+
+```json
+{"type":"prenup.critic.verdict","producer":"critic","payload":{"pairId":"C001-CH1__R1015","attempt":1,"claimId":"C001-CH1__R1015/companyBrings/2","subject":"C001","verdict":"rewrite","check":"support","reason":"Quote confirms access to traffic archives, hardware bench, and firmware under NDA, but does not specify that hardware includes 'physical PLC simulators'.", "...": "..."}}
+{"type":"prenup.writer.rewrote","producer":"writer","payload":{"pairId":"C001-CH1__R1015","sentBack":["C001-CH1__R1015/companyBrings/1","C001-CH1__R1015/companyBrings/2","C001-CH1__R1015/whyThisPair/2","C001-CH1__R1015/whyThisPair/3"], "...": "..."}}
+{"type":"prenup.critic.verdict","producer":"critic","payload":{"pairId":"C001-CH1__R1015","attempt":2,"claimId":"C001-CH1__R1015/companyBrings/2","subject":"C001","verdict":"pass"}}
+```
+
+Each proposal lists, under "How we got here", every claim the Critic stopped, why, and whether the rewrite passed or was dropped.
 
 ## Proposals
 
@@ -129,12 +137,12 @@ Blocked claims are dropped from the card and listed; nothing rewrites them yet.
 
 ## Limits and honest notes
 
-- Not built yet: the human approval step, a live board, and a rewrite loop for blocked claims (they are dropped).
-- The Critic's checks are deterministic. A sentence can still say more than its quote supports; a model-based support check is next.
+- Not built yet: the human approval step and a live board.
+- The support check is a cheap model and strict: it stopped a third of the proposal sentences on the first pass. How many planted false facts it catches is not measured yet. The people-praise check is a word list, and it also blocked a sentence that called a method's result "best".
 - The cheap model rates most shortlisted candidates as a strong fit, so search order often decides. The Arbiter's and the Profiler's fit reasons aren't checked by the Critic yet (we checked the Arbiter's citations above by hand).
 - After a no-deal the researcher stays reserved for that challenge.
-- Negotiators read the researcher's best word-overlap publications, not yet the Profiler's card.
+- Negotiators cite fields of their position cards in each move; the Critic doesn't check those citations yet.
 
 ## Tech
 
-TypeScript; `@mozaik-ai/core` 4.2.0 (exact pin); BM25 search in code; zod schemas as structured output. Models through the hackathon's Anthropic gateway: `claude-haiku-4-5` for the Analyst and Profiler, `claude-sonnet-4-6` for the Arbiter, negotiators and writer. Every model answer is recorded in `fixtures/`, so runs replay without a key. `npm test` covers search, trap detection, the Critic's checks, reservations, matchmaking, the Arbiter and the runner.
+TypeScript; `@mozaik-ai/core` 4.2.0 (exact pin); BM25 search in code; zod schemas as structured output. Models through the hackathon's Anthropic gateway: `claude-haiku-4-5` for the Analyst, the Profiler and the Critic's support check, `claude-sonnet-4-6` for the Arbiter, negotiators and writer. Every model answer is recorded in `fixtures/`, so runs replay without a key. `npm test` covers search, trap detection, the Critic's checks, reservations, matchmaking, the Arbiter and the runner.

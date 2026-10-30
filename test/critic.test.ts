@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest"
-import { checkClaim, type CriticContext } from "../src/agents/critic"
+import { applyRewrites, checkClaim, feedbackMessage, withSupport, type CriticContext, type Verdict } from "../src/agents/critic"
 import type { Claim } from "../src/schema/claim"
 import type { NegotiationMove, TermSheet } from "../src/schema/termsheet"
 import { Dataset, hasDataset } from "../src/tools/dataset"
@@ -125,5 +125,49 @@ describe.skipIf(!data)("critic: deterministic checks", () => {
     }
     expect(checkClaim(money, ctx)).toMatchObject({ verdict: "block", check: "policy" })
     moves["C001-CH1__R1015"].sheet.money = "to be agreed"
+  })
+})
+
+// The LLM support check and the rewrite loop around it; the model's answers are given, the merging is code.
+describe("critic: support check and rewrites", () => {
+  const claim = (n: number): Claim => ({
+    id: `p/problem/${n}`,
+    subject: "C001-CH1",
+    kind: "fact",
+    text: `sentence ${n}`,
+    sources: [{ id: "C001-CH1", field: "detail", quote: `quote ${n}` }],
+  })
+  const claims = [claim(1), claim(2), claim(3), claim(4)]
+  const pass = (c: Claim): Verdict => ({ claimId: c.id, subject: c.subject, verdict: "pass" })
+  // Claim 4 failed a deterministic check, so it was never asked: the support answer can't touch it.
+  const verdicts: Verdict[] = [pass(claims[0]), pass(claims[1]), pass(claims[2]), { ...pass(claims[3]), verdict: "block", check: "quote", reason: "quote not found" }]
+  const asked = claims.slice(0, 3)
+
+  test("yes passes, partly becomes a rewrite with the suggestion, no blocks; unasked claims keep their verdict", () => {
+    const merged = withSupport(verdicts, asked, {
+      checks: [
+        { claim: 1, support: "yes", reason: "", rewrite: "" },
+        { claim: 2, support: "partly", reason: "the quote says nothing about cost", rewrite: "shorter sentence" },
+        { claim: 3, support: "no", reason: "different topic", rewrite: "" },
+      ],
+    })
+    expect(merged.map((v) => [v.verdict, v.check])).toEqual([["pass", undefined], ["rewrite", "support"], ["block", "support"], ["block", "quote"]])
+    expect(merged[1].suggestion).toBe("shorter sentence")
+  })
+
+  test("a claim the support answer skips keeps its deterministic pass", () => {
+    expect(withSupport(verdicts, asked, { checks: [] })).toEqual(verdicts)
+  })
+
+  test("feedback numbers the stopped claims with their reasons; fixes keep id, subject and kind; a left-out claim is dropped", () => {
+    const failed = [claims[1], claims[3]]
+    const message = feedbackMessage(failed, [{ ...verdicts[1], verdict: "rewrite", check: "support", reason: "too broad", suggestion: "narrow it" }, verdicts[3]])
+    expect(message).toContain("Claim 1 (subject C001-CH1, fact): sentence 2")
+    expect(message).toContain("fact checker: support: too broad")
+    expect(message).toContain("suggested sentence: narrow it")
+    expect(message).toContain("Claim 2 (subject C001-CH1, fact): sentence 4")
+    const fixed = applyRewrites(failed, { claims: [{ claim: 2, text: "fixed", sources: [{ id: "C001-CH1", field: "text", quote: "q" }] }] })
+    expect(fixed).toEqual([{ ...claims[3], text: "fixed", sources: [{ id: "C001-CH1", field: "text", quote: "q" }] }])
+    expect(applyRewrites(failed, undefined)).toEqual([])
   })
 })

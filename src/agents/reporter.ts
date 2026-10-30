@@ -40,7 +40,7 @@ export function createReporter(data: Dataset): { participant: Human; write: (dir
       { specification: on("prenup.profile.ready"), processor: { apply: ({ event }) => void cards.push(event.payload as ProfileCard) } },
       {
         specification: on("prenup.critic.verdict"),
-        processor: { apply: ({ event }) => void ((event.payload as Verdict).verdict === "block" && blocked.push(event.payload as Verdict)) },
+        processor: { apply: ({ event }) => void ((event.payload as Verdict).verdict !== "pass" && blocked.push(event.payload as Verdict)) },
       },
     ],
   })
@@ -71,6 +71,8 @@ function renderNomatch(nomatches: Nomatch[], data: Dataset): string {
   return `# No match\n\nChallenges in this run that got no proposal, and why. Saying no is a result, not a failure.\n\n${entries.join("\n\n") || "Every challenge in this run got a proposal."}\n`
 }
 
+const CHECK_ORDER = ["exists", "quote", "ownership", "policy", "numbers", "support"]
+
 function renderTraps(data: Dataset, cards: ProfileCard[], blocked: Verdict[]): string {
   const flagged = [...data.researchers.values()].map((r) => ({ r, flags: trapFlags(r, data) }))
   const cyrillic = [...data.researchers.values()].filter((r) => /[Ѐ-ӿ]/.test(`${r.name} ${r.bio} ${r.notes}`))
@@ -83,9 +85,10 @@ function renderTraps(data: Dataset, cards: ProfileCard[], blocked: Verdict[]): s
 
   const skipped = cards.filter((c) => exclusion(c)).map((c) => `- [${c.researcherId}] on [${c.challengeId}]: ${exclusion(c)}`)
   const flaggedInRun = cards.filter((c) => c.flags.length > 0).map((c) => `- [${c.researcherId}] on [${c.challengeId}]: ${c.flags.map((f) => f.kind).join(", ")}`)
-  const byCheck = new Map<string, Verdict[]>()
-  for (const v of blocked) byCheck.set(v.check ?? "other", [...(byCheck.get(v.check ?? "other") ?? []), v])
-  const blocks = [...byCheck].map(([check, vs]) => `- ${check}: ${vs.length} (e.g. ${vs.slice(0, 2).map((v) => `${v.claimId}: ${v.reason}`).join("; ")})`)
+  // Sorted by check, then claim id: events arrive in timing order, and the report must not change between replays.
+  const byCheck = new Map<string, Verdict[]>(CHECK_ORDER.map((check) => [check, []]))
+  for (const v of [...blocked].sort((a, b) => a.claimId.localeCompare(b.claimId))) byCheck.set(v.check ?? "other", [...(byCheck.get(v.check ?? "other") ?? []), v])
+  const blocks = [...byCheck].filter(([, vs]) => vs.length > 0).map(([check, vs]) => `- ${check}: ${vs.length} (e.g. ${vs.slice(0, 2).map((v) => `${v.claimId}: ${v.reason}`).join("; ")})`)
 
   return [
     "# Traps",
@@ -108,7 +111,7 @@ function renderTraps(data: Dataset, cards: ProfileCard[], blocked: Verdict[]): s
     "",
     ...(flaggedInRun.length ? flaggedInRun : ["- none"]),
     "",
-    `Claims the Critic blocked (${blocked.length}), by check:`,
+    `Times the Critic stopped a claim (${blocked.length}, rewrites included; stopped claims go back to their author once), by check:`,
     "",
     ...(blocks.length ? blocks : ["- none"]),
     "",

@@ -1,0 +1,37 @@
+{
+  "key": "c19468d7e4e4f3a4",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Research on cold-pressed hemp seed oil characterization includes measurement of fatty acid composition by gas chromatography with flame ionizati",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Quote only shows peroxide value increase in one beverage product; does not mention reducing environments, antioxidant metabolites, or comparison across different matrices and storage conditions\", \"rewrite\": \"Research demonstrates that lipid oxidation markers including peroxide values increase during storage of encapsulated oils.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 715,
+    "outputTokens": 108,
+    "totalTokens": 823,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 715,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 108,
+    "service_tier": "standard"
+  }
+}

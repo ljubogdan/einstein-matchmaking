@@ -1,0 +1,37 @@
+{
+  "key": "db5bb254c1f0bd60",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Unsupervised anomaly detection can identify deviations from learned normal Modbus traffic patterns without requiring labelled attack data, using",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"Claim adds detail about identifying deviations and not requiring labelled attack data that is not stated in the quote\", \"rewrite\": \"Unsupervised anomaly detection using autoencoder-based neural networks trained exclusively on benign traffic can establish behavioural baselines.\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Claim states 'better balance than purely deep-learning approaches' and 'lower sensitivity to protocol variability' but quote only confirms 'best overall balance'\", \"rewrite\": \"Hybrid detection architectures combining specification-based rules with neural anomaly scoring achieve the best overall balance for industrial protocols.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 646,
+    "outputTokens": 165,
+    "totalTokens": 811,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 646,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 165,
+    "service_tier": "standard"
+  }
+}

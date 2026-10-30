@@ -1,0 +1,37 @@
+{
+  "key": "2a826de45a7ff73e",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Recent work evaluates lightweight autoencoder-based anomaly detection models for resource-constrained ARM gateways with 256 MB RAM, demonstratin",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"Quotes state model performance but don't mention lightweight autoencoder-based anomaly detection, real-time deployment feasibility, or evaluation/demonstration of such models\", \"rewrite\": \"Work describes an 8-bit quantised, 25%-pruned model achieving 0.9 ms inference latency per 10-second window on ARM-based gateways with 256 MB RAM and single-core processors.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 640,
+    "outputTokens": 115,
+    "totalTokens": 755,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 640,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 115,
+    "service_tier": "standard"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "key": "aa89ab48959de372",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C032-CH1: We need to detect unusual behaviour on Modbus and BACnet networks without labelled attack data.\nDetail: Our EdgeWatch sensor captures all tr",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\": [{\"claim\": 1, \"text\": \"One-class contrastive learning enables unsupervised anomaly detection in multi-product settings.\", \"sources\": [{\"id\": \"SYN-PUB-06391\", \"field\": \"abstract\", \"quote\": \"adaptive one-class contrastive learning framework for unsupervised anomaly detection in multi-product settings\"}]}, {\"claim\": 2, \"text\": \"Model quantization techniques enable real-time inference on resource-limited edge devices, and early-exit mechanisms on edge nodes resolve easy, high-confidence samples locally.\", \"sources\": [{\"id\": \"R0548\", \"field\": \"bio\", \"quote\": \"model quantization techniques that enable real-time inference on resource-limited edge devices\"}, {\"id\": \"SYN-PUB-06397\", \"field\": \"abstract\", \"quote\": \"early-exit mechanism on the edge node resolves easy, high-confidence samples locally\"}]}, {\"claim\": 3, \"text\": \"Self-supervised pretext tasks based on synthetic local masking strengthen encoder sensitivity to subtle textural and structural anomalies in assembly line inspection.\", \"sources\": [{\"id\": \"SYN-PUB-06391\", \"field\": \"abstract\", \"quote\": \"self-supervised pretext task based on synthetic local masking strengthens the encoder's sensitivity to subtle textural and structural anomalies\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2430,
+    "outputTokens": 318,
+    "totalTokens": 2748,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2430,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 318,
+    "service_tier": "standard"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "key": "4a8fe954f2cd36be",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C061-CH1: Our cold-pressed pumpkin seed oil goes rancid within 4 months on shelf, but competitors manage 9–12 months; we lose about 15% of each batch ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Photo-oxidation under UV-A radiation causes peroxide value to increase sixfold faster.\",\"sources\":[{\"id\":\"SYN-PUB-06406\",\"field\":\"abstract\",\"quote\":\"Peroxide value increased sixfold faster under UV-A.\"}]},{\"claim\":2,\"text\":\"Light intensity is the dominant variable controlling shelf life of oily functional foods under retail conditions, exceeding the effect of temperature fluctuations.\",\"sources\":[{\"id\":\"SYN-PUB-04277\",\"field\":\"abstract\",\"quote\":\"light intensity as the dominant variable controlling shelf life under retail conditions, exceeding the effect of temperature fluctuations\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2708,
+    "outputTokens": 159,
+    "totalTokens": 2867,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2708,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 159,
+    "service_tier": "standard"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "key": "6f9d754d840b5eb1",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Photo-oxidation under UV-A radiation causes peroxide value to increase sixfold faster.\n  SYN-PUB-06406 abstract: \"Peroxide value increased sixfo",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"quote doesn't specify photo-oxidation or UV-A radiation as the cause\", \"rewrite\": \"Peroxide value increased sixfold faster under UV-A radiation.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 597,
+    "outputTokens": 84,
+    "totalTokens": 681,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 597,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 84,
+    "service_tier": "standard"
+  }
+}

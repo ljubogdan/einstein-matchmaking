@@ -1,0 +1,37 @@
+{
+  "key": "eb16882d8190bc50",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The company's sensor network captures traffic across customer sites but the team has almost no labelled examples of actual attacks on these netw",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":2,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":3,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":4,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":5,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":6,\"support\":\"partly\",\"reason\":\"Quotes confirm core research and product work, but do not mention part-time technical liaison role or integration/deployment testing.\",\"rewrite\":\"The engineering team includes four security engineers who do the core research and product work.\"},{\"claim\":7,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":8,\"support\":\"partly\",\"reason\":\"Quotes state the inference time and model properties but do not explicitly confirm that real-time edge deployment is feasible without dedicated hardware accelerators.\",\"rewrite\":\"Published work on model compression shows that a combined 8-bit quantised, 25%-pruned model achieved inference at 0.9 ms per 10-second window on an ARM Cortex-A7 target.\"},{\"claim\":9,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":10,\"support\":\"partly\",\"reason\":\"Quotes confirm the methods and algorithms but do not explicitly state that they directly match the company's protocol stack and edge hardware requirements.\",\"rewrite\":\"The research group's published methods cover statistical baseline modelling, Modbus, DNP3, and unsupervised learning alongside lightweight algorithms suited to constrained embedded environments.\"},{\"claim\":11,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":12,\"support\":\"partly\",\"reason\":\"Quotes confirm the testbed and equipment but do not state that it enables controlled anomaly injection for model validation or mention reducing deployment risk.\",\"rewrite\":\"The research group has a dedicated ICS testbed equipped with Siemens-compatible PLCs, Modbus/TCP and DNP3 traffic generators.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1528,
+    "outputTokens": 443,
+    "totalTokens": 1971,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1528,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 443,
+    "service_tier": "standard"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "key": "d8585960a98ee2b3",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C032-CH1: We need to detect unusual behaviour on Modbus and BACnet networks without labelled attack data.\nDetail: Our EdgeWatch sensor captures all tr",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\": [{\"claim\": 1, \"text\": \"Recent work evaluates lightweight autoencoder-based anomaly detection models for resource-constrained ARM gateways with 256 MB RAM, demonstrating feasibility of real-time deployment through 8-bit quantisation and 25% pruning techniques achieving 0.9 ms inference latency per 10-second window.\", \"sources\": [{\"id\": \"SYN-PUB-10239\", \"field\": \"abstract\", \"quote\": \"Many ICS sites route traffic through ARM-based gateways with 256 MB RAM and single-core processors.\"}, {\"id\": \"SYN-PUB-10239\", \"field\": \"abstract\", \"quote\": \"A combined 8-bit quantised, 25%-pruned model achieved inference at 0.9 ms per 10-second window on an ARM Cortex-A7 target\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2423,
+    "outputTokens": 211,
+    "totalTokens": 2634,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2423,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 211,
+    "service_tier": "standard"
+  }
+}

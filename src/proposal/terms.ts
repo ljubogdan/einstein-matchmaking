@@ -9,7 +9,7 @@ export const ENGAGEMENT_LABELS: Record<Engagement, string> = {
   internship: "Internship",
 }
 
-const IP_LABELS: Record<TermSheet["ip"], string> = {
+export const IP_LABELS: Record<TermSheet["ip"], string> = {
   uni_owns_nonexclusive_licence: "the university owns the results; the company gets a non-exclusive licence",
   uni_owns_option_to_licence: "the university owns the results; the company has an option to license them",
   uni_owns_option_to_assign: "the university owns the results; the company has an option to take them over",

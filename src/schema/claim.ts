@@ -32,3 +32,15 @@ export const Draft = z.object({
 })
 export type Draft = z.infer<typeof Draft>
 export const CLAIM_SECTIONS = ["problem", "companyBrings", "universityBrings", "whyThisPair"] as const
+
+/** The Critic's LLM support check, one entry per numbered claim: does the sentence say no more than its quotes? */
+export const SupportAnswer = z.object({
+  checks: z.array(z.object({ claim: z.number(), support: z.enum(["yes", "partly", "no"]), reason: z.string(), rewrite: z.string() })),
+})
+export type SupportAnswer = z.infer<typeof SupportAnswer>
+
+/** A writer's or Profiler's fix for claims the Critic stopped, by the number the feedback gave them. Left out = dropped. */
+export const ClaimRewrites = z.object({
+  claims: z.array(z.object({ claim: z.number(), text: z.string(), sources: z.array(Source) })),
+})
+export type ClaimRewrites = z.infer<typeof ClaimRewrites>

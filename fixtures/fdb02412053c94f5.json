@@ -1,0 +1,37 @@
+{
+  "key": "fdb02412053c94f5",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): One-class contrastive learning enables unsupervised anomaly detection in settings without labelled defect examples, using momentum-updated refer",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"Quotes mention one-class contrastive learning and unsupervised anomaly detection but don't mention momentum-updated reference encoders, online memory banks, or tracking distribution shifts.\", \"rewrite\": \"One-class contrastive learning enables unsupervised anomaly detection in multi-product settings.\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Quotes support model quantization for real-time inference on edge devices and early-exit mechanisms resolving easy samples locally, but don't mention partitioning execution based on sample difficulty or maintaining detection accuracy as a stated benefit.\", \"rewrite\": \"Model quantization and early-exit mechanisms allow real-time inference on resource-limited edge devices, with early-exit mechanisms resolving easy, high-confidence samples locally on edge nodes.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 656,
+    "outputTokens": 195,
+    "totalTokens": 851,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 656,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 195,
+    "service_tier": "standard"
+  }
+}

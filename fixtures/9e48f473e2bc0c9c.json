@@ -1,0 +1,37 @@
+{
+  "key": "9e48f473e2bc0c9c",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Unsupervised anomaly detection methods including Isolation Forest, one-class SVM, and autoencoders have been empirically compared on multivariat",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"Quote doesn't mention detection on multivariate sensor streams, identification of faults, or lack of labelled attack examples\", \"rewrite\": \"Three unsupervised anomaly detection algorithms—Isolation Forest, one-class support vector machine, and a shallow autoencoder—are evaluated.\"}, {\"claim\": 2, \"support\": \"no\", \"reason\": \"Quote only states anomaly detection is complicated by non-Gaussian multimodal distributions; doesn't describe kernel density estimation approach, normal-operation telemetry baseline, or embedded deployment efficiency\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"Quote confirms training in reconstruction mode and anomaly scores from reconstruction error, but doesn't mention temporal convolutional networks, LSTM autoencoders, or automatic threshold selection methods\", \"rewrite\": \"Anomaly scores are derived from mean squared reconstruction error in architectures trained in reconstruction mode.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 748,
+    "outputTokens": 225,
+    "totalTokens": 973,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 748,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 225,
+    "service_tier": "standard"
+  }
+}

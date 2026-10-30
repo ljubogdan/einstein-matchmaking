@@ -1,0 +1,37 @@
+{
+  "key": "bdbc7fd1898ab95e",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Three unsupervised anomaly detection algorithms—Isolation Forest, one-class support vector machine, and a shallow autoencoder—are evaluated on h",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"Quote does not specify 'harvester drivetrain telemetry' as the evaluation domain\", \"rewrite\": \"Three unsupervised anomaly detection algorithms—Isolation Forest, one-class support vector machine, and a shallow autoencoder—are evaluated.\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Quote does not mention 'over fixed windows' for the reconstruction error calculation\", \"rewrite\": \"Both architectures are trained in reconstruction mode; anomaly scores are derived from mean squared reconstruction error.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 635,
+    "outputTokens": 139,
+    "totalTokens": 774,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 635,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 139,
+    "service_tier": "standard"
+  }
+}

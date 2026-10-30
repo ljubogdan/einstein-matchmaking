@@ -1,0 +1,37 @@
+{
+  "key": "7f737e1ef9271410",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Cold-pressed pumpkin seed oil composition has been characterized using gas chromatography and HPLC methods to profile fatty acids and tocopherol",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"Keywords mention GC-MS and TAG but not specifically HPLC methods for tocopherols in cold-pressed pumpkin seed oil\", \"rewrite\": \"Cold-pressed pumpkin seed oil composition has been characterized using GC-MS methods to profile fatty acids and triacylglycerols.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 713,
+    "outputTokens": 114,
+    "totalTokens": 827,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 713,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 114,
+    "service_tier": "standard"
+  }
+}

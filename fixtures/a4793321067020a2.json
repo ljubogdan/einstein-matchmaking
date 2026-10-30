@@ -1,0 +1,37 @@
+{
+  "key": "a4793321067020a2",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Cold-pressed pumpkin seed oil composition has been characterized using gas chromatography and HPLC methods to profile fatty acids and tocopherol",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"Quotes mention GC-MS and HPLC-MS methods for pumpkin seed oil profiling, but do not explicitly state that fatty acids and tocopherols are 'key determinants of oxidative stability'—only that these compounds were profiled.\", \"rewrite\": \"Cold-pressed pumpkin seed oil composition has been characterized using gas chromatography and HPLC methods to profile fatty acids and tocopherols.\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Quotes show tocopherol analysis and that roasting affects free fatty acid formation, but do not establish a correlation between tocopherol content and oxidative stability as measured by induction period testing.\", \"rewrite\": \"Tocopherol content in seed oils can be analyzed by HPLC, and roasting conditions affect tocopherol retention and free fatty acid formation.\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 874,
+    "outputTokens": 240,
+    "totalTokens": 1114,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 874,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 240,
+    "service_tier": "standard"
+  }
+}

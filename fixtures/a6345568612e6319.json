@@ -1,0 +1,37 @@
+{
+  "key": "a6345568612e6319",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): ArmaturaSec provides several terabytes of real Modbus TCP and BACnet/IP traffic collected from consenting clients over the past three years.\n  C",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"Quotes say 'captures' but claim specifies these are 'real Modbus TCP and BACnet/IP traffic'; protocol types not mentioned in quote\", \"rewrite\": \"ArmaturaSec provides several terabytes of captures from consenting clients over the past three years.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"Quotes establish archives and hardware exist, but don't state they 'complement published methods' or support 'the full path from algorithm design to embedded deployment'\", \"rewrite\": \"The company has traffic archives and hardware for on-device inference in resource-constrained industrial environments.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 705,
+    "outputTokens": 185,
+    "totalTokens": 890,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 705,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 185,
+    "service_tier": "standard"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "key": "ce3a200e276309dc",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C001-CH1: We need to detect unusual behaviour on Modbus and BACnet networks without labelled attack data — our clients have never been breached (or do",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\": [{\"claim\": 1, \"text\": \"Sparse autoencoders can learn meaningful latent representations from low-rate industrial sensor logs without labelled examples.\", \"sources\": [{\"id\": \"SYN-PUB-08878\", \"field\": \"abstract\", \"quote\": \"sparse autoencoders, originally developed for natural-image data, can learn meaningful latent representations from such logs without any labelled examples\"}]}, {\"claim\": 2, \"text\": \"Contrastive self-supervised learning frameworks for tabular sensor data can encode missingness-aware features, time-gap information, and improve anomaly detection performance on irregular sensor logs with missing data rates between 12 % and 58 % per channel.\", \"sources\": [{\"id\": \"SYN-PUB-08885\", \"field\": \"abstract\", \"quote\": \"missingness-aware feature tokeniser that encodes observed/unobserved status as part of the token embedding, a time-gap encoding that injects elapsed-time information\"}, {\"id\": \"SYN-PUB-08885\", \"field\": \"abstract\", \"quote\": \"missing rates between 12 % and 58 % per channel, covering fault detection, anomaly scoring\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2430,
+    "outputTokens": 285,
+    "totalTokens": 2715,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2430,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 285,
+    "service_tier": "standard"
+  }
+}

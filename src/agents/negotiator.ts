@@ -4,6 +4,8 @@ import { EFFORT, MAX_OUTPUT, MODELS } from "../models"
 import { on, own, runLoop, sendEvent, type Board } from "../runtime"
 import { structuredOutput } from "../schema/model-schema"
 import { IP_MODELS, NegotiationReply, REVIEW_DAYS, type NegotiationMove, type TermSheet } from "../schema/termsheet"
+import { IP_LABELS } from "../proposal/terms"
+import type { ProfileCard } from "../schema/profile"
 import { companyCard, researcherCard, type Pair } from "../tools/cards"
 import type { Dataset } from "../tools/dataset"
 import { allowedEngagements } from "../tools/profile"
@@ -12,22 +14,28 @@ export const MAX_ROUNDS = 4
 type Side = "company" | "researcher"
 
 const RULES = `Each turn, answer with JSON: action (propose | accept | walk_away), sheet, reason, citations.
-- propose: change at most two fields of the last sheet. accept: the other side's sheet as it is. walk_away: only if a hard limit would be crossed.
-- reason: one or two sentences that cite ids from your position card in brackets, e.g. [C001 rd_capacity]. citations: those ids.
-- ip is one of: ${IP_MODELS.join(", ")}.
-- publication.reviewDays is 0, 30, 60 or 90. exclusivity.months 0 means none.
+- propose: change at most two fields of the last sheet, and trade: give on one field to get another. accept: the other side's sheet as it is. walk_away: only if a hard limit would be crossed.
+- reason: one or two sentences that cite your position card in brackets, with the field, e.g. [C001 rd_capacity] or [SYN-PUB-00001]. citations: those ids.
+- ip, one of these Lambert Toolkit models:
+${IP_MODELS.map((ip) => `  ${ip}: ${IP_LABELS[ip]}`).join("\n")}
+- publication: reviewDays is 0, 30, 60 or 90 (how long the company may review a paper before it goes out); companyMayRemoveConfidential: the company may remove its confidential information, never results.
+- exclusivity: a field of use and months; months 0 means none.
+- backgroundIp: what each side keeps, with ids (patents, earlier projects, products). contributions: in kind, from the position cards.
 - money is "to be agreed" or a named funding route. Never an amount.
 - contact: roles, not names. Use only facts from your position card.`
 
 const INTERESTS: Record<Side, string> = {
-  company: "Your interests: results you can use in your products, confidentiality of your firmware and data, a usable result within the timeline.",
-  researcher: "Your interests: stay inside your hard limits, publish results (a thesis needs papers), university ownership of results, protect background IP.",
+  company: "Your interests: results you can use in your products, confidentiality of your data and know-how, a usable result within the timeline. Turn what went wrong in past collaborations into a term (milestones, a contact role).",
+  researcher: "Your interests: stay inside your hard limits, keep the right to publish (see Publishing), university ownership of results, protect background IP, your own preferences in notes.",
 }
 
-/** One side of one pair. A fresh agent per pair and side: memory never crosses pairs or sides. */
-export function createNegotiator(side: Side, pair: Pair, board: Board, data: Dataset): Agent {
+/**
+ * One side of one pair. A fresh agent per pair and side: memory never crosses pairs or sides. Its position card is
+ * built in code from the data and the Profiler's card for this pair (checked expertise, search hits, trap flags).
+ */
+export function createNegotiator(side: Side, pair: Pair, board: Board, data: Dataset, profile: ProfileCard): Agent {
   const other: Side = side === "company" ? "researcher" : "company"
-  const card = side === "company" ? companyCard(pair) : researcherCard(pair, data)
+  const card = side === "company" ? companyCard(pair, profile, data) : researcherCard(pair, profile, data)
   const allowed = allowedEngagements(pair.researcher)
 
   const agent: Agent = createAgent({

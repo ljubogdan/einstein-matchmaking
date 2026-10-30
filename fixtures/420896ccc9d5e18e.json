@@ -1,0 +1,37 @@
+{
+  "key": "420896ccc9d5e18e",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Anomaly detection frameworks leveraging autoencoders trained on benign traffic can achieve detection rates exceeding 94% across all attack categ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"The claim specifies autoencoder architecture and benign traffic training, which are not mentioned in the quote.\", \"rewrite\": \"Detection rates exceeding 94% across all attack categories can be achieved, with a false positive rate below 2%.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 645,
+    "outputTokens": 99,
+    "totalTokens": 744,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 645,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 99,
+    "service_tier": "standard"
+  }
+}

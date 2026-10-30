@@ -1,0 +1,37 @@
+{
+  "key": "8f0164168f01d4c3",
+  "model": "claude-sonnet-4-6",
+  "prompt": "The fact checker did not pass these claims. Fix each one: change the sentence so its quotes say everything it says, or pick quotes that do. Leave a claim out to",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"The engineering team includes four security engineers who do the core research and product work.\",\"sources\":[{\"id\":\"C032\",\"field\":\"about\",\"quote\":\"four security engineers who do the core research and product work\"}]},{\"claim\":2,\"text\":\"Published work on model compression shows that a combined 8-bit quantised, 25%-pruned model achieved inference at 0.9 ms per 10-second window on an ARM Cortex-A7 target, making real-time deployment feasible without dedicated hardware accelerators.\",\"sources\":[{\"id\":\"SYN-PUB-10239\",\"field\":\"abstract\",\"quote\":\"A combined 8-bit quantised, 25%-pruned model achieved inference at 0.9 ms per 10-second window on an ARM Cortex-A7 target\"},{\"id\":\"SYN-PUB-10239\",\"field\":\"abstract\",\"quote\":\"making real-time deployment feasible without dedicated hardware accelerators\"}]},{\"claim\":3,\"text\":\"The research group's published methods cover statistical baseline modelling, Modbus, DNP3, and unsupervised learning alongside lightweight online learning algorithms suited to constrained embedded environments.\",\"sources\":[{\"id\":\"R1008\",\"field\":\"keywords\",\"quote\":\"statistical baseline modelling, Modbus, DNP3, unsupervised learning\"},{\"id\":\"R1008\",\"field\":\"bio\",\"quote\":\"lightweight online learning algorithms suited to constrained embedded environments\"}]},{\"claim\":4,\"text\":\"The research group operates a dedicated ICS testbed equipped with Siemens-compatible PLCs, Modbus/TCP and DNP3 traffic generators, and packet capture infrastructure for long-term dataset collection.\",\"sources\":[{\"id\":\"R1008\",\"field\":\"bio\",\"quote\":\"dedicated ICS testbed equipped with Siemens-compatible PLCs, Modbus/TCP and DNP3 traffic generators, and packet capture infrastructure for long-term dataset collection\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 448,
+    "totalTokens": 451,
+    "inputTokenDetails": {
+      "cached_tokens": 6325
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 6325,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 6325,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 448,
+    "service_tier": "standard"
+  }
+}

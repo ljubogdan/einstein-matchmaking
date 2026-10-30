@@ -1,0 +1,37 @@
+{
+  "key": "fa9766daf8dfbed2",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Reconstruction-error autoencoders can be trained on unlabelled high-frequency telemetry streams and fine-tuned with minimal labelled data to det",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Quote does not state that RNNs and TCNs distinguish point, contextual, and collective anomalies in event logs; it only mentions they are sequence models examined for concept drift and scalability.\", \"rewrite\": \"Sequence models such as RNNs and TCNs are examined for their key assumptions, scalability properties, and sensitivity to concept drift in telemetry streams.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 661,
+    "outputTokens": 130,
+    "totalTokens": 791,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 661,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 130,
+    "service_tier": "standard"
+  }
+}

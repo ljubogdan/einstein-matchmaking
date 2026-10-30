@@ -8,14 +8,14 @@ The rules ask for this explicitly, and "the weight is on genuine use of concurre
 |---|---|---|---|
 | Matchmaker | 3, each owning a slice of the challenges | `challenge.analyzed`, `profile.ready`, `arbiter.decided`, `negotiation.no_deal` | `challenge.submitted`, `shortlist.ready`, `reservation.conflict`, `match.proposed`, `rematch`, `nomatch` |
 | Industry Analyst | one agent per challenge (cheap model) | `challenge.submitted` | `challenge.analyzed` |
-| Profiler | one agent per shortlisted researcher per challenge (cheap model) | `shortlist.ready`, `critic.done` | `critic.check`, `profile.ready` |
+| Profiler | one agent per shortlisted researcher per challenge, plus one per rewrite (cheap model) | `shortlist.ready`, `critic.done` | `critic.check`, `profile.ready` |
 | Arbiter | one agent per conflict (strong model) | `reservation.conflict`, `profile.ready` | `pair.cancelled`, `arbiter.decided` |
 | Negotiator | 2 per pair: company side, researcher side (strong model) | `match.proposed`, `negotiation.move` | `negotiation.move`, `negotiation.agreed`, `negotiation.no_deal` |
-| Proposal Writer | one per pair (strong model) | `negotiation.agreed`, `critic.done`, `pair.cancelled` | `critic.check`, `proposal.ready` |
-| Critic | 1, code only | `critic.check` | `critic.verdict` per claim, `critic.done` |
+| Proposal Writer | one per pair (strong model) | `negotiation.agreed`, `critic.done`, `pair.cancelled` | `critic.check`, `writer.rewrote`, `claim.dropped`, `proposal.ready` |
+| Critic | 1 (code checks), plus one support-check agent per check request (cheap model) | `critic.check` | `critic.verdict` per claim, `critic.done` |
 | Observer, Reporter | 1 each | everything | `out/trace.jsonl`, `out/nomatch.md`, `out/traps.md` |
 
-In the demo run that is 3 matchmakers, 4 analysts, 15 profilers, 1 arbiter, 6 negotiators and 3 writers.
+In the demo run that is 3 matchmakers, 4 analysts, 15 profilers plus 14 profiler rewrites, 34 support checks, 1 arbiter, 6 negotiators and 3 writers.
 
 ## What actually runs at the same time
 
@@ -47,14 +47,14 @@ The Arbiter's prompt lists the two challenges in id order, never as holder and r
    ```
 
 2. **Negotiation ends in no deal -> the challenge goes back to its matchmaker**, which tries its next card (at most 2 negotiations per challenge, then a no-match). Built; no negotiation in the demo run ended without a deal, so it is shown in `test/matchmaker.test.ts`.
-3. **The Critic blocks a claim.** Built for blocking: blocked profile claims never reach the matchmakers, blocked proposal claims are listed on the page. The rewrite before commit is not built yet.
+3. **The Critic stops a claim -> it goes back to its author once.** Built: the writer gets its stopped claims back in the same conversation, a stopped profile claim goes to a fresh Profiler agent, each with the reason and the Critic's suggested sentence. The fix is checked again; what still fails is dropped (`prenup.claim.dropped`) and listed on the page. In the demo run all 3 writers and 14 of 15 profile cards sent claims back once.
 4. **A profile is retired or consulting-only -> negotiators can only offer what's allowed.** Built: the researcher side's allowed engagement types come from code (`open_to` and availability), and a move outside them becomes a walk-away.
 
 ## Concurrency, awareness, adaptivity (Mozaik's three pillars)
 
 - **Concurrency:** independent loops per task, non-blocking fan-out, a shared board with version-checked writes.
 - **Awareness:** participants react to each other's events (`arbiter.decided`, `critic.done`, `pair.cancelled`, `negotiation.no_deal`) instead of being called.
-- **Adaptivity:** behavior follows runtime state: re-matching after conflicts and no-deals, terms limited by availability, cancelled pairs going quiet, backoff under rate limits.
+- **Adaptivity:** behavior follows runtime state: re-matching after conflicts and no-deals, rewriting claims the Critic stopped, terms limited by availability, cancelled pairs going quiet, backoff under rate limits.
 
 ## Mozaik features used
 

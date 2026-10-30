@@ -1,0 +1,37 @@
+{
+  "key": "c0d77efc1c159266",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The oil consistently exceeds acceptable peroxide thresholds between three and five months after bottling, far short of the nine-to-twelve months",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":2,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":3,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":4,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":5,\"support\":\"partly\",\"reason\":\"Quote says 'sample preparation and basic physical-chemical measurements' via external partners; claim specifies in-house titration capability and dedicated technician performing peroxide and free fatty acid checks on-site.\",\"rewrite\":\"The company supports external partners with sample preparation and basic physical-chemical measurements, reducing turnaround time for longitudinal sample monitoring.\"},{\"claim\":6,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":7,\"support\":\"partly\",\"reason\":\"Quote provides rate constants and activation energy but does not state that autoxidation of polyunsaturated fatty acids is the 'likely dominant pathway' — it only gives kinetic data.\",\"rewrite\":\"The research group has published kinetic models for peroxide formation in cold-pressed pumpkin seed oil, with established rate constants (0.018 meq O₂/(kg·day) at 25 °C to 0.091 meq O₂/(kg·day) at 60 °C) and activation energy of 48.3 kJ/mol.\"},{\"claim\":8,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":9,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":10,\"support\":\"partly\",\"reason\":\"Quote mentions doctoral thesis on 'sunflower and pumpkin seed oils' but the claim states it focused 'specifically on peroxide formation kinetics in pumpkin seed oil' — sunflower oil is also included, broadening the scope.\",\"rewrite\":\"The researcher's doctoral thesis covered peroxide formation kinetics in sunflower and pumpkin seed oils, with subsequent publications on pumpkin seed oil.\"},{\"claim\":11,\"support\":\"partly\",\"reason\":\"Quote shows nitrogen flushing reduced peroxide value but does not establish a 'headspace audit methodology' or indicate that the methodology is 'established and ready to apply' — it only demonstrates an effect on oxidation rate.\",\"rewrite\":\"Prior work shows that nitrogen flushing significantly reduced PV in small-scale bottling studies.\"},{\"claim\":12,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1503,
+    "outputTokens": 546,
+    "totalTokens": 2049,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1503,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 546,
+    "service_tier": "standard"
+  }
+}

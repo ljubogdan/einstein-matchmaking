@@ -1,0 +1,37 @@
+{
+  "key": "2ccda33c7d310422",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Unsupervised anomaly detection on industrial protocols can be performed using autoencoder-based neural networks trained only on benign traffic t",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Quote doesn't specify that attacks are 'unauthorised function code injection and coil manipulation' attacks or that protocol is Modbus\", \"rewrite\": \"Anomaly detection frameworks can achieve detection rates exceeding 94% across all attack categories while maintaining false positive rates below 2%.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 643,
+    "outputTokens": 107,
+    "totalTokens": 750,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 643,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 107,
+    "service_tier": "standard"
+  }
+}

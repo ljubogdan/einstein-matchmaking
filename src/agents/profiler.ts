@@ -3,13 +3,13 @@ import { answerText, parseJson } from "../llm/answer"
 import { ResultCache } from "../llm/cache"
 import { MAX_OUTPUT, MODELS } from "../models"
 import { join, on, own, runLoop, sendEvent } from "../runtime"
-import type { Claim } from "../schema/claim"
+import { ClaimRewrites, type Claim } from "../schema/claim"
 import { structuredOutput } from "../schema/model-schema"
 import { ProfilerAnswer, type ProfileCard } from "../schema/profile"
 import type { Dataset } from "../tools/dataset"
 import { allowedEngagements, availabilityOf, trapFlags } from "../tools/profile"
 import type { Candidate } from "../tools/search"
-import type { Verdict } from "./critic"
+import { applyRewrites, feedbackMessage, type Verdict } from "./critic"
 
 const INSTRUCTION = `You profile one university researcher for one company challenge, from the records only. Answer with JSON:
 - expertise: 2 or 3 claims about the researcher's work that matter for this challenge. A claim is one plain sentence and its sources.
@@ -17,6 +17,8 @@ const INSTRUCTION = `You profile one university researcher for one company chall
   A sentence may contain a number only if the number is in one of its quotes. Describe work, never praise people. No names of people.
 - fit: "strong" if the publications address the challenge's core problem; "partial" if they cover a neighbouring method or domain; "none" if the overlap is only shared words.
 - fitReason: one sentence that cites record ids in brackets, e.g. [SYN-PUB-00001].`
+
+const REWRITE_INSTRUCTION = "You fix claims about one university researcher's work that a fact checker did not pass. Use the records only. No names of people."
 
 /** What the Profiler reads: the challenge, the researcher's work (notes stay out: availability is code's job), the search hits. */
 export function profileMessage(data: Dataset, challengeId: string, candidate: Candidate): string {
@@ -60,8 +62,9 @@ export function createProfiler(data: Dataset, cache: ResultCache): Human {
         processor: {
           apply: ({ event }) => {
             const { pairId, verdicts } = event.payload as { pairId: string; verdicts: Verdict[] }
-            awaiting.get(pairId)?.(verdicts)
-            awaiting.delete(pairId)
+            const resolve = awaiting.get(pairId)
+            awaiting.delete(pairId) // before resolving: a rewrite registers the same check id again
+            resolve?.(verdicts)
           },
         },
       },
@@ -105,15 +108,54 @@ export function createProfiler(data: Dataset, cache: ResultCache): Human {
   }
 
   // The model reads the evidence; the Critic decides which facts stay; code adds availability and trap flags.
+  // Claims the Critic stops go back once to a fresh cheap agent with the reasons (feedback loop 3), then are checked again.
   function submit(producerId: string, challengeId: string, candidate: Candidate, rank: number, answer: ProfilerAnswer, cached: boolean): void {
     const r = data.researchers.get(candidate.researcherId)!
     const checkId = `profile:${challengeId}__${r.id}`
-    const claims = answer.expertise.map((c, i): Claim => ({ ...c, id: `${checkId}/${i + 1}`, subject: r.id, kind: "fact" }))
-    awaiting.set(checkId, (verdicts) => {
+    let claims = answer.expertise.map((c, i): Claim => ({ ...c, id: `${checkId}/${i + 1}`, subject: r.id, kind: "fact" }))
+    const ready = (verdicts: Verdict[]) => {
       const passed = claims.filter((claim) => verdicts.some((v) => v.claimId === claim.id && v.verdict === "pass"))
       emit(producerId, "prenup.profile.ready", card(challengeId, candidate, rank, answer, cached, passed, claims.length - passed.length))
+    }
+    awaiting.set(checkId, (first) => {
+      const failed = claims.filter((claim) => !first.some((v) => v.claimId === claim.id && v.verdict === "pass"))
+      if (failed.length === 0) return ready(first)
+      rewrite(challengeId, candidate, failed, first, (fixes) => {
+        if (fixes.length === 0) return ready(first)
+        claims = claims.map((c) => fixes.find((f) => f.id === c.id) ?? c)
+        awaiting.set(checkId, (second) => ready(first.map((v) => second.find((w) => w.claimId === v.claimId) ?? v)))
+        emit(producerId, "prenup.critic.check", { pairId: checkId, claims: fixes, attempt: 2 })
+      })
     })
     emit(producerId, "prenup.critic.check", { pairId: checkId, claims })
+  }
+
+  function rewrite(challengeId: string, candidate: Candidate, failed: Claim[], verdicts: Verdict[], done: (fixes: Claim[]) => void): void {
+    const agent = createAgent({
+      name: `profiler:${candidate.researcherId}:rewrite`,
+      capabilities: ["profile-researcher"],
+      instruction: REWRITE_INSTRUCTION,
+      tools: [],
+      handlers: [
+        {
+          specification: own("model.answer"),
+          processor: {
+            apply: ({ event }) => {
+              const parsed = ClaimRewrites.safeParse(parseJson(answerText(event.payload)))
+              done(applyRewrites(failed, parsed.success ? parsed.data : undefined))
+            },
+          },
+        },
+      ],
+    })
+    join(agent)
+    runLoop(agent.getId(), `${profileMessage(data, challengeId, candidate)}\n\n${feedbackMessage(failed, verdicts)}`, {
+      model: MODELS.cheap,
+      maxOutputTokens: MAX_OUTPUT.profile,
+      context: agent.getMemory().getContext(),
+      tools: [],
+      structuredOutput: structuredOutput("claim_rewrites", ClaimRewrites, MODELS.cheap),
+    })
   }
 
   function card(challengeId: string, candidate: Candidate, rank: number, answer: ProfilerAnswer, cached: boolean, expertise: Claim[], blocked: number): ProfileCard {

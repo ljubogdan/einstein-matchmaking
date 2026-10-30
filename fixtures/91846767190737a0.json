@@ -1,0 +1,37 @@
+{
+  "key": "91846767190737a0",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C001-CH1: We need to detect unusual behaviour on Modbus and BACnet networks without labelled attack data — our clients have never been breached (or do",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Three unsupervised anomaly detection algorithms—Isolation Forest, one-class support vector machine, and a shallow autoencoder—are evaluated on harvester drivetrain telemetry.\",\"sources\":[{\"id\":\"SYN-PUB-07235\",\"field\":\"abstract\",\"quote\":\"Three unsupervised anomaly detection algorithms—Isolation Forest (iForest), one-class support vector machine (OCSVM), and a shallow autoencoder—are evaluated\"}]},{\"claim\":2,\"text\":\"Observations falling below the 1st percentile of estimated density were flagged as anomalous in hydraulic system telemetry, with computational overhead of 14 ms for density evaluation on a Cortex-M7 microcontroller.\",\"sources\":[{\"id\":\"SYN-PUB-07234\",\"field\":\"abstract\",\"quote\":\"Observations falling below the 1st percentile of estimated density were flagged as anomalous\"},{\"id\":\"SYN-PUB-07234\",\"field\":\"abstract\",\"quote\":\"density evaluation for a 6-dimensional observation averaged 14 ms\"}]},{\"claim\":3,\"text\":\"Both architectures are trained in reconstruction mode; anomaly scores are derived from mean squared reconstruction error over fixed windows.\",\"sources\":[{\"id\":\"SYN-PUB-07240\",\"field\":\"abstract\",\"quote\":\"Both architectures are trained in reconstruction mode; anomaly scores are derived from mean squared reconstruction error\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2726,
+    "outputTokens": 337,
+    "totalTokens": 3063,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2726,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 337,
+    "service_tier": "standard"
+  }
+}

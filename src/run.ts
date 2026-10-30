@@ -1,5 +1,6 @@
 // npm run demo [challengeId ...]: 3 matchmakers split the challenges; each challenge -> Analyst -> BM25 shortlist -> Profiler
-// -> reserve (version-checked; conflicts go to the Arbiter, the loser re-matches) -> negotiation -> Critic -> out/proposals/<pair>.md.
+// -> reserve (version-checked; conflicts go to the Arbiter, the loser re-matches) -> negotiation from the Profiler's card -> writer
+// -> Critic (deterministic checks, then a cheap-model support check; stopped claims go back once) -> out/proposals/<pair>.md.
 // Reuses recorded answers in fixtures/ (and parsed results in out/cache/) and calls live only for new requests (saved too).
 // `-- --replay`: fixtures only, no key, no network. `-- --fresh`: every call live again.
 import "./env"
@@ -17,6 +18,7 @@ import { ResultCache } from "./llm/cache"
 import { RecordingRunner } from "./llm/runner"
 import { redactKeys } from "./redact"
 import { Board, initializeRuntime, join, on, sendEvent } from "./runtime"
+import type { ProfileCard } from "./schema/profile"
 import type { Pair } from "./tools/cards"
 import { Dataset, hasDataset } from "./tools/dataset"
 import { PublicationIndex } from "./tools/search"
@@ -70,8 +72,8 @@ const outcome = createHuman({
       specification: on("prenup.proposal.ready"),
       processor: {
         apply: ({ event }) => {
-          const { pairId, path, claims, blocked } = event.payload as { pairId: string; path: string; claims: number; blocked: number }
-          settle(challengeOf(pairId), `proposal: ${path} (${claims} claims checked, ${blocked} blocked by the Critic)`)
+          const { pairId, path, claims, stopped, fixed, dropped } = event.payload as { pairId: string; path: string; claims: number; stopped: number; fixed: number; dropped: number }
+          settle(challengeOf(pairId), `proposal: ${path} (${claims} claims checked; the Critic stopped ${stopped}, ${fixed} fixed on rewrite, ${dropped} dropped)`)
         },
       },
     },
@@ -102,11 +104,11 @@ const outcome = createHuman({
   ],
 })
 
-const onPair = (pair: Pair) => {
+const onPair = (pair: Pair, profile: ProfileCard) => {
   console.log(`pair: ${pair.pairId} (picked by search)`)
-  join(createNegotiator("company", pair, board, data))
-  join(createNegotiator("researcher", pair, board, data))
-  join(createWriter(pair, board, data))
+  join(createNegotiator("company", pair, board, data, profile))
+  join(createNegotiator("researcher", pair, board, data, profile))
+  join(createWriter(pair, board, data, profile))
 }
 const matchmakers = Array.from({ length: Math.min(MATCHMAKERS, challengeIds.length) }, (_, i) =>
   createMatchmaker({ name: `matchmaker-${i + 1}`, challengeIds: challengeIds.filter((_, j) => j % MATCHMAKERS === i), data, index, board, onPair }),

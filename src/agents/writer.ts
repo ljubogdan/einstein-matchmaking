@@ -5,10 +5,11 @@ import { EFFORT, MAX_OUTPUT, MODELS } from "../models"
 import { renderProposal } from "../proposal/render"
 import { termClaims } from "../proposal/terms"
 import { on, own, runLoop, sendEvent, type Board } from "../runtime"
-import { CLAIM_SECTIONS, Draft, type Claim } from "../schema/claim"
+import { CLAIM_SECTIONS, ClaimRewrites, Draft, type Claim } from "../schema/claim"
 import { structuredOutput } from "../schema/model-schema"
-import type { Verdict } from "./critic"
-import { evidencePack, type Pair } from "../tools/cards"
+import type { ProfileCard } from "../schema/profile"
+import { applyRewrites, feedbackMessage, type Verdict } from "./critic"
+import { checkedFindings, evidencePack, type Pair } from "../tools/cards"
 import type { Dataset } from "../tools/dataset"
 
 const INSTRUCTION = `You write one-page collaboration proposals between a company and a university researcher, for an engineer or manager to read.
@@ -21,10 +22,16 @@ You get records (JSON lines, each with an id) and the agreed term sheet. Answer 
 - researchQuestions (2 to 4) and plan (3 or 4 phases) describe future work and state no facts about the records.
 - title: the outcome, not the method, no numbers.`
 
-/** Drafts the proposal for one pair once its terms are agreed, sends every claim to the Critic, renders what passed. */
-export function createWriter(pair: Pair, board: Board, data: Dataset, outDir = "out/proposals"): Agent {
+/**
+ * Drafts the proposal for one pair once its terms are agreed and sends every claim to the Critic. Claims it stops go
+ * back to this writer once, with the reasons (feedback loop 3); the fixes are checked again, what still fails is
+ * dropped, and the page is rendered from what passed.
+ */
+export function createWriter(pair: Pair, board: Board, data: Dataset, profile: ProfileCard, outDir = "out/proposals"): Agent {
   let draft: Draft | undefined
   let claims: Claim[] = []
+  let failed: Claim[] = [] // the claims sent back for a rewrite
+  let first: Verdict[] | undefined // verdicts before the rewrite
   const path = `${outDir}/${pair.pairId}.md`
 
   const agent: Agent = createAgent({
@@ -39,7 +46,13 @@ export function createWriter(pair: Pair, board: Board, data: Dataset, outDir = "
           apply: ({ event }) => {
             const { pairId, sheet } = event.payload as { pairId: string; sheet: unknown }
             if (pairId !== pair.pairId || cancelled()) return
-            runLoop(agent.getId(), `Pair id: ${pair.pairId}\n\nRecords:\n${evidencePack(pair, data)}\n\nAgreed term sheet:\n${JSON.stringify(sheet)}`, {
+            const message = [
+              `Pair id: ${pair.pairId}`,
+              `Records:\n${evidencePack(pair, profile, data)}`,
+              `Checked findings about the researcher (the Critic verified their quotes; reuse them):\n${checkedFindings(profile)}`,
+              `Agreed term sheet:\n${JSON.stringify(sheet)}`,
+            ].join("\n\n")
+            runLoop(agent.getId(), message, {
               model: MODELS.strong,
               reasoningEffort: EFFORT.write,
               maxOutputTokens: MAX_OUTPUT.write,
@@ -50,36 +63,25 @@ export function createWriter(pair: Pair, board: Board, data: Dataset, outDir = "
           },
         },
       },
-      {
-        specification: own("model.answer"),
-        processor: {
-          apply: ({ event }) => {
-            if (cancelled()) return
-            const parsed = Draft.safeParse(parseJson(answerText(event.payload)))
-            if (!parsed.success) return emit("prenup.proposal.failed", { pairId: pair.pairId, reason: `invalid draft: ${parsed.error.issues[0]?.message}` })
-            draft = parsed.data
-            const agreed = board.negotiations.get(pair.pairId)?.at(-1)
-            if (!agreed) return emit("prenup.proposal.failed", { pairId: pair.pairId, reason: "no agreed move on the board" })
-            claims = [
-              ...CLAIM_SECTIONS.flatMap((section) => draft![section].map((c, i): Claim => ({ ...c, id: `${pair.pairId}/${section}/${i + 1}` }))),
-              ...termClaims(agreed, pair.researcher.id),
-            ]
-            emit("prenup.critic.check", { pairId: pair.pairId, claims })
-          },
-        },
-      },
+      { specification: own("model.answer"), processor: { apply: ({ event }) => void (cancelled() || (first ? rewritten(answerText(event.payload)) : drafted(answerText(event.payload)))) } },
       {
         specification: on("prenup.critic.done"),
         processor: {
           apply: ({ event }) => {
             const { pairId, verdicts } = event.payload as { pairId: string; verdicts: Verdict[] }
-            const moves = board.negotiations.get(pair.pairId) ?? []
-            const agreed = moves.at(-1)
-            if (pairId !== pair.pairId || !draft || !agreed || cancelled()) return
-            mkdirSync(outDir, { recursive: true })
-            writeFileSync(path, renderProposal({ pair, draft, claims, verdicts, moves, agreed }))
-            const blocked = verdicts.filter((v) => v.verdict === "block").length
-            emit("prenup.proposal.ready", { pairId: pair.pairId, path, claims: verdicts.length, blocked })
+            if (pairId !== pair.pairId || !draft || cancelled()) return
+            if (first) return publish(first.map((v) => verdicts.find((w) => w.claimId === v.claimId) ?? v))
+            first = verdicts
+            failed = claims.filter((c) => c.kind !== "term" && verdicts.find((v) => v.claimId === c.id)?.verdict !== "pass")
+            if (failed.length === 0) return publish(verdicts)
+            runLoop(agent.getId(), feedbackMessage(failed, verdicts), {
+              model: MODELS.strong,
+              reasoningEffort: EFFORT.rewrite,
+              maxOutputTokens: MAX_OUTPUT.rewrite,
+              context: agent.getMemory().getContext(),
+              tools: [],
+              structuredOutput: structuredOutput("claim_rewrites", ClaimRewrites, MODELS.strong),
+            })
           },
         },
       },
@@ -90,6 +92,41 @@ export function createWriter(pair: Pair, board: Board, data: Dataset, outDir = "
       },
     ],
   })
+
+  function drafted(text: string): void {
+    const parsed = Draft.safeParse(parseJson(text))
+    if (!parsed.success) return emit("prenup.proposal.failed", { pairId: pair.pairId, reason: `invalid draft: ${parsed.error.issues[0]?.message}` })
+    draft = parsed.data
+    const agreed = board.negotiations.get(pair.pairId)?.at(-1)
+    if (!agreed) return emit("prenup.proposal.failed", { pairId: pair.pairId, reason: "no agreed move on the board" })
+    claims = [
+      ...CLAIM_SECTIONS.flatMap((section) => draft![section].map((c, i): Claim => ({ ...c, id: `${pair.pairId}/${section}/${i + 1}` }))),
+      ...termClaims(agreed, pair.researcher.id),
+    ]
+    emit("prenup.critic.check", { pairId: pair.pairId, claims })
+  }
+
+  // The fixes replace their claims and go to the Critic again; a claim left out keeps its first verdict.
+  function rewritten(text: string): void {
+    const parsed = ClaimRewrites.safeParse(parseJson(text))
+    const fixes = applyRewrites(failed, parsed.success ? parsed.data : undefined)
+    claims = claims.map((c) => fixes.find((f) => f.id === c.id) ?? c)
+    emit("prenup.writer.rewrote", { pairId: pair.pairId, sentBack: failed.map((c) => c.id), rewritten: fixes.map((c) => c.id) })
+    if (fixes.length === 0) return publish(first!)
+    emit("prenup.critic.check", { pairId: pair.pairId, claims: fixes, attempt: 2 })
+  }
+
+  function publish(verdicts: Verdict[]): void {
+    const moves = board.negotiations.get(pair.pairId) ?? []
+    const agreed = moves.at(-1)
+    if (!draft || !agreed) return
+    for (const v of verdicts.filter((v) => v.verdict !== "pass")) emit("prenup.claim.dropped", { pairId: pair.pairId, claimId: v.claimId, check: v.check, reason: v.reason })
+    mkdirSync(outDir, { recursive: true })
+    writeFileSync(path, renderProposal({ pair, draft, claims, verdicts, first: first ?? verdicts, moves, agreed }))
+    const stopped = (first ?? verdicts).filter((v) => v.verdict !== "pass").length
+    const dropped = verdicts.filter((v) => v.verdict !== "pass").length
+    emit("prenup.proposal.ready", { pairId: pair.pairId, path, claims: verdicts.length, stopped, fixed: stopped - dropped, dropped })
+  }
 
   function cancelled(): boolean {
     return board.cancelled.has(pair.pairId)

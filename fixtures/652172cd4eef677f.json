@@ -1,0 +1,37 @@
+{
+  "key": "652172cd4eef677f",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): ArmaturaSec has no labelled attack traffic from real deployments, making supervised classifiers ineffective for their ProtoSense module.\n  C001-",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"Quote says 'several terabytes', claim says 'multi-terabyte' which is vaguer but acceptable; however claim adds 'over three years' as a specific timeframe detail.\", \"rewrite\": \"ArmaturaSec provides several terabytes of real Modbus TCP and BACnet/IP traffic collected from consenting clients.\"}, {\"claim\": 5, \"support\": \"partly\", \"reason\": \"Quote confirms access to traffic archives, hardware bench, and firmware under NDA, but does not specify that hardware includes 'physical PLC simulators'.\", \"rewrite\": \"The company offers a hardware bench and access to the existing ProtoSense and NetGuard-OT firmware codebase under NDA, enabling realistic on-device validation.\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 10, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 11, \"support\": \"partly\", \"reason\": \"Quotes support that company has traffic archives and hardware for on-device inference, but the claim that researcher is 'actively involved in interdisciplinary collaboration with industry' rests on bio text that does not confirm current active involvement with this specific company or general pattern.\", \"rewrite\": \"The company's multi-terabyte benign traffic archives and hardware bench complement the research group's algorithmic expertise, covering the full path from algorithm design to on-device validation.\"}, {\"claim\": 12, \"support\": \"partly\", \"reason\": \"Quote confirms a one-semester student project with a technical faculty in Novi Sad in 2021, but does not establish that both parties are in the same regional ecosystem or that the researcher's faculty has an ongoing 'prior working relationship' with the company's city beyond this single past project.\", \"rewrite\": \"The researcher's faculty has a prior working relationship with a technical faculty in Novi Sad through a one-semester student project in 2021.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1527,
+    "outputTokens": 594,
+    "totalTokens": 2121,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1527,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 594,
+    "service_tier": "standard"
+  }
+}

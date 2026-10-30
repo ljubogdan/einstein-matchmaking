@@ -1,0 +1,37 @@
+{
+  "key": "48fde03ff015028c",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Reconstruction-error autoencoders have been applied to anomaly detection and can be trained on unlabelled sessions to produce anomaly scores.\n  ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"The quotes discuss challenges for telemetry streams in games and concept drift sensitivity separately, not as integrated challenges of telemetry-based anomaly detection generally.\", \"rewrite\": \"Telemetry-based anomaly detection methods face challenges including irregular sampling rates in variable-length behavioural telemetry streams, and sensitivity to concept drift is a concern in such systems.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 745,
+    "outputTokens": 146,
+    "totalTokens": 891,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 745,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 146,
+    "service_tier": "standard"
+  }
+}

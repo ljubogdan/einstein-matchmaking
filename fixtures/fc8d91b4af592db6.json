@@ -1,0 +1,37 @@
+{
+  "key": "fc8d91b4af592db6",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The company supports external partners with sample preparation and basic physical-chemical measurements, reducing turnaround time for longitudin",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"Quote covers thesis topic but does not mention that subsequent publications examined cold-pressed pumpkin seed oil oxidation directly\", \"rewrite\": \"The doctoral thesis covered peroxide formation kinetics in sunflower and pumpkin seed oils.\"}, {\"claim\": 4, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 891,
+    "outputTokens": 140,
+    "totalTokens": 1031,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 891,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 140,
+    "service_tier": "standard"
+  }
+}

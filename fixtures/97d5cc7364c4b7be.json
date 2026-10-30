@@ -1,0 +1,37 @@
+{
+  "key": "97d5cc7364c4b7be",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Concept drift and label scarcity in time-series data from industrial monitoring can be addressed through ensemble methods and high-dimensional i",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"Quotes don't mention ensemble methods or specify industrial monitoring context; they don't mention fault event detection.\", \"rewrite\": \"Concept drift and label scarcity in high-dimensional, heavily imbalanced time-series data can be addressed through anomaly detection and classification methods.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 583,
+    "outputTokens": 83,
+    "totalTokens": 666,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 583,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 83,
+    "service_tier": "standard"
+  }
+}

@@ -4,13 +4,20 @@ import type { NegotiationMove } from "../schema/termsheet"
 import type { Pair } from "../tools/cards"
 import { ENGAGEMENT_LABELS } from "./terms"
 
-type Input = { pair: Pair; draft: Draft; claims: Claim[]; verdicts: Verdict[]; moves: NegotiationMove[]; agreed: NegotiationMove }
+// verdicts = final ones; first = before the writer's rewrite, so the page shows where the Critic stepped in.
+type Input = { pair: Pair; draft: Draft; claims: Claim[]; verdicts: Verdict[]; first: Verdict[]; moves: NegotiationMove[]; agreed: NegotiationMove }
 
 /** One page per pair (prenup-proposal). Only claims the Critic passed are printed; header facts come straight from the data. */
-export function renderProposal({ pair, draft, claims, verdicts, moves, agreed }: Input): string {
+export function renderProposal({ pair, draft, claims, verdicts, first, moves, agreed }: Input): string {
   const { company: c, researcher: r, challenge: ch } = pair
   const passed = new Set(verdicts.filter((v) => v.verdict === "pass").map((v) => v.claimId))
-  const blocked = verdicts.filter((v) => v.verdict === "block")
+  const stopped = first.filter((v) => v.verdict !== "pass")
+  const outcome = (v: Verdict) => {
+    const final = verdicts.find((w) => w.claimId === v.claimId)
+    if (v.claimId.includes("/terms/")) return "not printed (terms come from the agreed sheet)"
+    if (final?.verdict === "pass") return "rewritten by the writer, then passed"
+    return final && final !== v ? `rewritten, stopped again (${final.check}: ${final.reason}), dropped` : "dropped"
+  }
   const section = (name: string) => claims.filter((cl) => cl.id.includes(`/${name}/`) && passed.has(cl.id))
   const cite = (cl: Claim) => {
     const ids = [...new Set(cl.sources.map((s) => (s.id.startsWith("move:") ? `term sheet, round ${agreed.round}` : s.id)))]
@@ -57,8 +64,8 @@ export function renderProposal({ pair, draft, claims, verdicts, moves, agreed }:
     `Negotiation on challenge ${ch.id}, ${moves.length} moves:`,
     ...moves.map((m) => `- Round ${m.round}, ${m.side}: ${m.action}${m.changes.length ? ` (changed ${m.changes.join(", ")})` : ""}. ${m.reason}`),
     "",
-    `Checked: ${verdicts.length} claims, ${blocked.length} blocked by the Critic${blocked.length ? ":" : "."}`,
-    ...blocked.map((v) => `- ${v.claimId.split("/").slice(1).join("/")}: ${v.check}, ${v.reason}`),
+    `Checked: ${verdicts.length} claims; the Critic stopped ${stopped.length}${stopped.length ? ", and each went back to the writer once:" : "."}`,
+    ...stopped.map((v) => `- ${v.claimId.split("/").slice(1).join("/")}: ${v.check}, ${v.reason} -> ${outcome(v)}`),
     "",
     `Trace: out/trace.jsonl, pair ${pair.pairId}.`,
     "</details>",
