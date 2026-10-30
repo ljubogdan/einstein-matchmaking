@@ -1,0 +1,26 @@
+{
+  "name": "prenup",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Mozaik agents that pre-negotiate researcher-company collaborations on the EINSTEIN dataset",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "setup": "bash scripts/setup.sh",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "demo": "tsx src/run.ts"
+  },
+  "dependencies": {
+    "@mozaik-ai/core": "4.2.0",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5"
+  }
+}

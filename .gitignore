@@ -3,3 +3,4 @@ dist/
 .env
 data/einstein/
 out/cache/
+out/tmp/

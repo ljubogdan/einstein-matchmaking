@@ -1,0 +1,4 @@
+{"t":"2026-10-30T11:30:59.422Z","type":"participant.joined","producer":"observer","payload":{"id":"b14374d4-bc1c-45f4-a79f-a135ff6b3dab","name":"observer","capabilities":["trace"],"role":"human"}}
+{"t":"2026-10-30T11:30:59.423Z","type":"participant.joined","producer":"analyst","payload":{"id":"d7a24637-0524-4ec1-997f-38bf122fbd9b","name":"analyst","capabilities":["analyze-challenge"],"role":"agent"}}
+{"t":"2026-10-30T11:30:59.423Z","type":"participant.joined","producer":"matchmaker","payload":{"id":"2e1839d4-693e-4096-bda9-aec890535222","name":"matchmaker","capabilities":["match"],"role":"agent"}}
+{"t":"2026-10-30T11:30:59.423Z","type":"prenup.challenge.analyzed","producer":"analyst","payload":{"challengeId":"C001-CH1"}}
