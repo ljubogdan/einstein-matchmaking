@@ -5,88 +5,160 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Prenup board</title>
 <style>
+  /* San Francisco where it exists (macOS), Inter elsewhere; one accent, red only for the Critic. */
   :root {
-    --ink: #1d2330; --muted: #6b7280; --line: #e3e6ec; --bg: #ffffff; --panel: #f7f8fa;
-    --accent: #2457c5; --accent-soft: #e8eefb; --red: #c62828; --red-soft: #fdecec;
-    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    --bg: #f5f5f7; --surface: #ffffff; --ink: #1d1d1f; --muted: #6e6e73; --faint: #86868b; --line: rgba(0, 0, 0, .08);
+    --fill: #f5f5f7; --accent: #0071e3; --accent-soft: rgba(0, 113, 227, .09); --red: #d70015; --red-soft: rgba(255, 59, 48, .08);
+    --shadow: 0 1px 1px rgba(0, 0, 0, .02), 0 2px 10px rgba(0, 0, 0, .05);
+    --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Helvetica Neue", system-ui, sans-serif;
+    --display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Helvetica Neue", system-ui, sans-serif;
+    --mono: "SF Mono", ui-monospace, "JetBrains Mono", Menlo, monospace;
+    --strip: 236px;
   }
   * { box-sizing: border-box; }
-  body { margin: 0; font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--ink); background: var(--bg); }
-  header { display: flex; align-items: center; gap: 16px; padding: 10px 16px; border-bottom: 1px solid var(--line); }
-  header h1 { font-size: 16px; margin: 0; }
-  header .note { color: var(--muted); font-size: 12px; flex: 1; }
-  button, select { font: inherit; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); padding: 4px 10px; cursor: pointer; }
-  button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
-  button:disabled { opacity: .5; cursor: default; }
-  main { display: grid; grid-template-columns: 1fr 1.25fr .9fr; height: calc(100vh - 53px - var(--strip, 210px)); }
-  section { overflow-y: auto; padding: 12px 16px; border-right: 1px solid var(--line); }
-  section:last-child { border-right: 0; }
-  h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 0 0 10px; }
-  a.id { font-family: var(--mono); font-size: 12.5px; color: var(--accent); text-decoration: none; }
-  a.id:hover { text-decoration: underline; }
-  .mono { font-family: var(--mono); font-size: 12.5px; }
-  .card { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; margin-bottom: 10px; background: var(--bg); }
-  .card .top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
-  .owner { color: var(--muted); font-size: 12px; }
-  .pill { font-size: 11.5px; padding: 1px 8px; border-radius: 99px; background: var(--panel); color: var(--muted); white-space: nowrap; }
+  html, body { height: 100%; }
+  body {
+    margin: 0; display: grid; grid-template-rows: auto 1fr var(--strip); background: var(--bg); color: var(--ink);
+    font: 14px/1.47 var(--sans); letter-spacing: -0.01em; -webkit-font-smoothing: antialiased; font-feature-settings: "cv11", "ss01";
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a.id { font: 500 12px/1 var(--mono); letter-spacing: 0; }
+  button { font: inherit; letter-spacing: inherit; cursor: pointer; }
+
+  header {
+    position: sticky; top: 0; z-index: 2; display: flex; align-items: center; gap: 28px; padding: 14px 28px;
+    background: rgba(255, 255, 255, .72); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--line);
+  }
+  .brand h1 { margin: 0; font: 600 21px/1.1 var(--display); letter-spacing: -0.022em; }
+  .brand p { margin: 2px 0 0; color: var(--muted); font-size: 12.5px; white-space: nowrap; }
+  .brand .status { display: flex; align-items: center; gap: 6px; color: var(--faint); font-size: 12px; }
+  .brand .status span { overflow: hidden; text-overflow: ellipsis; }
+  .brand .status i { width: 7px; height: 7px; border-radius: 50%; background: #c7c7cc; }
+  .brand .status i.live { background: var(--accent); box-shadow: 0 0 0 0 rgba(0, 113, 227, .5); animation: pulse 1.6s ease-out infinite; }
+  @keyframes pulse { to { box-shadow: 0 0 0 7px rgba(0, 113, 227, 0); } }
+  .stats { display: flex; gap: 24px; margin-left: auto; }
+  .stat { display: flex; flex-direction: column; align-items: flex-end; min-width: 56px; }
+  .stat b { font: 600 20px/1.1 var(--display); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .stat span { color: var(--faint); font-size: 11.5px; }
+  .stat.live b { color: var(--accent); }
+  .stat.crit b { color: var(--red); }
+  .controls { display: flex; align-items: center; gap: 12px; }
+  .segmented { display: inline-flex; padding: 2px; border-radius: 9px; background: rgba(118, 118, 128, .12); }
+  .segmented button { border: 0; background: transparent; color: var(--ink); padding: 4px 11px; border-radius: 7px; font-size: 12.5px; font-weight: 500; }
+  .segmented button.on { background: var(--surface); box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 1px rgba(0, 0, 0, .04); }
+  .primary { border: 0; border-radius: 980px; background: var(--accent); color: #fff; padding: 8px 18px; font-weight: 500; transition: background .2s, opacity .2s; }
+  .primary:hover { background: #0077ed; }
+  .primary:disabled { opacity: .45; cursor: default; }
+
+  main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, .9fr); gap: 20px; padding: 20px 28px 12px; min-height: 0; }
+  section { display: flex; flex-direction: column; min-height: 0; }
+  section > h2 { margin: 0 0 2px 4px; font: 600 17px/1.2 var(--display); letter-spacing: -0.02em; }
+  section > .sub { margin: 0 0 12px 4px; color: var(--muted); font-size: 12.5px; }
+  .scroll { overflow-y: auto; min-height: 0; padding: 2px 4px 12px; margin: 0 -4px; scrollbar-width: thin; }
+
+  .card { background: var(--surface); border-radius: 14px; box-shadow: var(--shadow); padding: 14px 16px; margin-bottom: 12px; }
+  .top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+  .top .who { display: flex; align-items: baseline; gap: 8px; }
+  .owner { color: var(--faint); font-size: 12px; }
+  .pill { font-size: 11.5px; font-weight: 500; padding: 2px 9px; border-radius: 980px; background: var(--fill); color: var(--muted); white-space: nowrap; }
   .pill.done { background: var(--accent-soft); color: var(--accent); }
-  .steps { margin: 6px 0 0; padding: 0; list-style: none; }
-  .steps li { padding: 3px 0 3px 10px; border-left: 2px solid var(--line); font-size: 13px; }
-  .steps li.warn { border-left-color: var(--ink); font-weight: 600; }
-  .steps li.key { border-left-color: var(--accent); }
-  .why { color: var(--muted); font-size: 12.5px; }
-  .chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
-  .chip { font-family: var(--mono); font-size: 11.5px; padding: 0 6px; border-radius: 4px; border: 1px solid var(--line); color: var(--muted); }
+  .pill.gone { text-decoration: line-through; }
+  .why { color: var(--muted); }
+
+  /* A challenge's story as a quiet vertical timeline. */
+  .steps { list-style: none; margin: 10px 0 0; padding: 0; }
+  .steps li { position: relative; padding: 0 0 9px 18px; font-size: 13px; }
+  .steps li::before { content: ""; position: absolute; left: 3px; top: 7px; width: 6px; height: 6px; border-radius: 50%; background: #d2d2d7; }
+  .steps li::after { content: ""; position: absolute; left: 5.5px; top: 16px; bottom: 0; width: 1px; background: var(--line); }
+  .steps li:last-child { padding-bottom: 0; }
+  .steps li:last-child::after { display: none; }
+  .steps li.key::before { background: var(--accent); }
+  .steps li.warn { font-weight: 600; }
+  .steps li.warn::before { background: var(--ink); }
+  .steps li.warn .why { font-weight: 400; }
+  .chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+  .chip { font: 500 11.5px/1.6 var(--mono); letter-spacing: 0; padding: 0 7px; border-radius: 6px; background: var(--fill); color: var(--faint); }
   .chip.ready { color: var(--ink); }
-  .chip.picked { border-color: var(--accent); color: var(--accent); }
-  .chip.out { text-decoration: line-through; }
-  .tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
-  .tabs button { font-family: var(--mono); font-size: 12px; }
-  .tabs button.on { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
-  .tabs button.gone { text-decoration: line-through; color: var(--muted); }
-  .follow { font-size: 12px; color: var(--muted); }
-  table.sheet { width: 100%; border-collapse: collapse; margin: 6px 0 12px; }
-  table.sheet td { padding: 4px 6px; vertical-align: top; border-bottom: 1px solid var(--line); font-size: 13px; }
-  table.sheet td:first-child { color: var(--muted); width: 110px; white-space: nowrap; }
-  table.sheet tr.changed td { background: var(--accent-soft); }
-  table.sheet tr.changed td:first-child { color: var(--accent); font-weight: 600; }
-  .move { padding: 6px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
-  .move b { font-weight: 600; }
-  .stop { padding: 6px 8px; margin: 4px 0; border-radius: 6px; font-size: 13px; background: var(--red-soft); border-left: 3px solid var(--red); }
+  .chip.picked { background: var(--accent-soft); color: var(--accent); }
+  .chip.out { text-decoration: line-through; color: var(--faint); }
+
+  .tabs { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0 0 12px; }
+  .tabs button { border: 0; border-radius: 980px; padding: 4px 12px; background: var(--surface); box-shadow: var(--shadow); font: 500 12px/1.4 var(--mono); letter-spacing: 0; color: var(--ink); }
+  .tabs button.on { background: var(--ink); color: #fff; }
+  .tabs button.gone { text-decoration: line-through; color: var(--faint); }
+  .tabs .follow { margin-left: auto; font-size: 12px; color: var(--faint); }
+  .tabs .follow button { box-shadow: none; background: transparent; color: var(--accent); font-family: var(--sans); padding: 0; }
+
+  .group { background: var(--surface); border-radius: 14px; box-shadow: var(--shadow); overflow: hidden; margin-bottom: 12px; }
+  .row { display: grid; grid-template-columns: 112px 1fr; gap: 12px; padding: 9px 16px; border-top: 1px solid var(--line); font-size: 13px; }
+  .row:first-child { border-top: 0; }
+  .row > span:first-child { color: var(--muted); }
+  .row.changed { background: var(--accent-soft); }
+  .row.changed > span:first-child { color: var(--accent); font-weight: 600; }
+  .label { margin: 16px 4px 8px; color: var(--muted); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
+  .move { background: var(--surface); border-radius: 12px; box-shadow: var(--shadow); padding: 10px 14px; margin-bottom: 8px; font-size: 13px; }
+  .move .head { display: flex; align-items: center; gap: 8px; margin-bottom: 3px; font-weight: 600; }
+  .move .head .changes { display: flex; gap: 4px; flex-wrap: wrap; }
+  .move .head .changes span { font: 500 11px/1.6 var(--mono); letter-spacing: 0; padding: 0 6px; border-radius: 5px; background: var(--accent-soft); color: var(--accent); }
+  .outcome { margin: 4px 4px 12px; font-weight: 600; }
+  .stop { background: var(--red-soft); border-radius: 12px; padding: 10px 14px; margin-bottom: 8px; font-size: 13px; }
   .stop .what { color: var(--red); font-weight: 600; }
-  .stop .then { display: block; margin-top: 2px; }
-  .stop .then.fixed { color: var(--accent); }
-  .stop .then.dropped { color: var(--muted); }
-  .outcome { margin: 8px 0; font-weight: 600; }
+  .stop .then { display: block; margin-top: 4px; font-size: 12.5px; }
+  .stop .then.fixed { color: var(--accent); font-weight: 500; }
+  .stop .then.dropped, .stop .then.wait { color: var(--muted); }
   .muted { color: var(--muted); }
-  .log { font-size: 12.5px; }
-  .log div { padding: 3px 0; border-bottom: 1px solid var(--line); }
-  .log .t { font-family: var(--mono); color: var(--muted); font-size: 11.5px; margin-right: 6px; }
-  .log .p { color: var(--muted); margin-right: 4px; }
+
+  .log { background: var(--surface); border-radius: 14px; box-shadow: var(--shadow); padding: 4px 0; }
+  .log div { padding: 7px 14px; border-top: 1px solid var(--line); font-size: 12.5px; }
+  .log div:first-child { border-top: 0; }
+  .log .t { font: 500 11px/1 var(--mono); letter-spacing: 0; color: var(--faint); margin-right: 8px; font-variant-numeric: tabular-nums; }
+  .log .p { color: var(--faint); margin-right: 6px; }
   .log .crit { color: var(--red); }
   .log .run { color: var(--muted); font-style: italic; }
-  #strip { position: fixed; bottom: 0; left: 0; right: 0; height: var(--strip, 210px); border-top: 1px solid var(--line); background: var(--panel); padding: 6px 16px; }
-  #strip h2 { margin: 0 0 2px; display: flex; justify-content: space-between; }
-  #strip svg { width: 100%; display: block; }
-  .empty { color: var(--muted); font-size: 13px; }
-  @media (max-width: 900px) { main { grid-template-columns: 1fr; height: auto; } section { border-right: 0; border-bottom: 1px solid var(--line); } #strip { position: static; } }
+
+  #strip { padding: 0 28px 20px; min-height: 0; }
+  #strip .card { height: 100%; margin: 0; display: flex; flex-direction: column; padding: 12px 18px; }
+  #strip .top h2 { margin: 0; font: 600 15px/1.2 var(--display); letter-spacing: -0.015em; }
+  #strip .top span { color: var(--faint); font-size: 12px; font-variant-numeric: tabular-nums; }
+  #strip svg { width: 100%; flex: 1; min-height: 0; margin-top: 6px; }
+
+  .empty { color: var(--faint); font-size: 13px; padding: 24px 4px; }
+  [data-enter] { animation: enter .4s ease-out both; }
+  @keyframes enter { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { [data-enter] { animation: none; } }
+  @media (max-width: 1100px) {
+    body { display: block; }
+    header { flex-wrap: wrap; gap: 14px; padding: 12px 16px; }
+    .stats { margin-left: 0; }
+    main { grid-template-columns: 1fr; padding: 16px; }
+    .scroll { overflow: visible; }
+    #strip { padding: 0 16px 16px; height: auto; }
+  }
 </style>
 </head>
 <body>
 <header>
-  <h1>Prenup</h1>
-  <span class="note" id="note">Following out/trace.jsonl</span>
-  <select id="speed" title="Replay speed: recorded latency divided by">
-    <option value="1">1×</option><option value="2">2×</option><option value="4" selected>4×</option><option value="16">16×</option>
-  </select>
-  <button class="primary" id="run">Run the demo set</button>
+  <div class="brand">
+    <h1>Prenup</h1>
+    <p>Matches researchers to company challenges and agrees the terms up front</p>
+    <p class="status"><i id="dot"></i><span id="note">Following the latest run</span></p>
+  </div>
+  <div class="stats" id="stats"></div>
+  <div class="controls">
+    <div class="segmented" id="speed" role="radiogroup" aria-label="Replay speed">
+      <button data-speed="1">1×</button><button data-speed="2">2×</button><button data-speed="4" class="on">4×</button><button data-speed="16">16×</button>
+    </div>
+    <button class="primary" id="run">Run the demo set</button>
+  </div>
 </header>
 <main>
-  <section><h2>Matchmakers and Arbiter</h2><div id="challenges"><p class="empty">No run yet.</p></div></section>
-  <section><h2>Negotiation and Critic</h2><div id="pair"><p class="empty">No pair yet.</p></div></section>
-  <section><h2>Event log</h2><div class="log" id="log"></div></section>
+  <section><h2>Matchmakers and Arbiter</h2><p class="sub">Each challenge, from search to outcome</p><div class="scroll" id="challenges"></div></section>
+  <section><h2>Negotiation and Critic</h2><p class="sub">The focused pair's terms, moves and checked claims</p><div class="scroll" id="pair"></div></section>
+  <section><h2>Event log</h2><p class="sub">Every agent reacting to every other, newest first</p><div class="scroll"><div class="log" id="log"></div></div></section>
 </main>
-<div id="strip"><h2><span>Timeline: one row per kind of participant, one bar per model call</span><span id="span"></span></h2><svg id="timeline"></svg></div>
+<div id="strip"><div class="card"><div class="top"><h2>Timeline</h2><span id="span">One row per kind of participant, one bar per model call</span></div><svg id="timeline"></svg></div></div>
 
 <script>
 const ENGAGEMENT = { joint_project: "Joint project", industrial_phd: "Industrial PhD", contract_research: "Contract research", consulting: "Consulting", internship: "Internship" }
@@ -120,23 +192,34 @@ function group(producer) {
   return null
 }
 
+// Every item that can appear gets a number and a birth time. The page is redrawn whole, so a new item's fade-in
+// continues across redraws (negative delay) instead of restarting or being cut short.
 let S
 function reset() {
-  S = { t0: null, tLast: 0, challenges: new Map(), pairs: new Map(), loops: new Map(), ticks: [], log: [], focus: null, pinned: false, records: new Map() }
+  S = { t0: null, tLast: 0, seq: 0, born: [], challenges: new Map(), pairs: new Map(), loops: new Map(), ticks: [], log: [], stops: 0, focus: null, pinned: false, records: new Map() }
   dirty()
+}
+const FADE_MS = 400
+function next() {
+  S.born[++S.seq] = performance.now()
+  return S.seq
+}
+function anim(item) {
+  const age = performance.now() - (S.born[item.seq] ?? 0)
+  return age < FADE_MS ? ` data-enter style="animation-delay:-${age.toFixed(0)}ms"` : ""
 }
 
 const challenge = (id) => {
-  if (!S.challenges.has(id)) S.challenges.set(id, { id, owner: "", status: "submitted", steps: [], shortlist: [], cards: {}, picked: null, stopped: 0, fixed: 0 })
+  if (!S.challenges.has(id)) S.challenges.set(id, { id, owner: "", status: "submitted", steps: [], shortlist: [], cards: {}, picked: null, stopped: 0, fixed: 0, seq: next() })
   return S.challenges.get(id)
 }
 const pair = (pairId) => {
   if (!S.pairs.has(pairId)) S.pairs.set(pairId, { pairId, moves: [], verdicts: [], status: "negotiating" })
   return S.pairs.get(pairId)
 }
-const step = (challengeId, html, cls = "") => challenge(challengeId).steps.push({ html, cls })
+const step = (challengeId, html, cls = "") => challenge(challengeId).steps.push({ html, cls, seq: next() })
 const focus = (pairId) => { if (!S.pinned) S.focus = pairId }
-const log = (e, text, cls = "") => S.log.push({ t: e.t, producer: e.producer, text, cls })
+const log = (e, text, cls = "") => S.log.push({ t: e.t, producer: e.producer, text, cls, seq: next() })
 const at = (t) => (t - S.t0) / 1000
 
 function apply(e) {
@@ -158,8 +241,9 @@ function apply(e) {
     case "prenup.challenge.analyzed": {
       const c = challenge(p.challengeId)
       c.status = "searching"
-      step(p.challengeId, p.researchProblem ? `Analyst: a research problem. Search terms: <span class="why">${esc(p.searchTerms.slice(0, 5).join(", "))}…</span>` : `Analyst: not a research problem`)
+      step(p.challengeId, p.researchProblem ? `Analyst: a research problem. <span class="why">Searching for ${esc(p.searchTerms.slice(0, 4).join(", "))}…</span>` : `Analyst: not a research problem`)
       log(e, `${p.challengeId}: ${p.researchProblem ? "research problem" : "not a research problem"}`)
+      tick()
       break
     }
     case "prenup.shortlist.ready": {
@@ -172,15 +256,17 @@ function apply(e) {
     }
     case "prenup.profile.ready":
       challenge(p.challengeId).cards[p.researcherId] = p
+      tick()
       log(e, `${p.researcherId} card for ${p.challengeId}: fit ${p.fit}${p.flags.length ? `, flags: ${p.flags.map((f) => f.kind).join(", ")}` : ""}`)
       break
     case "prenup.critic.verdict": {
       const stopped = p.verdict !== "pass"
+      if (stopped && p.attempt === 1) S.stops++ // first-pass stops, as the README counts them
       if (p.pairId.startsWith("profile:")) {
         const c = challenge(p.pairId.slice(8).split("__")[0])
         if (stopped && p.attempt === 1) c.stopped++
         if (!stopped && p.attempt === 2) c.fixed++
-      } else pair(p.pairId).verdicts.push(p)
+      } else pair(p.pairId).verdicts.push({ ...p, seq: next() })
       if (stopped || p.attempt === 2) log(e, `${p.claimId.replace(/^profile:/, "card ")}: ${stopped ? `${p.verdict} (${p.check}) ${p.reason}` : "passed after rewrite"}`, stopped ? "crit" : "")
       if (stopped) tick(true)
       break
@@ -189,8 +275,8 @@ function apply(e) {
       const c = challenge(p.challengeId)
       c.picked = p.researcherId
       c.status = "negotiating"
-      for (const s of p.skipped ?? []) if (!c.steps.some((x) => x.skip === s.researcherId)) c.steps.push({ html: `Skipped ${idLink(s.researcherId)}: <span class="why">${linked(s.reason)}</span>`, skip: s.researcherId })
-      step(p.challengeId, `Reserved ${idLink(p.researcherId)} (board version ${p.reservationVersion}), fit ${esc(p.fit)}. Negotiation starts.`, "key")
+      for (const s of p.skipped ?? []) if (!c.steps.some((x) => x.skip === s.researcherId)) c.steps.push({ html: `Skipped ${idLink(s.researcherId)}: <span class="why">${linked(s.reason)}</span>`, skip: s.researcherId, seq: next() })
+      step(p.challengeId, `Reserved ${idLink(p.researcherId)} at board version ${p.reservationVersion}, fit ${esc(p.fit)}. Negotiation starts.`, "key")
       pair(p.pairId).challengeId = p.challengeId
       focus(p.pairId)
       log(e, `${p.challengeId} reserved ${p.researcherId} (version ${p.reservationVersion})`)
@@ -199,7 +285,7 @@ function apply(e) {
     }
     case "prenup.reservation.conflict":
       challenge(p.challengeId).status = "conflict"
-      step(p.challengeId, `Conflict on ${idLink(p.researcherId)}: held by ${idLink(p.holder)}. Read version ${p.seenVersion}, board now at ${p.version}. Sent to the Arbiter.`, "warn")
+      step(p.challengeId, `Conflict on ${idLink(p.researcherId)}, held by ${idLink(p.holder)}. <span class="why">Read version ${p.seenVersion}, the board is now at ${p.version}: the write fails and goes to the Arbiter.</span>`, "warn")
       log(e, `conflict on ${p.researcherId}: ${p.challengeId} vs holder ${p.holder} (read v${p.seenVersion}, now v${p.version})`)
       tick()
       break
@@ -211,7 +297,7 @@ function apply(e) {
     case "prenup.pair.cancelled":
       pair(p.pairId).status = "cancelled"
       pair(p.pairId).why = p.reason
-      step(p.pairId.split("__")[0], `Negotiation ${pairLabel(p.pairId)} stopped: ${esc(p.reason)}`)
+      step(p.pairId.split("__")[0], `Negotiation ${pairLabel(p.pairId)} stopped: <span class="why">${esc(p.reason)}</span>`)
       log(e, `${p.pairId} cancelled: ${p.reason}`)
       break
     case "prenup.rematch":
@@ -221,7 +307,7 @@ function apply(e) {
       tick()
       break
     case "prenup.negotiation.move":
-      pair(p.pairId).moves.push(p)
+      pair(p.pairId).moves.push({ ...p, seq: next() })
       focus(p.pairId)
       log(e, `${p.pairId} round ${p.round}, ${p.side}: ${p.action}${p.changes.length ? ` (changed ${p.changes.join(", ")})` : ""}`)
       break
@@ -242,7 +328,7 @@ function apply(e) {
       Object.assign(pair(p.pairId), { status: "proposal ready", ready: p })
       const c = challenge(p.pairId.split("__")[0])
       c.status = "proposal"
-      step(c.id, `Proposal ready: <a href="/proposal/${esc(p.pairId)}" target="_blank">${esc(p.path)}</a>. ${p.claims} claims checked; the Critic stopped ${p.stopped}, ${p.fixed} fixed on rewrite, ${p.dropped} dropped.`, "key")
+      step(c.id, `Proposal ready: <a href="/proposal/${esc(p.pairId)}" target="_blank">open the page</a>. <span class="why">${p.claims} claims checked; the Critic stopped ${p.stopped}, ${p.fixed} fixed on rewrite, ${p.dropped} dropped.</span>`, "key")
       focus(p.pairId)
       log(e, `proposal ready: ${p.pairId}`)
       break
@@ -250,7 +336,7 @@ function apply(e) {
     case "prenup.nomatch": {
       const c = challenge(p.challengeId)
       c.status = "no match"
-      step(p.challengeId, `No match (${esc(p.verdict)}): <span class="why">${linked(p.reason)}</span>`, "key")
+      step(p.challengeId, `No match, ${esc(p.verdict)}. <span class="why">${linked(p.reason)}</span>`, "key")
       log(e, `no match for ${p.challengeId}: ${p.verdict}`)
       tick()
       break
@@ -267,18 +353,34 @@ let scheduled = false
 function dirty() {
   if (scheduled) return
   scheduled = true
-  requestAnimationFrame(() => { scheduled = false; render() })
+  requestAnimationFrame(() => {
+    scheduled = false
+    render()
+  })
 }
 
 function render() {
+  renderStats()
   renderChallenges()
   renderPair()
   renderLog()
   renderTimeline()
+  // Keep redrawing while something is still fading in.
+  if (performance.now() - (S.born[S.seq] ?? 0) < FADE_MS) dirty()
+}
+
+function renderStats() {
+  const loops = [...S.loops.values()]
+  const running = loops.filter((l) => l.end === null).length
+  const proposals = [...S.pairs.values()].filter((p) => p.ready).length
+  const stat = (value, label, cls = "") => `<div class="stat ${cls}"><b>${value}</b><span>${label}</span></div>`
+  $("stats").innerHTML = S.t0
+    ? [stat(running, "calls running", running ? "live" : ""), stat(loops.length, "model calls"), stat(proposals, proposals === 1 ? "proposal" : "proposals"), stat(S.stops, "claims stopped", S.stops ? "crit" : ""), stat(`${at(S.tLast).toFixed(0)}s`, "elapsed")].join("")
+    : ""
 }
 
 function renderChallenges() {
-  if (S.challenges.size === 0) return void ($("challenges").innerHTML = `<p class="empty">No run yet. Press "Run the demo set".</p>`)
+  if (S.challenges.size === 0) return void ($("challenges").innerHTML = `<p class="empty">No run yet. Press <b>Run the demo set</b>.</p>`)
   $("challenges").innerHTML = [...S.challenges.values()].map((c) => {
     const chips = c.shortlist.map((r) => {
       const card = c.cards[r]
@@ -286,10 +388,10 @@ function renderChallenges() {
       return `<span class="${cls}" title="${card ? `fit ${card.fit}` : "profiling"}">${r}${card ? ` · ${card.fit}` : ""}</span>`
     }).join("")
     const done = ["proposal", "no match"].includes(c.status)
-    const profiles = c.shortlist.length ? `<li>Profiler cards ${Object.keys(c.cards).length}/${c.shortlist.length}${c.stopped ? `. The Critic stopped <b>${c.stopped}</b> card claims; ${c.fixed} passed after a rewrite.` : ""}<div class="chips">${chips}</div></li>` : ""
-    const steps = c.steps.map((s) => `<li class="${s.cls ?? ""}">${s.html}</li>`)
+    const profiles = c.shortlist.length ? `<li>Profiler cards ${Object.keys(c.cards).length} of ${c.shortlist.length}${c.stopped ? `. <span class="why">The Critic stopped ${c.stopped} card claims; ${c.fixed} passed after a rewrite.</span>` : ""}<div class="chips">${chips}</div></li>` : ""
+    const steps = c.steps.map((s) => `<li class="${s.cls ?? ""}"${anim(s)}>${s.html}</li>`)
     const [first, ...rest] = steps
-    return `<div class="card"><div class="top"><span>${idLink(c.id)} <span class="owner">${esc(c.owner)}</span></span><span class="pill ${done ? "done" : ""}">${esc(c.status)}</span></div>
+    return `<div class="card"${anim(c)}><div class="top"><span class="who">${idLink(c.id)}<span class="owner">${esc(c.owner)}</span></span><span class="pill ${done ? "done" : ""}">${esc(c.status)}</span></div>
       <ul class="steps">${first ?? ""}${profiles}${rest.join("")}</ul></div>`
   }).join("")
 }
@@ -304,7 +406,7 @@ function record(id) {
 
 function renderPair() {
   const tabs = [...S.pairs.values()]
-  if (tabs.length === 0) return void ($("pair").innerHTML = `<p class="empty">No pair yet.</p>`)
+  if (tabs.length === 0) return void ($("pair").innerHTML = `<p class="empty">No pair yet. Negotiations appear here as soon as a matchmaker reserves a researcher.</p>`)
   const p = S.pairs.get(S.focus) ?? tabs.at(-1)
   const [challengeId, researcherId] = p.pairId.split("__")
   const company = record(challengeId.split("-")[0])
@@ -312,27 +414,28 @@ function renderPair() {
   const last = p.moves.at(-1)
   const sheet = last?.sheet
   const changed = new Set(last?.changes ?? [])
-  const row = (key, label, value) => `<tr class="${changed.has(key) ? "changed" : ""}"><td>${label}</td><td>${value}</td></tr>`
-  const list = (xs) => xs.length ? xs.map(linked).join("; ") : `<span class="muted">none</span>`
+  const row = (key, label, value) => `<div class="row ${changed.has(key) ? "changed" : ""}"><span>${label}</span><span>${value}</span></div>`
+  const list = (xs) => (xs.length ? xs.map(linked).join("; ") : `<span class="muted">none</span>`)
+  const good = ["agreed", "proposal ready"].includes(p.status)
 
   const header = `<div class="tabs">${tabs.map((x) => `<button class="${x === p ? "on" : ""} ${x.status === "cancelled" ? "gone" : ""}" data-pair="${esc(x.pairId)}">${esc(x.pairId.replace("__", " × "))}</button>`).join("")}
-    <span class="follow">${S.pinned ? `<button data-follow>follow live</button>` : "following live"}</span></div>`
-  const who = `<div class="card"><div class="top"><span>${pairLabel(p.pairId)}</span><span class="pill ${["agreed", "proposal ready"].includes(p.status) ? "done" : ""}">${esc(p.status)}</span></div>
-    <div class="why">${company ? `${esc(company.name)}, ${esc(company.sector)}, ${company.employees} employees` : idLink(challengeId.split("-")[0])} · ${researcher ? `${esc(researcher.title)}, ${esc(researcher.department)}` : idLink(researcherId)}</div></div>`
+    <span class="follow">${S.pinned ? `<button data-follow>Follow live</button>` : "Following live"}</span></div>`
+  const who = `<div class="card"><div class="top"><span class="who">${pairLabel(p.pairId)}</span><span class="pill ${good ? "done" : ""} ${p.status === "cancelled" ? "gone" : ""}">${esc(p.status)}</span></div>
+    <div class="why" style="margin-top:4px">${company ? `${esc(company.name)} · ${esc(company.sector)} · ${company.employees} employees` : idLink(challengeId.split("-")[0])}<br>${researcher ? `${esc(researcher.title)}, ${esc(researcher.department)}` : idLink(researcherId)}</div></div>`
 
-  const terms = sheet ? `<table class="sheet">
+  const terms = sheet ? `<div class="label">Term sheet${last ? `, round ${last.round}` : ""}</div><div class="group">
       ${row("engagement", "Format", esc(ENGAGEMENT[sheet.engagement] ?? sheet.engagement))}
       ${row("ip", "IP", esc(IP[sheet.ip] ?? sheet.ip))}
-      ${row("publication", "Publication", `${sheet.publication.reviewDays}-day company review${sheet.publication.companyMayRemoveConfidential ? "; company may remove its confidential information, not results" : ""}`)}
+      ${row("publication", "Publication", `${sheet.publication.reviewDays}-day company review${sheet.publication.companyMayRemoveConfidential ? "; the company may remove its confidential information, not results" : ""}`)}
       ${row("exclusivity", "Exclusivity", sheet.exclusivity.months > 0 ? `${sheet.exclusivity.months} months in ${esc(sheet.exclusivity.field)}` : "none")}
       ${row("backgroundIp", "Background IP", list(sheet.backgroundIp))}
-      ${row("contributions", "Contributions", `<b>Company:</b> ${list(sheet.contributions.company)}<br><b>University:</b> ${list(sheet.contributions.university)}`)}
+      ${row("contributions", "Contributions", `<b>Company</b> ${list(sheet.contributions.company)}<br><b>University</b> ${list(sheet.contributions.university)}`)}
       ${row("money", "Money", esc(sheet.money))}
       ${row("timeline", "Timeline", `${sheet.timeline.months} months${sheet.timeline.milestones.length ? `: ${list(sheet.timeline.milestones)}` : ""}`)}
-    </table>` : `<p class="empty">Waiting for the company side's opening sheet.</p>`
+    </div>` : `<p class="empty">Waiting for the company side's opening sheet.</p>`
 
-  const moves = p.moves.map((m) => `<div class="move"><b>Round ${m.round}, ${esc(m.side)}: ${esc(m.action)}</b>${m.changes.length ? ` <span class="muted">(changed ${esc(m.changes.join(", "))})</span>` : ""}<br>${linked(m.reason)}</div>`).join("")
-  const outcome = p.status === "agreed" || p.status === "proposal ready" ? `Agreed in round ${p.round ?? last?.round}.` : p.status === "no deal" ? `No deal: ${esc(p.why)}` : p.status === "cancelled" ? `Stopped: ${esc(p.why)}` : ""
+  const outcome = good ? `Agreed in round ${p.round ?? last?.round}.` : p.status === "no deal" ? `No deal: ${esc(p.why)}` : p.status === "cancelled" ? `Stopped: ${esc(p.why)}` : ""
+  const moves = p.moves.length ? `<div class="label">Moves</div>${p.moves.map((m) => `<div class="move"${anim(m)}><div class="head">Round ${m.round} · ${esc(m.side)} · ${esc(m.action)}${m.changes.length ? `<span class="changes">${m.changes.map((c) => `<span>${esc(c)}</span>`).join("")}</span>` : ""}</div>${linked(m.reason)}</div>`).join("")}` : ""
 
   // The Critic on this pair's proposal: what it stopped on the first pass, and what the rewrite did.
   const first = p.verdicts.filter((v) => v.attempt === 1 && v.verdict !== "pass")
@@ -341,29 +444,30 @@ function renderPair() {
   const rewritten = new Set(p.rewrote?.rewritten ?? [])
   const stops = first.map((v) => {
     const again = second.get(v.claimId)
-    const then = !p.rewrote ? `<span class="then muted">sent back to the writer…</span>`
-      : again?.verdict === "pass" ? `<span class="then fixed">rewritten by the writer, then passed</span>`
-      : again ? `<span class="then dropped">rewritten, stopped again (${esc(again.check)}: ${linked(again.reason)}); dropped</span>`
-      : rewritten.has(v.claimId) ? `<span class="then muted">rewritten, checking…</span>` : `<span class="then dropped">left out by the writer; dropped</span>`
-    return `<div class="stop"><span class="what">Critic: ${esc(shortClaim(v.claimId))} ${esc(v.verdict)} (${esc(v.check)})</span> ${linked(v.reason)}${v.suggestion ? `<br><span class="muted">Suggested: ${linked(v.suggestion)}</span>` : ""}${then}</div>`
+    const then = !p.rewrote ? `<span class="then wait">Sent back to the writer…</span>`
+      : again?.verdict === "pass" ? `<span class="then fixed">Rewritten by the writer, then passed</span>`
+      : again ? `<span class="then dropped">Rewritten, stopped again (${esc(again.check)}: ${linked(again.reason)}); dropped</span>`
+      : rewritten.has(v.claimId) ? `<span class="then wait">Rewritten, checking…</span>` : `<span class="then dropped">Left out by the writer; dropped</span>`
+    return `<div class="stop"${anim(v)}><span class="what">${esc(shortClaim(v.claimId))} · ${esc(v.check)}</span> ${linked(v.reason)}${v.suggestion ? `<br><span class="muted">Suggested: ${linked(v.suggestion)}</span>` : ""}${then}</div>`
   }).join("")
-  const critic = p.verdicts.length ? `<h2 style="margin-top:14px">Critic on the proposal</h2><p class="muted">${p.verdicts.filter((v) => v.attempt === 1).length} claims checked, ${passed} passed on the first pass.</p>${stops}` : ""
-  const ready = p.ready ? `<p class="outcome"><a href="/proposal/${esc(p.pairId)}" target="_blank">Open the proposal</a></p>` : ""
+  const critic = p.verdicts.length ? `<div class="label">Critic on the proposal · ${p.verdicts.filter((v) => v.attempt === 1).length} claims, ${passed} passed first time</div>${stops}` : ""
+  const ready = p.ready ? `<p class="outcome"><a href="/proposal/${esc(p.pairId)}" target="_blank">Open the proposal →</a></p>` : ""
 
-  $("pair").innerHTML = `${header}${who}${terms}${outcome ? `<p class="outcome">${outcome}</p>` : ""}${moves}${critic}${ready}`
+  $("pair").innerHTML = `${header}${who}${outcome ? `<p class="outcome">${outcome}</p>` : ""}${terms}${moves}${critic}${ready}`
 }
 
 function renderLog() {
-  $("log").innerHTML = S.log.slice(-300).reverse().map((l) =>
-    `<div class="${l.cls}"><span class="t">${l.t ? `+${at(l.t).toFixed(1)}s` : ""}</span>${l.producer ? `<span class="p">${esc(l.producer)}</span>` : ""}${linked(l.text)}</div>`).join("")
+  $("log").innerHTML = S.log.length ? S.log.slice(-300).reverse().map((l) =>
+    `<div class="${l.cls}"${anim(l)}><span class="t">${l.t ? `${at(l.t).toFixed(1)}s` : ""}</span>${l.producer ? `<span class="p">${esc(l.producer)}</span>` : ""}${linked(l.text)}</div>`).join("") : `<div class="empty">Events appear here as agents emit them.</div>`
 }
 
 function renderTimeline() {
   const svg = $("timeline")
   const width = svg.clientWidth || 800
-  const label = 130
+  const height = svg.clientHeight || 160
+  const label = 132
   const span = Math.max((S.tLast - (S.t0 ?? 0)) / 1000, 1)
-  const x = (t) => label + ((t - S.t0) / 1000 / span) * (width - label - 8)
+  const x = (t) => label + ((t - S.t0) / 1000 / span) * (width - label - 6)
   const lanes = {}
   const bars = []
   for (const loop of [...S.loops.values()].filter((l) => l.group).sort((a, b) => a.start - b.start)) {
@@ -372,36 +476,44 @@ function renderTimeline() {
     let lane = ends.findIndex((e) => e <= loop.start)
     if (lane === -1) lane = ends.push(end) - 1
     else ends[lane] = end
-    bars.push({ ...loop, end, lane })
+    bars.push({ ...loop, end, lane, open: loop.end === null })
   }
-  let y = 14
-  const rows = {}
-  for (const g of GROUPS) {
-    const n = Math.max((lanes[g] ?? []).length, 1)
-    rows[g] = { y, h: Math.min(n, 6) * 4 + 6, n }
-    y += rows[g].h + 3
-  }
-  const lane = (b) => rows[b.group].y + 3 + (b.lane % 6) * 4
+  // Rows share the height; a row's lanes squeeze to fit.
+  const top = 16
+  const rowH = (height - top) / GROUPS.length
+  const rows = Object.fromEntries(GROUPS.map((g, i) => [g, { y: top + i * rowH, n: Math.max((lanes[g] ?? []).length, 1) }]))
+  const laneH = (g) => Math.min(5, (rowH - 6) / rows[g].n)
   const parts = []
-  for (let s = 0; s <= span; s += span > 120 ? 30 : span > 40 ? 10 : 5) {
-    parts.push(`<line x1="${x(S.t0 + s * 1000)}" x2="${x(S.t0 + s * 1000)}" y1="10" y2="${y}" stroke="#e3e6ec"/><text x="${x(S.t0 + s * 1000) + 2}" y="9" font-size="9" fill="#6b7280">${s}s</text>`)
-  }
+  for (const g of GROUPS) parts.push(`<rect x="${label}" y="${rows[g].y + 1}" width="${width - label - 6}" height="${rowH - 2}" rx="5" fill="#f5f5f7"/>`)
+  const tickStep = span > 120 ? 30 : span > 40 ? 10 : span > 12 ? 5 : 1
+  for (let s = 0; s <= span; s += tickStep) parts.push(`<line x1="${x(S.t0 + s * 1000)}" x2="${x(S.t0 + s * 1000)}" y1="${top}" y2="${height}" stroke="rgba(0,0,0,.06)"/><text x="${x(S.t0 + s * 1000) + 3}" y="11" font-size="10" fill="#86868b">${s}s</text>`)
+  // Matchmakers are code; an agent row with events but no model calls was served from the local cache.
   const calls = (g) => bars.filter((b) => b.group === g).length
-  for (const g of GROUPS) parts.push(`<text x="0" y="${rows[g].y + rows[g].h / 2 + 4}" font-size="11" fill="#1d2330">${g}${calls(g) ? ` <tspan fill="#6b7280">${calls(g)} call${calls(g) === 1 ? "" : "s"}</tspan>` : ""}</text>`)
-  for (const b of bars) parts.push(`<rect x="${x(b.start)}" y="${lane(b)}" width="${Math.max(x(b.end) - x(b.start), 1.5)}" height="3" fill="#2457c5" opacity=".75"/>`)
-  for (const t of S.ticks) if (rows[t.group]) parts.push(`<line x1="${x(t.t)}" x2="${x(t.t)}" y1="${rows[t.group].y}" y2="${rows[t.group].y + rows[t.group].h}" stroke="${t.red ? "#c62828" : "#1d2330"}" stroke-width="${t.red ? 1 : 1.2}" opacity="${t.red ? .55 : .8}"/>`)
-  svg.setAttribute("height", y)
-  svg.innerHTML = parts.join("")
-  $("span").textContent = S.t0 ? `${span.toFixed(1)} s of trace` : ""
+  const note = (g) => (calls(g) ? calls(g) : g === "Matchmakers" ? "code" : S.ticks.some((t) => t.group === g) ? "cached" : "")
+  for (const g of GROUPS) parts.push(`<text x="0" y="${rows[g].y + rowH / 2 + 4}" font-size="12" font-weight="500" fill="#1d1d1f">${g}${note(g) ? ` <tspan fill="#86868b" font-weight="400">${note(g)}</tspan>` : ""}</text>`)
+  for (const b of bars) {
+    const h = Math.max(laneH(b.group) - 1, 1.5)
+    const y = rows[b.group].y + 3 + (b.lane % rows[b.group].n) * laneH(b.group)
+    parts.push(`<rect x="${x(b.start).toFixed(1)}" y="${y.toFixed(1)}" width="${Math.max(x(b.end) - x(b.start), 2).toFixed(1)}" height="${h.toFixed(1)}" rx="${(h / 2).toFixed(1)}" fill="#0071e3" opacity="${b.open ? 1 : 0.78}"/>`)
+  }
+  for (const t of S.ticks) if (rows[t.group]) parts.push(`<line x1="${x(t.t)}" x2="${x(t.t)}" y1="${rows[t.group].y + 2}" y2="${rows[t.group].y + rowH - 2}" stroke="${t.red ? "#d70015" : "#86868b"}" stroke-width="1" opacity="${t.red ? 0.6 : 0.9}"/>`)
+  svg.innerHTML = S.t0 ? parts.join("") : ""
+  $("span").textContent = S.t0 ? `${bars.length} model calls in ${span.toFixed(1)} s · one bar per call · red marks: the Critic stopped a claim` : "One row per kind of participant, one bar per model call"
 }
 
 // --- wiring ---
+let speed = 4
 document.addEventListener("click", (ev) => {
   const tab = ev.target.closest("[data-pair]")
   if (tab) { S.focus = tab.dataset.pair; S.pinned = true; dirty() }
   if (ev.target.closest("[data-follow]")) { S.pinned = false; S.focus = [...S.pairs.keys()].at(-1); dirty() }
+  const pace = ev.target.closest("[data-speed]")
+  if (pace) {
+    speed = Number(pace.dataset.speed)
+    for (const b of document.querySelectorAll("[data-speed]")) b.classList.toggle("on", b === pace)
+  }
 })
-$("run").addEventListener("click", () => fetch(`/run?speed=${$("speed").value}`, { method: "POST" }))
+$("run").addEventListener("click", () => fetch(`/run?speed=${speed}`, { method: "POST" }))
 window.addEventListener("resize", dirty)
 
 reset()
@@ -411,15 +523,17 @@ source.addEventListener("trace", (msg) => { try { apply(JSON.parse(msg.data)) } 
 // The run's console: only the outcome and failures; everything else is already on the board as events.
 source.addEventListener("log", (msg) => {
   const line = JSON.parse(msg.data)
-  if (/^(done|run finished|model call failed|model answer failed|proposal failed|timed out)/.test(line)) S.log.push({ t: 0, producer: "", text: `run: ${line}`, cls: "run" })
+  if (/^(done|run finished|model call failed|model answer failed|proposal failed|timed out)/.test(line)) S.log.push({ t: 0, producer: "", text: `run: ${line}`, cls: "run", seq: next() })
   dirty()
 })
 source.addEventListener("status", (msg) => {
   const s = JSON.parse(msg.data)
   $("run").disabled = s.running
+  $("run").textContent = s.running ? "Running…" : "Run the demo set"
+  $("dot").classList.toggle("live", s.running)
   $("note").textContent = s.running
-    ? `Running the demo set on recorded model answers, each after its recorded latency ÷${s.speed}. No API key, no network.`
-    : "Following out/trace.jsonl: any run (npm run demo) shows up here as it happens."
+    ? `Live · recorded answers at their recorded latency ÷${s.speed} · no key, no network`
+    : "Latest run · any run, here or in a terminal, appears as it happens"
 })
 </script>
 </body>

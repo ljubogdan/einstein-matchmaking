@@ -34,6 +34,7 @@ const maxInFlight = Number(flag("in-flight")) || undefined
 const fixtureDir = flag("fixtures")
 const started = Date.now()
 const TIMEOUT_MS = (Number(flag("timeout")) || 10) * 60_000 // --timeout=MINUTES
+const TRACE = flag("trace") ?? "out/trace.jsonl" // the board's Run writes its own, so the committed trace stays put
 // The demo set: two companies with the same challenge (C001-CH1, C032-CH1) want the same researcher; C061-CH1 has the
 // R0128 identity-conflict profile on its shortlist; C043-CH3 (raise a seed round) is not a research problem.
 const DEMO = ["C001-CH1", "C032-CH1", "C061-CH1", "C043-CH3"]
@@ -59,7 +60,7 @@ function finish(code: number, message: string): never {
   console.log(message)
   console.log(`wall-clock: ${((Date.now() - started) / 1000).toFixed(1)} s${maxInFlight ? `, at most ${maxInFlight} model calls at once` : ""}`)
   for (const line of runner.summary()) console.log(line)
-  console.log("trace: out/trace.jsonl")
+  console.log(`trace: ${TRACE}`)
   process.exit(code)
 }
 
@@ -126,7 +127,7 @@ const matchmakers = Array.from({ length: Math.min(MATCHMAKERS, challengeIds.leng
 
 const cache = new ResultCache(mode !== "fresh")
 const reporter = createReporter(data)
-join(createTraceObserver("out/trace.jsonl"))
+join(createTraceObserver(TRACE))
 join(createCritic({ data, move: (pairId, round) => board.move(pairId, round) }))
 join(createAnalyst(data, cache))
 join(createProfiler(data, cache))

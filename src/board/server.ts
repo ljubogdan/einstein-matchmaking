@@ -1,13 +1,15 @@
-// npm run board: the live board at http://localhost:4173. It follows out/trace.jsonl as any run writes it and sends
-// each line to the page (Server-Sent Events). "Run" starts `src/run.ts --replay --paced=N`: the agents run again on the
-// recorded answers, each answer arriving after its recorded latency divided by N. No key, no network.
+// npm run board: the live board at http://localhost:4173. It follows the newest trace as a run writes it and sends each
+// line to the page (Server-Sent Events). "Run" starts `src/run.ts --replay --paced=N` with its own trace file, so the
+// committed out/trace.jsonl stays as it is: the agents run again on the recorded answers, each answer arriving after its
+// recorded latency divided by N. No key, no network. A run started in a terminal (out/trace.jsonl) shows up too.
 import { spawn, type ChildProcess } from "node:child_process"
 import { closeSync, existsSync, openSync, readFileSync, readSync, statSync } from "node:fs"
 import { createServer, type ServerResponse } from "node:http"
 import { Dataset, hasDataset } from "../tools/dataset"
 
 const PORT = Number(process.env.PORT ?? 4173)
-const TRACE = "out/trace.jsonl"
+const TRACES = ["out/trace.jsonl", "out/tmp/trace.board.jsonl"] // a terminal run, the board's Run
+let TRACE = TRACES[0]
 const PAGE = "src/board/index.html"
 const HEAD_BYTES = 64 // the first line starts with its timestamp: a changed head means a new run rewrote the file
 
@@ -39,7 +41,22 @@ function read(from: number, length: number): Buffer {
   }
 }
 
+// Follow whichever trace was written last; switching files is a reset like a new run.
+function newest(): string {
+  const mtime = (path: string) => (existsSync(path) ? statSync(path).mtimeMs : -1)
+  return TRACES.reduce((a, b) => (mtime(b) > mtime(a) ? b : a))
+}
+
 function poll(): void {
+  const latest = newest()
+  if (latest !== TRACE) {
+    TRACE = latest
+    offset = 0
+    head = ""
+    lines = []
+    rest = Buffer.alloc(0)
+    broadcast("reset", "{}")
+  }
   if (!existsSync(TRACE)) return
   const size = statSync(TRACE).size
   const currentHead = size > 0 ? read(0, Math.min(HEAD_BYTES, size)).toString("utf8") : ""
@@ -68,7 +85,7 @@ function status(): string {
 }
 
 function startRun(speed: number): void {
-  const child = spawn("node_modules/.bin/tsx", ["src/run.ts", "--replay", `--paced=${speed}`], { stdio: ["ignore", "pipe", "pipe"] })
+  const child = spawn("node_modules/.bin/tsx", ["src/run.ts", "--replay", `--paced=${speed}`, `--trace=${TRACES[1]}`], { stdio: ["ignore", "pipe", "pipe"] })
   run = { child, speed }
   broadcast("status", status())
   const forward = (chunk: Buffer) => {
@@ -131,4 +148,4 @@ const server = createServer((req, res) => {
 setInterval(poll, 150)
 poll()
 // Localhost only: the Run button starts a process, and the board is for the presenter's screen.
-server.listen(PORT, "127.0.0.1", () => console.log(`board: http://localhost:${PORT} (following ${TRACE}; Run replays the demo set at recorded latency)`))
+server.listen(PORT, "127.0.0.1", () => console.log(`board: http://localhost:${PORT} (follows the newest of ${TRACES.join(", ")}; Run replays the demo set at recorded latency)`))

@@ -4,6 +4,8 @@
 
 Built on [Mozaik](https://github.com/jigjoy-ai/mozaik) for the NTP Novi Sad x JigJoy Hackathon, EINSTEIN track.
 
+![The live board after a run: matchmakers and the Arbiter, the negotiated term sheet, the event log with the Critic's stops in red, and a timeline with one bar per model call](media/board.png)
+
 > Status 30 Oct. Everything below describes what runs today; what isn't built yet is named as such under [Limits](#limits-and-honest-notes).
 
 ## Run it in one command (no API key needed)
@@ -27,7 +29,7 @@ npm run setup && npm run demo -- --replay
 npm run board
 ```
 
-Open http://localhost:4173 and press **Run the demo set**. The agents run again on the recorded answers, and each answer arrives after the latency measured when it was recorded (4x faster by default), so the board shows the shape of the live run with no key: matchmakers and the Arbiter on the left, the focused pair's negotiation and every claim the Critic stopped in the middle, the event log on the right, and one bar per model call on the timeline. Ids link to the cited dataset record. The board follows `out/trace.jsonl`, so any `npm run demo` shows up there too; `npm run demo -- --replay --paced[=N]` is the same paced run from the command line.
+Open http://localhost:4173 and press **Run the demo set**. The agents run again on the recorded answers, and each answer arrives after the latency measured when it was recorded (4x faster by default), so the board shows the shape of the live run with no key: matchmakers and the Arbiter on the left, the focused pair's negotiation and every claim the Critic stopped in the middle, the event log on the right, and one bar per model call on the timeline. Ids link to the cited dataset record, and the header counts calls running, model calls, proposals and claims the Critic stopped. Run writes its own trace (`out/tmp/trace.board.jsonl`), so the committed one stays as it is; the board always shows the newest run, so an `npm run demo` started in a terminal shows up too. `npm run demo -- --replay --paced[=N]` is the same paced run from the command line.
 
 The default run takes the demo set of four challenges. Other challenges (`npm run demo -- C012-CH3 C041-CH2`) need your own Anthropic key in `.env` the first time: `npm run demo` calls the model only for answers not yet recorded, and records them.
 
