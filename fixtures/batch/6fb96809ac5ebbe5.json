@@ -1,0 +1,38 @@
+{
+  "key": "6fb96809ac5ebbe5",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C115-CH1: Our anti-cheat system flags about 900 accounts a day but our manual review team can only process 200 — legitimate players are getting banned",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Anomaly detection in player behaviour telemetry uses semi-supervised learning and sequence modelling to distinguish between legitimate and malicious actions in high-frequency event streams.\",\"sources\":[{\"id\":\"R0856\",\"field\":\"bio\",\"quote\":\"semi-supervised detection of anomalous player behaviour in online game telemetry\"},{\"id\":\"R0856\",\"field\":\"bio\",\"quote\":\"real-time anomaly detection in high-frequency behavioural telemetry streams, with particular emphasis on player action sequence modelling\"},{\"id\":\"R0856\",\"field\":\"bio\",\"quote\":\"cheat and bot detection, and session-level behavioural fingerprinting\"}]},{\"claim\":2,\"text\":\"One-class classification methods trained exclusively on legitimate player sessions achieve an F1 score of 0.81 with a false-positive rate of 4.3% when detecting scripted clients.\",\"sources\":[{\"id\":\"SYN-PUB-06623\",\"field\":\"abstract\",\"quote\":\"Training used only the majority legitimate-player class\"},{\"id\":\"SYN-PUB-06623\",\"field\":\"abstract\",\"quote\":\"The resulting model achieved an F1 score of 0.81 on the contaminated test split, with a false-positive rate of 4.3%\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2472,
+    "outputTokens": 294,
+    "totalTokens": 2766,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2472,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 294,
+    "service_tier": "standard"
+  },
+  "ms": 17044
+}

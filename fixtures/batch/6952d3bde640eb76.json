@@ -1,0 +1,38 @@
+{
+  "key": "6952d3bde640eb76",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The migration was quoted at 200 hours but is already at 340 hours and still not done, because every legacy export format is slightly different.\n",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":2,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":3,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":4,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":5,\"support\":\"partly\",\"reason\":\"Claim says company holds the data; actually the Austrian client holds it\",\"rewrite\":\"The Austrian client holds twelve years of historical data in export files covering client records, invoices, journal entries, and attachments.\"},{\"claim\":6,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":7,\"support\":\"partly\",\"reason\":\"Constraint-based framework from SYN-PUB-02340 is not stated to be her group's method; it is a separate paper's contribution\",\"rewrite\":\"The researcher's group develops methods for ontology-driven data integration and data quality assessment over tabular and semi-structured data.\"},{\"claim\":8,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":9,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":10,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":11,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":12,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 300,
+    "totalTokens": 303,
+    "inputTokenDetails": {
+      "cached_tokens": 6157
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 6157,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 6157,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 300,
+    "service_tier": "standard"
+  },
+  "ms": 120517
+}

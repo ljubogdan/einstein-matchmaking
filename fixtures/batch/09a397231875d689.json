@@ -1,0 +1,38 @@
+{
+  "key": "09a397231875d689",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C115-CH1: Our anti-cheat system flags about 900 accounts a day but our manual review team can only process 200 — legitimate players are getting banned",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Research focuses on supervised anomaly detection and classification under severe class imbalance in high-dimensional tabular datasets, with applications including fraud detection, network intrusion, predictive maintenance, and clinical event prediction.\",\"sources\":[{\"id\":\"R0305\",\"field\":\"bio\",\"quote\":\"Her research group focuses on supervised anomaly detection and classification under severe class imbalance in high-dimensional tabular datasets, with applications in fraud detection, network intrusion, predictive maintenance, and clinical event prediction.\"}]},{\"claim\":2,\"text\":\"Cost-sensitive bagging achieves AUPRC of 0.81 and G-mean of 0.79, outperforming standard bagging and balanced bagging on network intrusion data with 0.8% positive-class rate.\",\"sources\":[{\"id\":\"SYN-PUB-03781\",\"field\":\"abstract\",\"quote\":\"Cost-sensitive bagging achieves AUPRC of 0.81 and G-mean of 0.79, outperforming standard bagging\"},{\"id\":\"SYN-PUB-03781\",\"field\":\"abstract\",\"quote\":\"positive-class rate of 0.8%\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2552,
+    "outputTokens": 273,
+    "totalTokens": 2825,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2552,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 273,
+    "service_tier": "standard"
+  },
+  "ms": 15859
+}

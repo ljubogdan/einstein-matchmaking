@@ -1,0 +1,38 @@
+{
+  "key": "db192b5768d2a943",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The cluster processes roughly 180,000 transactions a day but misses the 200 ms SLA during evening peaks.\n  C143-CH2 text: \"roughly 180,000 trans",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"Sentence states must find strategy 'without rearchitecting', but source says 'either rearchitect or find strategy', presenting them as alternatives, not excluding rearchitecting.\", \"rewrite\": \"The company must find a smarter query routing strategy before scaling to 500,000 transactions, or rearchitect the data layer.\"}, {\"claim\": 4, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 5, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"partly\", \"reason\": \"Source shows study of adaptive partition key rotation under skewed workloads but keywords cover multiple topics; claim overstates by saying group 'has studied' (suggesting multiple works) when only one source on partition keys is provided.\", \"rewrite\": \"The research group has studied adaptive partition key strategies for skewed-access PostgreSQL workloads.\"}, {\"claim\": 10, \"support\": \"partly\", \"reason\": \"Inference assumes sandbox environment 'can supply' real operational query traces, but sandbox is described as containing 'anonymised data' not live operational traces; Radović prefers real traces as a collaboration condition, not that sandbox provides them.\", \"rewrite\": \"The company needs a smarter query routing strategy before scaling further, the research group focuses on query optimisation under variable and bursty workloads, and the researcher prefers access to real operational query traces or workload logs.\"}, {\"claim\": 11, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 483,
+    "totalTokens": 486,
+    "inputTokenDetails": {
+      "cached_tokens": 4375
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 4375,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 4375,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 483,
+    "service_tier": "standard"
+  },
+  "ms": 20062
+}

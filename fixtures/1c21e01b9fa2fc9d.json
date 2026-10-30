@@ -1,0 +1,38 @@
+{
+  "key": "1c21e01b9fa2fc9d",
+  "model": "claude-sonnet-4-6",
+  "prompt": "The fact checker did not pass these claims. Fix each one: change the sentence so its quotes say everything it says, or pick quotes that do. Leave a claim out to",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"About eighteen months of raw packet logs from three customer sites, averaging around four gigabytes per day per site, are available in anonymised form.\",\"sources\":[{\"id\":\"C032-CH1\",\"field\":\"detail\",\"quote\":\"eighteen months of raw packet logs from three customer sites, averaging around four gigabytes per day per site\"}]},{\"claim\":2,\"text\":\"The EdgeWatch sensor captures all traffic on a customer's Modbus and BACnet segments and sends parsed records to the backend.\",\"sources\":[{\"id\":\"C032-CH1\",\"field\":\"detail\",\"quote\":\"EdgeWatch sensor captures all traffic on a customer's Modbus and BACnet segments and sends parsed records\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 165,
+    "totalTokens": 168,
+    "inputTokenDetails": {
+      "cached_tokens": 5649
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 5649,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 5649,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 165,
+    "service_tier": "standard"
+  },
+  "ms": 3689
+}

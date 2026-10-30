@@ -1,0 +1,38 @@
+{
+  "key": "d431acbfbd06a089",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The player event dataset covers the last 18 months of flagged account activity and consists of event records documenting suspicious behaviour.\n ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"No field states that BehaviorWatch v2 produces high-frequency behavioural telemetry streams; it is only listed as an internally developed system for monitoring behaviour.\", \"rewrite\": \"The company's internally developed system for player behaviour monitoring (BehaviorWatch v2) provides event data that the researcher's detection methods are designed to process.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1490,
+    "outputTokens": 120,
+    "totalTokens": 1610,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1490,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 120,
+    "service_tier": "standard"
+  },
+  "ms": 2302
+}

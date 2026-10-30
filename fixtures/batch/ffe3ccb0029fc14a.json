@@ -1,0 +1,38 @@
+{
+  "key": "ffe3ccb0029fc14a",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Buffer pH methods have been compared and calibrated locally with regression equations developed for different soil texture classes to predict li",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"The source shows samples from five municipalities in northern Vojvodina, not across all Vojvodina municipalities. The source presents equations for chernozem texture classes specifically, not different soil texture classes in general.\", \"rewrite\": \"Buffer pH methods have been compared and calibrated locally with regression equations developed for chernozem texture classes to predict lime requirements in northern Vojvodina municipalities.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1224,
+    "outputTokens": 107,
+    "totalTokens": 1331,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1224,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 107,
+    "service_tier": "standard"
+  },
+  "ms": 22827
+}

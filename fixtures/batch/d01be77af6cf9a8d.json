@@ -1,0 +1,47 @@
+{
+  "key": "d01be77af6cf9a8d",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Round 1 of 4. Open with the term sheet you would prefer. action must be \"propose\".",
+  "items": [
+    {
+      "type": "reasoning",
+      "content": {
+        "text": "Let me craft an opening proposal favorable to the company.",
+        "type": "input_text"
+      },
+      "encryptedContent": "EpkCCnwIExABGAIqQGf66O/cyYuVO4YYXLBXmp1DCfUAUtV7K/TsiuZawPP6Z82GCHe/Nkb7mNJKao0XDcJNJ/MPwiysO+e0191Y2KcyEWNsYXVkZS1zb25uZXQtNC02OABCCHRoaW5raW5nWgw2NjU3Njc3MDczNzKoAciElNcGEgz/kmYZQ+e+XlGXgDIaDIjSccgz/KGDmdcFLyIwpSG9jwAWbchD+lJCQga3ZwB3n3KNc91JOWI5oTAllQ1dprEm42f9n4DAXSCBsJL6KkuaRrI5B41gKzT2UMReE/K/6/r97b0ig7VkdAzBdhDh/1w6Ir/t3p5WsI+vxnitBjZ4hmFhfObZOIYcXlVmxoVKu182JkZKA2iHIUoYAQ==",
+      "summary": []
+    },
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"action\":\"propose\",\"sheet\":{\"engagement\":\"contract_research\",\"scope\":\"Design and validate a content-context matching layer for the SoundSlot adtech platform: topic classification and content-embedding methodology applied to episode transcripts, linked to ad-decision logic, with the objective of demonstrating a path to 2.5% pre-roll CTR; includes a prototype evaluation report and recommendations for production integration.\",\"ip\":\"contract_research_company_owns\",\"exclusivity\":{\"field\":\"Audio adtech and podcast ad-insertion platforms\",\"months\":18},\"publication\":{\"reviewDays\":60,\"companyMayRemoveConfidential\":true},\"backgroundIp\":[\"C145: SoundSlot ad server and all associated code; PostgreSQL listener panel and campaign analytics data; episode transcripts and campaign performance logs; Meta and Google campaign API integrations\",\"R0820: Prior hedonic regression and conjoint analysis methods and published models\"],\"contributions\":{\"company\":[\"Senior backend developer (30% time) for data pipeline and ad-decision logic integration\",\"Data analyst (30% time) for campaign performance data preparation and evaluation\",\"Production staff for audio data and transcript preparation\",\"Access to four years of episode transcripts and campaign performance logs\"],\"university\":[\"Full Professor (R0820) leading research design, topic classification methodology, content-embedding framework, and prototype evaluation\"]},\"money\":\"to be agreed\",\"timeline\":{\"months\":6,\"milestones\":[\"Month 1: Data access agreement signed; transcript and campaign log dataset delivered to researcher\",\"Month 2: Topic classification model design and initial embedding approach agreed\",\"Month 4: Working prototype of content-context matching layer delivered and tested on historical data\",\"Month 6: Evaluation report with CTR uplift projections and production integration recommendations delivered\"]},\"contact\":{\"company\":\"Head of Technology (milestone sign-off and technical liaison)\",\"university\":\"Full Professor R0820 (principal investigator and delivery lead)\"}},\"reason\":\"The researcher has published directly on quantifying the value of contextual targeting signals in programmatic advertising [SYN-PUB-08915], making contract research the right engagement to deliver a usable prototype within our six-month and roughly €18,000 budget envelope [C145-CH1]. We want company ownership of results so the content-context matching layer can be integrated directly into SoundSlot and extended to new markets [C145 plans], and a 60-day review period to protect confidential campaign data and know-how.\",\"citations\":[\"SYN-PUB-08915\",\"C145-CH1\",\"C145 plans\"],\"evidence\":[{\"citation\":\"SYN-PUB-08915\",\"quote\":\"Research applies hedonic regression to measure price premiums for AI-generated contextual signals in programmatic advertising, finding a 22 percent CPM premium for granular contextual targeting over standard category signals.\"},{\"citation\":\"C145-CH1\",\"quote\":\"Budget for a working prototype: roughly €18,000, deliverable within six months.\"},{\"citation\":\"C145 plans\",\"quote\":\"Mediavox plans to expand the SoundSlot platform to publishers outside Serbia and Croatia, targeting Bosnia and Herzegovina and North Macedonia by end of 2026.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 732,
+    "totalTokens": 735,
+    "inputTokenDetails": {
+      "cached_tokens": 3259
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 3259,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 26,
+      "ephemeral_1h_input_tokens": 3233
+    },
+    "output_tokens": 732,
+    "service_tier": "standard"
+  },
+  "ms": 12998
+}

@@ -1,0 +1,38 @@
+{
+  "key": "b23489d01d1a6e6a",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C036-CH2: Big retailers will stop taking conventional plastic lidding film by 2028; we need a compostable one that still seals.\nDetail: Several large ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Research on PLA film modifications using wax coatings demonstrates that carnauba wax coatings at 15 µm achieved a 63% reduction relative to uncoated PLA, and compostability under industrial conditions was not adversely affected by the wax coating at the tested thicknesses, as confirmed by disintegration testing according to EN 13432.\",\"sources\":[{\"id\":\"SYN-PUB-03445\",\"field\":\"abstract\",\"quote\":\"carnauba wax coatings at 15 µm achieving a 63% reduction relative to uncoated PLA. Compostability under industrial conditions was not adversely affected by the wax coating at the tested thicknesses, as confirmed by disintegration testing according to EN 13432\"}]},{\"claim\":2,\"text\":\"Work on nanoclay-modified PLA shows incorporation of organically modified montmorillonite nanoclay via melt compounding resulted in a reduction of 47% compared to neat PLA, and migration testing according to EU food contact material regulations showed no detectable nanoclay migration into fatty food simulants.\",\"sources\":[{\"id\":\"SYN-PUB-03441\",\"field\":\"abstract\",\"quote\":\"organically modified montmorillonite nanoclay at loadings of 1, 3, and 5 wt% into PLA matrices via melt compounding\"},{\"id\":\"SYN-PUB-03441\",\"field\":\"abstract\",\"quote\":\"a reduction of 47% compared to neat PLA. Migration testing according to EU food contact material regulations showed no detectable nanoclay migration\"}]},{\"claim\":3,\"text\":\"Development of PLA-thermoplastic starch multilayer structures using compatibilisers showed that compatibiliser inclusion increased adhesion energy by 55%, and all formulations passed compostability testing within the 12-week test period under EN 13432 conditions.\",\"sources\":[{\"id\":\"SYN-PUB-03447\",\"field\":\"abstract\",\"quote\":\"compatibiliser inclusion increased adhesion energy by 55%\"},{\"id\":\"SYN-PUB-03447\",\"field\":\"abstract\",\"quote\":\"all formulations passed within the 12-week test period\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2765,
+    "outputTokens": 509,
+    "totalTokens": 3274,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2765,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 509,
+    "service_tier": "standard"
+  },
+  "ms": 29148
+}

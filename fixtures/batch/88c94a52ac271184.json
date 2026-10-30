@@ -1,0 +1,38 @@
+{
+  "key": "88c94a52ac271184",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: The university retains ownership unless and until the option is exercised, preserving academic credit and publication rights with a 30-day revie",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words list project titles only; they say nothing about background IP protection or ownership terms.\"},{\"item\":2,\"backed\":false,\"reason\":\"Words only state a count of publications and a date; nothing about publication rights or a 30-day review period.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 629,
+    "outputTokens": 73,
+    "totalTokens": 702,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 629,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 73,
+    "service_tier": "standard"
+  },
+  "ms": 9509
+}

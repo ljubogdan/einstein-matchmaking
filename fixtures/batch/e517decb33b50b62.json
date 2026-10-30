@@ -1,0 +1,38 @@
+{
+  "key": "e517decb33b50b62",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We accept the reduction to 12 months' exclusivity as a fair commercial window, and in return we need company ownership of the prototype and resu",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":true,\"reason\":\"\"},{\"item\":2,\"backed\":false,\"reason\":\"Words describe researcher expertise, not academic use rights for methodology.\"},{\"item\":3,\"backed\":true,\"reason\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 972,
+    "outputTokens": 56,
+    "totalTokens": 1028,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 972,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 56,
+    "service_tier": "standard"
+  },
+  "ms": 11442
+}

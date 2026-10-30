@@ -1,0 +1,38 @@
+{
+  "key": "1f5e491ff244df27",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Multilingual audio metadata classification systems can be developed using Word2Vec embeddings trained on bilingual corpora, with joint training ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 862,
+    "outputTokens": 31,
+    "totalTokens": 893,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 862,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 31,
+    "service_tier": "standard"
+  },
+  "ms": 7605
+}

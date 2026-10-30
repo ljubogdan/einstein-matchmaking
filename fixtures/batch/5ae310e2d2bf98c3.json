@@ -1,0 +1,38 @@
+{
+  "key": "5ae310e2d2bf98c3",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Research on conversion rate optimisation in digital channels uses clickstream analysis platforms and A/B testing to improve user engagement metr",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":2,\"support\":\"partly\",\"reason\":\"The field shows correlation (high-personalisation emails had 19% higher click-through rate) but does not demonstrate that increased personalisation depth causes the increase; it was a factorial experiment with disclosure as a confounding variable, and the rewrite would need to reflect this was observed in a specific study rather than a general demonstration.\",\"rewrite\":\"A study on email personalisation found that high-personalisation emails achieved a 19% higher click-through rate compared to low-personalisation emails.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1130,
+    "outputTokens": 138,
+    "totalTokens": 1268,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1130,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 138,
+    "service_tier": "standard"
+  },
+  "ms": 8564
+}

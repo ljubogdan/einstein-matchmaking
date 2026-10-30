@@ -1,0 +1,38 @@
+{
+  "key": "d0533a87cfbf0ddc",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We accept the reduced 30-day review period as it gives us faster clarity before publication; however, a non-exclusive licence leaves us exposed ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"The words describe access to a sandbox environment with anonymized transaction data, but say nothing about ownership, licensing, or assignment options.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 533,
+    "outputTokens": 46,
+    "totalTokens": 579,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 533,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 46,
+    "service_tier": "standard"
+  },
+  "ms": 13415
+}

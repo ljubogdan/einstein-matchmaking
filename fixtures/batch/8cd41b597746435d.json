@@ -1,0 +1,38 @@
+{
+  "key": "8cd41b597746435d",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The Austrian client holds twelve years of historical data covering client records, invoices, journal entries, and attachments to be moved into t",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The claim states 'methods for ontology-driven data integration and data quality assessment' but the field also mentions 'probabilistic record linkage' as a third method developed by the group.\", \"rewrite\": \"The researcher's group develops methods for ontology-driven data integration and data quality assessment over tabular and semi-structured data.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1485,
+    "outputTokens": 118,
+    "totalTokens": 1603,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1485,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 118,
+    "service_tier": "standard"
+  },
+  "ms": 45248
+}

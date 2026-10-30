@@ -1,0 +1,38 @@
+{
+  "key": "ca97a8e53934e7e4",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: University ownership with an option to licence protects the institution's interest in results arising from its expertise and pending patent, whi",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words only list 11 authored publications; they say nothing about 60-day review periods, publication rights protection, or confidential tooling data.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 479,
+    "outputTokens": 51,
+    "totalTokens": 530,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 479,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 51,
+    "service_tier": "standard"
+  },
+  "ms": 3673
+}

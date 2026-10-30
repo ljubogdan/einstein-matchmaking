@@ -1,0 +1,38 @@
+{
+  "key": "53622604041f949b",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The challenge is to detect unusual behaviour on Modbus and BACnet networks without labelled attack data.\n  C032-CH1 text: \"detect unusual behavi",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":2,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":3,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":4,\"support\":\"partly\",\"reason\":\"Field states 'We can share anonymised versions' but does not confirm availability for the project or commitment to share.\",\"rewrite\":\"About eighteen months of raw packet logs from three customer sites, averaging around four gigabytes per day per site, are available in anonymised form.\"},{\"claim\":5,\"support\":\"partly\",\"reason\":\"Field mentions sensor captures traffic and sends parsed records, but does not state that sensor hardware and firmware environment are available for testing.\",\"rewrite\":\"The EdgeWatch sensor captures all traffic on a customer's Modbus and BACnet segments and sends parsed records to the backend.\"},{\"claim\":6,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":7,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":8,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":9,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":10,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":11,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 290,
+    "totalTokens": 293,
+    "inputTokenDetails": {
+      "cached_tokens": 4917
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 4917,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 4917,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 290,
+    "service_tier": "standard"
+  },
+  "ms": 2702
+}

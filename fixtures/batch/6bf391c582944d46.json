@@ -1,0 +1,38 @@
+{
+  "key": "6bf391c582944d46",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Ground-penetrating radar surveys with multiple frequency antennas can detect previously undocumented utility segments and identify conflict poin",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The claim states 'sub-5-centimetre' accuracy as a general capability, but the source shows 3.8 cm was achieved only for narrow lanes specifically, and the workflow only achieved the 5 cm threshold for 98% of survey points overall, not consistently sub-5 cm.\", \"rewrite\": \"Integration of multiple positioning techniques including RTK-GNSS with total-station traverses can achieve approximately 3.8 cm horizontal accuracy for utility location in constrained urban environments where satellite signals are obstructed in narrow lanes.\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1579,
+    "outputTokens": 187,
+    "totalTokens": 1766,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1579,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 187,
+    "service_tier": "standard"
+  },
+  "ms": 32102
+}

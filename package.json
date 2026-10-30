@@ -20,7 +20,9 @@
     "eval:arbiter": "tsx eval/arbiter.ts && tsx eval/arbiter.ts --lww",
     "eval:timeline": "tsx eval/timeline.ts",
     "eval:citations": "tsx eval/citations.ts",
-    "eval": "npm run eval:critic -- --replay && npm run eval:arbiter && npm run eval:timeline && npm run eval:citations"
+    "eval": "npm run eval:critic -- --replay && npm run eval:arbiter && npm run eval:timeline && npm run eval:citations",
+    "batch": "tsx src/run.ts --out=out/batch --fixtures=fixtures/batch --timeout=40 --in-flight=4 C012-CH3 C017-CH3 C036-CH2 C075-CH3 C080-CH3 C098-CH4 C115-CH1 C119-CH1 C120-CH3 C124-CH2 C126-CH1 C138-CH1 C143-CH2 C144-CH2 C145-CH1",
+    "eval:batch": "tsx eval/batch-summary.ts"
   },
   "dependencies": {
     "@mozaik-ai/core": "4.2.0",

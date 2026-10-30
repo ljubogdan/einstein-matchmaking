@@ -1,0 +1,38 @@
+{
+  "key": "d839a4b439201273",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Work on email personalisation demonstrates that segmentation and content matching increase click-through rates in marketing campaigns.\n  SYN-PUB",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"Claim mentions 'segmentation and content matching' but the field only discusses personalisation depth (generic vs. browse-history recommendations), not segmentation of audiences or content matching between segments.\", \"rewrite\": \"Work on email personalisation demonstrates that increased personalisation depth increases click-through rates in marketing campaigns.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1195,
+    "outputTokens": 111,
+    "totalTokens": 1306,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1195,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 111,
+    "service_tier": "standard"
+  },
+  "ms": 20988
+}

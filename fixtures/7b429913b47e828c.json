@@ -1,0 +1,38 @@
+{
+  "key": "7b429913b47e828c",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Reconstruction-error autoencoders can be trained on unlabelled high-frequency telemetry streams to produce anomaly scores without requiring labe",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"The field shows the method was trained on unlabelled sessions then fine-tuned with labelled anomalies, not trained on unlabelled data alone without any labelled examples.\", \"rewrite\": \"Reconstruction-error autoencoders can be trained on unlabelled high-frequency telemetry streams and fine-tuned with a small labelled set to produce anomaly scores.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"The fields confirm irregular sampling rates and session length variance are addressed challenges, but concept drift sensitivity is discussed as a property to consider, not as a challenge the methods address.\", \"rewrite\": \"Telemetry-based anomaly detection methods address handling of irregular sampling rates and session length variance in streaming data environments.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2159,
+    "outputTokens": 210,
+    "totalTokens": 2369,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2159,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 210,
+    "service_tier": "standard"
+  },
+  "ms": 2381
+}

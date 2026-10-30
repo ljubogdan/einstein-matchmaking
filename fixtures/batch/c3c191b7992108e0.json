@@ -1,0 +1,38 @@
+{
+  "key": "c3c191b7992108e0",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Structural dieline elements and substrate interactions require precise specification of register constraints, surface roughness tolerance, and b",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":2,\"support\":\"partly\",\"reason\":\"'output fidelity' is broader than 'output fidelity sampling via test rendering' shown in the field\",\"rewrite\":\"Print-ready file validation must address file-level syntax, metadata consistency, colour profile conformance, and output fidelity sampling via test rendering.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1203,
+    "outputTokens": 94,
+    "totalTokens": 1297,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1203,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 94,
+    "service_tier": "standard"
+  },
+  "ms": 7470
+}

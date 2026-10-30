@@ -122,6 +122,8 @@
   .callout.arb > .ic { color: var(--accent); }
   .reason { color: var(--muted); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; margin-top: 2px; }
   .reason.open { display: block; }
+  .arb-check { display: flex; align-items: center; gap: 5px; margin-top: 6px; color: var(--muted); font-size: 12px; }
+  .arb-check .ic { width: 13px; height: 13px; }
   .more { border: 0; background: none; padding: 0; margin-top: 4px; color: var(--accent); font-size: 12.5px; font-weight: 500; }
   .cta { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 980px; background: var(--accent-soft); color: var(--accent); font-weight: 600; font-size: 12.5px; }
   .cta:hover { text-decoration: none; background: rgba(0, 113, 227, .16); }
@@ -167,6 +169,16 @@
   .row > span:first-child { color: var(--muted); }
   .row.changed { background: var(--accent-soft); }
   .row.changed > span:first-child { color: var(--accent); font-weight: 600; }
+  .row .edit { float: right; margin-left: 8px; border: 0; background: none; padding: 0; color: var(--accent); font-size: 12.5px; font-weight: 500; }
+  .row.edited { background: var(--accent-soft); }
+  .row .was { display: block; margin-top: 2px; color: var(--faint); font-size: 12px; }
+  .editor { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .editor select, .editor input { font: inherit; font-size: 13px; padding: 5px 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); max-width: 100%; }
+  .editor input { flex: 1; min-width: 180px; }
+  .editor button { border: 0; border-radius: 980px; padding: 5px 12px; font-size: 12.5px; font-weight: 500; }
+  .editor .save { background: var(--accent); color: #fff; }
+  .editor .cancel { background: var(--fill); }
+  .edit-error { flex-basis: 100%; color: var(--red); font-size: 12.5px; }
   .label { display: flex; align-items: center; gap: 6px; margin: 18px 4px 8px; color: var(--muted); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
   .label .ic { width: 14px; height: 14px; }
   .stop { background: var(--red-soft); border-radius: 12px; padding: 10px 14px; margin-bottom: 8px; font-size: 13px; }
@@ -335,7 +347,7 @@ function group(producer) {
 // every redraw; a negative delay (an item's age, or the global phase for loops) makes them continue instead.
 let S
 function reset() {
-  S = { t0: null, tLast: 0, seq: 0, born: [], challenges: new Map(), pairs: new Map(), loops: new Map(), ticks: [], log: [], stops: 0, focus: null, pinned: false, records: new Map(), faults: null, open: new Set() }
+  S = { t0: null, tLast: 0, seq: 0, born: [], challenges: new Map(), pairs: new Map(), loops: new Map(), ticks: [], log: [], stops: 0, focus: null, pinned: false, records: new Map(), faults: null, open: new Set(), edit: null }
   shownStats = {}
   dirty()
 }
@@ -605,7 +617,10 @@ function renderStep(s, c) {
     case "arbiter": {
       const key = `arb-${c.id}-${s.seq}`
       const open = S.open.has(key)
-      return `<li class="co-li"${a}><div class="callout arb">${icon("scale")}<div><b>Arbiter: ${idLink(d.researcherId)} goes to ${idLink(d.winner)}</b><div class="reason ${open ? "open" : ""}">${linked(d.reason)}</div><button class="more" data-open="${key}">${open ? "Show less" : "Show the reasoning"}</button></div></div></li>`
+      // What the citation check found in the reasoning before it was published (older traces have no check).
+      const k = d.check
+      const checked = k ? `<div class="arb-check">${icon("shield")}Reasoning checked: ${k.backed} of ${k.cited} citations backed by the cards${k.notBacked.length ? `; not backed: ${k.notBacked.map(esc).join(", ")}` : ""}${k.numbersNotInBrief.length ? `; numbers not in the cards: ${k.numbersNotInBrief.map(esc).join(", ")}` : ""}</div>` : ""
+      return `<li class="co-li"${a}><div class="callout arb">${icon("scale")}<div><b>Arbiter: ${idLink(d.researcherId)} goes to ${idLink(d.winner)}</b><div class="reason ${open ? "open" : ""}">${linked(d.reason)}</div><button class="more" data-open="${key}">${open ? "Show less" : "Show the reasoning"}</button>${checked}</div></div></li>`
     }
     case "nomatch":
       return `<li class="co-li"${a}><div class="callout">${icon("x")}<div><b>No match: ${esc(d.verdict)}</b><span class="why">${linked(d.reason)}</span></div></div></li>`
@@ -630,6 +645,9 @@ function renderChallenges() {
 }
 
 function renderPair() {
+  // Don't redraw under a reviewer who is typing or choosing in a term editor.
+  const focused = document.activeElement
+  if (focused?.matches?.("[data-draft]") && $("pair").contains(focused)) return
   const tabs = [...S.pairs.values()]
   if (tabs.length === 0) {
     return void ($("pair").innerHTML = `<div class="hero">${icon("arrows")}<h3>Watch an agreement form</h3><p>Press <b>Run the demo set</b>: four company challenges are matched to researchers, contested, negotiated and fact-checked, live.</p></div>`)
@@ -664,14 +682,40 @@ function renderPair() {
     : p.status === "cancelled" ? `<div class="system">${icon("x")}Stopped: ${esc(p.why)}</div>` : ""
   const chat = `<div class="chat">${bubbles}${typing}${system}</div>`
 
+  // Before approving, a reviewer may change five terms; the server checks each edit with the Critic's term checks.
+  const review = decisions[p.pairId] ?? {}
+  const edits = review.edits ?? {}
+  const canEdit = !!p.ready && review.decision !== "approved"
+  const val = (term, agreedValue) => (edits[term] ? edits[term].to : agreedValue)
+  const show = {
+    engagement: (v) => esc(ENGAGEMENT[v] ?? v),
+    ip: (v) => esc(IP[v] ?? v),
+    reviewDays: (v) => `${v}-day company review${sheet?.publication.companyMayRemoveConfidential ? "; the company may remove its confidential information, not results" : ""}`,
+    exclusivityMonths: (v) => (Number(v) > 0 ? `${v} months in ${esc(sheet.exclusivity.field)}` : "none"),
+    money: (v) => esc(v),
+  }
+  const OPTIONS = { engagement: Object.keys(ENGAGEMENT), ip: Object.keys(IP), reviewDays: [0, 30, 60, 90], exclusivityMonths: [0, 6, 12, 18, 24] }
+  const editor = (term) => {
+    const draft = S.edit.draft
+    const field = term === "money"
+      ? `<input data-draft value="${esc(draft)}" placeholder="to be agreed, or a funding route">`
+      : `<select data-draft>${OPTIONS[term].map((o) => `<option value="${esc(o)}" ${String(o) === String(draft) ? "selected" : ""}>${term === "engagement" || term === "ip" ? show[term](o) : term === "reviewDays" ? `${o} days` : o > 0 ? `${o} months` : "none"}</option>`).join("")}</select>`
+    return `<span class="editor">${field}<button class="save" data-edit-save>Save</button><button class="cancel" data-edit-cancel>Cancel</button>${S.edit.error ? `<span class="edit-error">${icon("shield")} Not allowed: ${esc(S.edit.error)}</span>` : ""}</span>`
+  }
+  const editable = (term, label, agreedValue) => {
+    const open = S.edit?.pairId === p.pairId && S.edit.term === term
+    const edit = edits[term]
+    const body = open ? editor(term) : `${show[term](val(term, agreedValue))}${edit ? `<span class="was">Edited by you · agreed: ${show[term](edit.from)}</span>` : ""}`
+    return `<div class="row ${edit ? "edited" : changed.has(term === "reviewDays" ? "publication" : term === "exclusivityMonths" ? "exclusivity" : term) ? "changed" : ""}"><span>${label}</span><span>${canEdit && !open ? `<button class="edit" data-edit="${term}" data-value="${esc(val(term, agreedValue))}">Edit</button>` : ""}${body}</span></div>`
+  }
   const terms = sheet ? `<div class="label">${agreed ? `${icon("check")}Agreed up front` : `On the table · round ${last.round}`}</div><div class="group ${agreed ? "agreed" : ""}">
-      ${row("engagement", "Format", esc(ENGAGEMENT[sheet.engagement] ?? sheet.engagement))}
-      ${row("ip", "IP", esc(IP[sheet.ip] ?? sheet.ip))}
-      ${row("publication", "Publication", `${sheet.publication.reviewDays}-day company review${sheet.publication.companyMayRemoveConfidential ? "; the company may remove its confidential information, not results" : ""}`)}
-      ${row("exclusivity", "Exclusivity", sheet.exclusivity.months > 0 ? `${sheet.exclusivity.months} months in ${esc(sheet.exclusivity.field)}` : "none")}
+      ${editable("engagement", "Format", sheet.engagement)}
+      ${editable("ip", "IP", sheet.ip)}
+      ${editable("reviewDays", "Publication", sheet.publication.reviewDays)}
+      ${editable("exclusivityMonths", "Exclusivity", sheet.exclusivity.months)}
       ${row("backgroundIp", "Background IP", list(sheet.backgroundIp))}
       ${row("contributions", "Contributions", `<b>Company</b> ${list(sheet.contributions.company)}<br><b>University</b> ${list(sheet.contributions.university)}`)}
-      ${row("money", "Money", esc(sheet.money))}
+      ${editable("money", "Money", sheet.money)}
       ${row("timeline", "Timeline", `${sheet.timeline.months} months${sheet.timeline.milestones.length ? `: ${list(sheet.timeline.milestones)}` : ""}`)}
     </div>` : ""
 
@@ -689,10 +733,11 @@ function renderPair() {
     return `<div class="stop"${anim(v)}><span class="what">${icon("shield")}${esc(shortClaim(v.claimId))} · ${esc(v.check)}</span> ${linked(v.reason)}${v.suggestion ? `<br><span class="muted">Suggested: ${linked(v.suggestion)}</span>` : ""}${then}</div>`
   }).join("")
   const critic = p.verdicts.length ? `<div class="label">${icon("shield")}Critic on the proposal · ${p.verdicts.filter((v) => v.attempt === 1).length} claims, ${passed} passed first time</div>${stops}` : ""
-  const decided = decisions[p.pairId]
+  const decided = review.decision
+  const nEdits = Object.keys(edits).length
   const gate = decided
-    ? `<span class="pill ${decided === "approved" ? "solid" : "dark"}">${icon(decided === "approved" ? "check" : "x")}${decided === "approved" ? "Approved" : "Rejected"} by you</span> <button class="linkish" data-decide="${esc(p.pairId)}" data-decision="">Change</button><p class="sub gate-note">Recorded. Sending isn't built, so nobody was contacted.</p>`
-    : `<button class="secondary" data-decide="${esc(p.pairId)}" data-decision="approved">${icon("check")}Approve</button> <button class="secondary" data-decide="${esc(p.pairId)}" data-decision="rejected">${icon("x")}Reject</button><p class="sub gate-note">A draft until a person approves it. Nobody is contacted before that.</p>`
+    ? `<span class="pill ${decided === "approved" ? "solid" : "dark"}">${icon(decided === "approved" ? "check" : "x")}${decided === "approved" ? "Approved" : "Rejected"} by you${nEdits ? ` with ${nEdits} change${nEdits > 1 ? "s" : ""}` : ""}</span> <button class="linkish" data-decide="${esc(p.pairId)}" data-decision="">Change</button><p class="sub gate-note">Recorded. Sending isn't built, so nobody was contacted.</p>`
+    : `<button class="secondary" data-decide="${esc(p.pairId)}" data-decision="approved">${icon("check")}Approve${nEdits ? ` with ${nEdits} change${nEdits > 1 ? "s" : ""}` : ""}</button> <button class="secondary" data-decide="${esc(p.pairId)}" data-decision="rejected">${icon("x")}Reject</button><p class="sub gate-note">A draft until a person approves it. You can edit the format, IP, publication, exclusivity and money first; each edit is checked like the agents' terms. Nobody is contacted before approval.</p>`
   const ready = p.ready ? `<div class="open-cta"><a class="cta" href="/proposal/${esc(p.pairId)}" target="_blank">${icon("doc")}Open the proposal</a></div><div class="gate">${gate}</div>` : ""
 
   $("pair").innerHTML = `${header}${parties}${chat}${ready}${terms}${critic}`
@@ -789,7 +834,19 @@ document.addEventListener("click", (ev) => {
   const gate = ev.target.closest("[data-decide]")
   if (gate) {
     if (gate.dataset.decision) fetch(`/decide/${gate.dataset.decide}?decision=${gate.dataset.decision}`, { method: "POST" })
-    else { delete decisions[gate.dataset.decide]; dirty() } // Change: the buttons again; the last decision stands until a new one
+    else if (decisions[gate.dataset.decide]) { delete decisions[gate.dataset.decide].decision; dirty() } // Change: the buttons again; the last decision stands until a new one
+  }
+  const edit = ev.target.closest("[data-edit]")
+  if (edit) { S.edit = { pairId: S.focus ?? [...S.pairs.keys()].at(-1), term: edit.dataset.edit, draft: edit.dataset.value, error: "" }; dirty() }
+  if (ev.target.closest("[data-edit-cancel]")) { S.edit = null; dirty() }
+  if (ev.target.closest("[data-edit-save]") && S.edit) {
+    const { pairId, term, draft } = S.edit
+    fetch(`/amend/${pairId}?term=${encodeURIComponent(term)}&value=${encodeURIComponent(draft)}`, { method: "POST" }).then(async (r) => {
+      if (r.ok) S.edit = null
+      else S.edit = { ...S.edit, error: (await r.json().catch(() => ({ reason: "refused" }))).reason }
+      document.activeElement?.blur?.()
+      dirty()
+    })
   }
   const tab = ev.target.closest("[data-pair]")
   if (tab) { S.focus = tab.dataset.pair; S.pinned = true; dirty() }
@@ -797,6 +854,9 @@ document.addEventListener("click", (ev) => {
   const more = ev.target.closest("[data-open]")
   if (more) { S.open.has(more.dataset.open) ? S.open.delete(more.dataset.open) : S.open.add(more.dataset.open); dirty() }
 })
+// Keep what the reviewer picked or typed across redraws.
+document.addEventListener("input", (ev) => { if (ev.target.matches?.("[data-draft]") && S.edit) S.edit.draft = ev.target.value })
+document.addEventListener("change", (ev) => { if (ev.target.matches?.("[data-draft]") && S.edit) { S.edit.draft = ev.target.value; ev.target.blur(); dirty() } })
 $("logbtn").addEventListener("click", () => {
   $("logcol").hidden = !$("logcol").hidden
   document.querySelector("main").classList.toggle("with-log", !$("logcol").hidden)

@@ -35,7 +35,9 @@ const maxInFlight = Number(flag("in-flight")) || undefined
 const fixtureDir = flag("fixtures")
 const started = Date.now()
 const TIMEOUT_MS = (Number(flag("timeout")) || 10) * 60_000 // --timeout=MINUTES
-const TRACE = flag("trace") ?? "out/trace.jsonl" // the board's Run writes its own, so the committed trace stays put
+// --out=DIR: proposals, reports and the trace go there instead of out/ (runs beyond the demo set keep it intact).
+const OUT = flag("out") ?? "out"
+const TRACE = flag("trace") ?? `${OUT}/trace.jsonl` // the board's Run writes its own, so the committed trace stays put
 // The demo set: two companies with the same challenge (C001-CH1, C032-CH1) want the same researcher; C061-CH1 has the
 // R0128 identity-conflict profile on its shortlist; C043-CH3 (raise a seed round) is not a research problem.
 const DEMO = ["C001-CH1", "C032-CH1", "C061-CH1", "C043-CH3"]
@@ -72,8 +74,8 @@ function settle(challengeId: string, line: string): void {
   outcomes.set(challengeId, line)
   console.log(line)
   if (outcomes.size < challengeIds.length) return
-  reporter.write()
-  finish(0, `done: ${challengeIds.length} challenges, ${[...outcomes.values()].filter((l) => l.startsWith("proposal")).length} proposals; reports: out/nomatch.md, out/traps.md`)
+  reporter.write(OUT)
+  finish(0, `done: ${challengeIds.length} challenges, ${[...outcomes.values()].filter((l) => l.startsWith("proposal")).length} proposals; reports: ${OUT}/nomatch.md, ${OUT}/traps.md`)
 }
 
 const outcome = createHuman({
@@ -120,7 +122,7 @@ const onPair = (pair: Pair, profile: ProfileCard) => {
   console.log(`pair: ${pair.pairId} (picked by search)`)
   join(createNegotiator("company", pair, board, data, profile))
   join(createNegotiator("researcher", pair, board, data, profile))
-  join(createWriter(pair, board, data, profile))
+  join(createWriter(pair, board, data, profile, `${OUT}/proposals`))
 }
 const matchmakers = Array.from({ length: Math.min(MATCHMAKERS, challengeIds.length) }, (_, i) =>
   createMatchmaker({ name: `matchmaker-${i + 1}`, challengeIds: challengeIds.filter((_, j) => j % MATCHMAKERS === i), data, index, board, onPair }),

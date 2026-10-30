@@ -1,0 +1,38 @@
+{
+  "key": "e5a432048dc4cacf",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Fouling of ultrafiltration membranes in protein-rich bioprocess streams is driven by protein conformation, aggregation state, and particle packi",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"particle packing density is not explicitly mentioned; only 'denser packing of aggregated protein particles' is shown as a result, not listed as a driving mechanism\", \"rewrite\": \"Fouling of ultrafiltration membranes in protein-rich bioprocess streams is driven by protein conformation and aggregation state, with these mechanisms characterized through resistance-in-series diagnostic frameworks and surface analysis.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1447,
+    "outputTokens": 132,
+    "totalTokens": 1579,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1447,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 132,
+    "service_tier": "standard"
+  },
+  "ms": 31968
+}

@@ -1,0 +1,38 @@
+{
+  "key": "86b6815681fc6234",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C036-CH2: Big retailers will stop taking conventional plastic lidding film by 2028; we need a compostable one that still seals.\nDetail: Several large ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Reactive extrusion of starch–protein blends enables control of mechanical and barrier properties through systematic variation of barrel temperature, screw speed, and protein content.\",\"sources\":[{\"id\":\"SYN-PUB-02373\",\"field\":\"abstract\",\"quote\":\"central composite design was used to map the effect of barrel temperature, screw speed, and sunflower protein concentrate content on mechanical and barrier properties\"},{\"id\":\"SYN-PUB-02398\",\"field\":\"abstract\",\"quote\":\"Pea protein isolate was melt-blended with corn starch at protein contents of 10, 20, and 30 wt%\"}]},{\"claim\":2,\"text\":\"Citric acid promotes cross-linking between starch and protein phases, improving tensile strength from 8.4 MPa to 14.7 MPa and reducing water vapour transmission rate by 29%.\",\"sources\":[{\"id\":\"SYN-PUB-02398\",\"field\":\"abstract\",\"quote\":\"Cross-linking between starch hydroxyl groups and protein amino acid residues was promoted by adding citric acid as a reactive compatibiliser\"},{\"id\":\"SYN-PUB-02398\",\"field\":\"abstract\",\"quote\":\"Tensile strength of compression-moulded films increased from 8.4 MPa to 14.7 MPa at 20 wt% PPI\"},{\"id\":\"SYN-PUB-02398\",\"field\":\"abstract\",\"quote\":\"Water vapour transmission rate decreased by 29% relative to unfilled TPS at the same formulation\"}]},{\"claim\":3,\"text\":\"Scale-up of starch–protein extrusion requires adjusted barrel temperature profiles to maintain equivalent gelatinisation degrees when specific mechanical energy decreases at pilot scale.\",\"sources\":[{\"id\":\"SYN-PUB-10760\",\"field\":\"abstract\",\"quote\":\"specific mechanical energy decreased by 23% at pilot scale at equivalent screw speed and temperature, necessitating adjusted barrel temperature profiles to maintain equivalent gelatinisation degrees\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2778,
+    "outputTokens": 468,
+    "totalTokens": 3246,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2778,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 468,
+    "service_tier": "standard"
+  },
+  "ms": 28586
+}

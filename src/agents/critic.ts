@@ -98,11 +98,11 @@ function belongsTo(id: string, subject: string, ctx: CriticContext): boolean {
 
 const MAX_FIELD = 3000 // long enough for any abstract or company text; a cap so one field can't crowd out the claims
 
-const SUPPORT_INSTRUCTION = `You check whether sources support sentences. Each sentence comes with what it quotes and the whole field each quote is from. Read only those, not your own knowledge: a fact anywhere in a given field counts, and a quote that is too short is not a fault. For each numbered claim answer:
-- support: "yes" if everything the sentence states is in its fields (the same meaning in other words is fine); "partly" if the sentence says more than its fields (an extra detail, a stronger or broader word, a purpose or result the fields don't give); "no" if the fields don't back the sentence.
-- A claim of kind inference may draw a conclusion; judge only whether the facts it rests on are in its fields.
-- reason: one short line naming what is not supported; "" for yes.
-- rewrite: for "partly", the sentence cut down to what the fields say; otherwise "".`
+const SUPPORT_INSTRUCTION = `You check whether sources support sentences. Each sentence comes with what it quotes and the whole field each quote is from. Read only those, not your own knowledge: a fact anywhere in a given field counts, facts from the sentence's different fields may be combined, and a quote that is too short is not a fault. For each numbered claim answer:
+- support: "yes" if every fact the sentence states is in its fields. Plain paraphrase is fine, and so are rounding ("under a millisecond" for 0.9 ms), saying what a method can do when a field shows it doing that, and naming in general words what a field names in detail. "partly" only if you can name a specific fact in the sentence that none of its fields gives: an extra number, name, place, capability, result, purpose or comparison, or a word that overstates (all, always, proven, deployed, already). "no" if the fields don't back the sentence at all.
+- A claim of kind inference draws a conclusion, for example why neither side could do the work alone; judge only whether the facts it rests on are in its fields, not the conclusion itself.
+- reason: one short line naming the fact that is not supported; "" for yes.
+- rewrite: for "partly", the sentence without that fact; otherwise "".`
 
 /** The support check's input: numbered claims with their quotes and the whole fields they're from. */
 export function supportMessage(claims: Claim[], ctx: CriticContext): string {

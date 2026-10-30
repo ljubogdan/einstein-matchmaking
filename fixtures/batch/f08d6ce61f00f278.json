@@ -1,0 +1,38 @@
+{
+  "key": "f08d6ce61f00f278",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: The company_owns_uni_academic_use model preserves full academic use rights, allowing the researcher to publish and continue research using the m",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words only list publications with a count and date; they don't state that academic use rights are preserved or that the researcher can publish.\"},{\"item\":2,\"backed\":false,\"reason\":\"Words only list prior project titles; they don't state that background know-how from those projects is protected.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 644,
+    "outputTokens": 81,
+    "totalTokens": 725,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 644,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 81,
+    "service_tier": "standard"
+  },
+  "ms": 38903
+}

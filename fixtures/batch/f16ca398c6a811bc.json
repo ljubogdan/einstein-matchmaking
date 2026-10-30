@@ -1,0 +1,38 @@
+{
+  "key": "f16ca398c6a811bc",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: The researcher's published work on tile-parallel GPU processing and ML segmentation directly addresses our 48-hour turnaround requirement [SYN-P",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":true,\"reason\":\"\"},{\"item\":2,\"backed\":false,\"reason\":\"The cited words are about benchmarking GNN architectures for segmentation, not about a 48-hour turnaround requirement.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 674,
+    "outputTokens": 60,
+    "totalTokens": 734,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 674,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 60,
+    "service_tier": "standard"
+  },
+  "ms": 2507
+}

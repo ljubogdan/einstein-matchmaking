@@ -1,0 +1,38 @@
+{
+  "key": "c47b2180d53646f0",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Some client networks have been running for twenty years with no security monitoring at all, so confirmed attack captures have never been availab",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"The sentence claims 'confirmed attack captures have never been available from any site' but the field only states the specific clients mentioned have not provided them; it does not claim this is true of all sites everywhere.\", \"rewrite\": \"Some client networks have been running for twenty years with no security monitoring at all, so if compromised they would not know whether they had been attacked.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 5, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 10, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 11, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 12, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 344,
+    "totalTokens": 347,
+    "inputTokenDetails": {
+      "cached_tokens": 5153
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 5153,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 5153,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 344,
+    "service_tier": "standard"
+  },
+  "ms": 2706
+}

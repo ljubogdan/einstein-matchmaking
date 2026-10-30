@@ -1,0 +1,38 @@
+{
+  "key": "a84d642d28483214",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Unsupervised anomaly detection can identify deviations from learned normal Modbus traffic patterns without requiring labelled attack data, using",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"The field does not support the claim that hybrid architectures demonstrate 'lower sensitivity to protocol variability' - it only states that deep-learning systems exhibit 'higher sensitivity to protocol version variability', which is the inverse framing.\", \"rewrite\": \"Hybrid detection architectures combining specification-based rules with neural anomaly scoring achieve better balance than purely deep-learning approaches for industrial protocols, while pure deep-learning-based systems exhibit higher sensitivity to protocol version variability in operational environments.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1539,
+    "outputTokens": 170,
+    "totalTokens": 1709,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1539,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 170,
+    "service_tier": "standard"
+  },
+  "ms": 2000
+}

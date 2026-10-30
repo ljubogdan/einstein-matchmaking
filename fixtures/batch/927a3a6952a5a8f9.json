@@ -1,0 +1,38 @@
+{
+  "key": "927a3a6952a5a8f9",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Research addresses automated detection and handling of shifts and variations in streaming data from industrial systems using adaptive anomaly de",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The fields show 18 months (not multi-year) of industrial records evaluated\", \"rewrite\": \"Experience encompasses detection and adaptation strategies for handling non-stationary and heterogeneous datasets, including methods to identify anomalies and regime transitions in industrial records spanning 18 months.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1756,
+    "outputTokens": 107,
+    "totalTokens": 1863,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1756,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 107,
+    "service_tier": "standard"
+  },
+  "ms": 33396
+}

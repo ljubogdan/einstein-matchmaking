@@ -1,0 +1,38 @@
+{
+  "key": "8398cb1ef41fd542",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The anti-cheat system flags about 900 accounts a day but the review team can only process 200, leaving legitimate players getting banned.\n  C115",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"},{\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"},{\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"},{\"claim\": 4, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"},{\"claim\": 5, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"},{\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"},{\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"},{\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"},{\"claim\": 9, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"},{\"claim\": 10, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"},{\"claim\": 11, \"support\": \"partly\", \"reason\": \"The field does not specify that BehaviorWatch v2 generates high-frequency telemetry streams; it only names it as an internally developed system for player behaviour monitoring.\", \"rewrite\": \"The company's internally developed BehaviorWatch v2 system for player behaviour monitoring is compatible with the researcher's detection methods designed to process high-frequency behavioural telemetry streams.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 325,
+    "totalTokens": 328,
+    "inputTokenDetails": {
+      "cached_tokens": 4843
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 4843,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 4843,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 325,
+    "service_tier": "standard"
+  },
+  "ms": 4062
+}

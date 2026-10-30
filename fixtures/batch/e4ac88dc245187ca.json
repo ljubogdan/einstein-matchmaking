@@ -1,0 +1,38 @@
+{
+  "key": "e4ac88dc245187ca",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Geostatistical methods including kriging with external drift and regression-kriging have been applied to map multiple soil properties such as pH",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The field does not state that depth-specific calibration 'improves predictive accuracy' in general or as a validated principle; it only shows this occurred in this particular study for potassium and calcium below 40 cm, not as a validated method across saline-sodic Pannonian Plain sites.\", \"rewrite\": \"Rapid proximal sensing methods including portable XRF have been tested for estimating soil potassium and calcium in soil profiles in saline-sodic Pannonian Plain sites, with depth-specific calibration showing improved accuracy compared to a single pooled model.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1288,
+    "outputTokens": 172,
+    "totalTokens": 1460,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1288,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 172,
+    "service_tier": "standard"
+  },
+  "ms": 23996
+}

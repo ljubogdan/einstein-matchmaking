@@ -1,0 +1,38 @@
+{
+  "key": "b69101c814b71594",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Work develops structured validation workflows to detect and resolve topological errors in utility network spatial databases, and detects geometr",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"The claim combines facts from two separate studies with different scopes and utility types. SYN-PUB-10170 addresses topological errors in a water supply network; SYN-PUB-10175 addresses geometric conflicts in a 3D subsurface multi-operator dataset. The claim presents them as if a single work does both.\", \"rewrite\": \"Work develops structured validation workflows to detect and resolve topological errors in utility network spatial databases. Separately, geometric conflicts between utility geometries were detected where 61% were attributable to CRS inconsistencies.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1163,
+    "outputTokens": 149,
+    "totalTokens": 1312,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1163,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 149,
+    "service_tier": "standard"
+  },
+  "ms": 12948
+}

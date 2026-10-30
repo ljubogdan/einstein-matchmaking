@@ -1,0 +1,38 @@
+{
+  "key": "2bceb2808b5e3831",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C143-CH2: We process roughly 180,000 transactions a day and our PostgreSQL cluster is starting to miss our 200 ms SLA during evening peaks; we need to",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Composite partitioning strategies combining hash on primary keys with time-based range partitioning can keep OLTP tail latency within 11% of the hash-only baseline while achieving near-optimal OLAP performance.\",\"sources\":[{\"id\":\"SYN-PUB-01478\",\"field\":\"abstract\",\"quote\":\"A composite scheme pairing hash on account identifier with monthly range sub-partitioning achieves within 8% of the best OLAP time while keeping OLTP tail latency within 11% of the hash-only baseline\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2461,
+    "outputTokens": 136,
+    "totalTokens": 2597,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2461,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 136,
+    "service_tier": "standard"
+  },
+  "ms": 14624
+}

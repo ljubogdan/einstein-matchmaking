@@ -1,0 +1,38 @@
+{
+  "key": "875e3134f57a6280",
+  "model": "claude-haiku-4-5",
+  "prompt": "Company: Textiles and fashion. Košava Tekstil d.o.o. was founded in 1991 by Miroslav and Danica Vujanović in Zrenjanin, starting with four sewing machines in a ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"researchProblem\": false, \"reason\": \"This is a regulatory compliance and market entry challenge requiring operational guidance on EU PPE Regulation procedures, not an open research question.\", \"researchQuestions\": [], \"searchTerms\": []}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1305,
+    "outputTokens": 56,
+    "totalTokens": 1361,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1305,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 56,
+    "service_tier": "standard"
+  },
+  "ms": 7695
+}

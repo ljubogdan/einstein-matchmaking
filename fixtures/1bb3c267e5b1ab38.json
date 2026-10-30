@@ -1,0 +1,38 @@
+{
+  "key": "1bb3c267e5b1ab38",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): R1015's autoencoder detector has been deployed at several utilities.\n  SYN-PUB-10523 abstract: \"Industrial control systems increasingly rely on ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"no\", \"reason\": \"The abstract describes an autoencoder framework and evaluation on a testbed, but does not state that it has been deployed at any utilities.\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"no\", \"reason\": \"The field states ArmaturaSec can dedicate one to two engineers part-time, not full-time for the whole duration.\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"no\", \"reason\": \"The field states clients have never been breached (or don't know it), contradicting that ArmaturaSec has lost clients because its detector missed attacks.\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"The field shows hybrid detectors achieved the best balance in field trials on a testbed, but does not state they outperform every other approach—purely deep-learning systems showed higher sensitivity to protocol variability, not worse overall performance.\", \"rewrite\": \"R1015 proved in field trials that hybrid detectors combining specification-based rules with neural anomaly scoring achieve the best overall balance among detection approaches.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1380,
+    "outputTokens": 264,
+    "totalTokens": 1644,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1380,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 264,
+    "service_tier": "standard"
+  },
+  "ms": 5568
+}

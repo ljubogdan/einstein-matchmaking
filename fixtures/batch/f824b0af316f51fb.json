@@ -1,0 +1,38 @@
+{
+  "key": "f824b0af316f51fb",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C115-CH1: Our anti-cheat system flags about 900 accounts a day but our manual review team can only process 200 — legitimate players are getting banned",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Isolation Forest algorithms perform unsupervised multivariate anomaly detection on high-frequency data streams without requiring labelled training data, outperforming a univariate z-score baseline by 18 percentage points in F1 score.\",\"sources\":[{\"id\":\"SYN-PUB-06618\",\"field\":\"abstract\",\"quote\":\"Isolation Forest algorithm for unsupervised anomaly detection in such streams\"},{\"id\":\"SYN-PUB-06618\",\"field\":\"abstract\",\"quote\":\"No labelled training data was required beyond the held-out evaluation set\"},{\"id\":\"SYN-PUB-06618\",\"field\":\"abstract\",\"quote\":\"Isolation Forest outperformed a univariate z-score baseline by 18 percentage points in F1 score\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2199,
+    "outputTokens": 194,
+    "totalTokens": 2393,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2199,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 194,
+    "service_tier": "standard"
+  },
+  "ms": 17400
+}

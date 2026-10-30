@@ -1,0 +1,38 @@
+{
+  "key": "f27e7ce09d81ac98",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): One-class support vector machines can detect scripted clients in online game environments by learning from legitimate player behavior alone, ach",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"No labelled training data required is stated, but the claim says 'outperforming univariate baselines by 18 percentage points' which is not directly supported—the field says it 'outperformed a univariate z-score baseline by 18 percentage points in F1 score', specifying the metric and baseline type rather than just 'baselines' generically.\", \"rewrite\": \"Isolation Forest algorithms perform unsupervised multivariate anomaly detection on high-frequency data streams without requiring labelled training data, outperforming z-score baselines by 18 percentage points in F1 score on correlated deviations.\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1526,
+    "outputTokens": 213,
+    "totalTokens": 1739,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1526,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 213,
+    "service_tier": "standard"
+  },
+  "ms": 33873
+}

@@ -1,0 +1,38 @@
+{
+  "key": "a0edca9ea6ce0211",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Research has evaluated commercially available polymeric packaging films for their oxygen and carbon dioxide transmission rates to support modifi",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The field characterizes respiration rates and gas equilibration dynamics in raspberries specifically under MAP conditions, not soft fruits in general; it does not quantify how sealing conditions affect headspace atmosphere establishment, only how pre-cooling protocols affect it.\", \"rewrite\": \"Work has characterized respiration rates and gas equilibration dynamics in raspberries under MAP conditions and quantified how pre-cooling conditions affect headspace atmosphere establishment.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1375,
+    "outputTokens": 135,
+    "totalTokens": 1510,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1375,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 135,
+    "service_tier": "standard"
+  },
+  "ms": 24387
+}

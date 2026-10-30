@@ -1,0 +1,38 @@
+{
+  "key": "5d128343e694a9a3",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): City-block flights over dense urban areas produce raw point clouds in the range of 80 GB.\n  C126-CH1 detail: \"produces raw point clouds in the r",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The source shows 91.4% accuracy for RandLA-Net specifically, not 'over 91%' for machine learning models generally for this task, and the highest accuracy achieved was 93.1% (KPConv), not just over 91%\", \"rewrite\": \"Machine learning models for automated airborne point cloud segmentation and feature extraction can achieve up to 93.1% accuracy (KPConv) or around 91.4% (RandLA-Net) for urban and mixed-use terrain classification.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1305,
+    "outputTokens": 163,
+    "totalTokens": 1468,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1305,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 163,
+    "service_tier": "standard"
+  },
+  "ms": 17485
+}

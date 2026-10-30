@@ -1,0 +1,38 @@
+{
+  "key": "eb2199aec8203459",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Research addresses rule-based and parametric layout generation for automated composition workflows, including constraint-driven document design ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The field specifies catalogue and packaging clients, but the claim combines these into a single category without distinguishing them as separate client types.\", \"rewrite\": \"Background includes prepress consulting experience developing automated template workflows for catalogue clients and packaging clients.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1018,
+    "outputTokens": 96,
+    "totalTokens": 1114,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1018,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 96,
+    "service_tier": "standard"
+  },
+  "ms": 7988
+}

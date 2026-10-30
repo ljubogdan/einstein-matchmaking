@@ -1,0 +1,38 @@
+{
+  "key": "3fde36c3bd0ad547",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Research applies hedonic regression to measure price premiums for AI-generated contextual signals in programmatic advertising, finding a 22 perc",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The claim states audience targeting accounts for 61 percent, but the source states placement position and audience targeting together account for 61 percent\", \"rewrite\": \"Work uses conjoint analysis to quantify media buyer preferences for targeting attributes, demonstrating that placement position and audience targeting capability together account for 61 percent of attribute importance in banner placement valuation.\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1786,
+    "outputTokens": 143,
+    "totalTokens": 1929,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1786,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 143,
+    "service_tier": "standard"
+  },
+  "ms": 21820
+}

@@ -1,0 +1,38 @@
+{
+  "key": "f23b0a66871a677a",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Research demonstrates scheduling and latency optimization for stateful operators on container-orchestrated clusters, reducing 99th-percentile sc",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"Claim states 99th-percentile scheduling jitter improvement, but source shows 95th-percentile latency improvement; claim also states this is about 'scheduling and latency optimization' with jitter reduction as primary focus, but source measures timeout rate reduction (0.07%) and 95th-percentile latency (28%), not 99th-percentile jitter improvement.\", \"rewrite\": \"Research demonstrates scheduling and latency optimization for stateful operators on container-orchestrated clusters, reducing operator timeout rate to 0.07% and improving end-to-end 95th-percentile latency by 28% in production deployments.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 905,
+    "outputTokens": 165,
+    "totalTokens": 1070,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 905,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 165,
+    "service_tier": "standard"
+  },
+  "ms": 23842
+}

@@ -1,0 +1,38 @@
+{
+  "key": "184a7df185a3e4f2",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C144-CH2: Downstream purification — specifically the ultrafiltration step — runs at only 55% of nominal throughput because the membranes foul with res",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Fouling of ultrafiltration membranes in protein-rich bioprocess streams is driven by protein conformation and aggregation state, with these mechanisms characterized through resistance-in-series diagnostic frameworks and surface analysis.\",\"sources\":[{\"id\":\"SYN-PUB-03384\",\"field\":\"abstract\",\"quote\":\"protein conformation and aggregation state in foulant deposit formation; the resistance-in-series framework\"},{\"id\":\"SYN-PUB-03376\",\"field\":\"abstract\",\"quote\":\"cake filtration and intermediate blocking models were fitted to experimental flux–volume data\"}]},{\"claim\":2,\"text\":\"Pre-treatment of fermentation broths with protease prior to ultrafiltration was evaluated as a fouling mitigation strategy, with limiting flux increased by 38% compared with untreated broth at a hydrolysis degree of 16%.\",\"sources\":[{\"id\":\"SYN-PUB-03380\",\"field\":\"abstract\",\"quote\":\"Pre-treatment of a model fermentation broth with a commercial serine protease was evaluated as a fouling mitigation strategy\"},{\"id\":\"SYN-PUB-03380\",\"field\":\"abstract\",\"quote\":\"At a hydrolysis degree of 16%, the limiting flux increased by 38% compared with untreated broth\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2543,
+    "outputTokens": 301,
+    "totalTokens": 2844,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2543,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 301,
+    "service_tier": "standard"
+  },
+  "ms": 16235
+}

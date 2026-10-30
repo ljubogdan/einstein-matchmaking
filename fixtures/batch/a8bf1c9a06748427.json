@@ -1,0 +1,38 @@
+{
+  "key": "a8bf1c9a06748427",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Research focuses on supervised anomaly detection and classification under severe class imbalance in high-dimensional tabular datasets, with appl",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The sentence states cost-sensitive bagging outperforms 'balanced bagging' but the abstract specifies it outperforms 'balanced bagging with undersampling' - an additional detail about the method used.\", \"rewrite\": \"Cost-sensitive bagging achieves AUPRC of 0.81 and G-mean of 0.79, outperforming standard bagging and balanced bagging with undersampling on network intrusion data with 0.8% positive-class rate.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1516,
+    "outputTokens": 155,
+    "totalTokens": 1671,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1516,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 155,
+    "service_tier": "standard"
+  },
+  "ms": 11041
+}

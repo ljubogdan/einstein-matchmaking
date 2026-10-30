@@ -1,0 +1,38 @@
+{
+  "key": "667a88d5bc4c6181",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C036-CH2: Big retailers will stop taking conventional plastic lidding film by 2028; we need a compostable one that still seals.\nDetail: Several large ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Work has characterized respiration rates and gas equilibration dynamics in raspberries under MAP conditions and quantified how pre-cooling conditions affect headspace atmosphere establishment.\",\"sources\":[{\"id\":\"SYN-PUB-10214\",\"field\":\"abstract\",\"quote\":\"Headspace gas composition was monitored at 0, 6, 12, 24, and 48 hours post-sealing\"},{\"id\":\"SYN-PUB-10214\",\"field\":\"abstract\",\"quote\":\"Fruit core temperature profiles, firmness, respiration rate (CO₂ evolution), and drip loss were recorded\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2330,
+    "outputTokens": 150,
+    "totalTokens": 2480,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2330,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 150,
+    "service_tier": "standard"
+  },
+  "ms": 13924
+}

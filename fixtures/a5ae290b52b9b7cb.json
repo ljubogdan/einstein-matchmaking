@@ -1,0 +1,38 @@
+{
+  "key": "a5ae290b52b9b7cb",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We have no past collaborations to draw on [C032 past_collaborations], so clear milestones at M3, M6, M9 and M12 protect both sides and keep the ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":true,\"reason\":\"\"},{\"item\":2,\"backed\":false,\"reason\":\"Words describe staffing (four security engineers), not anonymised customer traffic or in-house OT parsers as core technical assets.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 652,
+    "outputTokens": 59,
+    "totalTokens": 711,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 652,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 59,
+    "service_tier": "standard"
+  },
+  "ms": 1222
+}

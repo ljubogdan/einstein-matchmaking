@@ -1,0 +1,38 @@
+{
+  "key": "17375da67229c07d",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C115-CH1: Our anti-cheat system flags about 900 accounts a day but our manual review team can only process 200 — legitimate players are getting banned",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"expertise\":[{\"text\":\"Anomaly detection in player behaviour telemetry uses semi-supervised learning and sequence modelling to distinguish between legitimate and malicious actions in high-frequency event streams.\",\"sources\":[{\"id\":\"R0856\",\"field\":\"bio\",\"quote\":\"semi-supervised detection of anomalous player behaviour in online game telemetry\"},{\"id\":\"R0856\",\"field\":\"keywords\",\"quote\":\"player behaviour analytics, bot detection, event log analysis, online game analytics\"}]},{\"text\":\"One-class classification methods achieve F1 scores around 0.81 with false-positive rates below 5% when trained exclusively on legitimate player sessions to detect scripted clients.\",\"sources\":[{\"id\":\"SYN-PUB-06623\",\"field\":\"abstract\",\"quote\":\"one-class support vector machines (OC-SVM) to a labelled telemetry dataset of 48,000 sessions\"},{\"id\":\"SYN-PUB-06623\",\"field\":\"abstract\",\"quote\":\"The resulting model achieved an F1 score of 0.81 on the contaminated test split, with a false-positive rate of 4.3%\"}]},{\"text\":\"Concept drift in player behaviour distributions requires adaptive windowing and retraining protocols that reduce labelling overhead by approximately 35% compared to fixed-interval retraining.\",\"sources\":[{\"id\":\"SYN-PUB-09227\",\"field\":\"abstract\",\"quote\":\"Player behaviour distributions in live online games shift over time due to meta-game evolution, patch updates, and seasonal events\"},{\"id\":\"SYN-PUB-09227\",\"field\":\"abstract\",\"quote\":\"The paper proposes a retraining scheduling protocol that reduces labelling overhead by approximately 35% compared to periodic fixed-interval retraining\"}]}],\"fit\":\"strong\",\"fitReason\":\"The researcher's work directly addresses the core challenge: semi-supervised anomaly detection to reduce false positives in player behaviour classification [R0856], one-class methods for bot/cheat detection with quantified false-positive rates [SYN-PUB-06623], and concept drift handling to maintain model accuracy over time in live game telemetry [SYN-PUB-09227], plus prior industry deployment experience with game backend anomaly detection pipelines.\"}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2314,
+    "outputTokens": 508,
+    "totalTokens": 2822,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2314,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 508,
+    "service_tier": "standard"
+  },
+  "ms": 10418
+}

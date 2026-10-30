@@ -1,0 +1,38 @@
+{
+  "key": "849eff64f465fa90",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Cross-sectional microscopy and profilometry methods are applied to measure surface deformation and edge-slope characteristics in thermoforming p",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"Cross-sectional microscopy is mentioned (SEM for surface micro-crazing assessment), but the claim states both microscopy AND profilometry are applied to measure surface deformation AND edge-slope characteristics, when the field shows profilometry measured edge-slope angle specifically, and SEM assessed surface micro-crazing, not surface deformation measurement via microscopy.\", \"rewrite\": \"Optical profilometry and SEM are applied to measure edge-slope characteristics and surface micro-crazing in thermoforming processes.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 918,
+    "outputTokens": 135,
+    "totalTokens": 1053,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 918,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 135,
+    "service_tier": "standard"
+  },
+  "ms": 9204
+}

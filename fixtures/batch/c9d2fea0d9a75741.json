@@ -1,0 +1,38 @@
+{
+  "key": "c9d2fea0d9a75741",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C075-CH3: Our civil crews have to dig exploratory trenches to locate old underground cables before every excavation because the as-built drawings from",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Integration of multiple positioning techniques including RTK-GNSS with total-station traverses reduced the lane-canyon horizontal RMS to 3.8 cm for utility location in constrained urban environments.\",\"sources\":[{\"id\":\"SYN-PUB-01829\",\"field\":\"abstract\",\"quote\":\"A workflow combining short RTK observation windows with constrained total-station traverses bridging signal gaps reduced the lane-canyon horizontal RMS to 3.8 cm\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2153,
+    "outputTokens": 118,
+    "totalTokens": 2271,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2153,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 118,
+    "service_tier": "standard"
+  },
+  "ms": 14890
+}

@@ -1,0 +1,38 @@
+{
+  "key": "1ff5ad7456934b06",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We accept the ring-fencing of SYN-PAT-026 as university background IP, which is a fair protection for pre-existing assets on both sides. We need",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"The cited words describe a membrane technology type; they say nothing about proprietary batch pressure and flow data.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 511,
+    "outputTokens": 41,
+    "totalTokens": 552,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 511,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 41,
+    "service_tier": "standard"
+  },
+  "ms": 11296
+}

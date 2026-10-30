@@ -1,0 +1,38 @@
+{
+  "key": "7f85b176a579ee31",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Cold-pressed pumpkin seed oil composition has been characterized using gas chromatography and HPLC methods to profile fatty acids and tocopherol",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Roasting effects on tocopherol retention are shown only at 160°C, not across roasting conditions generally; correlation between tocopherol and induction period is moderate (r=0.61), not a strong direct relationship as implied.\", \"rewrite\": \"Tocopherol content in seed oils correlates with oxidative stability as measured by induction period testing, and heavy roasting at 160°C can affect tocopherol retention and free fatty acid formation.\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2362,
+    "outputTokens": 172,
+    "totalTokens": 2534,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2362,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 172,
+    "service_tier": "standard"
+  },
+  "ms": 3739
+}

@@ -1,0 +1,38 @@
+{
+  "key": "78e4808a594e54a7",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: The 30-day publication review protects our right to publish [R0181 publications], and the engagement is a short-term consulting arrangement well",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words list publication count/date; they say nothing about a 30-day review right.\"},{\"item\":2,\"backed\":true,\"reason\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 585,
+    "outputTokens": 51,
+    "totalTokens": 636,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 585,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 51,
+    "service_tier": "standard"
+  },
+  "ms": 11150
+}

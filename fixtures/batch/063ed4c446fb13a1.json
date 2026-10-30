@@ -1,0 +1,38 @@
+{
+  "key": "063ed4c446fb13a1",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We accept 30 days review in exchange for restoring exclusivity to 12 months, as we are considering a self-contained document-search product we c",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":true,\"reason\":\"\"},{\"item\":2,\"backed\":true,\"reason\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 698,
+    "outputTokens": 32,
+    "totalTokens": 730,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 698,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 32,
+    "service_tier": "standard"
+  },
+  "ms": 7856
+}

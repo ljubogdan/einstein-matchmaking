@@ -1,0 +1,38 @@
+{
+  "key": "c2b0d0e52bdef8da",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Soil pH mapping has been conducted at fine scale in alkaline Vojvodina soils using a rapid ion-selective electrode method for field measurement ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1377,
+    "outputTokens": 52,
+    "totalTokens": 1429,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1377,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 52,
+    "service_tier": "standard"
+  },
+  "ms": 7765
+}

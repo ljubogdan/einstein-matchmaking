@@ -1,0 +1,38 @@
+{
+  "key": "35536c2bcf2c177e",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C126-CH1: Our LiDAR point clouds for urban areas are enormous — a single city-block survey runs to 80 GB — and clients want classified, feature-extrac",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Self-supervised pre-training on large unlabelled point cloud datasets enables downstream task performance with reduced labelling requirements. Fine-tuning on two downstream tasks—semantic segmentation and building footprint extraction—with as few as 10% of the labelled training points shows that MPA pre-training recovers 94% of fully supervised segmentation mIoU and 97% of fully supervised footprint F1-score.\",\"sources\":[{\"id\":\"SYN-PUB-09792\",\"field\":\"abstract\",\"quote\":\"Fine-tuning on two downstream tasks—semantic segmentation and building footprint extraction—with as few as 10% of the labelled training points shows that MPA pre-training recovers 94% of fully supervised segmentation mIoU and 97% of fully supervised footprint F1-score\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2249,
+    "outputTokens": 196,
+    "totalTokens": 2445,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2249,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 196,
+    "service_tier": "standard"
+  },
+  "ms": 11671
+}

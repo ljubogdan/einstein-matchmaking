@@ -1,0 +1,38 @@
+{
+  "key": "6b84d71a72fca27a",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C119-CH1: We produce roughly 600 packaging variants a year and our senior designer spends two days per project manually fitting artwork into structura",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Research addresses rule-based and parametric layout generation for automated composition workflows, including constraint-driven document design focused on parametric and constraint-driven document composition.\",\"sources\":[{\"id\":\"R0519\",\"field\":\"bio\",\"quote\":\"His research group focuses on parametric and constraint-driven document composition\"},{\"id\":\"R0519\",\"field\":\"keywords\",\"quote\":\"parametric layout\"}]},{\"claim\":2,\"text\":\"Background includes prepress consulting experience with packaging clients developing automated template workflows for catalogue and packaging clients.\",\"sources\":[{\"id\":\"R0519\",\"field\":\"industry_experience\",\"quote\":\"developing automated template workflows for catalogue and packaging clients\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2199,
+    "outputTokens": 153,
+    "totalTokens": 2352,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2199,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 153,
+    "service_tier": "standard"
+  },
+  "ms": 11297
+}

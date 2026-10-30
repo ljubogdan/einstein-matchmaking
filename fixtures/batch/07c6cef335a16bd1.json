@@ -1,0 +1,47 @@
+{
+  "key": "07c6cef335a16bd1",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Round 1 of 4. Open with the term sheet you would prefer. action must be \"propose\".",
+  "items": [
+    {
+      "type": "reasoning",
+      "content": {
+        "text": "Let me create an opening term sheet for FreshPak Solutions.",
+        "type": "input_text"
+      },
+      "encryptedContent": "EpoCCnwIExABGAIqQOvh+9+9CuuxXDnqBEJw/lya+rQpb83j2jfJlU1/wjOtlov0l4TFgpNG3w/MXOEiZs8HECVn5Se+hxojqEV1AwEyEWNsYXVkZS1zb25uZXQtNC02OABCCHRoaW5raW5nWgw2NjU3Njc3MDczNzKoAcaElNcGEgzURVbTYG0YX1FEpywaDOttLer+MiSYokiymCIwLZtV/K6/O9EyeVDJJ9xSilmoDC6YsuZ4A65ZnUh+eW5P6F8Zla2UCPoWfbOjjSQ2Kky+kTFoy942m34YMQhTBqxPhFK0FKwoFD91VwuShgJl2kJUQGqQw+7gbJIqSc6/itvbBUwZM+yxDQoulkwyV9sJlEeV77rtF0gofrIpGAE=",
+      "summary": []
+    },
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"action\":\"propose\",\"sheet\":{\"engagement\":\"joint_project\",\"scope\":\"Development of a compostable lidding film formulation certified to EN 13432, sealing cleanly to existing rPET punnet tooling at current temperatures and dwell times, with adequate anti-fog performance and gas-transmission profile for soft fruit, delivering a qualified formulation or shortlist of candidate materials with sufficient data to support EN 13432 certification submission by mid-2027.\",\"ip\":\"company_owns_uni_academic_use\",\"exclusivity\":{\"field\":\"thermoformed rPET punnet lidding films for fresh produce\",\"months\":24},\"publication\":{\"reviewDays\":90,\"companyMayRemoveConfidential\":true},\"backgroundIp\":[\"FreshPak existing seal tooling parameters and process know-how\",\"FreshPak bench-test data from preliminary PLA film trials\",\"R0274 prior publications and methods: SYN-PUB-03445, SYN-PUB-03441, SYN-PUB-03447\"],\"contributions\":{\"company\":[\"Quality lab access for seal-strength pull testing (EN 15507), OTR/CO2TR measurement, anti-fog screening and EN 13432 compostability screening\",\"Three technologists (part-time) for in-house testing and trial coordination\",\"MAP gas-flush trial facility\",\"Project manager (part-time) as named contact responsible for milestone tracking\"],\"university\":[\"Associate Professor (part-time) — materials chemistry expertise in PLA reformulation and compatibiliser systems\",\"Access to extrusion and multilayer film processing facilities\",\"Compostability and barrier characterisation expertise\"]},\"money\":\"to be agreed\",\"timeline\":{\"months\":24,\"milestones\":[\"M6: Candidate polymer/formulation shortlist identified and ranked against seal-strength and anti-fog criteria\",\"M12: Lead formulation(s) produced and tested for seal strength to FreshPak rPET tooling spec\",\"M18: Anti-fog, OTR/CO2TR and EN 13432 screening data package complete\",\"M24: Final formulation with full data package ready for EN 13432 certification submission\"]},\"contact\":{\"company\":\"Project Manager (part-time), FreshPak Solutions\",\"university\":\"Associate Professor, Department of Materials Engineering\"}},\"reason\":\"FreshPak faces a hard commercial deadline — two of our three largest customers supply own-label produce to German and Dutch retail chains that will not accept conventional plastic lidding films from 2028 [C036 plans]. We want company ownership of results to protect our investment and ensure we can act on the output without further negotiation, and we want 24-month exclusivity in our product field to secure our competitive position; a 90-day review period protects confidential tooling and process data we will share during testing [C036 rd_capacity].\",\"citations\":[\"C036 plans\",\"C036 rd_capacity\"],\"evidence\":[{\"citation\":\"C036 plans\",\"quote\":\"Compostable range by 2028.\"},{\"citation\":\"C036 rd_capacity\",\"quote\":\"Quality lab with three technologists.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 732,
+    "totalTokens": 735,
+    "inputTokenDetails": {
+      "cached_tokens": 3036
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 3036,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 26,
+      "ephemeral_1h_input_tokens": 3010
+    },
+    "output_tokens": 732,
+    "service_tier": "standard"
+  },
+  "ms": 17273
+}

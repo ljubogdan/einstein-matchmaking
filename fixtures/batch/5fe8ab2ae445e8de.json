@@ -1,0 +1,38 @@
+{
+  "key": "5fe8ab2ae445e8de",
+  "model": "claude-sonnet-4-6",
+  "prompt": "The fact checker did not pass these claims. Fix each one: change the sentence so its quotes say everything it says, or pick quotes that do. Leave a claim out to",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"The Austrian client holds twelve years of historical data covering client records, invoices, journal entries, and attachments to be moved into the new system.\",\"sources\":[{\"id\":\"C124-CH2\",\"field\":\"detail\",\"quote\":\"They want all twelve years of their historical data\"},{\"id\":\"C124-CH2\",\"field\":\"detail\",\"quote\":\"client records, invoices, journal entries, attachments — moved into the new system\"}]},{\"claim\":2,\"text\":\"The researcher's group develops methods for ontology-driven data integration and data quality assessment over tabular and semi-structured data.\",\"sources\":[{\"id\":\"R0181\",\"field\":\"bio\",\"quote\":\"Her group develops methods for ontology-driven data integration, probabilistic record linkage, and data quality assessment over tabular and semi-structured data\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 191,
+    "totalTokens": 194,
+    "inputTokenDetails": {
+      "cached_tokens": 6393
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 6393,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 6393,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 191,
+    "service_tier": "standard"
+  },
+  "ms": 19552
+}

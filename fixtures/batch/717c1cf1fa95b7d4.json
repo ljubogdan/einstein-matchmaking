@@ -1,0 +1,38 @@
+{
+  "key": "717c1cf1fa95b7d4",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Research addresses dense retrieval and question-answering tasks using transformer-based embedding models to map text into shared semantic spaces",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"The fields do not explicitly state that the research maps text into 'shared semantic spaces' - they mention 'unified embedding space' and semantic similarity, but not the specific methodology of mapping to shared semantic spaces for similarity matching.\", \"rewrite\": \"Research addresses dense retrieval and question-answering tasks using transformer-based embedding models for processing text in multiple scripts and semantic similarity.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1478,
+    "outputTokens": 125,
+    "totalTokens": 1603,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1478,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 125,
+    "service_tier": "standard"
+  },
+  "ms": 20058
+}

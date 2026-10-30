@@ -1,0 +1,38 @@
+{
+  "key": "a3c9655e9c7110eb",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Parallel GPU-based processing architectures can scale LiDAR point cloud pipelines from 200 million to 2.4 billion points with near-linear throug",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"The abstract states 17× speedup and near-linear scaling only up to 1.2 billion points (with 12% efficiency loss beyond), not across the full 200 million to 2.4 billion range; the claim overstates by saying 'near-linear throughput improvement' across all four measured dataset sizes.\", \"rewrite\": \"Parallel GPU-based processing architectures can scale LiDAR point cloud pipelines from 200 million to 2.4 billion points, achieving 17× speedup over single-CPU baselines at 1.2 billion points with near-linear throughput improvement up to that point, and end-to-end processing times scaled from 4.1 minutes to 31.7 minutes.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1035,
+    "outputTokens": 190,
+    "totalTokens": 1225,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1035,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 190,
+    "service_tier": "standard"
+  },
+  "ms": 10433
+}

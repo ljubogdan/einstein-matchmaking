@@ -1,0 +1,38 @@
+{
+  "key": "05bdb851670e6572",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We move from full contract-research ownership to company_owns_uni_academic_use as a trade: the researcher retains the right to use the pipeline ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"The words report a false-positive rate for one-class classification but say nothing about ownership structures, licensing, or the trade between researcher academic use and company deployment rights.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 563,
+    "outputTokens": 54,
+    "totalTokens": 617,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 563,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 54,
+    "service_tier": "standard"
+  },
+  "ms": 93100
+}

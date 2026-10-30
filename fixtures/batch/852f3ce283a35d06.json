@@ -1,0 +1,38 @@
+{
+  "key": "852f3ce283a35d06",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: The researcher has published directly on quantifying the value of contextual targeting signals in programmatic advertising [SYN-PUB-08915], maki",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":true,\"reason\":\"\"},{\"item\":2,\"backed\":true,\"reason\":\"\"},{\"item\":3,\"backed\":false,\"reason\":\"Words show expansion plans but say nothing about needing company ownership of results or integrating a content-context matching layer.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 889,
+    "outputTokens": 68,
+    "totalTokens": 957,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 889,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 68,
+    "service_tier": "standard"
+  },
+  "ms": 2972
+}

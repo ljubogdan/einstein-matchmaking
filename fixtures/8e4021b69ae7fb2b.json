@@ -1,0 +1,38 @@
+{
+  "key": "8e4021b69ae7fb2b",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Reconstruction-error autoencoders can be trained on unlabelled high-frequency telemetry streams and fine-tuned with a small labelled set to prod",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The field identifies challenges but does not state that methods address them; it only says the application raises specific challenges. No source confirms that telemetry-based anomaly detection methods actually handle or address these challenges.\", \"rewrite\": \"Telemetry-based anomaly detection in games raises specific challenges including irregular sampling rates and session length variance.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2050,
+    "outputTokens": 117,
+    "totalTokens": 2167,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2050,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 117,
+    "service_tier": "standard"
+  },
+  "ms": 2237
+}

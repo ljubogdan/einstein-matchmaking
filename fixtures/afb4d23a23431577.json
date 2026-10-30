@@ -1,0 +1,38 @@
+{
+  "key": "afb4d23a23431577",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Unsupervised anomaly detection and one-class classification for industrial control system protocol traffic can exploit the statistical propertie",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":2,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":3,\"support\":\"partly\",\"reason\":\"Recalibration schedule is shown (72-hour window) but no evidence that lightweight online learning algorithms specifically perform this adaptation\",\"rewrite\":\"Sliding-window recalibration schedules with periodic updates can maintain detection performance through adaptation to normal traffic variation over time.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2357,
+    "outputTokens": 108,
+    "totalTokens": 2465,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2357,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 108,
+    "service_tier": "standard"
+  },
+  "ms": 1734
+}

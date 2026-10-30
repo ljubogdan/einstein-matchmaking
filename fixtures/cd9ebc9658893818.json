@@ -1,0 +1,38 @@
+{
+  "key": "cd9ebc9658893818",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): One-class contrastive learning enables unsupervised anomaly detection in settings without labelled defect examples, using momentum-updated refer",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Model quantization is mentioned in a bio as a general research area but not demonstrated or integrated in the edge-cloud collaborative inference architecture described in the abstract; the abstract describes early-exit and difficulty estimation, not quantization.\", \"rewrite\": \"Early-exit mechanisms and difficulty estimation allow real-time inference on resource-limited edge devices while maintaining detection accuracy by partitioning execution between edge and cloud based on sample difficulty.\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1803,
+    "outputTokens": 155,
+    "totalTokens": 1958,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1803,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 155,
+    "service_tier": "standard"
+  },
+  "ms": 5007
+}

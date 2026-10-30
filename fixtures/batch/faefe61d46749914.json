@@ -1,0 +1,38 @@
+{
+  "key": "faefe61d46749914",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C115-CH1: Our anti-cheat system flags about 900 accounts a day but our manual review team can only process 200 — legitimate players are getting banned",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\": [{\"claim\": 1, \"text\": \"Work on calibration of probabilistic classifiers shows beta calibration reduces expected calibration error across classifiers and positive-rate regimes.\", \"sources\": [{\"id\": \"SYN-PUB-06555\", \"field\": \"abstract\", \"quote\": \"Beta calibration consistently reduces ECE across classifiers and positive-rate regimes\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2242,
+    "outputTokens": 93,
+    "totalTokens": 2335,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2242,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 93,
+    "service_tier": "standard"
+  },
+  "ms": 14951
+}

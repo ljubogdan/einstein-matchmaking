@@ -1,0 +1,38 @@
+{
+  "key": "f632430bbebdaf15",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Query optimization and latency-aware scheduling in distributed transactional systems can address peak-hour performance degradation by decomposin",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Claim states the strategy 'can reduce hotspot formation during peak transaction volumes' but the abstract shows it reduces OLTP tail latency by 11% relative to hash-only, not that it reduces hotspot formation; hotspot formation is mentioned as a problem with range partitioning, not as something the composite scheme addresses.\", \"rewrite\": \"Composite partitioning strategies combining hash on primary keys with time-based range partitioning can maintain OLTP tail latency within 11% of hash-only partitioning while achieving near-optimal OLAP performance.\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1942,
+    "outputTokens": 191,
+    "totalTokens": 2133,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1942,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 191,
+    "service_tier": "standard"
+  },
+  "ms": 25935
+}

@@ -1,0 +1,38 @@
+{
+  "key": "1913ac377aad195a",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Laboratory expertise in physical characterization of porous materials includes equipment for measuring moisture sorption isotherms and dynamic v",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 858,
+    "outputTokens": 24,
+    "totalTokens": 882,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 858,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 24,
+    "service_tier": "standard"
+  },
+  "ms": 13312
+}

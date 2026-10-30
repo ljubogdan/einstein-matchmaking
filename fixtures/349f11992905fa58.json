@@ -1,0 +1,38 @@
+{
+  "key": "349f11992905fa58",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Work on accelerated shelf-life testing of oil microcapsules includes kinetic modelling of peroxide value and thiobarbituric acid reactive substa",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"No evidence that peroxide values increase in 'different matrices' - only shown in fermented milk beverage\", \"rewrite\": \"Research demonstrates that lipid oxidation markers including peroxide values increase during storage of encapsulated oils in fermented milk beverages, and that reducing environments and antioxidant metabolites can help preserve oil quality during storage.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1471,
+    "outputTokens": 121,
+    "totalTokens": 1592,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1471,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 121,
+    "service_tier": "standard"
+  },
+  "ms": 1966
+}

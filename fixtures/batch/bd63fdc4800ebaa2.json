@@ -1,0 +1,38 @@
+{
+  "key": "bd63fdc4800ebaa2",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Query optimization in high-throughput distributed systems can reduce latency through strategic caching layers with configurable staleness bounds",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The sentence states latency characterization is difficult under real network conditions, but the field shows it was benchmarked and characterized with specific percentile latencies reported.\", \"rewrite\": \"Multi-region database replication requires careful consideration of consistency models.\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1744,
+    "outputTokens": 120,
+    "totalTokens": 1864,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1744,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 120,
+    "service_tier": "standard"
+  },
+  "ms": 27409
+}

@@ -1,0 +1,38 @@
+{
+  "key": "43d1edb44e94a7ab",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Automated detection and handling of schema variations in heterogeneous data sources using statistical monitoring and incremental schema matching",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Coverage of 91% is specifically after expert review rounds, not just 'after expert review' in general; the claim states this without specifying it's the result of two review rounds\", \"rewrite\": \"Semi-automated ontology-driven approaches can extract and validate integration-relevant attributes from heterogeneous legacy documentation and database schemas, reaching 91% coverage after two expert review rounds.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1162,
+    "outputTokens": 128,
+    "totalTokens": 1290,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1162,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 128,
+    "service_tier": "standard"
+  },
+  "ms": 31610
+}

@@ -1,0 +1,38 @@
+{
+  "key": "e7dffca27f0eaead",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C143-CH2: We process roughly 180,000 transactions a day and our PostgreSQL cluster is starting to miss our 200 ms SLA during evening peaks; we need to",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Document-partitioned distributed indexing architectures tolerate heterogeneous update rates better than term-partitioned layouts.\",\"sources\":[{\"id\":\"SYN-PUB-08205\",\"field\":\"abstract\",\"quote\":\"document-partitioned layouts tolerate heterogeneous update rates better\"}]},{\"claim\":2,\"text\":\"Routing decisions affecting which node handles each index shard impact both query latency and hardware utilisation under diurnal load patterns.\",\"sources\":[{\"id\":\"SYN-PUB-06501\",\"field\":\"abstract\",\"quote\":\"routing decisions—which node handles each index shard—affect both query latency and hardware utilisation\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2437,
+    "outputTokens": 159,
+    "totalTokens": 2596,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2437,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 159,
+    "service_tier": "standard"
+  },
+  "ms": 13848
+}

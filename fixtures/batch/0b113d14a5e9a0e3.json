@@ -1,0 +1,38 @@
+{
+  "key": "0b113d14a5e9a0e3",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We want university ownership of results with a non-exclusive licence to the company, as this is our standard position for contract research and ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words are about distributed transaction scheduling; say nothing about university IP ownership, contract research standards, or published methods.\"},{\"item\":2,\"backed\":false,\"reason\":\"Words are about partitioning strategies and latency; say nothing about university IP ownership, contract research standards, or published methods.\"},{\"item\":3,\"backed\":false,\"reason\":\"Words are about contention mitigation in PostgreSQL clusters; say nothing about university IP ownership, contract research standards, or published methods.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 866,
+    "outputTokens": 119,
+    "totalTokens": 985,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 866,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 119,
+    "service_tier": "standard"
+  },
+  "ms": 3141
+}

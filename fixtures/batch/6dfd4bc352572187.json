@@ -1,0 +1,38 @@
+{
+  "key": "6dfd4bc352572187",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Semantic embedding methods for short audio descriptions can distinguish content similarity with higher accuracy than surface lexical features, u",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"No evidence that transformer-based semantic embedding methods outperform surface lexical features with higher accuracy on short audio descriptions generally; the paper only demonstrates this on podcast descriptions specifically, and the comparison is only to TF-IDF, not a broader claim about the method's superiority across domains.\", \"rewrite\": \"Semantic embedding methods using fine-tuned transformer-based approaches can distinguish content similarity better than surface lexical features like TF-IDF on podcast episode descriptions, achieving a Spearman correlation of 0.73 compared to TF-IDF's 0.55.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1184,
+    "outputTokens": 172,
+    "totalTokens": 1356,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1184,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 172,
+    "service_tier": "standard"
+  },
+  "ms": 19318
+}

@@ -1,0 +1,38 @@
+{
+  "key": "c8bc5459890f83a2",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Automated layout optimization can reduce substrate waste and processing time by formulating multi-panel placement as a two-dimensional strip pac",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Claim states these elements are required for 'reliable automated artwork placement' but the source discusses them only in context of structural colour interactions with substrates, not automated artwork placement.\", \"rewrite\": \"Structural dieline elements and substrate interactions require precise specification of register constraints, surface roughness tolerance, and base reflectance properties.\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"Claim includes 'vendor acceptance without conversion work' but source does not mention vendor acceptance or conversion work requirements.\", \"rewrite\": \"Print-ready file validation must address file-level syntax, metadata consistency, colour profile conformance, and output fidelity.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1748,
+    "outputTokens": 186,
+    "totalTokens": 1934,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1748,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 186,
+    "service_tier": "standard"
+  },
+  "ms": 21361
+}

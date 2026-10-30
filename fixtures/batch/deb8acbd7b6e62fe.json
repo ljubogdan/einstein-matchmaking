@@ -1,0 +1,38 @@
+{
+  "key": "deb8acbd7b6e62fe",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Query routing policies can reduce 99th-percentile latency by 27% and lower peak CPU utilisation by 19% through joint optimisation of resource di",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":2,\"support\":\"partly\",\"reason\":\"Field mentions heterogeneous update rates and document-partitioned layouts tolerating them better, but does not specifically state they address 'balancing load across replicas during peak transaction periods' or characterize this as the 'core challenge'\",\"rewrite\":\"Document-partitioned distributed indexing architectures tolerate heterogeneous workload patterns better than alternatives.\"},{\"claim\":3,\"support\":\"partly\",\"reason\":\"Field discusses routing decisions affecting query latency and hardware utilisation, and mentions diurnal load patterns, but does not discuss merge policies as a trade-off factor\",\"rewrite\":\"Distributed system design involves systematic trade-offs between query latency distribution and hardware utilisation that directly impact performance under diurnal load patterns.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1442,
+    "outputTokens": 188,
+    "totalTokens": 1630,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1442,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 188,
+    "service_tier": "standard"
+  },
+  "ms": 27576
+}

@@ -1,0 +1,38 @@
+{
+  "key": "051023769b729b65",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C143-CH2: We process roughly 180,000 transactions a day and our PostgreSQL cluster is starting to miss our 200 ms SLA during evening peaks; we need to",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Multi-region database replication requires careful consideration of consistency models.\",\"sources\":[{\"id\":\"SYN-PUB-02770\",\"field\":\"abstract\",\"quote\":\"placement of read replicas across three geographic regions, and the consistency model chosen\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2416,
+    "outputTokens": 69,
+    "totalTokens": 2485,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2416,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 69,
+    "service_tier": "standard"
+  },
+  "ms": 14009
+}

@@ -1,0 +1,38 @@
+{
+  "key": "03bb4bb3484496cc",
+  "model": "claude-sonnet-4-6",
+  "prompt": "The fact checker did not pass these claims. Fix each one: change the sentence so its quotes say everything it says, or pick quotes that do. Leave a claim out to",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"The quality lab runs seal-strength, permeability and drop tests every day and conducted preliminary bench tests with two commercially available PLA-based films.\",\"sources\":[{\"id\":\"C036\",\"field\":\"about\",\"quote\":\"quality lab that runs seal-strength, permeability and drop tests every day\"},{\"id\":\"C036-CH2\",\"field\":\"detail\",\"quote\":\"bench tests with two commercially available PLA-based films\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 107,
+    "totalTokens": 110,
+    "inputTokenDetails": {
+      "cached_tokens": 6323
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 6323,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 6323,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 107,
+    "service_tier": "standard"
+  },
+  "ms": 19262
+}

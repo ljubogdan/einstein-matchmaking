@@ -1,0 +1,38 @@
+{
+  "key": "715b6e9fec601441",
+  "model": "claude-sonnet-4-6",
+  "prompt": "The fact checker did not pass these claims. Fix each one: change the sentence so its quotes say everything it says, or pick quotes that do. Leave a claim out to",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"The company holds pressure and flow data logged for every batch going back two years.\",\"sources\":[{\"id\":\"C144-CH2\",\"field\":\"detail\",\"quote\":\"pressure and flow data logged for every batch going back two years\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 64,
+    "totalTokens": 67,
+    "inputTokenDetails": {
+      "cached_tokens": 6696
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 6696,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 6696,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 64,
+    "service_tier": "standard"
+  },
+  "ms": 1438
+}

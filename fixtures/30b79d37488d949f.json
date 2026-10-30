@@ -1,0 +1,38 @@
+{
+  "key": "30b79d37488d949f",
+  "model": "claude-sonnet-4-6",
+  "prompt": "The fact checker did not pass these claims. Fix each one: change the sentence so its quotes say everything it says, or pick quotes that do. Leave a claim out to",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Some client networks have been running for twenty years with no security monitoring at all, so if compromised they would not know whether they had been attacked.\",\"sources\":[{\"id\":\"C001-CH1\",\"field\":\"detail\",\"quote\":\"running their networks for twenty years with no security monitoring at all, so if they were compromised they would not know\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 89,
+    "totalTokens": 92,
+    "inputTokenDetails": {
+      "cached_tokens": 6189
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 6189,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 6189,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 89,
+    "service_tier": "standard"
+  },
+  "ms": 1359
+}

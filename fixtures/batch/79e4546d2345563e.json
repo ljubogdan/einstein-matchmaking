@@ -1,0 +1,38 @@
+{
+  "key": "79e4546d2345563e",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: FreshPak faces a hard commercial deadline — two of our three largest customers supply own-label produce to German and Dutch retail chains that w",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words state FreshPak's own compostable range target by 2028, not that German/Dutch retail chains will not accept conventional plastic lidding films from 2028.\"},{\"item\":2,\"backed\":false,\"reason\":\"Words describe lab staffing, not confidential tooling/process data shared during testing.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 672,
+    "outputTokens": 88,
+    "totalTokens": 760,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 672,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 88,
+    "service_tier": "standard"
+  },
+  "ms": 3299
+}

@@ -1,8 +1,7 @@
 import { createAgent, SemanticEvent, type Agent } from "@mozaik-ai/core"
-import { z } from "zod"
 import { answerText, parseJson } from "../llm/answer"
 import { EFFORT, MAX_OUTPUT, MODELS } from "../models"
-import { join, on, own, runLoop, sendEvent, type Board } from "../runtime"
+import { on, own, runLoop, sendEvent, type Board } from "../runtime"
 import { structuredOutput } from "../schema/model-schema"
 import { IP_MODELS, NegotiationReply, REVIEW_DAYS, type NegotiationMove, type TermSheet } from "../schema/termsheet"
 import { IP_LABELS } from "../proposal/terms"
@@ -11,6 +10,7 @@ import { companyCard, researcherCard, type Pair } from "../tools/cards"
 import type { Dataset } from "../tools/dataset"
 import { normalize } from "../tools/normalize"
 import { allowedEngagements } from "../tools/profile"
+import { verifyCitations, type Evidence } from "./citations"
 
 export const MAX_ROUNDS = 4
 type Side = "company" | "researcher"
@@ -27,12 +27,6 @@ ${IP_MODELS.map((ip) => `  ${ip}: ${IP_LABELS[ip]}`).join("\n")}
 - money is "to be agreed" or a named funding route. Never an amount.
 - timeline milestones are deliverables. Never say IP is transferred: the ip field says who owns what, and an option is exercised later, if at all.
 - contact: roles, never a person's name, and no student unless the engagement is an industrial PhD. Use only facts from your position card.`
-
-const CHECK_INSTRUCTION = `You check the citations in a negotiator's reasoning. Each numbered item gives a reason, one citation in it, and the exact words that citation rests on. Read only those words, not your own knowledge.
-Find the statement the citation is attached to, usually the clause just before the bracket. Answer for each item:
-- backed: true if the words state that statement (the same meaning in other words is fine). False if they are about something else or only show that a related thing exists.
-- reason: one short line; "" when backed.`
-const CitationCheck = z.object({ checks: z.array(z.object({ item: z.number(), backed: z.boolean(), reason: z.string() })) })
 
 const INTERESTS: Record<Side, string> = {
   company: "Your interests: results you can use in your products, confidentiality of your data and know-how, a usable result within the timeline. Turn what went wrong in past collaborations into a term (milestones, a contact role).",
@@ -113,37 +107,8 @@ export function createNegotiator(side: Side, pair: Pair, board: Board, data: Dat
       reply = { ...reply, action: "walk_away", reason: `hard limit: ${reply.sheet.engagement} is not allowed for ${pair.researcher.id} (allowed: ${allowed.join(", ") || "none"})` }
 
     const move: NegotiationMove = { ...reply, ...checkCitations(reply, card), pairId: pair.pairId, side, round: moves.length + 1, changes: previous ? changedFields(previous.sheet, reply.sheet) : [] }
-    if (move.evidence.length === 0) return publish(move)
     // One model call per move: the code above proved the words exist, this asks whether they back the statement.
-    const checker: Agent = createAgent({
-      name: `${side}-negotiator-check`,
-      capabilities: ["check-citations"],
-      instruction: CHECK_INSTRUCTION,
-      tools: [],
-      handlers: [
-        {
-          specification: own("model.answer"),
-          processor: {
-            apply: ({ event }) => {
-              // An unreadable answer leaves the citations as they are: their quotes already passed the code check.
-              const answer = CitationCheck.safeParse(parseJson(answerText(event.payload)))
-              const refs = answer.success ? move.evidence.filter((_, i) => answer.data.checks.find((c) => c.item === i + 1)?.backed === false).map((e) => e.citation) : []
-              publish(refs.length ? { ...move, ...dropCitations(move, refs) } : move)
-            },
-          },
-        },
-      ],
-    })
-    join(checker)
-    const items = move.evidence.map((e, i) => `Item ${i + 1}. Reason: ${move.reason}\n  Citation: [${e.citation}]\n  Words: "${e.quote}"`).join("\n\n")
-    runLoop(checker.getId(), items, {
-      model: MODELS.strong,
-      reasoningEffort: EFFORT.negotiate,
-      maxOutputTokens: MAX_OUTPUT.negotiate,
-      context: checker.getMemory().getContext(),
-      tools: [],
-      structuredOutput: structuredOutput("citation_check", CitationCheck, MODELS.strong),
-    })
+    verifyCitations(`${side}-negotiator-check`, move.reason, move.evidence, (unbacked) => publish(unbacked.length ? { ...move, ...dropCitations(move, unbacked) } : move))
   }
 
   function publish(move: NegotiationMove): void {
@@ -172,10 +137,10 @@ export function dropCitations(move: Pick<NegotiationMove, "reason" | "citations"
  * Keeps a citation only if its quote is on that line of the model's own position card; the card is built by code from the
  * data, so what's left can be traced to a record. Anything else loses its bracket, and the sentence stands as unsourced.
  */
-export function checkCitations(reply: NegotiationReply, card: string): Pick<NegotiationMove, "reason" | "citations" | "evidence" | "uncited"> {
+export function checkCitations(reply: { reason: string; evidence: Evidence[] }, card: string): Pick<NegotiationMove, "reason" | "citations" | "evidence" | "uncited"> {
   const lines = card.split("\n").map(normalize)
   const uncited: string[] = []
-  const kept: NegotiationReply["evidence"] = []
+  const kept: Evidence[] = []
   const verified = (ref: string) => {
     const onLine = lines.filter((line) => line.includes(normalize(ref)))
     const found = reply.evidence.find((e) => normalize(e.citation.replace(/[[\]]/g, "")) === normalize(ref) && e.quote.trim() && onLine.some((line) => line.includes(normalize(e.quote))))

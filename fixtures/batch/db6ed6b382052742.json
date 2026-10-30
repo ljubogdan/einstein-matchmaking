@@ -1,0 +1,38 @@
+{
+  "key": "db6ed6b382052742",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Integration of multiple positioning techniques including RTK-GNSS with total-station traverses reduced the lane-canyon horizontal RMS to 3.8 cm ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"partly\",\"reason\":\"The claim states 'multiple positioning techniques' and 'RTK-GNSS with total-station traverses' but the abstract describes 'short RTK observation windows with constrained total-station traverses' - the abstract does not explicitly characterize these as multiple distinct positioning techniques being integrated, nor does it use the word 'integration'\",\"rewrite\":\"A workflow combining short RTK observation windows with constrained total-station traverses bridging signal gaps reduced the lane-canyon horizontal RMS to 3.8 cm for utility location in constrained urban environments.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 925,
+    "outputTokens": 140,
+    "totalTokens": 1065,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 925,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 140,
+    "service_tier": "standard"
+  },
+  "ms": 11206
+}

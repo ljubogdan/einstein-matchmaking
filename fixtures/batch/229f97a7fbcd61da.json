@@ -1,0 +1,38 @@
+{
+  "key": "229f97a7fbcd61da",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Uncertainty quantification frameworks propagate multiple error sources through statistical downscaling to produce calibrated probability distrib",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The field does not mention 'representativeness errors for sparse sensor networks' as a specific addressed topic; it discusses representativeness errors in the context of field-scale agrometeorological applications generally, but does not explicitly state that operational deployments address representativeness errors specific to sparse networks.\", \"rewrite\": \"Operational sensor network deployments address data latency, computational requirements, and practical constraints including calibration sensitivity for sparse sensor networks of 5–50 nodes.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1151,
+    "outputTokens": 147,
+    "totalTokens": 1298,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1151,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 147,
+    "service_tier": "standard"
+  },
+  "ms": 13623
+}

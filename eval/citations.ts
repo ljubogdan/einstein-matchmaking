@@ -8,16 +8,16 @@ import { Dataset } from "../src/tools/dataset"
 
 const TRACE = "out/eval/trace-replay-1x.jsonl"
 const REVIEW: Record<string, "yes" | "partly" | "no"> = {
+  "C032-CH1__R1015/1/company/C032 past_collaborations": "yes", // "None."
+  "C061-CH1__R0231/2/researcher/R0231 publications": "yes",
+  "C032-CH1__R1015/2/researcher/R1015 projects": "partly", // the project exists; "builds directly on its know-how" isn't stated
+  "C032-CH1__R1015/2/researcher/SYN-PUB-10523": "yes",
   "C001-CH1__R1008/1/company/SYN-PUB-10477": "yes",
   "C001-CH1__R1008/1/company/C001 plans": "partly", // the fifth hardware variant is there, ProtoSense isn't
-  "C061-CH1__R0231/2/researcher/R0231 publications": "yes",
-  "C032-CH1__R1015/1/company/C032 past_collaborations": "yes", // "None."
-  "C001-CH1__R1008/2/researcher/R1008 publications": "yes",
-  "C032-CH1__R1015/2/researcher/R1015 projects": "yes",
-  "C032-CH1__R1015/2/researcher/SYN-PUB-10523": "yes",
   "C061-CH1__R0231/3/company/C061 rd_capacity": "yes",
-  "C001-CH1__R1008/3/company/C001 plans": "partly", // same as round 1
   "C032-CH1__R1015/3/company/C032 plans": "yes",
+  "C001-CH1__R1008/2/researcher/R1008 publications": "yes",
+  "C001-CH1__R1008/3/company/C001 plans": "partly", // same as round 1
 }
 
 const data = Dataset.load()

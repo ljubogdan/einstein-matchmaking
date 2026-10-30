@@ -1,0 +1,38 @@
+{
+  "key": "35ef513dfefdf1d1",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Hybrid detection architectures combining specification-based rules with neural anomaly scoring achieve better balance than purely deep-learning ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"partly\",\"reason\":\"The source states these findings apply to SCADA networks and a common SCADA testbed, but the sentence generalizes to 'industrial protocols' without specification that this applies beyond SCADA or testbed conditions.\",\"rewrite\":\"Hybrid detection architectures combining specification-based rules with neural anomaly scoring achieve better balance than purely deep-learning approaches for SCADA protocols, while pure deep-learning-based systems exhibit higher sensitivity to protocol version variability in SCADA environments.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1164,
+    "outputTokens": 121,
+    "totalTokens": 1285,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1164,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 121,
+    "service_tier": "standard"
+  },
+  "ms": 1713
+}

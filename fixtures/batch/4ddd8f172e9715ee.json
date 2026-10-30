@@ -1,0 +1,38 @@
+{
+  "key": "4ddd8f172e9715ee",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Research group operates a dedicated permeability testing laboratory equipped with OX-TRAN and PERMATRAN-W instruments for measuring oxygen and w",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The field does not state that work demonstrates structure–property relationships; it only states the group focuses on transport properties and the design of EVOH-free high-barrier systems.\", \"rewrite\": \"Work on polyolefin-based multilayer and mono-material packaging films addresses oxygen and water vapour transmission rates, crystallinity effects, and the design of EVOH-free high-barrier systems compatible with mechanical recycling streams.\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1598,
+    "outputTokens": 159,
+    "totalTokens": 1757,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1598,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 159,
+    "service_tier": "standard"
+  },
+  "ms": 25294
+}

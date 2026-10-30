@@ -1,0 +1,38 @@
+{
+  "key": "3a90bb277598f7ae",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: The university retains ownership until any option is exercised, SYN-PAT-002 is explicitly protected as background IP, and the 60-day review peri",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"The words list publication count and date; they say nothing about a 60-day review period or publication rights.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 472,
+    "outputTokens": 43,
+    "totalTokens": 515,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 472,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 43,
+    "service_tier": "standard"
+  },
+  "ms": 11980
+}

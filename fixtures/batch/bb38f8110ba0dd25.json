@@ -1,0 +1,38 @@
+{
+  "key": "bb38f8110ba0dd25",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Research on embossing methods for E-flute corrugated microflute board quantifies substrate damage including flute crush and delamination, with m",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"The field describes vacuum-therforming of PETG film, not die-cutting and embossing processes; profilometry is used but cross-sectional microscopy (SEM) is only used for surface crazing, not for measuring material thickness reduction or edge-slope characteristics\", \"rewrite\": \"Cross-sectional microscopy and profilometry methods are applied to measure surface deformation and edge-slope characteristics in thermoforming processes.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1614,
+    "outputTokens": 164,
+    "totalTokens": 1778,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1614,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 164,
+    "service_tier": "standard"
+  },
+  "ms": 20725
+}

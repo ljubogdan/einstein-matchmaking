@@ -1,0 +1,38 @@
+{
+  "key": "031eb370dfe42bf7",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The company must either rearchitect the data layer or find a smarter query routing strategy before scaling to 500,000 transactions.\n  C143-CH2 t",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The field does not state the research group studied this; it only shows a published paper proposing the heuristic, with no indication of authorship or group affiliation.\", \"rewrite\": \"A research paper has studied adaptive partition key strategies for skewed-access PostgreSQL workloads.\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1493,
+    "outputTokens": 129,
+    "totalTokens": 1622,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1493,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 129,
+    "service_tier": "standard"
+  },
+  "ms": 24938
+}

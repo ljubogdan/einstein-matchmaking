@@ -1,0 +1,38 @@
+{
+  "key": "9a30029efdc3110f",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: Contract research with company ownership of results is appropriate here because we need findings we can apply directly to our production line an",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"The citation describes a past seed variety trial with an agricultural extension service, not contract research terms, ownership of results, or confidentiality provisions.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 513,
+    "outputTokens": 49,
+    "totalTokens": 562,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 513,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 49,
+    "service_tier": "standard"
+  },
+  "ms": 1261
+}

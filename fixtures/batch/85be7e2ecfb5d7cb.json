@@ -1,0 +1,38 @@
+{
+  "key": "85be7e2ecfb5d7cb",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We need a working recommendation engine before next spring season, so a 9-month contract research engagement with company ownership of results i",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words describe a calcification report product, not a 9-month contract or company ownership of results.\"},{\"item\":2,\"backed\":true,\"reason\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 634,
+    "outputTokens": 53,
+    "totalTokens": 687,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 634,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 53,
+    "service_tier": "standard"
+  },
+  "ms": 2799
+}

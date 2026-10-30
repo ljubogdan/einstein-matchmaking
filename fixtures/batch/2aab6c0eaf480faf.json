@@ -1,0 +1,38 @@
+{
+  "key": "2aab6c0eaf480faf",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C075-CH3: Our civil crews have to dig exploratory trenches to locate old underground cables before every excavation because the as-built drawings from",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\": [{\"claim\": 1, \"text\": \"Uncertainty quantification frameworks propagate multiple error sources through statistical downscaling to produce calibrated probability distributions at fine spatial resolution.\", \"sources\": [{\"id\": \"SYN-PUB-03397\", \"field\": \"abstract\", \"quote\": \"propagates all three uncertainty sources through a statistical downscaling chain to produce calibrated probability distributions\"}]}, {\"claim\": 2, \"text\": \"Operational sensor network deployments address data latency, computational requirements, and practical constraints including calibration sensitivity and representativeness errors for sparse sensor networks of 5–50 nodes.\", \"sources\": [{\"id\": \"SYN-PUB-03396\", \"field\": \"abstract\", \"quote\": \"methods suitable for sparse sensor networks of 5–50 nodes. Kalman filter variants, optimal interpolation, and machine learning blending approaches are discussed in terms of computational requirements, sensitivity to sensor calibration errors, and data latency\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2266,
+    "outputTokens": 223,
+    "totalTokens": 2489,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2266,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 223,
+    "service_tier": "standard"
+  },
+  "ms": 15626
+}

@@ -1,0 +1,38 @@
+{
+  "key": "64663023543f3d14",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Parametric dieline generation can represent carton geometry as dimensioned features linked by dependency rules, allowing rapid recalculation whe",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"The field does not specify that the verification engine catches errors 'before production' or detail the timing/stage of the workflow intervention.\", \"rewrite\": \"PDF/X compliance verification and prepress automation can be integrated into hot-folder workflows to catch artwork conformance errors.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1420,
+    "outputTokens": 125,
+    "totalTokens": 1545,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1420,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 125,
+    "service_tier": "standard"
+  },
+  "ms": 22997
+}

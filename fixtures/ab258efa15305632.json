@@ -1,0 +1,38 @@
+{
+  "key": "ab258efa15305632",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Photo-oxidation causes rapid degradation of polyunsaturated oils, with peroxide value increasing sixfold faster under UV-A radiation and degrada",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"Claim states 'degradation products including lipid endoperoxides and epoxides' but source identifies these as lutein endoperoxide and 5,6-epoxylutein (carotenoid epoxides), not generic lipid epoxides\", \"rewrite\": \"Photo-oxidation causes rapid degradation of polyunsaturated oils, with peroxide value increasing sixfold faster under UV-A radiation and degradation products including carotenoid endoperoxides and carotenoid epoxides.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"Claim states light intensity 'can be quantitatively modelled using accelerated degradation kinetics' but source describes the model as already constructed and validated, not merely as a capability\", \"rewrite\": \"Light intensity is the dominant variable controlling shelf life of oily functional foods under retail conditions, exceeding the effect of temperature fluctuations, and has been quantitatively modelled using accelerated degradation kinetics.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1800,
+    "outputTokens": 267,
+    "totalTokens": 2067,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1800,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 267,
+    "service_tier": "standard"
+  },
+  "ms": 4194
+}

@@ -1,0 +1,38 @@
+{
+  "key": "c0bc78a8acab270e",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: The company_owns_uni_academic_use model preserves the researcher's right to publish the underlying parametric layout methods and use results for",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words list publication count/date; they say nothing about rights to publish parametric layout methods or review periods.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 477,
+    "outputTokens": 42,
+    "totalTokens": 519,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 477,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 42,
+    "service_tier": "standard"
+  },
+  "ms": 93013
+}

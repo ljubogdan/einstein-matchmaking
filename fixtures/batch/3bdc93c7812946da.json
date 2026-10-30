@@ -1,0 +1,38 @@
+{
+  "key": "3bdc93c7812946da",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Research focuses on supervised anomaly detection and classification under severe class imbalance in high-dimensional tabular datasets, with appl",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"The claim mentions 'behavioral data analysis' as an application, but the source specifies 'behavioural sensor logs' as a research component, not as an application of the anomaly detection research itself.\", \"rewrite\": \"Research focuses on supervised anomaly detection and classification under severe class imbalance in high-dimensional tabular datasets, with applications including fraud detection, network intrusion, predictive maintenance, and clinical event prediction.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1209,
+    "outputTokens": 137,
+    "totalTokens": 1346,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1209,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 137,
+    "service_tier": "standard"
+  },
+  "ms": 32969
+}

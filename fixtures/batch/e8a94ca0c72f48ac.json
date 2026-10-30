@@ -1,0 +1,38 @@
+{
+  "key": "e8a94ca0c72f48ac",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Cross-flow ultrafiltration with spiral-wound polyethersulfone membranes experiences irreversible fouling that reduces flux within hours of opera",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"Claim states 'spiral-wound polyethersulfone membranes' but SYN-PUB-07419 tested spiral-wound polyethersulfone for sunflower oil clarification, not cross-flow ultrafiltration of a general substrate; SYN-PUB-07415 used α-alumina tubular membranes, not polyethersulfone; the cleaning sequence described is two-step (citric acid then NaOH), not explicitly multi-step alkaline and acid.\", \"rewrite\": \"Cross-flow ultrafiltration with spiral-wound polyethersulfone membranes experiences irreversible fouling that reduces flux within hours of operation (18% loss after 8 h), and this fouling can be partially reversed through a two-step cleaning protocol (0.3% citric acid, then 0.5% NaOH), restoring 94% of clean-water flux.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"Claim states pretreatment effectiveness and upstream filtration design 'critically influence' fouling rates, but the sources only discuss fouling mechanisms, critical flux, and membrane selection in general terms without establishing that pretreatment or upstream design specifically influences fouling rates or that pilot-scale testing identifies stable operating windows that minimise flux decline.\", \"rewrite\": \"Pilot-scale testing with controlled operating parameters can identify operating conditions where membrane fouling occurs, and the critical flux concept can be applied to map stable operating windows for oil filtration.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2667,
+    "outputTokens": 386,
+    "totalTokens": 3053,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2667,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 386,
+    "service_tier": "standard"
+  },
+  "ms": 31557
+}

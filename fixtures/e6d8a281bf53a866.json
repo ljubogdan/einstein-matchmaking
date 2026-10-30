@@ -1,0 +1,38 @@
+{
+  "key": "e6d8a281bf53a866",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C001-CH1: We need to detect unusual behaviour on Modbus and BACnet networks without labelled attack data — our clients have never been breached (or do",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\": [{\"claim\": 1, \"text\": \"Hybrid detection architectures combining specification-based rules with neural anomaly scoring achieve better balance than purely deep-learning approaches for industrial protocols, while pure deep-learning-based systems exhibit higher sensitivity to protocol version variability in operational environments.\", \"sources\": [{\"id\": \"SYN-PUB-10525\", \"field\": \"abstract\", \"quote\": \"hybrid architectures combining specification-based rules with neural anomaly scoring achieve the best overall balance\"}, {\"id\": \"SYN-PUB-10525\", \"field\": \"abstract\", \"quote\": \"purely deep-learning-based systems exhibit higher sensitivity to protocol version variability\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2036,
+    "outputTokens": 157,
+    "totalTokens": 2193,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2036,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 157,
+    "service_tier": "standard"
+  },
+  "ms": 9354
+}

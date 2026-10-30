@@ -1,0 +1,38 @@
+{
+  "key": "efc4057a00a50dd9",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: Contract research with company ownership of results is appropriate here because we need to directly implement findings in our production process",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"The cited words describe a membrane technology; they say nothing about contract research ownership, licensing, or collaboration management practices.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 474,
+    "outputTokens": 43,
+    "totalTokens": 517,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 474,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 43,
+    "service_tier": "standard"
+  },
+  "ms": 4461
+}

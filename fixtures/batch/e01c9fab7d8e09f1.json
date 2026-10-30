@@ -1,0 +1,38 @@
+{
+  "key": "e01c9fab7d8e09f1",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: University ownership with option to licence is secured, no hard limits are crossed, and the 60-day review is acceptable given the confidential m",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"R0965 notes express a preference for concrete dataset-driven industry contacts, but say nothing about university ownership, licensing, 60-day review, or accepting this specific agreement.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 471,
+    "outputTokens": 57,
+    "totalTokens": 528,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 471,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 57,
+    "service_tier": "standard"
+  },
+  "ms": 89555
+}

@@ -1,0 +1,38 @@
+{
+  "key": "bfd08ba79e4a6b8e",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C144-CH2: Downstream purification — specifically the ultrafiltration step — runs at only 55% of nominal throughput because the membranes foul with res",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\": [{\"claim\": 1, \"text\": \"Continuous enzymatic saccharification in membrane bioreactors with 10 kDa ultrafiltration modules can maintain acceptable flux through daily 15 min backwash protocols, with enzyme retention of 87–92% sustained over 14 days of continuous operation.\", \"sources\": [{\"id\": \"SYN-PUB-03519\", \"field\": \"abstract\", \"quote\": \"10 kDa cutoff hollow-fibre ultrafiltration module was evaluated for continuous enzymatic saccharification with enzyme recycle\"}]}, {\"claim\": 2, \"text\": \"Polyethersulfone ultrafiltration membranes fouled with biomass-rich streams can recover to 93.1% or 97.4% of original water flux using alkaline cleaning protocols, though higher flux recovery protocols may reduce membrane lifetime by approximately 18% after 30 cleaning cycles.\", \"sources\": [{\"id\": \"SYN-PUB-03378\", \"field\": \"abstract\", \"quote\": \"Protocol B achieved the highest PWFR of 97.4% for polyethersulphone membranes but reduced membrane lifetime by approximately 18% after 30 cleaning cycles\"}]}, {\"claim\": 3, \"text\": \"High-solids enzymatic hydrolysis requires consideration of slurry rheology, and enzyme recycling via ultrafiltration membrane recycle presents techno-economic implications for bioprocess scale-up.\", \"sources\": [{\"id\": \"SYN-PUB-03514\", \"field\": \"abstract\", \"quote\": \"ultrafiltration membrane recycle and magnetic particle immobilisation — and their techno-economic implications\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2818,
+    "outputTokens": 390,
+    "totalTokens": 3208,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2818,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 390,
+    "service_tier": "standard"
+  },
+  "ms": 28958
+}

@@ -1,0 +1,38 @@
+{
+  "key": "45fc52650f9ee387",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Spatial offsets of two to four metres are common in the legacy drawings, and in some streets cables do not appear on any drawing at all.\n  C075-",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"Claim adds 'accumulated legacy as-built drawing datasets covering the service territory' but source only mentions owning the equipment and using it routinely, not the datasets as a separate resource owned by the company.\", \"rewrite\": \"The company owns a Radiodetection RD8100 cable and pipe locator used routinely on sites.\"}, {\"claim\": 5, \"support\": \"partly\", \"reason\": \"Source mentions 'GIS asset registry (custom-built on QGIS)' but does not state that it 'holds spatial data updated during on-site work' or that it 'provides the base layer into which new cable position outputs will be integrated'.\", \"rewrite\": \"A GIS asset registry built on QGIS is used by the company.\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 10, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 11, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 12, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 413,
+    "totalTokens": 416,
+    "inputTokenDetails": {
+      "cached_tokens": 4399
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 4399,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 4399,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 413,
+    "service_tier": "standard"
+  },
+  "ms": 21205
+}

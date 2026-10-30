@@ -1,0 +1,38 @@
+{
+  "key": "95bb33ca529c9b32",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C119-CH1: We produce roughly 600 packaging variants a year and our senior designer spends two days per project manually fitting artwork into structura",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"A rule-based verification engine that parses the PDF object tree can be integrated into a hot-folder workflow to detect conformance errors including embedded font subsets, out-of-gamut spot colors, overprint mode conflicts, and missing bleed regions.\",\"sources\":[{\"id\":\"SYN-PUB-07153\",\"field\":\"abstract\",\"quote\":\"Integration into a hot-folder workflow is described.\"},{\"id\":\"SYN-PUB-07153\",\"field\":\"abstract\",\"quote\":\"rule-based verification engine that parses the PDF object tree to detect 23 categories of non-conformance including embedded font subsets, out-of-gamut spot colors, overprint mode conflicts, and missing bleed regions\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2082,
+    "outputTokens": 173,
+    "totalTokens": 2255,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2082,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 173,
+    "service_tier": "standard"
+  },
+  "ms": 12962
+}

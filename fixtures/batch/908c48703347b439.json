@@ -1,0 +1,38 @@
+{
+  "key": "908c48703347b439",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Research addresses load imbalance in parallel join operations on transaction streams, with a hybrid skew-handling strategy reducing maximum task",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Claim mentions 'fault tolerance' as part of surveyed algorithms, but the field only lists fault tolerance as a core algorithmic challenge in part one, not as an algorithm surveyed in part two with emphasis on complexity trade-offs.\", \"rewrite\": \"Work surveys distributed stream processing systems covering operator graphs, join algorithms, and algorithms for main operator classes with emphasis on complexity trade-offs under varying data distributions and covering fault tolerance.\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1830,
+    "outputTokens": 158,
+    "totalTokens": 1988,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1830,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 158,
+    "service_tier": "standard"
+  },
+  "ms": 9665
+}

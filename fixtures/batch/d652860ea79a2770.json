@@ -1,0 +1,38 @@
+{
+  "key": "d652860ea79a2770",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Research focuses on automatic speech recognition and acoustic modeling for Serbian language, including techniques for handling noise and real-wo",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Speaker adaptation methods are described in SYN-PUB-01121, but the claim combines them with noise-robust frameworks from a different paper; only noise-robust ASR frameworks are explicitly developed in the provided fields.\", \"rewrite\": \"Developed noise-robust ASR frameworks that process telephone audio with substantial background noise, channel distortions, and codec artifacts.\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1954,
+    "outputTokens": 147,
+    "totalTokens": 2101,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1954,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 147,
+    "service_tier": "standard"
+  },
+  "ms": 20510
+}

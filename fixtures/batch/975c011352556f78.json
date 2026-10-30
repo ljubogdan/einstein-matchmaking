@@ -1,0 +1,38 @@
+{
+  "key": "975c011352556f78",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): A single city-block survey runs to 80 GB, and clients want classified, feature-extracted outputs delivered within 48 hours of the flight.\n  C126",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"No field states the datasets will be used for 'pipeline development and benchmarking'; fields only describe what exists and what clients want.\", \"rewrite\": \"The project will use urban LiDAR datasets from city-block flights over dense urban areas that produce raw point clouds in the range of 80 GB.\"}, {\"claim\": 5, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"partly\", \"reason\": \"The field reports 91.4% accuracy for RandLA-Net and notes it 'showed the best parallelisation efficiency (91%)', but does not state this represents 'practical inference throughput on modest GPU workstations'; the cluster used had 4 × 16 GB VRAM and a consumer-grade workstation is mentioned only as one of three test configurations, not as the focus.\", \"rewrite\": \"Machine learning models for automated airborne point cloud segmentation and feature extraction can achieve over 91% accuracy for urban and mixed-use terrain classification.\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 10, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 406,
+    "totalTokens": 409,
+    "inputTokenDetails": {
+      "cached_tokens": 5461
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 5461,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 5461,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 406,
+    "service_tier": "standard"
+  },
+  "ms": 27345
+}

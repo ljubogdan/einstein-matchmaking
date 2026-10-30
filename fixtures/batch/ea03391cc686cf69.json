@@ -1,0 +1,38 @@
+{
+  "key": "ea03391cc686cf69",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Document-partitioned distributed indexing architectures tolerate heterogeneous update rates better than term-partitioned layouts.\n  SYN-PUB-0820",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The abstract does not mention diurnal load patterns; it only states the effects occur under realistic diurnal load patterns in the simulation results, not as a general claim about when routing decisions impact latency and utilization.\", \"rewrite\": \"Routing decisions affecting which node handles each index shard impact both query latency and hardware utilisation.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1125,
+    "outputTokens": 118,
+    "totalTokens": 1243,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1125,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 118,
+    "service_tier": "standard"
+  },
+  "ms": 9153
+}

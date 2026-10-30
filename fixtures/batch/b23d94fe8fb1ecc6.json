@@ -1,0 +1,38 @@
+{
+  "key": "b23d94fe8fb1ecc6",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Cross-flow ultrafiltration with spiral-wound polyethersulfone membranes experiences irreversible fouling that reduces flux within hours of opera",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":2,\"support\":\"partly\",\"reason\":\"Claim states that cross-flow microfiltration is discussed with reference to fouling mechanisms, critical flux, and membrane selection, but the critical flux source (SYN-PUB-07415) discusses only critical flux applied to one oil type, not fouling mechanisms and membrane selection; those topics appear in SYN-PUB-07417 which discusses them in general without applying critical flux concept.\",\"rewrite\":\"The critical flux concept can be applied to map stable operating windows for oil filtration; cross-flow microfiltration is also discussed with reference to fouling mechanisms, critical flux, and membrane selection.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1713,
+    "outputTokens": 169,
+    "totalTokens": 1882,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1713,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 169,
+    "service_tier": "standard"
+  },
+  "ms": 9604
+}

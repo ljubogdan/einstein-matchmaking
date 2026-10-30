@@ -1,0 +1,38 @@
+{
+  "key": "b7d661202ace7a54",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C145-CH1: Our adtech platform inserts pre-roll ads into podcast episodes, but the targeting is purely demographic; click-through rates are stuck at 0.",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Work uses conjoint analysis to quantify media buyer preferences for targeting attributes, demonstrating that placement position and audience targeting capability together account for 61 percent of attribute importance in banner placement valuation.\",\"sources\":[{\"id\":\"SYN-PUB-08905\",\"field\":\"abstract\",\"quote\":\"choice-based conjoint (CBC) analysis to estimate the implicit prices that media buyers attach to specific attributes\"},{\"id\":\"SYN-PUB-08905\",\"field\":\"abstract\",\"quote\":\"placement position (above versus below the fold) and audience targeting capability together account for 61 percent\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2332,
+    "outputTokens": 143,
+    "totalTokens": 2475,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2332,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 143,
+    "service_tier": "standard"
+  },
+  "ms": 11818
+}

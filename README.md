@@ -4,71 +4,53 @@
 
 Built on [Mozaik](https://github.com/jigjoy-ai/mozaik) for the NTP Novi Sad x JigJoy Hackathon, EINSTEIN track.
 
-![The live board after a run: matchmakers and the Arbiter, the negotiated term sheet, the event log with the Critic's stops in red, and a timeline with one bar per model call](media/prenup-board.png)
+![The live board after a run: matchmakers and the Arbiter on the left, the negotiation between company and researcher as a conversation on the right, and a timeline with one bar per model call](media/prenup-board.png)
 
-> Status 30 Oct. Everything below describes what runs today; what isn't built yet is named as such under [Limits](#limits-and-honest-notes).
+## In short
 
-## Run it in one command (no API key needed)
+- **It agrees the terms before anyone meets.** For each pair, a company-side and a researcher-side agent with opposing positions built from the data negotiate the organizers' "Agreed up front" section: format, IP, publication review, exclusivity. A person can edit those terms and approve or reject each proposal on the board.
+- **It says no.** On 15 challenges outside the demo set it wrote 11 proposals and 4 reasoned no-matches (all four are business tasks, not research problems: registering as an auditor, entering the EU market, a loan application, hiring).
+- **The concurrency is real and measured.** The same demo run takes 174 s with the agents in parallel and 681 s one model call at a time. Matchmakers race for researchers on a shared board with version-checked writes, and an Arbiter settles conflicts: 0 double-booked researchers on all 489 challenges, against 104 with last-writer-wins.
+- **Every fact has a source, and a Critic checks it.** 20 of 20 planted false claims stopped. In the demo run all 35 proposal sentences made it in, 3 of them after one rewrite.
+- **No key needed.** Every model answer is recorded, so `npm run demo -- --replay` reruns everything offline in about 20 s.
+
+## Run it (no API key needed)
 
 ```sh
 npm run setup && npm run demo -- --replay
 ```
 
-You need git and Node.js 22 (tested on 22.18, Linux; the demo needs at least 20.12, `npm test` at least 22.12). `npm run setup` needs bash. On Windows, use Git Bash or WSL, or run these three lines instead of it in any shell (not tested on Windows or macOS yet):
+You need git and Node.js 22 (tested on Linux with Node 22.18; not yet on Windows or macOS). `npm run setup` needs bash; in any other shell, run `npm ci`, then `git clone https://github.com/jigjoy-ai/einstein-matchmaker-data.git data/einstein` and `git -C data/einstein checkout 4fb99b3`. The replay writes [`out/proposals/`](out/proposals/) (one page per pair), [`out/nomatch.md`](out/nomatch.md), [`out/traps.md`](out/traps.md) and [`out/trace.jsonl`](out/trace.jsonl) (every event, one JSON line each).
 
-```sh
-npm ci
-git clone https://github.com/jigjoy-ai/einstein-matchmaker-data.git data/einstein
-git -C data/einstein checkout 4fb99b3
-```
+**Watch it run:** `npm run board`, open http://localhost:4173 and press **Run the demo set**. The agents run again on the recorded answers, each arriving after its recorded latency (8x faster, about 35 s). **Plant false claims** runs the Critic test. Ids open the cited dataset record; the moon button switches to a dark theme.
 
-`npm run setup` checks your tools, installs dependencies and clones the dataset at a pinned commit. `npm run demo -- --replay` runs the whole system from recorded model answers (`fixtures/`), with no key and no network. It writes:
-
-| Where | What |
-|---|---|
-| [`out/proposals/`](out/proposals/) | one page per pair, ending with the negotiated "Agreed up front" terms and what the Critic checked |
-| [`out/nomatch.md`](out/nomatch.md) | challenges that got no proposal, with the reason and the nearest candidate |
-| [`out/traps.md`](out/traps.md) | the dataset's deliberate traps the code caught, with cited examples |
-| [`out/trace.jsonl`](out/trace.jsonl) | every event of the run, one JSON line each |
-
-### Watch it run: the live board
-
-```sh
-npm run board
-```
-
-Open http://localhost:4173 and press **Run the demo set** (the moon button switches to a dark theme). The agents run again on the recorded answers, and each answer arrives after the latency measured when it was recorded (8x faster by default), so the board shows the shape of the live run with no key: matchmakers and the Arbiter on the left, the focused pair's negotiation as a conversation between the two sides and every claim the Critic stopped on the right, and one bar per model call on the timeline. Ids link to the cited dataset record, the header counts model calls, proposals and claims the Critic stopped, and the list button opens the event log. **Plant false claims** runs the Critic test on the board: the 20 planted claims below, each with its source and the check that stopped it. Both buttons write their own trace (`out/tmp/trace.board.jsonl`), so the committed one stays as it is; the board always shows the newest run, so an `npm run demo` started in a terminal shows up too. `npm run demo -- --replay --paced[=N]` is the same paced run from the command line.
+**More challenges:** `npm run batch -- --replay` replays the 15-challenge run into [`out/batch/`](out/batch/). Any other challenge needs your own Anthropic key in `.env` the first time (`npm run demo -- C041-CH2`): answers not yet recorded are fetched and recorded.
 
 ### A two-minute tour of the board
 
-Press **Run the demo set**. It takes about 35 s and ends with 3 proposals, 1 no-match and 32 claims stopped. Then look at:
+1. **The conflict.** On the ArmaturaSec card (`C001-CH1`): "Conflict on R1015", held by `C032-CH1`. Two matchmakers wanted the same researcher; the second write failed the version check, so nobody overwrote anybody.
+2. **The decision.** The blue callout: the Arbiter keeps R1015 with SecureEdge Labs (`C032-CH1`). The cards don't separate the two, so it decides on a measured number: taking the alternative researcher costs SecureEdge Labs 14% of its search relevance and ArmaturaSec 8%. "Reasoning checked: 3 of 3 citations backed by the cards" is the check that ran before the decision was published.
+3. **The re-match.** Matchmaker-1 re-matches ArmaturaSec to R1008 by itself, reacting to the Arbiter's event.
+4. **The negotiation.** The `C032-CH1 × R1015` tab reads as a conversation. The company asks to own the results with 24 months of exclusivity; the researcher keeps university ownership with a licence option and offers 12 months; they settle on an option for the company to take the results over.
+5. **Your decision.** Under the agreed terms, **Edit** changes the format, IP, publication review, exclusivity or money, and each edit goes through the Critic's term checks (try contract research for R1015: refused, it isn't in their `open_to`). Then **Approve** or **Reject**. Nothing is sent to anyone: sending isn't built.
+6. **The no and the trap.** KartografTech (`C043-CH3`) wants to raise a seed round: not a research problem. On Zlatna Njiva (`C061-CH1`), R0128 is skipped because the notes describe another person. **Plant false claims**: 20 false claims we planted, all stopped; the first credits R0881 with a paper by R0128, who has the same name.
 
-1. **The conflict.** On the SecureEdge Labs card (`C032-CH1`, further down the left column): "Conflict on R1015", held by `C001-CH1`. Two matchmakers wanted the same researcher, and the second write failed the version check. Nobody overwrote anybody.
-2. **The decision.** The blue callout below it: the Arbiter gives R1015 to `C032-CH1`. It calls it a close call and decides on a measured number: ArmaturaSec loses 8% of its search relevance by taking its alternative, SecureEdge Labs 14%. "Show the reasoning" has the whole text ([what's weak in it](#limits-and-honest-notes)).
-3. **The re-match.** The tabs above the middle column: `C001-CH1 × R1015` is struck through and `C001-CH1 × R1008` is new. Nobody told matchmaker-1 to do that; it reacted to the Arbiter's event.
-4. **The negotiation.** Click the `C032-CH1 × R1015` tab and read down. The company wants to own the results with 24 months of exclusivity, the researcher wants university ownership and offers 12 months, and they settle on the university owning the results with an option for the company to take them over. Below that are **Open the proposal**, **Approve** and **Reject**, then the agreed terms. Every proposal stays a draft until a person decides. The decision is only recorded: sending isn't built, so nobody is contacted.
-5. **The Critic.** Scroll that column to the red card `whyThisPair/1`. The writer said the researcher has no access to logs from live deployments. No source says that, so the sentence never reached the proposal.
-6. **The no.** On the KartografTech card (`C043-CH3`): raising a seed round isn't a research problem. On the Zlatna Njiva card (`C061-CH1`), R0128 is skipped because the notes are about another person.
-7. **The trap.** Press **Plant false claims**: 20 false claims we planted on purpose, all stopped in about 5 s. The first row credits R0881 with a paper by R0128, who has the same name. Click `SYN-PUB-01689` and check the author id.
+<img src="media/prenup-edit.png" alt="Editing the agreed terms before approval: the publication review changed to 30 days and marked as edited, a change to contract research refused by the Critic because it isn't in the researcher's open_to, and the Approve with 1 change button" width="560">
 
-**Run the demo set** brings the demo back after that. The header counts 98 model calls if nothing has run yet and 79 once `out/cache/` exists, because analyst and profile answers are then reused; any earlier run fills it. The outcome is the same. A plain `npm run demo -- --replay` runs the same path at 16x. The live measurements below are separate runs with no cache.
+*Step 5: an edit the Critic allows, one it refuses, and the approval button counting the changes.*
 
-The default run takes the demo set of four challenges. Other challenges (`npm run demo -- C012-CH3 C041-CH2`) need your own Anthropic key in `.env` the first time: `npm run demo` calls the model only for answers not yet recorded, and records them.
+![The Critic test in the dark theme: 20 of 20 planted false claims stopped, by kind, with the same-name swaps first](media/prenup-planted-dark.png)
 
-## The problem
+*Step 6: Plant false claims, in the dark theme.*
 
-The organizers' own example proposal ends with a section called **"Agreed up front"**: who owns the results, when they can be published. That is where university-industry collaborations stall. In a UIDP perception survey (Jan 2022, n=64), 71% of university respondents said sponsored-research agreements close within six months, while 54% of industry respondents said seven months or more.
+## How it works
 
-## What it does
-
-1. **Reads the challenge like a researcher would.** An Analyst rewrites each company challenge into research questions and academic search terms, or says it isn't a research problem.
-2. **Searches in code, reads only the shortlist.** BM25 over 10,779 publication titles, keywords and abstracts (Cyrillic transliterated) shortlists 5 researchers per challenge. A Profiler reads only those and writes a card where every fact cites a dataset id; code flags stale, retired and consulting-only profiles, notes about someone else, and same-name pairs.
-3. **Competes for limited capacity.** Three matchmakers reserve researchers on a shared board with a version check. When two want the same person, an Arbiter decides with cited reasons and the loser re-matches by itself.
-4. **Negotiates the terms up front.** For each pair, a company-side and a researcher-side negotiator agree the engagement type, IP (Lambert Toolkit models), publication review and exclusivity in capped rounds, or walk away. Each side's position is built in code from the data: the company's R&D capacity, past collaborations and products; the researcher's `open_to`, earlier projects, patents, publication record and the Profiler's checked card. The researcher side can only offer what that researcher listed as open to.
-5. **Checks every claim.** A Critic checks each fact before it is used: the cited record exists, the quote is in it word for word, the record belongs to that person (by id, never by name), no ranking or personal attributes, and every number is in a quote. Then a cheap model checks that the sentence says no more than its quotes. A claim it stops goes back to its author once, with the reason; what still fails is dropped.
-6. **Writes it up, or says no.** One page per pair, a no-match report and a trap report.
-
-## Architecture
+1. **Reads the challenge.** An Analyst turns each company challenge into research questions and search terms, or says it isn't a research problem.
+2. **Searches in code.** BM25 over 10,779 publications (Cyrillic transliterated) shortlists 5 researchers per challenge; a Profiler reads only those and writes a card where every fact cites a dataset id. Code flags retired, consulting-only and stale profiles, notes about someone else, and same-name pairs.
+3. **Competes for limited capacity.** Three matchmakers reserve researchers on a shared board with a version check. When two want the same person, an Arbiter decides with cited reasons, and the loser re-matches by itself.
+4. **Negotiates the terms.** Each side's position is built in code from the data (the company's R&D capacity, plans and past collaborations; the researcher's `open_to`, projects, publication record and checked card). Every move cites the exact words behind each citation, and a check removes citations those words don't back. The researcher side can only offer what that researcher is open to.
+5. **Checks every claim.** The Critic checks each sentence before it's used: the cited record exists, the quote is in it word for word, the record belongs to that person (by id, never by name), no ranking or personal attributes, every number is in a cited field. Then a cheap model checks the sentence says no more than its sources. A stopped claim goes back to its author once, with the reason.
+6. **Writes it up, or says no.** One page per pair in the organizers' format, a no-match report and a trap report.
 
 ```mermaid
 flowchart LR
@@ -83,7 +65,7 @@ flowchart LR
     MM -->|reserve, version-checked| BOARD[(Board)]
     MM -->|reservation.conflict| AR[Arbiter, one agent per conflict]
     AR -->|transfer, pair.cancelled| BOARD
-    AR -->|arbiter.decided| MM
+    AR -->|arbiter.decided, reasoning checked| MM
     MM -->|match.proposed| NEG[Negotiators: company side vs researcher side]
     NEG -->|no_deal| MM
     NEG -->|negotiation.agreed| WR[Proposal Writer]
@@ -94,104 +76,103 @@ flowchart LR
   end
 ```
 
-Nobody calls anybody: each participant reacts to events. Every model call goes through one runner that records and replays answers, caps calls in flight and retries rate limits.
+Nobody calls anybody: each participant reacts to events.
 
-## How the agents run concurrently
+## Mozaik features used
 
-Every challenge, candidate, conflict and pair gets its own agent, and every model loop is fire-and-forget, so analysts, profilers, arbiters and negotiations for different pairs think at the same time (up to 8 calls in flight). The matchmakers share one board and never overwrite each other: a reservation only succeeds against the version the matchmaker read. Details, the feedback loops and a trace excerpt: [CONCURRENCY.md](CONCURRENCY.md).
+| Feature | Where | What for |
+|---|---|---|
+| `defineRuntime` with a `RuntimeState` subclass | [`src/runtime.ts`](src/runtime.ts) | The Board: version-checked reservations, negotiation moves, cancelled pairs |
+| `createAgent`, a fresh agent per task | [`analyst.ts`](src/agents/analyst.ts), [`profiler.ts`](src/agents/profiler.ts), [`arbiter.ts`](src/agents/arbiter.ts), [`negotiator.ts`](src/agents/negotiator.ts), [`writer.ts`](src/agents/writer.ts) | Memory never crosses challenges, researchers or sides, and every answer maps back to its task |
+| Agent memory across turns | [`negotiator.ts`](src/agents/negotiator.ts), [`writer.ts`](src/agents/writer.ts) | Each negotiator keeps its side of the conversation; the writer fixes its own draft |
+| `createHuman` for participants that are code | [`matchmaker.ts`](src/agents/matchmaker.ts), [`critic.ts`](src/agents/critic.ts), [`observer.ts`](src/agents/observer.ts), [`reporter.ts`](src/agents/reporter.ts) | Matchmakers, the Critic's code checks, the trace and the reports |
+| Situation handlers (`SituationSpecification`) | [`src/runtime.ts`](src/runtime.ts) (`on`, `own`, `anyEvent`) | Every participant reacts to events instead of being called |
+| Custom `SemanticEvent`s | every agent (`prenup.*`, listed in [CONCURRENCY.md](CONCURRENCY.md)) | Conflict, decision, re-match, moves, Critic verdicts |
+| Fire-and-forget `runLoop` with `structuredOutput` from zod | [`src/schema/model-schema.ts`](src/schema/model-schema.ts) and every agent | Typed answers; all loops run at the same time |
+| A custom `InferenceRunner` | [`src/llm/runner.ts`](src/llm/runner.ts), [`src/llm/fixtures.ts`](src/llm/fixtures.ts) (`rehydrate`) | Record and replay, at most 8 calls in flight, retries, cost per run, paced replay for the board |
 
-In the demo run, C001-CH1 (ArmaturaSec) and C032-CH1 (SecureEdge Labs) post almost the same challenge and both want R1015. This is from `out/trace.jsonl`:
+## Concurrency
+
+Every challenge, candidate, conflict and pair gets its own agent, and every model loop is fire-and-forget, so analysts, profilers, arbiters and negotiations think at the same time. The matchmakers share one board and never overwrite each other: a reservation only succeeds against the version the matchmaker read. More in [CONCURRENCY.md](CONCURRENCY.md). The race in the demo run, from `out/trace.jsonl`:
 
 ```json
-{"type":"prenup.match.proposed","producer":"matchmaker-1","payload":{"pairId":"C001-CH1__R1015", "...": "..."}}
-{"type":"prenup.reservation.conflict","producer":"matchmaker-2","payload":{"researcherId":"R1015","challengeId":"C032-CH1","holder":"C001-CH1","seenVersion":0,"version":1}}
-{"type":"prenup.pair.cancelled","producer":"arbiter:R1015","payload":{"pairId":"C001-CH1__R1015","reason":"the Arbiter gave R1015 to C032-CH1"}}
-{"type":"prenup.arbiter.decided","producer":"arbiter:R1015","payload":{"researcherId":"R1015","winner":"C032-CH1","loser":"C001-CH1", "...": "..."}}
+{"type":"prenup.match.proposed","producer":"matchmaker-2","payload":{"pairId":"C032-CH1__R1015", "...": "..."}}
+{"type":"prenup.reservation.conflict","producer":"matchmaker-1","payload":{"researcherId":"R1015","challengeId":"C001-CH1","holder":"C032-CH1","seenVersion":0,"version":1}}
+{"type":"prenup.arbiter.decided","producer":"arbiter:R1015","payload":{"researcherId":"R1015","winner":"C032-CH1","loser":"C001-CH1","check":{"cited":3,"backed":3,"notBacked":[],"numbersNotInBrief":[]}, "...": "..."}}
 {"type":"prenup.rematch","producer":"matchmaker-1","payload":{"challengeId":"C001-CH1","from":"R1015", "...": "..."}}
 {"type":"prenup.match.proposed","producer":"matchmaker-1","payload":{"pairId":"C001-CH1__R1008", "...": "..."}}
 ```
 
-Matchmaker-1 reserved R1015 first and its negotiation had started; matchmaker-2's write then failed the version check. The Arbiter gave R1015 to C032-CH1, so the C001-CH1 negotiation was cancelled mid-way and matchmaker-1 re-matched to R1008 by itself. The Arbiter is never told which side holds the researcher, so who writes first can't affect its decision.
-
-From the Arbiter's reason, verbatim: *"Both challenges are nearly identical in scope and [R1015] is rated strong fit for both [C001-CH1] and [C032-CH1]. The alternative [R1008] is rated strong fit for both as well. Since the cards don't separate the two challenges in terms of fit, this is a close call decided by which challenge loses more search relevance by taking its alternative: [C001-CH1] loses 8% while [C032-CH1] loses 14%. Assigning [R1015] to [C032-CH1] preserves the higher-relevance match where the gap is larger, and [C001-CH1] loses less by falling back to [R1008]."*. The percentages are measured: each is how much BM25 relevance that challenge loses by taking R1008 instead of R1015 (161.4 to 148.4, and 191.6 to 164.7). We checked its citations by hand: each publication is authored by the researcher it is cited for. Nobody told matchmaker-1 to pick R1008; it reacted to the decision.
+The Arbiter is never told which side holds the researcher, so who writes first can't sway it. Its reason, verbatim: *"Both challenges are nearly identical in nature and [R1015]'s fit is strong for each. The deciding factor is that taking the alternative researcher loses more search relevance for [C032-CH1] (14%) than for [C001-CH1] (8%), meaning [C001-CH1] loses less by falling back to [R1008]."* The percentages are computed by code from BM25 relevance (161.4 to 148.4 for C001-CH1, 191.6 to 164.7 for C032-CH1).
 
 ## Does it work?
 
-Measured on the demo run (4 challenges, 3 matchmakers, models below):
-
-| What | Result |
-|---|---|
-| Challenges | 4: 3 proposals, 1 no-match (not a research problem) |
-| Reservation conflicts | 1, settled by the Arbiter; the loser re-matched; no researcher ends up with two challenges |
-| Claims checked by the Critic | 110. Profile cards: 45, of which 24 were stopped on the first pass (16 said more than their fields, 7 quotes not word for word, 1 number not in any cited field); after one rewrite 34 pass and 11 are dropped. Proposals: 35 sentences, 8 stopped by the support check; after one rewrite 32 pass and 3 are dropped. Negotiated terms: 30, all pass |
-| Traps the code flags across all 1,047 profiles | 22 stale (6 unavailable, 16 consulting only), 7 where `open_to` contradicts the notes, 2 notes about another person, 8 same-name profiles, 26 with Cyrillic text ([`out/traps.md`](out/traps.md)) |
-| Model calls per run (replay from a fresh clone) | 66 cheap (132,909 input / 16,568 output tokens), 32 strong (95,339 input / 61,000 output tokens) |
-| Cost of one demo run | $1.36 at list price ($0.22 cheap, $1.14 strong), about $0.45 per proposal; every run prints its own |
-
-And three measurements made for the question "does the design hold up?" (`npm run eval`; results and raw data in [`out/eval/`](out/eval/)):
+All numbers are from recorded runs; raw data is in [`out/eval/`](out/eval/) and [`out/batch/`](out/batch/), and `npm run eval` reruns the offline ones.
 
 | Measurement | Result |
 |---|---|
-| **Concurrent vs one call at a time**: the demo set run twice live on 30 Oct, same code, up to 8 model calls at once vs `--in-flight=1` | **170.7 s vs 380.3 s (2.2x faster)**, 89 model calls each; $1.04 vs $0.80. The concurrent run hit the gateway's rate limit 11 times and retried. Fresh answers, so the two runs took slightly different paths ([`concurrency.json`](out/eval/concurrency.json)) |
-| **Planted false claims**: 20 claims of 7 kinds built from real records (fake ids, altered quotes, same-name swaps, engagement not in `open_to`, invented money, retired or departed researchers, sentences that say more than their quote), sent to the Critic as one check | **20/20 stopped.** The code checks stop 16 (exists 3, quote 4, ownership 3, policy 5, numbers 1); the 4 overstatements pass them and are stopped by the support check. Without the support check: 16/20. The faults go to the Critic directly, not through the writer ([`critic.json`](out/eval/critic.json)) |
-| **Version check + Arbiter vs last-writer-wins**: the real matchmaker code on all 489 challenges, with code stand-ins for the model agents (search on the one-line challenge text, every card a strong fit, real availability and trap flags, the holder keeps a contested researcher), seed 42 | **0 double-booked researchers vs 104** (promised to 264 challenges at once). The price: 438 conflicts settled by re-matching, and 50 challenges whose whole shortlist was already taken ([`arbiter-versioned.json`](out/eval/arbiter-versioned.json), [`arbiter-last-writer-wins.json`](out/eval/arbiter-last-writer-wins.json)) |
+| **The demo set** (4 challenges, 3 matchmakers) | 3 proposals, 1 no-match (not a research problem), 1 conflict settled by the Arbiter. 110 claims checked: profile cards 45 (20 stopped on the first pass, 36 pass after one rewrite), proposals 35 sentences (3 stopped, all 35 pass after one rewrite), terms 30 (all pass). 91 model calls from a fresh clone, $1.15 at list price, about $0.38 per proposal |
+| **15 more challenges** (seeded sample, seed 42; 13 sectors, 7 Serbian-language companies; `npm run batch`) | **11 proposals, 4 reasoned no-matches** (all four not research problems). From lime dosing for Vojvodina soils to podcast ad targeting and compostable lidding film; formats chosen per company, e.g. consulting for a 4-person IT firm. No conflicts this time and no failed negotiations. The Critic checked 399 claims and stopped 90 on the first pass; in the proposals, 21 sentences were stopped and 8 dropped after one rewrite. 258 model calls, $4.24 at list price, about $0.39 per proposal ([`summary.json`](out/batch/summary.json)). A first attempt at 8 calls in flight was stopped by the gateway's rate limit; this run used 4 |
+| **Parallel vs one call at a time**: the demo set run twice live with fresh answers, same code, up to 8 model calls at once vs `--in-flight=1` | **173.9 s vs 680.6 s (3.9x faster)**, 94 vs 95 model calls; $1.11 vs $1.36. The parallel run hit the gateway's rate limit 6 times and retried. Fresh answers, so the two runs took slightly different paths ([`concurrency.json`](out/eval/concurrency.json), with both logs and traces) |
+| **Planted false claims**: 20 claims of 7 kinds built from real records (fake ids, altered quotes, same-name swaps, engagement not in `open_to`, invented money, retired or departed researchers, sentences that say more than their quote) | **20/20 stopped**: code checks 16, the support check the 4 overstatements; 16/20 without it ([`critic.json`](out/eval/critic.json)) |
+| **Version check + Arbiter vs last-writer-wins**: the real matchmaker code on all 489 challenges, code stand-ins for the model agents, seed 42 | **0 double-booked researchers vs 104** (promised to 264 challenges at once); the price is 438 conflicts settled by re-matching ([`arbiter-versioned.json`](out/eval/arbiter-versioned.json)) |
+| **How often the Critic stops a true sentence**: every first-pass stop in the demo run, read against the dataset | 10 of 23 were true (5 of them quotes not word for word), 7 really said more than their sources, 6 were judgement calls; 3 true sentences were dropped after the rewrite. Was 14 of 32 before the support check was eased ([`critic-false-stops.json`](out/eval/critic-false-stops.json)) |
+| **Negotiation citations** that survived the run's checks | 10, all resolve to real records; read against their statements, 7 back them and 3 in part; 6 were removed during the run ([`citations.json`](out/eval/citations.json)) |
 
-![79 model calls of the demo set on a timeline, up to 15 open at once](out/eval/timeline.svg)
+The two readings above were done by Claude, the coding agent that helped build this, not by an independent person.
 
-The demo set on a timeline, replayed at its recorded latency: 79 model calls in 225 s, 3.2 open on average and up to 15 at once (a call counts from its request to its answer, waiting for one of the 8 slots included). Analysts and first profile answers came from the local cache, so they aren't on it. The 170.7 s vs 380.3 s measurement above was made before the last changes to the Critic, negotiator and Arbiter prompts.
+![72 model calls of the demo set on a timeline, up to 15 open at once](out/eval/timeline.svg)
 
-How often it stops a true claim: of the 32 first-pass stops in the demo run, **14 sentences were true, 10 really said more than their sources and 8 were judgement calls** ([`critic-false-stops.json`](out/eval/critic-false-stops.json) has each one). That's after we let it read the whole cited field instead of only the quote, which brought it down from 21 true sentences out of 47 stops with the same 20 of 20 planted claims caught. It's still too strict: 5 of the 14 true sentences never came back after the rewrite. Claude, the coding agent that helped build this, did this review, not an independent person.
+The demo set replayed at its recorded latency: 72 model calls in 209 s, up to 15 open at once (a call counts from its request to its answer, waiting for one of the 8 slots included). Analyst and first profile answers came from the local cache, so they aren't on it.
 
 ## Where the Critic stepped in
 
-The cheap model writes the profile cards, and it sometimes rewords a "verbatim" quote or adds a number its sources don't contain. The Critic's code checks block those claims before any matchmaker sees the card (`out/trace.jsonl`):
+The code checks stop a profile claim whose quote isn't word for word, or whose number isn't in any cited field:
 
 ```json
-{"type":"prenup.critic.verdict","producer":"critic","payload":{"pairId":"profile:C032-CH1__R0071","attempt":1,"claimId":"profile:C032-CH1__R0071/2","subject":"R0071","verdict":"block","check":"numbers","reason":"512 is not in any cited field"}}
 {"type":"prenup.critic.verdict","producer":"critic","payload":{"pairId":"profile:C001-CH1__R1008","attempt":1,"claimId":"profile:C001-CH1__R1008/1","subject":"R1008","verdict":"block","check":"quote","reason":"quote not found in SYN-PUB-10477.abstract"}}
+{"type":"prenup.critic.verdict","producer":"critic","payload":{"pairId":"profile:C032-CH1__R0071","attempt":1,"claimId":"profile:C032-CH1__R0071/2","subject":"R0071","verdict":"block","check":"numbers","reason":"512 is not in any cited field"}}
 ```
 
-A quote can be word for word and still not say what the sentence says. The support check catches that, the claim goes back to its author with the reason and a suggested sentence, and the fix is checked again. Here the writer said the researcher has no access to packet logs from live deployments. No source says that, and the rewrite didn't fix it, so the sentence was dropped:
+The support check stops a sentence that says more than its sources. Here the writer added that the company's sensor hardware and firmware are available for testing; no record says so. The sentence went back with a suggested fix, and the rewrite passed:
 
 ```json
-{"type":"prenup.critic.verdict","producer":"critic","payload":{"pairId":"C032-CH1__R1015","attempt":1,"claimId":"C032-CH1__R1015/whyThisPair/1","subject":"C032-CH1__R1015","verdict":"rewrite","check":"support","reason":"Source confirms the company holds eighteen months of real traffic and has not validated unsupervised methods, and confirms the researcher has expertise in anomaly detection in industrial control systems. However, the source does not explicitly state the researcher has no access to continuous packet logs from live deployments."}}
-{"type":"prenup.critic.verdict","producer":"critic","payload":{"pairId":"C032-CH1__R1015","attempt":2,"claimId":"C032-CH1__R1015/whyThisPair/1","subject":"C032-CH1__R1015","verdict":"rewrite","check":"support","reason":"Fields confirm eighteen months of logs from three customer sites and researcher's work on anomaly detection in ICS, but do not state the company has NOT validated unsupervised detection methods or that the researcher does NOT hold continuous traffic logs from live OT deployments."}}
+{"type":"prenup.critic.verdict","producer":"critic","payload":{"pairId":"C032-CH1__R1015","attempt":1,"claimId":"C032-CH1__R1015/companyBrings/2","subject":"C032","verdict":"rewrite","check":"support","reason":"Field mentions sensor captures traffic and sends parsed records, but does not state that sensor hardware and firmware environment are available for testing.", "...": "..."}}
+{"type":"prenup.critic.verdict","producer":"critic","payload":{"pairId":"C032-CH1__R1015","attempt":2,"claimId":"C032-CH1__R1015/companyBrings/2","subject":"C032","verdict":"pass"}}
 ```
 
-Each proposal lists, under "How we got here", every claim the Critic stopped, why, and whether the rewrite passed or was dropped.
+Each proposal lists, under "How we got here", every claim the Critic stopped and what happened to it.
 
 ## Proposals
 
-- [C032-CH1 x R1015](out/proposals/C032-CH1__R1015.md): unsupervised anomaly detection on Modbus and BACnet traffic for SecureEdge Labs' edge sensors (joint project)
-- [C001-CH1 x R1008](out/proposals/C001-CH1__R1008.md): the same problem for ArmaturaSec, after the Arbiter gave R1015 to C032-CH1 (joint project)
-- [C061-CH1 x R0231](out/proposals/C061-CH1__R0231.md): why cold-pressed pumpkin seed oil goes rancid (contract research). R0128 was on this shortlist and skipped: its notes describe another person
-- [No match](out/nomatch.md): C043-CH3, raising a seed round, is not a research problem
-- [Traps](out/traps.md)
+- [C032-CH1 x R1015](out/proposals/C032-CH1__R1015.md): finding network threats on industrial control systems without labelled attack data, for SecureEdge Labs (joint project)
+- [C001-CH1 x R1008](out/proposals/C001-CH1__R1008.md): the same problem for ArmaturaSec, after the Arbiter kept R1015 with C032-CH1 (joint project)
+- [C061-CH1 x R0231](out/proposals/C061-CH1__R0231.md): why cold-pressed pumpkin seed oil goes rancid early (contract research)
+- [No match](out/nomatch.md), [traps](out/traps.md), and the [15 more challenges](out/batch/)
 
 ## How it plugs into the EINSTEIN network and EINSTEIN Stars
 
-**EINSTEIN network.** Prenup becomes the intake step for companies at NTP Novi Sad and the partner clusters. A company submits a challenge; within minutes the tech-transfer team gets either a negotiated draft with a named university group, or a reasoned "no good match, here's why". Staff approve before anyone is contacted. The same engine works for the partner universities in Austria, the Netherlands and Denmark: each institution plugs in its own researcher records, and the Critic and negotiation rules stay the same. The numbers to track are time to a first negotiated draft, and how often both sides accept the meeting.
+**EINSTEIN network.** Prenup becomes the intake step for companies at NTP Novi Sad and the partner clusters: a company submits a challenge, and the tech-transfer team gets a negotiated draft with a named university group, or a reasoned "no good match, here's why". Staff edit and approve before anyone is contacted. Each partner university plugs in its own researcher records; the Critic and negotiation rules stay the same. The numbers to track are time to a first negotiated draft and how often both sides accept the meeting.
 
-**EINSTEIN Stars.** Our understanding, not yet confirmed with the organizers: EINSTEIN STARS is the project's competitive programme for PhD students and young researchers with strong industrial potential. Prenup feeds it in both directions. For early-career researchers who list industrial-PhD work in what they're open to, it proposes concrete industrial PhD topics with a company already interested and the terms pre-agreed, which makes a stronger application. For selected Stars, it finds company partners for their work. It never ranks candidates: every proposal answers one company's challenge.
+**EINSTEIN Stars.** Our understanding, not yet confirmed with the organizers: EINSTEIN STARS is the project's competitive programme for PhD students and young researchers with strong industrial potential. For early-career researchers who list industrial-PhD work in what they're open to, Prenup proposes concrete industrial PhD topics with a company already interested and the terms pre-agreed; for selected Stars, it finds company partners. It never ranks candidates: every proposal answers one company's challenge.
 
 ## Responsible use of data
 
 - Proposes collaborations; never scores or ranks people. Fit is per challenge.
-- Only offers what each researcher listed in `open_to`; respects retired and consulting-only status.
+- Only offers what each researcher listed in `open_to`, and respects retired and consulting-only status; a reviewer's edits are held to the same rules.
 - No personal attributes (age, gender, origin) reach any agent.
-- A person approves or rejects each proposal on the board. Nothing is sent to anyone: sending isn't built.
-- Uses only the provided synthetic dataset; no external sources.
-- In a real deployment: data minimization, researchers can opt out, records refreshed from the university's own systems.
+- A person edits, approves or rejects each proposal on the board; nothing is sent to anyone.
+- Uses only the provided synthetic dataset. In a real deployment: data minimization, opt-out for researchers, records refreshed from the university's own systems.
 
 ## Limits and honest notes
 
-- The human approval step is a simple gate on the board: one person, one decision per proposal, saved on this machine (`out/tmp/decisions.json`) and cleared by a new run. Not built yet: sending, staff accounts, and editing a draft before approving it.
-- The support check is a cheap model and strict: it stopped more than a fifth of the proposal sentences on the first pass, and more than a third of all first-pass stops were true sentences (see [Does it work?](#does-it-work)). The model still makes plain mistakes: it stopped "sub-millisecond" for a paper reporting 0.9 ms. A quote that isn't word for word is always stopped, even when the sentence is true, because that rule is what catches altered quotes. The people-praise check is a word list, and it also blocked a sentence that called a method's result "best".
-- The cheap model rates most shortlisted candidates as a strong fit, so search order often decides. The Arbiter's and the Profiler's fit reasons aren't checked by the Critic yet. We checked by hand that each paper the Arbiter cites is by the researcher it's cited for. The two challenges are nearly identical, so the decision rests on a measured tiebreak, 8% vs 14% of search relevance. Search relevance is keyword-based, so that shows which challenge loses more on paper, not which pairing would work better. What the design guarantees is that nobody is double-booked, not that the model picked the better side of a close call.
-- After a no-deal the researcher stays reserved for that challenge.
-- Negotiators must back each citation with exact words from that line of their position card. Code removes any citation whose words aren't there, and a strong-model check then removes any whose words don't back the statement: it took out 6 in the recorded run, and at least one of those looked fine to us, so it errs on the strict side. Reading the 10 that are left against their statements, 8 hold up and 2 hold up in part ([`citations.json`](out/eval/citations.json)). Claude did this reading, not an independent person. The check doesn't look at the Arbiter's reason or a move's uncited sentences.
+- The human gate is one person on one machine: decisions and edits are saved in `out/tmp/decisions.json` and cleared by a new run. Sending and staff accounts aren't built.
+- The support check is a cheap model and still sometimes stops true sentences (10 of 23 first-pass stops). A quote that isn't word for word is always stopped, even in a true sentence, because that rule is what catches altered quotes.
+- The cheap model rates most shortlisted candidates as a strong fit, so search order often decides, and the Arbiter's close calls rest on keyword-based search relevance: the design guarantees nobody is double-booked, not that the model picked the better side of a close call.
+- After a no-deal, the researcher stays reserved for that challenge.
+- A model call that still fails after 4 retries stops a live run. It happened once, at 8 calls in flight on 15 challenges; `npm run batch` runs with 4.
 - Tested on Linux with Node 22 only.
 
 ## Tech
 
-TypeScript; `@mozaik-ai/core` 4.2.0 (exact pin); BM25 search in code; zod schemas as structured output; the board is one HTML page fed by Server-Sent Events from a small Node server, no framework. Models through the hackathon's Anthropic gateway: `claude-haiku-4-5` for the Analyst, the Profiler and the Critic's support check, `claude-sonnet-4-6` for the Arbiter, negotiators and writer. Every model answer is recorded in `fixtures/`, so runs replay without a key. `npm test` covers search, trap detection, the Critic's checks, reservations, matchmaking, the Arbiter and the runner.
+TypeScript; `@mozaik-ai/core` 4.2.0 (exact pin); BM25 search in code; zod schemas as structured output; the board is one HTML page fed by Server-Sent Events from a small Node server, no framework. Models through the hackathon's Anthropic gateway: `claude-haiku-4-5` for the Analyst, the Profiler and the Critic's support check; `claude-sonnet-4-6` for the Arbiter, negotiators, citation checks and writer. `npm test` covers search, trap detection, the Critic's checks, term edits, reservations, matchmaking, the Arbiter and the runner.

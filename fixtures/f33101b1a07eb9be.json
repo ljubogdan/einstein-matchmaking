@@ -1,0 +1,38 @@
+{
+  "key": "f33101b1a07eb9be",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Sparse autoencoders can learn meaningful latent representations from low-rate industrial sensor logs without labelled examples, with representat",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The fields do not mention attack labels or any security/attack context; they describe operational modes, fault detection, anomaly scoring, and mode classification in standard industrial settings.\", \"rewrite\": \"Unsupervised learning methods for industrial SCADA and sensor data have been validated on multi-month production records from manufacturing facilities and utilities without requiring supervised annotations.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1535,
+    "outputTokens": 120,
+    "totalTokens": 1655,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1535,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 120,
+    "service_tier": "standard"
+  },
+  "ms": 1951
+}

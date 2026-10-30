@@ -1,0 +1,38 @@
+{
+  "key": "161d50bbdde42691",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C124-CH2: One of our Austrian clients moved to a cloud accounting platform last year and now wants us to migrate their 12 years of legacy desktop data",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\": [{\"claim\": 1, \"text\": \"Systematic classification and automated resolution of data type conflicts across different representations can be achieved through configurable transformation components, achieving an overall accuracy of 84% on real-world data exchange specifications.\", \"sources\": [{\"id\": \"SYN-PUB-01264\", \"field\": \"abstract\", \"quote\": \"automated resolution strategies are defined and implemented as configurable transformation components. The resolution logic draws on both schema-level metadata and ontology-level type hierarchies. Resolution accuracy was evaluated against expert-curated ground truth on 412 conflict instances, achieving an overall accuracy of 84%\"}]}, {\"claim\": 2, \"text\": \"Semi-automated ontology-driven approaches can extract and validate integration-relevant attributes from heterogeneous legacy documentation and database schemas, reaching 91% coverage after two expert review rounds.\", \"sources\": [{\"id\": \"SYN-PUB-01265\", \"field\": \"abstract\", \"quote\": \"Ontology coverage—defined as the proportion of integration-relevant attributes resolvable to ontology concepts—reached 91% after two expert review rounds\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2263,
+    "outputTokens": 255,
+    "totalTokens": 2518,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2263,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 255,
+    "service_tier": "standard"
+  },
+  "ms": 17011
+}

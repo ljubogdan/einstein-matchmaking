@@ -1,0 +1,38 @@
+{
+  "key": "76028aa72cc28baa",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C145-CH1: Our adtech platform inserts pre-roll ads into podcast episodes, but the targeting is purely demographic; click-through rates are stuck at 0.",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"expertise\":[{\"text\":\"Research applies hedonic regression to measure price premiums for AI-generated contextual signals in programmatic advertising, finding a 22 percent CPM premium for granular contextual targeting over standard category signals.\",\"sources\":[{\"id\":\"SYN-PUB-08915\",\"field\":\"abstract\",\"quote\":\"hedonic regression to estimate the price premium associated with AI-generated contextual signals\"}]},{\"text\":\"Work uses conjoint analysis to quantify media buyer preferences for targeting attributes, demonstrating that audience targeting capability accounts for 61 percent of attribute importance in banner placement valuation.\",\"sources\":[{\"id\":\"SYN-PUB-08905\",\"field\":\"abstract\",\"quote\":\"choice-based conjoint (CBC) analysis to estimate the implicit prices that media buyers attach to specific attributes\"}, {\"id\":\"SYN-PUB-08905\",\"field\":\"abstract\",\"quote\":\"placement position (above versus below the fold) and audience targeting capability together account for 61 percent\"}]},{\"text\":\"Expertise in discrete choice modelling and media inventory valuation applied to programmatic and display advertising contexts, with collaboration on data pipeline infrastructure.\",\"sources\":[{\"id\":\"R0820\",\"field\":\"bio\",\"quote\":\"discrete choice modelling applied to the valuation of digital media inventory—including display, video, and programmatic\"}]}],\"fit\":\"strong\",\"fitReason\":\"The researcher has published directly on quantifying the value of contextual targeting signals in programmatic advertising [SYN-PUB-08915] and has established methods for measuring how targeting attributes influence ad performance and pricing [SYN-PUB-08905, SYN-PUB-08913], precisely addressing the challenge of building and valuing content-context matching for ad placement optimization.\"}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2249,
+    "outputTokens": 393,
+    "totalTokens": 2642,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2249,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 393,
+    "service_tier": "standard"
+  },
+  "ms": 28639
+}

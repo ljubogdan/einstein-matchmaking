@@ -1,0 +1,38 @@
+{
+  "key": "32e8413295495f8c",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Data fusion systems combine distributed sensor observations with model output using Bayesian updating and weighted schemes to reduce spatial est",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The field does not mention confidence intervals; it mentions prediction intervals and coverage probability instead\", \"rewrite\": \"Uncertainty quantification frameworks propagate multiple error sources through statistical downscaling to produce calibrated probability distributions at fine spatial resolution.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1158,
+    "outputTokens": 95,
+    "totalTokens": 1253,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1158,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 95,
+    "service_tier": "standard"
+  },
+  "ms": 30954
+}

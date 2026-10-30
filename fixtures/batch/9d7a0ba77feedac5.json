@@ -1,0 +1,38 @@
+{
+  "key": "9d7a0ba77feedac5",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C036-CH2: Big retailers will stop taking conventional plastic lidding film by 2028; we need a compostable one that still seals.\nDetail: Several large ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Work on heat-sealable film formulation development includes laboratory characterization of seal strength and thermal processing window on VFFS equipment.\",\"sources\":[{\"id\":\"R0715\",\"field\":\"keywords\",\"quote\":\"heat-sealable films, seal-layer formulation, thermal processing window\"},{\"id\":\"R0715\",\"field\":\"bio\",\"quote\":\"The group operates a Brabender plastograph, a capillary rheometer, a laboratory-scale cast-film line, and a heat-seal tester\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2572,
+    "outputTokens": 126,
+    "totalTokens": 2698,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2572,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 126,
+    "service_tier": "standard"
+  },
+  "ms": 13490
+}

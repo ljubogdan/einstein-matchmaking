@@ -1,0 +1,38 @@
+{
+  "key": "ddf99ff64fef73c7",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C032-CH1: We need to detect unusual behaviour on Modbus and BACnet networks without labelled attack data.\nDetail: Our EdgeWatch sensor captures all tr",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Early-exit mechanisms and difficulty estimation allow real-time inference on resource-limited edge devices by partitioning execution between edge and cloud based on sample difficulty, achieving 96.3% of full cloud accuracy while reducing average end-to-end latency by 47%.\",\"sources\":[{\"id\":\"SYN-PUB-06397\",\"field\":\"abstract\",\"quote\":\"early-exit mechanism on the edge node resolves easy, high-confidence samples locally while routing ambiguous samples to the cloud\"},{\"id\":\"SYN-PUB-06397\",\"field\":\"abstract\",\"quote\":\"collaborative architecture achieves 96.3% of full cloud accuracy while reducing average end-to-end latency by 47%\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2148,
+    "outputTokens": 170,
+    "totalTokens": 2318,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2148,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 170,
+    "service_tier": "standard"
+  },
+  "ms": 2162
+}

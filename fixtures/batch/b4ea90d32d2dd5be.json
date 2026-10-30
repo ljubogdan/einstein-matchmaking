@@ -1,0 +1,38 @@
+{
+  "key": "b4ea90d32d2dd5be",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C145-CH1: Our adtech platform inserts pre-roll ads into podcast episodes, but the targeting is purely demographic; click-through rates are stuck at 0.",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Developed noise-robust ASR frameworks that process telephone audio with substantial background noise, channel distortions, and codec artifacts.\",\"sources\":[{\"id\":\"SYN-PUB-01116\",\"field\":\"abstract\",\"quote\":\"Automatic speech recognition (ASR) systems deployed in telephone call centres routinely encounter background noise, channel distortions, and codec artefacts\"},{\"id\":\"SYN-PUB-01116\",\"field\":\"abstract\",\"quote\":\"noise-robust ASR framework specifically designed for Serbian telephone audio\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2115,
+    "outputTokens": 130,
+    "totalTokens": 2245,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2115,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 130,
+    "service_tier": "standard"
+  },
+  "ms": 12269
+}

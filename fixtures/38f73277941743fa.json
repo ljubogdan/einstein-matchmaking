@@ -1,0 +1,38 @@
+{
+  "key": "38f73277941743fa",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: Both challenges are nearly identical in scope, and [R1015]'s fit is strong for both and. The cards do not meaningfully separate the two on resea",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words 'fit strong' are too fragmentary to confirm the full claim about identical scope and search relevance comparison.\"},{\"item\":2,\"backed\":false,\"reason\":\"Same issue as item 1; the fragment does not back the reasoning about search relevance percentages or assignment decision.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 563,
+    "outputTokens": 80,
+    "totalTokens": 643,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 563,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 80,
+    "service_tier": "standard"
+  },
+  "ms": 1831
+}

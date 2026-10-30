@@ -6,7 +6,9 @@
 import { spawn, type ChildProcess } from "node:child_process"
 import { closeSync, existsSync, mkdirSync, openSync, readFileSync, readSync, statSync, writeFileSync } from "node:fs"
 import { createServer, type ServerResponse } from "node:http"
+import type { TermSheet } from "../schema/termsheet"
 import { Dataset, hasDataset } from "../tools/dataset"
+import { checkEdit, editLine, type Edit, type Editable } from "./amend"
 
 const PORT = Number(process.env.PORT ?? 4173)
 const TRACES = ["out/trace.jsonl", "out/tmp/trace.board.jsonl"] // a terminal run, the board's Run
@@ -82,14 +84,26 @@ function poll(): void {
   }
 }
 
-// The human gate: a person approves or rejects each drafted proposal. Sending isn't built, so nobody is contacted either way.
-// Gitignored, like the board's own trace; a new run makes new drafts, so it starts empty.
+// The human gate: a person may edit the main terms, then approves or rejects each drafted proposal. Sending isn't
+// built, so nobody is contacted either way. Gitignored, like the board's own trace; a new run starts it empty.
 const DECISIONS = "out/tmp/decisions.json"
-let decisions: Record<string, string> = {}
+type Review = { decision?: "approved" | "rejected"; edits?: Partial<Record<Editable, Edit>> }
+let decisions: Record<string, Review> = {}
 try {
-  decisions = JSON.parse(readFileSync(DECISIONS, "utf8"))
+  const saved = JSON.parse(readFileSync(DECISIONS, "utf8")) as Record<string, Review | "approved" | "rejected">
+  decisions = Object.fromEntries(Object.entries(saved).map(([pair, r]) => [pair, typeof r === "string" ? { decision: r } : r])) // older files kept a bare string
 } catch {
   // no decisions yet
+}
+
+// The agreed sheet of a pair, from the run the board is showing.
+function agreedSheet(pairId: string): TermSheet | undefined {
+  for (const line of [...lines].reverse()) {
+    if (!line.includes('"prenup.negotiation.agreed"') || !line.includes(pairId)) continue
+    const event = JSON.parse(line) as { payload: { pairId: string; sheet: TermSheet } }
+    if (event.payload.pairId === pairId) return event.payload.sheet
+  }
+  return undefined
 }
 
 function saveDecisions(): void {
@@ -157,7 +171,30 @@ const server = createServer((req, res) => {
   if (decide && req.method === "POST") {
     const decision = url.searchParams.get("decision")
     if (!existsSync(`out/proposals/${decide[1]}.md`) || (decision !== "approved" && decision !== "rejected")) return void res.writeHead(400).end()
-    decisions[decide[1]] = decision
+    decisions[decide[1]] = { ...decisions[decide[1]], decision }
+    saveDecisions()
+    return void res.writeHead(204).end()
+  }
+
+  // A reviewer's edit to one term, checked by code (the Critic's term checks), never by a model. An edit undoes an earlier
+  // decision: what was approved was the old terms.
+  const amend = /^\/amend\/([A-Za-z0-9_-]+)$/.exec(path)
+  if (amend && req.method === "POST") {
+    const pairId = amend[1]
+    const agreed = agreedSheet(pairId)
+    if (!existsSync(`out/proposals/${pairId}.md`) || !agreed) return void res.writeHead(404).end()
+    if (!hasDataset()) return void res.writeHead(503, { "content-type": "text/plain" }).end("dataset missing: run `npm run setup`")
+    data ??= Dataset.load()
+    const review = decisions[pairId] ?? {}
+    const result = checkEdit(data, pairId, agreed, review.edits ?? {}, url.searchParams.get("term") ?? "", url.searchParams.get("value") ?? "")
+    if (!result.ok) {
+      res.writeHead(422, { "content-type": "application/json" })
+      return void res.end(JSON.stringify({ reason: result.reason }))
+    }
+    const term = url.searchParams.get("term") as Editable
+    const edits = { ...review.edits, [term]: result.edit }
+    if (result.edit.from === result.edit.to) delete edits[term] // set back to what was agreed
+    decisions[pairId] = { edits }
     saveDecisions()
     return void res.writeHead(204).end()
   }
@@ -183,7 +220,13 @@ const server = createServer((req, res) => {
   const proposal = /^\/proposal\/([A-Za-z0-9_-]+)$/.exec(path)
   if (proposal && existsSync(`out/proposals/${proposal[1]}.md`)) {
     res.writeHead(200, { "content-type": "text/plain; charset=utf-8" })
-    return void res.end(readFileSync(`out/proposals/${proposal[1]}.md`, "utf8"))
+    // The reviewer's changes sit under the draft, not inside it: the draft stays what the agents wrote and checked.
+    const review = decisions[proposal[1]]
+    const edits = Object.entries(review?.edits ?? {}) as [Editable, Edit][]
+    const note = review?.decision || edits.length
+      ? ["", "---", "", "### Reviewed on the board", "", ...edits.map(([term, edit]) => `- Changed by the reviewer: ${editLine(term, edit)} (passed the Critic's term checks)`), `- Decision: ${review?.decision ?? "not yet"}. Sending isn't built, so nobody was contacted.`, ""].join("\n")
+      : ""
+    return void res.end(readFileSync(`out/proposals/${proposal[1]}.md`, "utf8") + note)
   }
 
   res.writeHead(404, { "content-type": "text/plain" }).end("not found")

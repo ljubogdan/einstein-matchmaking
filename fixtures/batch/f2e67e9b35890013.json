@@ -1,0 +1,38 @@
+{
+  "key": "f2e67e9b35890013",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Round 4 of 4. This is the last round: accept or walk_away. The company side proposes (We accept the reduction to 12 months' exclusivity as a fair commercial win",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"action\":\"accept\",\"sheet\":{\"engagement\":\"contract_research\",\"scope\":\"Design and validate a content-context matching layer for the SoundSlot adtech platform: topic classification and content-embedding methodology applied to episode transcripts, linked to ad-decision logic, with the objective of demonstrating a path to 2.5% pre-roll CTR; includes a prototype evaluation report and recommendations for production integration.\",\"ip\":\"company_owns_uni_academic_use\",\"exclusivity\":{\"field\":\"Audio adtech and podcast ad-insertion platforms\",\"months\":12},\"publication\":{\"reviewDays\":60,\"companyMayRemoveConfidential\":true},\"backgroundIp\":[\"C145: SoundSlot ad server and all associated code; PostgreSQL listener panel and campaign analytics data; episode transcripts and campaign performance logs; Meta and Google campaign API integrations\",\"R0820: Prior hedonic regression and conjoint analysis methods and published models; know-how from SYN-PRJ-0525, SYN-PRJ-0526, SYN-PRJ-1611\"],\"contributions\":{\"company\":[\"Senior backend developer (30% time) for data pipeline and ad-decision logic integration\",\"Data analyst (30% time) for campaign performance data preparation and evaluation\",\"Production staff for audio data and transcript preparation\",\"Access to four years of episode transcripts and campaign performance logs\"],\"university\":[\"Full Professor (R0820) leading research design, topic classification methodology, content-embedding framework, and prototype evaluation\"]},\"money\":\"to be agreed\",\"timeline\":{\"months\":6,\"milestones\":[\"Month 1: Data access agreement signed; transcript and campaign log dataset delivered to researcher\",\"Month 2: Topic classification model design and initial embedding approach agreed\",\"Month 4: Working prototype of content-context matching layer delivered and tested on historical data\",\"Month 6: Evaluation report with CTR uplift projections and production integration recommendations delivered\"]},\"contact\":{\"company\":\"Head of Technology (milestone sign-off and technical liaison)\",\"university\":\"Full Professor, Department of Marketing (principal investigator and delivery lead)\"}},\"reason\":\"The company_owns_uni_academic_use model preserves full academic use rights, allowing the researcher to publish and continue research using the methodology [R0820 publications], and the background know-how from prior projects remains protected [R0820 projects]; this is an acceptable outcome on the final round.\",\"citations\":[\"R0820 publications\",\"R0820 projects\"],\"evidence\":[{\"citation\":\"R0820 publications\",\"quote\":\"20 authored publications, latest 2026\"},{\"citation\":\"R0820 projects\",\"quote\":\"SYN-PRJ-0525 \\\"Digital Media Inventory Pricing in Transitional Advertising Markets: Conjoint and Hedonic Approaches\\\"; SYN-PRJ-0526 \\\"Advertising Valuation Benchmarks for Central and Eastern European Digital Media Markets\\\"; SYN-PRJ-1611 \\\"Qualitative Panel Methods for Small Enterprise Market Research in Serbia\\\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 668,
+    "totalTokens": 671,
+    "inputTokenDetails": {
+      "cached_tokens": 5012
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 1358,
+    "cache_read_input_tokens": 3654,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 1358,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 668,
+    "service_tier": "standard"
+  },
+  "ms": 93137
+}

@@ -4,18 +4,46 @@
   "citations": 10,
   "removedDuringRun": [
     "C061 past_collaborations",
-    "C001 past_collaborations",
     "C032 rd_capacity",
+    "C001 past_collaborations",
     "R0231 publications",
-    "C001 rd_capacity",
-    "R1015 projects"
+    "R1015 projects",
+    "C001 rd_capacity"
   ],
   "resolve": 10,
   "review": {
-    "yes": 8,
-    "partly": 2
+    "yes": 7,
+    "partly": 3
   },
   "rows": [
+    {
+      "citation": "C032-CH1__R1015/1/company/C032 past_collaborations",
+      "resolves": true,
+      "quote": "None.",
+      "reason": "We have no past collaborations to draw on [C032 past_collaborations], so clear milestones at M3, M6, M9 and M12 protect both sides and keep the twelve-month deployment target on track. Our anonymised customer traffic and in-house OT parsers are the core technical asset here, so we want company ownership with university academic-use rights and 24-month exclusivity in OT anomaly detection to support our EdgeWatch and SOC products.",
+      "review": "yes"
+    },
+    {
+      "citation": "C061-CH1__R0231/2/researcher/R0231 publications",
+      "resolves": true,
+      "quote": "16 authored publications, latest 2026",
+      "reason": "We accept the 18-month exclusivity in the field of cold-pressed pumpkin seed oil production as a trade for moving IP to university ownership with a non-exclusive licence to the company, which is our standard position; we have 16 authored publications [R0231 publications] and need to retain publication rights, so we also reduce the review period to 60 days to keep academic dissemination viable.",
+      "review": "yes"
+    },
+    {
+      "citation": "C032-CH1__R1015/2/researcher/R1015 projects",
+      "resolves": true,
+      "quote": "SYN-PRJ-0017 \"SECURE-ICS: security monitoring for factories\"",
+      "reason": "Our position is university ownership of results, so we propose uni_owns_option_to_licence, which still gives the company a clear commercial path through a licence option. In exchange we accept the milestones as proposed and reduce our ask on exclusivity to 12 months rather than seeking zero, since the autoencoder and federated learning methods in this work build directly on know-how from SYN-PRJ-0017 [R1015 projects] and our published research [SYN-PUB-10523] that the university must remain free to develop further.",
+      "review": "partly"
+    },
+    {
+      "citation": "C032-CH1__R1015/2/researcher/SYN-PUB-10523",
+      "resolves": true,
+      "quote": "Unsupervised anomaly detection on industrial protocols can be performed using autoencoder-based neural networks trained only on benign traffic to identify deviations without requiring labelled attack data.",
+      "reason": "Our position is university ownership of results, so we propose uni_owns_option_to_licence, which still gives the company a clear commercial path through a licence option. In exchange we accept the milestones as proposed and reduce our ask on exclusivity to 12 months rather than seeking zero, since the autoencoder and federated learning methods in this work build directly on know-how from SYN-PRJ-0017 [R1015 projects] and our published research [SYN-PUB-10523] that the university must remain free to develop further.",
+      "review": "yes"
+    },
     {
       "citation": "C001-CH1__R1008/1/company/SYN-PUB-10477",
       "resolves": true,
@@ -31,17 +59,17 @@
       "review": "partly"
     },
     {
-      "citation": "C061-CH1__R0231/2/researcher/R0231 publications",
+      "citation": "C061-CH1__R0231/3/company/C061 rd_capacity",
       "resolves": true,
-      "quote": "16 authored publications, latest 2026",
-      "reason": "We accept the 18-month exclusivity in the field of cold-pressed pumpkin seed oil production as a trade for moving IP to university ownership with a non-exclusive licence to the company, which is our standard position; we have 16 authored publications [R0231 publications] and need to retain publication rights, so we also reduce the review period to 60 days to keep academic dissemination viable.",
+      "quote": "We have one in-house lab technician who handles routine quality checks and can support external partners with sample preparation and basic physical-chemical measurements, but we do not have dedicated research staff or specialised analytical instruments beyond titration and moisture analysis.",
+      "reason": "We accept the move to university ownership with an option to assign — giving us a path to full ownership if we choose to commercialise — in exchange for restoring the 90-day review period, since our batch records and nitrogen-flush configuration shared during the project are operationally sensitive and we have no dedicated research staff to monitor publications quickly [C061 rd_capacity].",
       "review": "yes"
     },
     {
-      "citation": "C032-CH1__R1015/1/company/C032 past_collaborations",
+      "citation": "C032-CH1__R1015/3/company/C032 plans",
       "resolves": true,
-      "quote": "None.",
-      "reason": "We have no past collaborations to draw on [C032 past_collaborations], so clear milestones at M3, M6, M9 and M12 protect both sides and keep the twelve-month deployment target on track. Our anonymised customer traffic and in-house OT parsers are the core technical asset here, so we want company ownership with university academic-use rights and 24-month exclusivity in OT anomaly detection to support our EdgeWatch and SOC products.",
+      "quote": "Certify under the EU Cyber Resilience Act.",
+      "reason": "We accept the 12-month exclusivity in exchange for upgrading the IP model to uni_owns_option_to_assign: an option to licence gives us no certainty of ownership, which we need to embed results in EdgeWatch and our SOC service, whereas an option to assign gives us a clear path to full ownership if we choose to exercise it. Our anonymised traffic from live customer sites is the primary training asset, and we must be able to deploy and certify the resulting models under the EU Cyber Resilience Act [C032 plans] without renegotiating rights later.",
       "review": "yes"
     },
     {
@@ -52,39 +80,11 @@
       "review": "yes"
     },
     {
-      "citation": "C032-CH1__R1015/2/researcher/R1015 projects",
-      "resolves": true,
-      "quote": "SYN-PRJ-0017 \"SECURE-ICS: security monitoring for factories\"",
-      "reason": "Our position is university ownership of results, so we propose uni_owns_option_to_licence, which still gives the company a clear commercial path through a licence option. In exchange we accept the milestones as proposed and reduce our ask on exclusivity to 12 months rather than seeking zero, since the autoencoder and federated learning methods in this work build directly on know-how from SYN-PRJ-0017 [R1015 projects] and our published research [SYN-PUB-10523] that the university must remain free to develop further.",
-      "review": "yes"
-    },
-    {
-      "citation": "C032-CH1__R1015/2/researcher/SYN-PUB-10523",
-      "resolves": true,
-      "quote": "Unsupervised anomaly detection on industrial protocols can be performed using autoencoder-based neural networks trained only on benign traffic to identify deviations without requiring labelled attack data.",
-      "reason": "Our position is university ownership of results, so we propose uni_owns_option_to_licence, which still gives the company a clear commercial path through a licence option. In exchange we accept the milestones as proposed and reduce our ask on exclusivity to 12 months rather than seeking zero, since the autoencoder and federated learning methods in this work build directly on know-how from SYN-PRJ-0017 [R1015 projects] and our published research [SYN-PUB-10523] that the university must remain free to develop further.",
-      "review": "yes"
-    },
-    {
-      "citation": "C061-CH1__R0231/3/company/C061 rd_capacity",
-      "resolves": true,
-      "quote": "We have one in-house lab technician who handles routine quality checks and can support external partners with sample preparation and basic physical-chemical measurements, but we do not have dedicated research staff or specialised analytical instruments beyond titration and moisture analysis.",
-      "reason": "We accept the move to university ownership with an option to assign — giving us a path to full ownership if we choose to commercialise — in exchange for restoring the 90-day review period, since our batch records and nitrogen-flush configuration shared during the project are operationally sensitive and we have no dedicated research staff to monitor publications quickly [C061 rd_capacity].",
-      "review": "yes"
-    },
-    {
       "citation": "C001-CH1__R1008/3/company/C001 plans",
       "resolves": true,
       "quote": "ArmaturaSec intends to release a fifth hardware variant in late 2025 with a dedicated security processor to support on-device anomaly detection without affecting packet forwarding latency.",
       "reason": "We accept the 30-day review window in exchange for moving from option-to-licence to option-to-assign, because we want a clear path to full ownership of the detector so it can ship embedded in ProtoSense and the planned fifth hardware variant [C001 plans] without ongoing licence dependency. Our traffic archives, contributed under NDA, are central to training the detector, and we want the option to assign to reflect that material contribution.",
       "review": "partly"
-    },
-    {
-      "citation": "C032-CH1__R1015/3/company/C032 plans",
-      "resolves": true,
-      "quote": "Certify under the EU Cyber Resilience Act.",
-      "reason": "We accept the 12-month exclusivity in exchange for upgrading the IP model to uni_owns_option_to_assign: an option to licence gives us no certainty of ownership, which we need to embed results in EdgeWatch and our SOC service, whereas an option to assign gives us a clear path to full ownership if we choose to exercise it. Our anonymised traffic from live customer sites is the primary training asset, and we must be able to deploy and certify the resulting models under the EU Cyber Resilience Act [C032 plans] without renegotiating rights later.",
-      "review": "yes"
     }
   ]
 }

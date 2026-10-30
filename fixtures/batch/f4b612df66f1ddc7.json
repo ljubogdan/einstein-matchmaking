@@ -1,0 +1,38 @@
+{
+  "key": "f4b612df66f1ddc7",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Work evaluates column-store systems against PostgreSQL for sequential range scan performance on large audit datasets, achieving latency improvem",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The paper recommends the architecture for institutions processing more than 400 TPS, but only demonstrates the 4% latency overhead specifically at 800 TPS, not 'above 400 transactions per second' as a general threshold.\", \"rewrite\": \"Research on PostgreSQL streaming replication configurations for asynchronous log servers demonstrates that offloading write-intensive operations to dedicated servers can reduce transaction latency overhead to below 4 percent, with recommendations for institutions processing more than 400 transactions per second.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1285,
+    "outputTokens": 156,
+    "totalTokens": 1441,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1285,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 156,
+    "service_tier": "standard"
+  },
+  "ms": 26128
+}

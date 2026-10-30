@@ -1,0 +1,38 @@
+{
+  "key": "457550284e7aa76b",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C115-CH1: Our anti-cheat system flags about 900 accounts a day but our manual review team can only process 200 — legitimate players are getting banned",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"expertise\":[{\"text\":\"Work addresses resampling strategies for rare-event detection in imbalanced datasets, comparing techniques like SMOTE and ADASYN with gradient-boosted trees and evaluating performance through calibration metrics.\",\"sources\":[{\"id\":\"SYN-PUB-06552\",\"field\":\"abstract\",\"quote\":\"Credit transaction datasets typically contain fewer than 0.5% positive (fraud) instances, making naive classifier training unreliable\"}]},{\"text\":\"Research on threshold selection under class imbalance demonstrates how cost-sensitive criteria and expected utility maximisation can be applied to optimize classifier operating points when misclassification costs are asymmetric.\",\"sources\":[{\"id\":\"SYN-PUB-06553\",\"field\":\"abstract\",\"quote\":\"expected utility maximisation is consistently competitive across positive-rate regimes, while F1-optimal thresholds systematically underperform when misclassification costs are asymmetric\"}]},{\"text\":\"Work on calibration of probabilistic classifiers shows methods such as isotonic regression and beta calibration improve reliability of probability estimates across imbalanced datasets with positive rates below 1%.\",\"sources\":[{\"id\":\"SYN-PUB-06555\",\"field\":\"abstract\",\"quote\":\"Beta calibration consistently reduces ECE across classifiers and positive-rate regimes\"}]}],\"fit\":\"strong\",\"fitReason\":\"The researcher's publications directly address the core technical challenges: handling severe class imbalance (900 flagged vs. legitimate accounts), tuning decision thresholds to reduce false positives without missing true cheaters, and calibrating classifier confidence for explainability to moderators [SYN-PUB-06552, SYN-PUB-06553, SYN-PUB-06555].\"}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2265,
+    "outputTokens": 394,
+    "totalTokens": 2659,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2265,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 394,
+    "service_tier": "standard"
+  },
+  "ms": 13679
+}

@@ -201,7 +201,7 @@
       "caught": true,
       "verdict": "block",
       "check": "support",
-      "reason": "Abstract describes an autoencoder framework but does not mention deployment at utilities"
+      "reason": "The abstract describes an autoencoder framework and evaluation on a testbed, but does not state that it has been deployed at any utilities."
     },
     {
       "kind": "says more than its quote",
@@ -210,7 +210,7 @@
       "caught": true,
       "verdict": "block",
       "check": "support",
-      "reason": "Source says 'one to two engineers part-time', not full-time"
+      "reason": "The field states ArmaturaSec can dedicate one to two engineers part-time, not full-time for the whole duration."
     },
     {
       "kind": "says more than its quote",
@@ -219,7 +219,7 @@
       "caught": true,
       "verdict": "block",
       "check": "support",
-      "reason": "Source states clients 'have never been breached (or don't know it)', contradicting claim of lost clients due to missed attacks"
+      "reason": "The field states clients have never been breached (or don't know it), contradicting that ArmaturaSec has lost clients because its detector missed attacks."
     },
     {
       "kind": "says more than its quote",
@@ -228,7 +228,7 @@
       "caught": true,
       "verdict": "rewrite",
       "check": "support",
-      "reason": "Source shows hybrid approaches achieve 'best overall balance' but does not state they outperform 'every other approach' uniformly across all metrics"
+      "reason": "The field shows hybrid detectors achieved the best balance in field trials on a testbed, but does not state they outperform every other approach—purely deep-learning systems showed higher sensitivity to protocol variability, not worse overall performance."
     }
   ]
 }

@@ -23,7 +23,7 @@ You get records (JSON lines, each with an id) and the agreed term sheet. Answer 
 - State facts plainly, keeping the source's own scope. If a source names two things, name two; if it says "consistent with", don't say "identified" or "dominant". No "specifically", "entirely" or "already" unless the source says so, and no adjectives or benefits of your own such as large, real, unusual, enabling, reducing risk.
 - problem: use the challenge's own numbers: how long, how much, what it costs the company. Cite "text" for what is in "text" and "detail" for what is in "detail".
 - companyBrings: the concrete assets the project will use: data and how much of it, equipment, people's time. Each sentence quotes the field that names that asset.
-- whyThisPair: one claim of kind inference says what each side lacks that the other has, so why neither can do this alone.
+- whyThisPair: one claim of kind inference says why neither side can do this alone, built only from facts the records state: what the challenge says the company lacks or needs (quote its text or detail), what the researcher's records show they work on (quote them), and what the company has that the research needs (quote it). Never say a side has not done or does not have something unless a quote says so.
 - researchQuestions (2 to 4) and plan (3 or 4 phases) describe future work and state no facts about the records. Every research question is worked on in a named plan phase. A plan never says IP is transferred: results are delivered, and ownership stays as the term sheet says.
 - title: the outcome for the company, in plain words a manager would use, e.g. "Seeing seed quality before it's bought". No numbers and no method names.`
 
