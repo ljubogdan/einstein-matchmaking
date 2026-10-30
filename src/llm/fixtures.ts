@@ -26,6 +26,7 @@ export type Fixture = {
     inputTokenDetails: { cached_tokens: number }
     outputTokenDetails: { reasoning_tokens: number }
   }
+  providerUsage?: unknown // the provider's own usage block (cache writes vs reads), for cost measurement
 }
 
 type FixtureItem =
@@ -51,7 +52,8 @@ export function fixtureKey(input: InferenceInput): string {
 
 export function toFixture(key: string, input: InferenceInput, output: InferenceOutput): Fixture {
   const lastUser = input.context.getItems().findLast((item) => item instanceof UserMessageItem)
-  const plain = JSON.parse(JSON.stringify({ items: output.items, tokenUsage: output.tokenUsage }))
+  const providerUsage = (output.rowResponse as { usage?: unknown; usageMetadata?: unknown } | null)?.usage ?? (output.rowResponse as { usageMetadata?: unknown } | null)?.usageMetadata
+  const plain = JSON.parse(JSON.stringify({ items: output.items, tokenUsage: output.tokenUsage, providerUsage }))
   return { key, model: input.model, prompt: lastUser?.content.text.slice(0, 160) ?? "", ...plain }
 }
 

@@ -9,7 +9,7 @@ Built on [Mozaik](https://github.com/jigjoy-ai/mozaik) for the NTP Novi Sad x Ji
 ## Run it in one command (no API key needed)
 
 ```sh
-npm ci && npm run demo -- --replay
+npm run setup && npm run demo -- --replay
 ```
 
 TODO: what appears where (`out/proposals/`, `out/nomatch.md`, `out/traps.md`, `out/trace.jsonl`, board URL). Live run with your own key: `npm run setup && npm run demo`.

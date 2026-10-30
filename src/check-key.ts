@@ -21,13 +21,14 @@ if (!replay) {
   const provider = supportedModels.find((m) => m.specification.name === MODELS.cheap)?.specification.provider ?? ""
   const keyVar = KEY_VARS[provider] ?? fail(`no key variable known for ${MODELS.cheap} (provider "${provider}")`)
   if (!process.env[keyVar]) fail(`${keyVar} is empty or missing in .env`)
+  if (provider === "anthropic") console.log(`endpoint: ${process.env.ANTHROPIC_BASE_URL ? new URL(process.env.ANTHROPIC_BASE_URL).host : "api.anthropic.com"}`)
 }
 
 // Mozaik doesn't catch loop errors (bad key, quota): they surface as unhandled rejections.
 process.on("unhandledRejection", (error) => fail(String(error)))
 const timer = setTimeout(() => fail(`no answer within ${TIMEOUT_MS / 1000}s`), TIMEOUT_MS)
 
-const runner = new RecordingRunner({ mode: replay ? "replay" : "record", dir: "out/tmp/fixtures" })
+const runner = new RecordingRunner({ mode: replay ? "replay" : "fresh", dir: "out/tmp/fixtures" }) // a key check must really call
 initializeRuntime({ state: new Board(), inferenceRunnerConfig: { runner } })
 const agent = createAgent({ name: "key-check", capabilities: [], instruction: "Answer in one word.", tools: [], handlers: [] })
 const listener = createHuman({

@@ -2,10 +2,14 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs"
 import { join } from "node:path"
 import { defineRuntime, RuntimeState, type InferenceInput, type InferenceOutput, type InferenceRunner } from "@mozaik-ai/core"
 import { fixtureKey, fromFixture, toFixture, type Fixture } from "./fixtures"
-import { Semaphore, withRetry } from "./limiter"
+import { redactKeys } from "../redact"
+import { Semaphore, withRetry, withTimeout } from "./limiter"
 
-/** record: live call, saved to fixtures. replay: fixtures only, never the network. */
-export type RunnerMode = "record" | "replay"
+/**
+ * replay: fixtures only, never the network. record: a saved fixture if there is one, else a live call that is saved
+ * (the credit budget is small). fresh: always live, overwriting the fixture.
+ */
+export type RunnerMode = "replay" | "record" | "fresh"
 
 export type RecordingRunnerOptions = {
   mode: RunnerMode
@@ -14,6 +18,7 @@ export type RecordingRunnerOptions = {
   maxInFlight?: number
   retries?: number
   retryBaseMs?: number
+  timeoutMs?: number // one attempt; timeouts are not retried
 }
 
 type Usage = { live: number; replayed: number; inputTokens: number; outputTokens: number }
@@ -29,6 +34,7 @@ export class RecordingRunner implements InferenceRunner {
   private readonly limiter: Semaphore
   private readonly retries: number
   private readonly retryBaseMs: number
+  private readonly timeoutMs: number
   private inner: InferenceRunner | undefined
 
   constructor(options: RecordingRunnerOptions) {
@@ -38,19 +44,22 @@ export class RecordingRunner implements InferenceRunner {
     this.limiter = new Semaphore(options.maxInFlight ?? 8)
     this.retries = options.retries ?? 4
     this.retryBaseMs = options.retryBaseMs ?? 1000
+    this.timeoutMs = options.timeoutMs ?? 300_000
   }
 
   async run(input: InferenceInput): Promise<InferenceOutput> {
     const key = fixtureKey(input)
     const path = join(this.dir, `${key}.json`)
-    if (this.mode === "replay") {
-      if (!existsSync(path)) throw new Error(`replay: no fixture ${key} for ${input.model}; run once without --replay to record it`)
+    if (this.mode === "replay" && !existsSync(path)) throw new Error(`replay: no fixture ${key} for ${input.model}; run once without --replay to record it`)
+    if (this.mode !== "fresh" && existsSync(path)) {
       const output = fromFixture(JSON.parse(readFileSync(path, "utf8")) as Fixture)
       this.count(input.model, output, "replayed")
       return output
     }
     const inner = (this.inner ??= mozaikDefaultRunner())
-    const output = await this.limiter.use(() => withRetry(() => inner.run(input), this.retries, this.retryBaseMs))
+    const report = (error: unknown, attempt: number) =>
+      console.warn(`${input.model}: attempt ${attempt} failed (${redactKeys(String(error)).slice(0, 200)}); retrying`)
+    const output = await this.limiter.use(() => withRetry(() => withTimeout(viaStream(inner, input), this.timeoutMs), this.retries, this.retryBaseMs, report))
     mkdirSync(this.dir, { recursive: true })
     writeFileSync(path, JSON.stringify(toFixture(key, input, output), null, 2) + "\n")
     this.count(input.model, output, "live")
@@ -70,10 +79,21 @@ export class RecordingRunner implements InferenceRunner {
   private count(model: string, output: InferenceOutput, kind: "live" | "replayed"): void {
     const u = this.usage.get(model) ?? { live: 0, replayed: 0, inputTokens: 0, outputTokens: 0 }
     u[kind]++
-    u.inputTokens += output.tokenUsage?.inputTokens ?? 0
+    // Anthropic leaves cache writes and reads out of input_tokens; Mozaik reports them as cached_tokens.
+    u.inputTokens += (output.tokenUsage?.inputTokens ?? 0) + (output.tokenUsage?.inputTokenDetails.cached_tokens ?? 0)
     u.outputTokens += output.tokenUsage?.outputTokens ?? 0
     this.usage.set(model, u)
   }
+}
+
+/**
+ * A live call sent as a stream, returned whole. Gateways drop a request whose answer doesn't start in time
+ * (JigJoy's: 504 "The model didn't start answering in time"), and a non-streamed answer starts only when it's done.
+ * Every Mozaik endpoint ends its stream with `inference.output`, the same output `run()` returns.
+ */
+async function viaStream(inner: InferenceRunner, input: InferenceInput): Promise<InferenceOutput> {
+  for await (const event of inner.stream(input)) if (event.type === "inference.output") return event.payload as InferenceOutput
+  throw new Error(`${input.model}: stream ended without inference.output`)
 }
 
 // Mozaik doesn't export its request validator, so the default runner is borrowed from a private runtime instance.

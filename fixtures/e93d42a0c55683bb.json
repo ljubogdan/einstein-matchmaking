@@ -1,0 +1,26 @@
+{
+  "key": "e93d42a0c55683bb",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Round 1 of 4. Open with the term sheet you would prefer. action must be \"propose\".",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"action\":\"propose\",\"sheet\":{\"engagement\":\"joint_project\",\"scope\":\"Develop an unsupervised anomaly detection method for Modbus TCP and BACnet/IP traffic that learns site-specific normal behaviour and can run inference on ArmaturaSec embedded hardware; deliverable is an algorithm and reference implementation integrated into ProtoSense firmware.\",\"ip\":\"company_owns_uni_academic_use\",\"exclusivity\":{\"field\":\"OT protocol anomaly detection for industrial cybersecurity products\",\"months\":24},\"publication\":{\"reviewDays\":60,\"companyMayRemoveConfidential\":true},\"backgroundIp\":[\"ArmaturaSec firmware codebase\",\"ArmaturaSec traffic archives\",\"ProtoSense hardware platform\"],\"contributions\":{\"company\":[\"Traffic archives under NDA\",\"Hardware bench access\",\"1-2 part-time engineers\",\"Firmware integration support\"],\"university\":[\"Research expertise in anomaly detection\",\"Algorithm design and validation\",\"PhD student or researcher effort\"]},\"money\":\"to be agreed\",\"timeline\":{\"months\":18,\"milestones\":[\"M6: baseline algorithm prototype validated on archived traffic\",\"M12: on-device implementation with latency benchmarks\",\"M18: integrated ProtoSense firmware release candidate\"]},\"contact\":{\"company\":\"CTO / Head of Product Engineering\",\"university\":\"Associate Professor, Department of Computing and Control Engineering\"}},\"reason\":\"We need full ownership of the resulting IP to embed it in our commercial ProtoSense product and upcoming hardware variant [C001 products], while the university retains academic use rights for publications after review [C001 rd_capacity].\",\"citations\":[\"C001 products\",\"C001 rd_capacity\"]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 373,
+    "totalTokens": 376,
+    "inputTokenDetails": {
+      "cached_tokens": 2051
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  }
+}
