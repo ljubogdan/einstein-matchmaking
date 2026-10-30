@@ -1,0 +1,38 @@
+{
+  "key": "e818ac5152a7b69e",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): ArmaturaSec has no labelled attack traffic from real deployments, making supervised classifiers unusable for the ProtoSense module.\n  C001-CH1 t",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":2,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":3,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":4,\"support\":\"partly\",\"reason\":\"Traffic is Modbus and BACnet but claim specifies 'Modbus TCP and BACnet/IP' without source confirmation of both protocols in the archives\",\"rewrite\":\"ArmaturaSec can provide one to two engineers part-time and several terabytes of traffic collected from consenting clients over three years.\"},{\"claim\":5,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":6,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":7,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":8,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":9,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":10,\"support\":\"partly\",\"reason\":\"Source notes Kiss is interested in proprietary/undocumented protocols as a gap, not deployment-scale data in general\",\"rewrite\":\"The company's archives of operational Modbus and BACnet traffic provide real-world data that complements the research group's testbed work.\"},{\"claim\":11,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":12,\"support\":\"partly\",\"reason\":\"Kiss's preference is for 'applied collaborations resulting in deployment' but the source does not specify firmware embedding versus laboratory prototypes\",\"rewrite\":\"The research group's stated preference for applied collaborations on operational infrastructure aligns with the company's goal of real-world deployment.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 372,
+    "totalTokens": 375,
+    "inputTokenDetails": {
+      "cached_tokens": 5538
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 5538,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 5538,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 372,
+    "service_tier": "standard"
+  },
+  "ms": 2880
+}

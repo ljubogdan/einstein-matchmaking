@@ -1,0 +1,38 @@
+{
+  "key": "3a9ca2626d54e0fb",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Detecting threats on operational technology networks is blocked by a total absence of labelled attack traffic, making supervised classifiers unu",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"Fields say learns normal and flags drift; claim adds 'constrained embedded hardware' and 'without disrupting packet forwarding'\", \"rewrite\": \"The required solution must learn normal behaviour per site from unlabelled traffic and run inference on-device.\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"Fields confirm terabytes over three years and volume, but do not specify 'Modbus TCP and BACnet/IP' or claim about diversity vs. synthetic testbeds\", \"rewrite\": \"Several terabytes of real captures from consenting operational clients, collected over three years, provide a volume of normal traffic.\"}, {\"claim\": 5, \"support\": \"partly\", \"reason\": \"Fields mention hardware-in-the-loop bench with PLC simulators and planned dedicated security processor, but do not state they 'allow direct validation of on-device inference performance'\", \"rewrite\": \"The NetGuard-OT platform includes hardware-in-the-loop bench testing with physical PLC simulators, and a dedicated security processor is planned for on-device anomaly detection.\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 10, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 11, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 12, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 464,
+    "totalTokens": 467,
+    "inputTokenDetails": {
+      "cached_tokens": 6172
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 6172,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 6172,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 464,
+    "service_tier": "standard"
+  },
+  "ms": 3421
+}

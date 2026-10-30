@@ -1,0 +1,38 @@
+{
+  "key": "592a70b37caa6b84",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The pumpkin seed oil exceeds acceptable peroxide value thresholds between three and five months after bottling, far short of the nine-to-twelve ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"Field does not mention competitors achieving nine-to-twelve months; only states own product exceeds threshold between three-to-five months.\", \"rewrite\": \"The pumpkin seed oil exceeds acceptable peroxide value thresholds between three and five months after bottling.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"Field states the company lacks these tools but does not explicitly state that without them the dominant oxidation pathway cannot be identified or targeted interventions cannot be designed; this is an inference beyond what the field provides.\", \"rewrite\": \"The company does not have gas chromatography, fatty acid profiling, or tocopherol analysis capabilities.\"}, {\"claim\": 4, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 5, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 10, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 11, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 12, \"support\": \"partly\", \"reason\": \"Field does not connect the company's market ambition to the research group's capability or state that the combination suits producing documented shelf-life claims; it only mentions intent to enter German organic segment and evaluate subscription model, without linking these to the laboratory's kinetic modelling.\", \"rewrite\": \"The company intends to enter the German organic retail segment within two years by adding a dedicated organic cold-press line.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 467,
+    "totalTokens": 470,
+    "inputTokenDetails": {
+      "cached_tokens": 4201
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 4201,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 4201,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 467,
+    "service_tier": "standard"
+  },
+  "ms": 3257
+}

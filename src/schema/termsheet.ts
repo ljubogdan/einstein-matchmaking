@@ -37,8 +37,9 @@ export const NegotiationReply = z.object({
   sheet: TermSheet,
   reason: z.string(),
   citations: z.array(z.string()),
+  evidence: z.array(z.object({ citation: z.string(), quote: z.string() })), // the card's own words behind each citation
 })
 export type NegotiationReply = z.infer<typeof NegotiationReply>
 
 /** One move as recorded on the board and in the trace. `changes` is computed by code, not claimed by the model. */
-export type NegotiationMove = NegotiationReply & { pairId: string; side: "company" | "researcher"; round: number; changes: string[] }
+export type NegotiationMove = NegotiationReply & { pairId: string; side: "company" | "researcher"; round: number; changes: string[]; uncited?: string[] }

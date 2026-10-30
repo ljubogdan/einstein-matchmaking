@@ -47,8 +47,8 @@ describe.skipIf(!data)("critic: deterministic checks", () => {
     contact: { company: "head of engineering", university: "associate professor" },
   })
   const moves: Record<string, NegotiationMove> = {
-    "C001-CH1__R0881": { pairId: "C001-CH1__R0881", side: "company", round: 1, action: "propose", sheet: sheet("consulting"), reason: "", citations: [], changes: [] },
-    "C001-CH1__R1015": { pairId: "C001-CH1__R1015", side: "company", round: 1, action: "propose", sheet: sheet("industrial_phd"), reason: "", citations: [], changes: [] },
+    "C001-CH1__R0881": { pairId: "C001-CH1__R0881", side: "company", round: 1, action: "propose", sheet: sheet("consulting"), reason: "", citations: [], evidence: [], changes: [] },
+    "C001-CH1__R1015": { pairId: "C001-CH1__R1015", side: "company", round: 1, action: "propose", sheet: sheet("industrial_phd"), reason: "", citations: [], evidence: [], changes: [] },
   }
   const ctx: CriticContext = { data: data!, move: (pairId, round) => (round === 1 ? moves[pairId] : undefined) }
   const pubClaim = (subject: string, quote: string, id = "SYN-PUB-01689"): Claim => ({

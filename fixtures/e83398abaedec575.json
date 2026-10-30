@@ -1,0 +1,38 @@
+{
+  "key": "e83398abaedec575",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Detecting attacks on Modbus and BACnet networks is impractical with rule-based or statistical methods alone because real incidents are rare and ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":2,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":3,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":4,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":5,\"support\":\"partly\",\"reason\":\"Source mentions EdgeWatch sensor exists but does not confirm in-house protocol parsers or that EdgeWatch is the exact deployment target for testing models.\",\"rewrite\":\"The EdgeWatch sensor provides the deployment target hardware; protocol parsers and their role in testing are not confirmed by the source.\"},{\"claim\":6,\"support\":\"partly\",\"reason\":\"Source states four security engineers exist but does not confirm they have direct OT field experience or will evaluate model outputs throughout the project.\",\"rewrite\":\"Four security engineers are available.\"},{\"claim\":7,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":8,\"support\":\"partly\",\"reason\":\"Source reports these performance metrics but explicitly states they were achieved on a synthetic dataset from a testbed, not necessarily in actual resource-constrained industrial environments in deployment.\",\"rewrite\":\"Experimental results on a synthetic testbed demonstrate detection rates exceeding 94% across attack categories with false positive rate below 2%.\"},{\"claim\":9,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":10,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":11,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":12,\"support\":\"partly\",\"reason\":\"Bio confirms researcher is in Novi Sad and seeks joint projects on OT security, but does not state company location or confirm close collaboration on hardware-in-the-loop testing would be straightforward.\",\"rewrite\":\"The researcher is actively seeking joint research projects with technology companies on operational technology security.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3856,
+    "outputTokens": 404,
+    "totalTokens": 4260,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3856,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 404,
+    "service_tier": "standard"
+  },
+  "ms": 3425
+}

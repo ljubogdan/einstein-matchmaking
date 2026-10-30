@@ -24,9 +24,9 @@ Shortlisted researchers with trap flags (1):
 
 - [R0128] on [C061-CH1]: identity_conflict, same_name
 
-Times the Critic stopped a claim (51, rewrites included; stopped claims go back to their author once), by check:
+Times the Critic stopped a claim (49, rewrites included; stopped claims go back to their author once), by check:
 
 - quote: 11 (e.g. profile:C001-CH1__R0817/2: quote not found in SYN-PUB-08881.abstract; profile:C001-CH1__R0817/2: quote not found in SYN-PUB-08881.abstract)
 - policy: 2 (e.g. profile:C001-CH1__R1015/3: ranks or praises a person; profile:C061-CH1__R0922/2: ranks or praises a person)
-- numbers: 2 (e.g. C032-CH1__R1015/whyThisPair/1: 512 is not in any cited field; profile:C032-CH1__R0071/2: 512 is not in any cited field)
-- support: 36 (e.g. C001-CH1__R1008/companyBrings/1: Field says 'several terabytes' collected; claim adds 'largest available corpus' and 'for baseline modelling' which are not stated; C001-CH1__R1008/whyThisPair/1: Field confirms expertise in unsupervised anomaly detection for ICS protocols and mentions Modbus/TCP; it does not state BACnet/IP expertise or that the research maps 'directly onto' the specific ProtoSense implementation)
+- numbers: 1 (e.g. profile:C032-CH1__R0071/2: 512 is not in any cited field)
+- support: 35 (e.g. C001-CH1__R1008/companyBrings/1: Fields confirm terabytes over three years and volume, but do not specify 'Modbus TCP and BACnet/IP' or claim about diversity vs. synthetic testbeds; C001-CH1__R1008/companyBrings/1: Adds 'real', 'operational', and 'volume' not explicitly stated in source; source says 'normal traffic' and 'consenting clients' but not that these are from operational networks or characterizes them as providing 'volume'.)

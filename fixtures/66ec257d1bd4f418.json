@@ -1,0 +1,38 @@
+{
+  "key": "66ec257d1bd4f418",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The pumpkin seed oil exceeds acceptable peroxide value thresholds between three and five months after bottling.\n  C061-CH1 detail: \"hits a perox",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"Field says 'expand the organic export range' but does not specify German retail segment as the target.\", \"rewrite\": \"The company intends within two years to add a dedicated organic cold-press line for organic seeds, physically separated from the conventional line, to simplify certification compliance and expand the organic export range.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1344,
+    "outputTokens": 134,
+    "totalTokens": 1478,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1344,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 134,
+    "service_tier": "standard"
+  },
+  "ms": 2091
+}

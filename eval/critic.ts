@@ -34,7 +34,7 @@ const moves = new Map<string, NegotiationMove>()
 function term(n: number, researcherId: string, field: "engagement" | "money", value: string, text: string): Claim {
   const pairId = `eval-${n}__${researcherId}` // one sheet per fault
   const sheet = { engagement: "joint_project", money: "to be agreed", [field]: value } as unknown as TermSheet
-  moves.set(pairId, { pairId, side: "company", round: 1, action: "propose", sheet, reason: "", citations: [], changes: [] })
+  moves.set(pairId, { pairId, side: "company", round: 1, action: "propose", sheet, reason: "", citations: [], evidence: [], changes: [] })
   return { id: `fault/${n}`, subject: researcherId, kind: "term", text, sources: [{ id: `move:${pairId}:1`, field: `sheet.${field}`, quote: value }] }
 }
 const fact = (n: number, subject: string, text: string, id: string, field: string, quote: string): Claim => ({ id: `fault/${n}`, subject, kind: "fact", text, sources: [{ id, field, quote }] })

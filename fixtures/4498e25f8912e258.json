@@ -1,0 +1,38 @@
+{
+  "key": "4498e25f8912e258",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Detecting intrusions on Modbus and BACnet networks is blocked by a near-total absence of labelled attack examples, because real incidents are ra",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 5, \"support\": \"partly\", \"reason\": \"field says EdgeWatch is a sensor and parser, but does not mention protocol parsers being in-house, Rust and Python tooling, or backend integration environment\", \"rewrite\": \"EdgeWatch sensor provides passive network tapping and protocol parsing for OT environments.\"}, {\"claim\": 6, \"support\": \"partly\", \"reason\": \"field only states count of engineers, not their expertise in OT protocols or role in validating model outputs\", \"rewrite\": \"The team has four security engineers.\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"partly\", \"reason\": \"benchmark is from synthetic dataset on a testbed, not demonstrated on live customer data\", \"rewrite\": \"Experimental results on synthetic testbed data demonstrate detection rates exceeding 94% across all attack categories, with a false positive rate below 2%.\"}, {\"claim\": 9, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 10, \"support\": \"partly\", \"reason\": \"the framework is designed for Modbus; applicability to BACnet and claim of immediate applicability to real customer data are not stated in the field\", \"rewrite\": \"The company's challenge of building detection models from unlabelled Modbus traffic maps onto the researcher's published unsupervised anomaly detection framework for Modbus.\"}, {\"claim\": 11, \"support\": \"no\", \"reason\": \"field provides only one location and does not state both parties are in Novi Sad\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3441,
+    "outputTokens": 462,
+    "totalTokens": 3903,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3441,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 462,
+    "service_tier": "standard"
+  },
+  "ms": 3638
+}

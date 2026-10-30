@@ -1,0 +1,38 @@
+{
+  "key": "37a7394fa509c6f5",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Without in-house gas chromatography or tocopherol analysis, the dominant oxidation pathway — whether enzymatic, photo-oxidative, or related to t",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"Claim adds 'making targeted intervention impossible' which is not stated in the fields\", \"rewrite\": \"Without in-house gas chromatography or tocopherol analysis, the dominant oxidation pathway — whether enzymatic, photo-oxidative, or related to trace metals — has never been identified.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"Claim states 'demonstrating familiarity with the constraints faced by small-scale operators who cannot buy major new equipment' but fields only show he did contract studies and maintains an advisory relationship; the inference about what this demonstrates regarding equipment constraints is not explicitly supported\", \"rewrite\": \"The researcher has carried out contract studies for domestic cold-press oil producers covering quality benchmarking and shelf-life support.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2153,
+    "outputTokens": 212,
+    "totalTokens": 2365,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2153,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 212,
+    "service_tier": "standard"
+  },
+  "ms": 2456
+}

@@ -1,0 +1,38 @@
+{
+  "key": "52602afa9bc5e89b",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (inference): The required solution must learn normal behaviour per site from unlabelled traffic and run inference on-device.\n  C001-CH1 detail: \"learns ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Adds 'real', 'operational', and 'volume' not explicitly stated in source; source says 'normal traffic' and 'consenting clients' but not that these are from operational networks or characterizes them as providing 'volume'.\", \"rewrite\": \"Several terabytes of captures from consenting clients, collected over three years, provide normal traffic.\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"Conflates two different sources: bench testing is current technology, but security processor is a planned future variant (late 2025); also 'platform includes' overstates - current platform has the bench testing, future one will have the processor.\", \"rewrite\": \"Hardware-in-the-loop bench testing with physical PLC simulators is part of NetGuard-OT; a dedicated security processor to support on-device anomaly detection without affecting packet forwarding latency is planned for a fifth hardware variant in late 2025.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1722,
+    "outputTokens": 256,
+    "totalTokens": 1978,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1722,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 256,
+    "service_tier": "standard"
+  },
+  "ms": 2592
+}

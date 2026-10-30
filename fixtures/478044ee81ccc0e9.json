@@ -1,0 +1,38 @@
+{
+  "key": "478044ee81ccc0e9",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): ArmaturaSec can provide one to two engineers part-time and several terabytes of traffic collected from consenting clients over three years.\n  C0",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The fields confirm Modbus and BACnet traffic archives exist, but do not state they complement or are meant to complement the research group's testbed work.\", \"rewrite\": \"The company's archives contain several terabytes of real-world Modbus and BACnet traffic captures collected from consenting clients over three years.\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"The fields show the research group validates methods on operational infrastructure and the company wants on-device inference, but do not establish that the research group's preference aligns with or supports the company's on-device goal.\", \"rewrite\": \"The research group has experience validating methods on operational infrastructure, and the company needs anomaly detection running on-device within the ProtoSense module.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1828,
+    "outputTokens": 212,
+    "totalTokens": 2040,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1828,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 212,
+    "service_tier": "standard"
+  },
+  "ms": 2122
+}

@@ -8,14 +8,16 @@ import { IP_LABELS } from "../proposal/terms"
 import type { ProfileCard } from "../schema/profile"
 import { companyCard, researcherCard, type Pair } from "../tools/cards"
 import type { Dataset } from "../tools/dataset"
+import { normalize } from "../tools/normalize"
 import { allowedEngagements } from "../tools/profile"
 
 export const MAX_ROUNDS = 4
 type Side = "company" | "researcher"
 
-const RULES = `Each turn, answer with JSON: action (propose | accept | walk_away), sheet, reason, citations.
+const RULES = `Each turn, answer with JSON: action (propose | accept | walk_away), sheet, reason, citations, evidence.
 - propose: change at most two fields of the last sheet, and trade: give on one field to get another. accept: the other side's sheet as it is. walk_away: only if a hard limit would be crossed.
-- reason: one or two sentences. Cite your position card in brackets, with the field, e.g. [C001 rd_capacity] or [SYN-PUB-00001], only right after a fact that field states, one citation per bracket. Never cite a field for something it doesn't say, and don't join facts your card keeps apart (a product and a plan, say). What you want is your side's position, not a fact: write "we want" or "our position is", with no citation, and call it a requirement only if your card does. citations: those ids.
+- reason: one or two sentences. A citation goes in brackets right after a fact that exact line of your position card states, e.g. [C001 rd_capacity] or [SYN-PUB-00001], one per bracket. What you want is your side's position, not a fact: ownership, review days, exclusivity, rights and protections are positions. Write "we want" or "our position is" with no citation, and call it a requirement only if your card does. Don't join facts your card keeps apart (a product and a plan, say). Keep facts and positions in separate sentences: state the fact and cite it, then say what you want with no citation. Never put a citation after a reason, a trade or a benefit, and don't cite a paper or a tech list for a contract term.
+- evidence: one entry per citation: citation (the text inside the brackets) and quote (words copied exactly from that line of your card, stating the fact you cite it for). If no words on that line state the fact, leave the citation out. Code removes any citation whose quote isn't on its line. citations: the same ids.
 - ip, one of these Lambert Toolkit models:
 ${IP_MODELS.map((ip) => `  ${ip}: ${IP_LABELS[ip]}`).join("\n")}
 - publication: reviewDays is 0, 30, 60 or 90 (how long the company may review a paper before it goes out); companyMayRemoveConfidential: the company may remove its confidential information, never results.
@@ -102,7 +104,7 @@ export function createNegotiator(side: Side, pair: Pair, board: Board, data: Dat
     if (side === "researcher" && reply.action !== "walk_away" && !allowed.includes(reply.sheet.engagement))
       reply = { ...reply, action: "walk_away", reason: `hard limit: ${reply.sheet.engagement} is not allowed for ${pair.researcher.id} (allowed: ${allowed.join(", ") || "none"})` }
 
-    const move: NegotiationMove = { ...reply, pairId: pair.pairId, side, round: moves.length + 1, changes: previous ? changedFields(previous.sheet, reply.sheet) : [] }
+    const move: NegotiationMove = { ...reply, ...checkCitations(reply, card), pairId: pair.pairId, side, round: moves.length + 1, changes: previous ? changedFields(previous.sheet, reply.sheet) : [] }
     board.addMove(move)
     emit("prenup.negotiation.move", move)
     if (move.action === "accept") emit("prenup.negotiation.agreed", { pairId: pair.pairId, round: move.round, sheet: move.sheet })
@@ -110,6 +112,28 @@ export function createNegotiator(side: Side, pair: Pair, board: Board, data: Dat
   }
 
   return agent
+}
+
+/**
+ * Keeps a citation only if its quote is on that line of the model's own position card; the card is built by code from the
+ * data, so what's left can be traced to a record. Anything else loses its bracket, and the sentence stands as unsourced.
+ */
+export function checkCitations(reply: NegotiationReply, card: string): Pick<NegotiationMove, "reason" | "citations" | "evidence" | "uncited"> {
+  const lines = card.split("\n").map(normalize)
+  const uncited: string[] = []
+  const kept: NegotiationReply["evidence"] = []
+  const verified = (ref: string) => {
+    const onLine = lines.filter((line) => line.includes(normalize(ref)))
+    const found = reply.evidence.find((e) => normalize(e.citation.replace(/[[\]]/g, "")) === normalize(ref) && e.quote.trim() && onLine.some((line) => line.includes(normalize(e.quote))))
+    if (found) kept.push(found)
+    else uncited.push(ref)
+    return !!found
+  }
+  const reason = reply.reason.replace(/\s*\[([^\]]+)\]/g, (_, inner: string) => {
+    const refs = inner.split(/,\s*/).map((ref) => ref.trim()).filter(verified)
+    return refs.length ? ` [${refs.join(", ")}]` : ""
+  })
+  return { reason, citations: [...new Set(kept.map((e) => e.citation))], evidence: kept, uncited }
 }
 
 function nearest(values: number[], n: number): number {
