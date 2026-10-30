@@ -4,155 +4,251 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Prenup board</title>
+<link rel="icon" type="image/svg+xml" href="/media/prenup-mark.svg">
 <style>
-  /* San Francisco where it exists (macOS), Inter elsewhere; one accent, red only for the Critic. */
+  /* San Francisco where it exists (macOS), Inter elsewhere. One accent; red only for the Critic. Light and dark. */
   :root {
     --bg: #f5f5f7; --surface: #ffffff; --ink: #1d1d1f; --muted: #6e6e73; --faint: #86868b; --line: rgba(0, 0, 0, .08);
-    --fill: #f5f5f7; --accent: #0071e3; --accent-soft: rgba(0, 113, 227, .09); --red: #d70015; --red-soft: rgba(255, 59, 48, .08);
+    --fill: #f2f2f5; --bubble: #e9e9eb; --accent: #0071e3; --accent-2: #5ac8fa; --accent-soft: rgba(0, 113, 227, .09);
+    --red: #d70015; --red-soft: rgba(255, 59, 48, .08); --header: rgba(250, 250, 252, .72);
     --shadow: 0 1px 1px rgba(0, 0, 0, .02), 0 2px 10px rgba(0, 0, 0, .05);
+    --lift: 0 2px 4px rgba(0, 0, 0, .04), 0 12px 32px rgba(0, 0, 0, .08);
+    --aurora: radial-gradient(900px 420px at 8% -12%, rgba(0, 113, 227, .13), transparent 70%), radial-gradient(800px 380px at 92% -18%, rgba(175, 82, 222, .12), transparent 70%);
     --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Helvetica Neue", system-ui, sans-serif;
     --display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Helvetica Neue", system-ui, sans-serif;
     --mono: "SF Mono", ui-monospace, "JetBrains Mono", Menlo, monospace;
     --strip: 236px;
+    color-scheme: light;
+  }
+  :root[data-theme="dark"] {
+    --bg: #000000; --surface: #1c1c1e; --ink: #f5f5f7; --muted: #a1a1a6; --faint: #737378; --line: rgba(255, 255, 255, .09);
+    --fill: #2c2c2e; --bubble: #2c2c2e; --accent: #0a84ff; --accent-2: #64d2ff; --accent-soft: rgba(10, 132, 255, .18);
+    --red: #ff453a; --red-soft: rgba(255, 69, 58, .14); --header: rgba(18, 18, 20, .72);
+    --shadow: 0 0 0 1px rgba(255, 255, 255, .05), 0 6px 20px rgba(0, 0, 0, .35);
+    --lift: 0 0 0 1px rgba(255, 255, 255, .08), 0 16px 40px rgba(0, 0, 0, .5);
+    --aurora: radial-gradient(900px 460px at 8% -12%, rgba(10, 132, 255, .30), transparent 70%), radial-gradient(800px 420px at 92% -18%, rgba(191, 90, 242, .26), transparent 70%);
+    color-scheme: dark;
   }
   * { box-sizing: border-box; }
   html, body { height: 100%; }
   body {
-    margin: 0; display: grid; grid-template-rows: auto 1fr var(--strip); background: var(--bg); color: var(--ink);
-    font: 14px/1.47 var(--sans); letter-spacing: -0.01em; -webkit-font-smoothing: antialiased; font-feature-settings: "cv11", "ss01";
+    margin: 0; display: grid; grid-template-rows: auto 1fr var(--strip); background: var(--aurora), var(--bg); background-attachment: fixed;
+    color: var(--ink); font: 14px/1.47 var(--sans); letter-spacing: -0.01em; -webkit-font-smoothing: antialiased; transition: background-color .3s, color .3s;
   }
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
   a.id { font: 500 12px/1 var(--mono); letter-spacing: 0; }
-  button { font: inherit; letter-spacing: inherit; cursor: pointer; }
+  button { font: inherit; letter-spacing: inherit; cursor: pointer; color: inherit; }
+  .ic { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; vertical-align: -2.5px; }
+  .spin { display: inline-block; width: 10px; height: 10px; border: 1.6px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: spin .9s linear infinite; flex: none; }
+  @keyframes spin { to { transform: rotate(360deg); } }
 
+  /* Header */
   header {
-    position: sticky; top: 0; z-index: 2; display: flex; align-items: center; gap: 28px; padding: 14px 28px;
-    background: rgba(255, 255, 255, .72); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px);
-    border-bottom: 1px solid var(--line);
+    position: sticky; top: 0; z-index: 2; display: flex; align-items: center; gap: 24px; padding: 14px 28px;
+    background: var(--header); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--line);
   }
-  .brand h1 { margin: 0; font: 600 21px/1.1 var(--display); letter-spacing: -0.022em; }
-  .brand p { margin: 2px 0 0; color: var(--muted); font-size: 12.5px; white-space: nowrap; }
+  /* The logo (media/prenup-logo.svg, white) used as a mask, so the brand gradient shows through in either theme. */
+  .logo { display: block; margin: 2px 0 6px; width: 164px; height: 27px; background: linear-gradient(92deg, var(--accent) 0%, #7d5cff 55%, #bf5af2 100%);
+    -webkit-mask: url(/media/prenup-logo.svg) left center / contain no-repeat; mask: url(/media/prenup-logo.svg) left center / contain no-repeat; }
+  .brand p { margin: 3px 0 0; color: var(--muted); font-size: 12.5px; white-space: nowrap; }
   .brand .status { display: flex; align-items: center; gap: 6px; color: var(--faint); font-size: 12px; }
-  .brand .status span { overflow: hidden; text-overflow: ellipsis; }
-  .brand .status i { width: 7px; height: 7px; border-radius: 50%; background: #c7c7cc; }
-  .brand .status i.live { background: var(--accent); box-shadow: 0 0 0 0 rgba(0, 113, 227, .5); animation: pulse 1.6s ease-out infinite; }
-  @keyframes pulse { to { box-shadow: 0 0 0 7px rgba(0, 113, 227, 0); } }
-  .stats { display: flex; gap: 20px; margin-left: auto; }
-  .stat { display: flex; flex-direction: column; align-items: flex-end; min-width: 56px; }
-  .stat b { font: 600 20px/1.1 var(--display); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .brand .status i { width: 7px; height: 7px; border-radius: 50%; background: var(--faint); opacity: .6; }
+  .brand .status i.live { background: var(--accent); opacity: 1; animation: pulse 1.6s ease-out infinite; }
+  @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(0, 113, 227, .55); } 100% { box-shadow: 0 0 0 8px rgba(0, 113, 227, 0); } }
+  .stats { display: flex; gap: 22px; margin-left: auto; }
+  .stat { display: flex; flex-direction: column; align-items: flex-end; min-width: 52px; }
+  .stat b { font: 600 22px/1.05 var(--display); letter-spacing: -0.025em; font-variant-numeric: tabular-nums; }
   .stat span { color: var(--faint); font-size: 11.5px; white-space: nowrap; }
   .stat.live b { color: var(--accent); }
   .stat.crit b { color: var(--red); }
   .controls { display: flex; align-items: center; gap: 10px; white-space: nowrap; }
-  .segmented { display: inline-flex; padding: 2px; border-radius: 9px; background: rgba(118, 118, 128, .12); }
-  .segmented button { border: 0; background: transparent; color: var(--ink); padding: 4px 11px; border-radius: 7px; font-size: 12.5px; font-weight: 500; }
-  .segmented button.on { background: var(--surface); box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 1px rgba(0, 0, 0, .04); }
-  .primary { border: 0; border-radius: 980px; background: var(--accent); color: #fff; padding: 8px 18px; font-weight: 500; transition: background .2s, opacity .2s; }
-  .primary:hover { background: #0077ed; }
-  .primary:disabled, .secondary:disabled { opacity: .45; cursor: default; }
-  .secondary { border: 0; border-radius: 980px; background: var(--accent-soft); color: var(--accent); padding: 8px 16px; font-weight: 500; transition: background .2s; }
-  .secondary:hover { background: rgba(0, 113, 227, .14); }
+  .segmented { display: inline-flex; padding: 2px; border-radius: 9px; background: rgba(118, 118, 128, .14); }
+  .segmented button { border: 0; background: transparent; padding: 4px 11px; border-radius: 7px; font-size: 12.5px; font-weight: 500; }
+  .segmented button.on { background: var(--surface); box-shadow: 0 1px 3px rgba(0, 0, 0, .14), 0 1px 1px rgba(0, 0, 0, .04); }
+  .icon-btn { display: grid; place-items: center; width: 32px; height: 32px; border: 0; border-radius: 50%; background: rgba(118, 118, 128, .14); }
+  .icon-btn .ic { width: 16px; height: 16px; }
+  .primary, .secondary { display: inline-flex; align-items: center; gap: 7px; border: 0; border-radius: 980px; padding: 8px 18px; font-weight: 500; transition: transform .15s, box-shadow .2s, background .2s, opacity .2s; }
+  .primary { background: linear-gradient(180deg, #1a8cff, var(--accent)); color: #fff; box-shadow: 0 4px 14px rgba(0, 113, 227, .35); }
+  .primary:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0, 113, 227, .45); }
+  .secondary { background: var(--accent-soft); color: var(--accent); }
+  .secondary:hover { background: rgba(0, 113, 227, .16); }
+  .primary:disabled, .secondary:disabled { opacity: .45; cursor: default; transform: none; box-shadow: none; }
+  .primary .ic { width: 12px; height: 12px; }
 
-  main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, .9fr); gap: 20px; padding: 20px 28px 12px; min-height: 0; }
+  /* Columns */
+  main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, .9fr); gap: 22px; padding: 22px 28px 12px; min-height: 0; }
   section { display: flex; flex-direction: column; min-height: 0; }
-  section > h2 { margin: 0 0 2px 4px; font: 600 17px/1.2 var(--display); letter-spacing: -0.02em; }
+  section > h2 { margin: 0 0 2px 4px; font: 600 19px/1.2 var(--display); letter-spacing: -0.022em; }
   section > .sub { margin: 0 0 12px 4px; color: var(--muted); font-size: 12.5px; }
-  .scroll { overflow-y: auto; min-height: 0; padding: 2px 4px 12px; margin: 0 -4px; scrollbar-width: thin; }
-
-  .card { background: var(--surface); border-radius: 14px; box-shadow: var(--shadow); padding: 14px 16px; margin-bottom: 12px; }
-  .top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
-  .top .who { display: flex; align-items: baseline; gap: 8px; }
-  .owner { color: var(--faint); font-size: 12px; }
-  .pill { font-size: 11.5px; font-weight: 500; padding: 2px 9px; border-radius: 980px; background: var(--fill); color: var(--muted); white-space: nowrap; }
-  .pill.done { background: var(--accent-soft); color: var(--accent); }
-  .pill.gone { text-decoration: line-through; }
+  .scroll { overflow-y: auto; min-height: 0; padding: 2px 6px 14px; margin: 0 -6px; scrollbar-width: thin; }
+  .card { background: var(--surface); border-radius: 16px; box-shadow: var(--shadow); padding: 14px 16px; margin-bottom: 12px; transition: box-shadow .25s, transform .25s; }
+  .card:hover { box-shadow: var(--lift); }
+  .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
   .why { color: var(--muted); }
+  .muted { color: var(--muted); }
 
-  /* A challenge's story as a quiet vertical timeline. */
-  .steps { list-style: none; margin: 10px 0 0; padding: 0; }
-  .steps li { position: relative; padding: 0 0 9px 18px; font-size: 13px; }
-  .steps li::before { content: ""; position: absolute; left: 3px; top: 7px; width: 6px; height: 6px; border-radius: 50%; background: #d2d2d7; }
+  .pill { display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px; font-weight: 600; padding: 3px 9px; border-radius: 980px; background: var(--fill); color: var(--muted); white-space: nowrap; }
+  .pill .ic { width: 12px; height: 12px; stroke-width: 2.2; }
+  .pill .spin { width: 8px; height: 8px; border-width: 1.5px; }
+  .pill.soft { background: var(--accent-soft); color: var(--accent); }
+  .pill.solid { background: var(--accent); color: #fff; }
+  .pill.dark { background: var(--ink); color: var(--bg); }
+  .pill.crit { background: var(--red); color: #fff; }
+  .pill.gone { text-decoration: line-through; }
+
+  /* A challenge, as a story */
+  .co { font: 600 15.5px/1.25 var(--display); letter-spacing: -0.015em; }
+  .meta { margin-top: 2px; color: var(--faint); font-size: 12px; display: flex; gap: 6px; align-items: center; }
+  .ask { margin: 8px 0 0; color: var(--muted); font-size: 12.5px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .steps { list-style: none; margin: 12px 0 0; padding: 0; }
+  .steps li { position: relative; padding: 0 0 10px 18px; font-size: 13px; }
+  .steps li::before { content: ""; position: absolute; left: 3px; top: 7px; width: 6px; height: 6px; border-radius: 50%; background: var(--faint); opacity: .45; }
   .steps li::after { content: ""; position: absolute; left: 5.5px; top: 16px; bottom: 0; width: 1px; background: var(--line); }
   .steps li:last-child { padding-bottom: 0; }
   .steps li:last-child::after { display: none; }
-  .steps li.key::before { background: var(--accent); }
-  .steps li.warn { font-weight: 600; }
-  .steps li.warn::before { background: var(--ink); }
-  .steps li.warn .why { font-weight: 400; }
+  .steps li.key::before { background: var(--accent); opacity: 1; }
+  .steps li.co-li::before { top: 16px; background: var(--ink); opacity: .8; }
   .chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
-  .chip { font: 500 11.5px/1.6 var(--mono); letter-spacing: 0; padding: 0 7px; border-radius: 6px; background: var(--fill); color: var(--faint); }
+  .chip { font: 500 11.5px/1.7 var(--mono); letter-spacing: 0; padding: 0 7px; border-radius: 6px; background: var(--fill); color: var(--faint); white-space: nowrap; flex: none; }
   .chip.ready { color: var(--ink); }
   .chip.picked { background: var(--accent-soft); color: var(--accent); }
-  .chip.out { text-decoration: line-through; color: var(--faint); }
+  .chip.out { text-decoration: line-through; }
+  .callout { display: flex; gap: 10px; padding: 10px 12px; border-radius: 12px; background: var(--fill); }
+  .callout > .ic { width: 17px; height: 17px; margin-top: 1px; }
+  .callout b { display: block; font-weight: 600; }
+  .callout.dark { background: var(--ink); color: var(--bg); }
+  .callout.dark a.id { color: var(--accent-2); }
+  .callout.dark .why { color: inherit; opacity: .72; }
+  :root[data-theme="dark"] .callout.dark a.id { color: #0071e3; }
+  :root[data-theme="dark"] .segmented button.on { background: #636366; }
+  .callout.arb { background: var(--accent-soft); }
+  .callout.arb > .ic { color: var(--accent); }
+  .reason { color: var(--muted); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; margin-top: 2px; }
+  .reason.open { display: block; }
+  .more { border: 0; background: none; padding: 0; margin-top: 4px; color: var(--accent); font-size: 12.5px; font-weight: 500; }
+  .cta { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 980px; background: var(--accent-soft); color: var(--accent); font-weight: 600; font-size: 12.5px; }
+  .cta:hover { text-decoration: none; background: rgba(0, 113, 227, .16); }
 
+  /* The negotiation, as a conversation */
   .tabs { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0 0 12px; }
-  .tabs button { border: 0; border-radius: 980px; padding: 4px 12px; background: var(--surface); box-shadow: var(--shadow); font: 500 12px/1.4 var(--mono); letter-spacing: 0; color: var(--ink); }
-  .tabs button.on { background: var(--ink); color: #fff; }
+  .tabs button { border: 0; border-radius: 980px; padding: 5px 12px; background: var(--surface); box-shadow: var(--shadow); font: 500 12px/1.4 var(--mono); letter-spacing: 0; }
+  .tabs button.on { background: var(--ink); color: var(--bg); }
   .tabs button.gone { text-decoration: line-through; color: var(--faint); }
   .tabs .follow { margin-left: auto; font-size: 12px; color: var(--faint); }
   .tabs .follow button { box-shadow: none; background: transparent; color: var(--accent); font-family: var(--sans); padding: 0; }
-
-  .group { background: var(--surface); border-radius: 14px; box-shadow: var(--shadow); overflow: hidden; margin-bottom: 12px; }
+  .parties { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; }
+  .party { display: flex; gap: 10px; align-items: center; min-width: 0; }
+  .party.right { flex-direction: row-reverse; text-align: right; }
+  .avatar { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: var(--fill); color: var(--muted); flex: none; }
+  .avatar.uni { background: linear-gradient(180deg, #1a8cff, var(--accent)); color: #fff; }
+  .avatar .ic { width: 19px; height: 19px; }
+  .party .txt { min-width: 0; }
+  .party b { display: block; font: 600 14px/1.25 var(--display); letter-spacing: -0.01em; }
+  .party .txt span { display: block; color: var(--faint); font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .vs { color: var(--faint); }
+  .chat { display: flex; flex-direction: column; gap: 10px; margin: 6px 0 4px; }
+  .msg { max-width: 86%; display: flex; flex-direction: column; }
+  .msg.company { align-self: flex-start; }
+  .msg.researcher { align-self: flex-end; align-items: flex-end; }
+  .msg .who { font-size: 11.5px; color: var(--faint); margin: 0 12px 3px; }
+  .bubble { padding: 9px 14px; border-radius: 18px; font-size: 13px; line-height: 1.42; background: var(--bubble); color: var(--ink); }
+  .msg.company .bubble { border-bottom-left-radius: 6px; }
+  .msg.researcher .bubble { border-bottom-right-radius: 6px; background: linear-gradient(180deg, #1a8cff, var(--accent)); color: #fff; }
+  .msg.researcher .bubble a { color: #fff; text-decoration: underline; text-decoration-color: rgba(255, 255, 255, .5); }
+  .bubble .changes { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 7px; }
+  .bubble .changes span { white-space: nowrap; font-size: 11px; font-weight: 600; padding: 1px 7px; border-radius: 980px; background: rgba(0, 113, 227, .12); color: var(--accent); }
+  .msg.researcher .bubble .changes span { background: rgba(255, 255, 255, .22); color: #fff; }
+  .typing .bubble { display: inline-flex; gap: 4px; padding: 12px 14px; }
+  .typing .bubble i { width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: .35; animation: blink 1.2s infinite; }
+  @keyframes blink { 30% { opacity: .95; } 60% { opacity: .35; } }
+  .system { align-self: center; display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--muted); padding: 4px; }
+  .system.ok { color: var(--accent); }
+  .group { background: var(--surface); border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; margin-bottom: 12px; }
+  .group.agreed { box-shadow: var(--shadow), inset 0 3px 0 var(--accent); }
   .row { display: grid; grid-template-columns: 112px 1fr; gap: 12px; padding: 9px 16px; border-top: 1px solid var(--line); font-size: 13px; }
   .row:first-child { border-top: 0; }
   .row > span:first-child { color: var(--muted); }
   .row.changed { background: var(--accent-soft); }
   .row.changed > span:first-child { color: var(--accent); font-weight: 600; }
-  .label { margin: 16px 4px 8px; color: var(--muted); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
-  .move { background: var(--surface); border-radius: 12px; box-shadow: var(--shadow); padding: 10px 14px; margin-bottom: 8px; font-size: 13px; }
-  .move .head { display: flex; align-items: center; gap: 8px; margin-bottom: 3px; font-weight: 600; }
-  .move .head .changes { display: flex; gap: 4px; flex-wrap: wrap; }
-  .move .head .changes span { font: 500 11px/1.6 var(--mono); letter-spacing: 0; padding: 0 6px; border-radius: 5px; background: var(--accent-soft); color: var(--accent); }
-  .outcome { margin: 4px 4px 12px; font-weight: 600; }
+  .label { display: flex; align-items: center; gap: 6px; margin: 18px 4px 8px; color: var(--muted); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
+  .label .ic { width: 14px; height: 14px; }
   .stop { background: var(--red-soft); border-radius: 12px; padding: 10px 14px; margin-bottom: 8px; font-size: 13px; }
-  .stop .what { color: var(--red); font-weight: 600; }
-  .stop .then { display: block; margin-top: 4px; font-size: 12.5px; }
-  .stop .then.fixed { color: var(--accent); font-weight: 500; }
+  .stop .what { display: inline-flex; align-items: center; gap: 5px; color: var(--red); font-weight: 600; }
+  .stop .what .ic { width: 14px; height: 14px; }
+  .stop .then { display: flex; align-items: center; gap: 5px; margin-top: 5px; font-size: 12.5px; }
+  .stop .then .ic { width: 13px; height: 13px; stroke-width: 2.2; }
+  .stop .then.fixed { color: var(--accent); font-weight: 600; }
   .stop .then.dropped, .stop .then.wait { color: var(--muted); }
-  .muted { color: var(--muted); }
-  .fault { background: var(--surface); border-radius: 12px; box-shadow: var(--shadow); padding: 12px 14px; margin-bottom: 8px; font-size: 13px; }
+  .open-cta { margin: 14px 0 6px; }
+  .open-cta .cta { padding: 9px 16px; font-size: 13.5px; background: linear-gradient(180deg, #1a8cff, var(--accent)); color: #fff; box-shadow: 0 4px 14px rgba(0, 113, 227, .3); }
+  .hero { text-align: center; padding: 48px 24px; color: var(--muted); }
+  .hero .ic { width: 40px; height: 40px; stroke-width: 1.4; color: var(--accent); margin-bottom: 8px; }
+  .hero h3 { margin: 0 0 6px; font: 600 20px/1.2 var(--display); letter-spacing: -0.02em; color: var(--ink); }
+  .hero p { margin: 0 auto; max-width: 380px; font-size: 13.5px; }
+
+  /* Event log */
+  .log { background: var(--surface); border-radius: 16px; box-shadow: var(--shadow); padding: 4px 0; }
+  .log > div { display: grid; grid-template-columns: 8px auto 1fr; gap: 0 8px; align-items: baseline; padding: 7px 14px; border-top: 1px solid var(--line); font-size: 12.5px; }
+  .log > div:first-child { border-top: 0; }
+  .log .g { width: 7px; height: 7px; border-radius: 50%; background: var(--faint); opacity: .5; align-self: center; }
+  .log .g.acc { background: var(--accent); opacity: 1; }
+  .log .g.ink { background: var(--ink); opacity: .85; }
+  .log .g.crit { background: var(--red); opacity: 1; }
+  .log .t { font: 500 11px/1 var(--mono); letter-spacing: 0; color: var(--faint); font-variant-numeric: tabular-nums; }
+  .log .p { color: var(--faint); margin-right: 5px; }
+  .log .crit-text { color: var(--red); }
+  .log .run { color: var(--muted); font-style: italic; }
+
+  /* Planted claims */
+  .fault { background: var(--surface); border-radius: 14px; box-shadow: var(--shadow); padding: 12px 14px; margin-bottom: 8px; font-size: 13px; }
   .fault .claim { font-weight: 500; }
   .fault .src { margin-top: 4px; color: var(--faint); font-size: 12px; }
   .fault .stop { margin: 8px 0 0; padding: 7px 10px; }
-  .fault .checking { margin-top: 8px; color: var(--faint); font-size: 12.5px; }
+  .fault .checking { display: flex; align-items: center; gap: 6px; margin-top: 8px; color: var(--faint); font-size: 12.5px; }
+  .big { font: 700 44px/1 var(--display); letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+  .big small { font-size: 20px; color: var(--faint); font-weight: 600; letter-spacing: -0.02em; }
   .kinds .row { grid-template-columns: 1fr auto; }
   .kinds .row b { font-variant-numeric: tabular-nums; }
   .kinds .row b.crit { color: var(--red); }
 
-  .log { background: var(--surface); border-radius: 14px; box-shadow: var(--shadow); padding: 4px 0; }
-  .log div { padding: 7px 14px; border-top: 1px solid var(--line); font-size: 12.5px; }
-  .log div:first-child { border-top: 0; }
-  .log .t { font: 500 11px/1 var(--mono); letter-spacing: 0; color: var(--faint); margin-right: 8px; font-variant-numeric: tabular-nums; }
-  .log .p { color: var(--faint); margin-right: 6px; }
-  .log .crit { color: var(--red); }
-  .log .run { color: var(--muted); font-style: italic; }
-
+  /* Timeline */
   #strip { padding: 0 28px 20px; min-height: 0; }
   #strip .card { height: 100%; margin: 0; display: flex; flex-direction: column; padding: 12px 18px; }
+  #strip .card:hover { box-shadow: var(--shadow); }
+  #strip .top { align-items: center; }
   #strip .top h2 { margin: 0; font: 600 15px/1.2 var(--display); letter-spacing: -0.015em; }
   #strip .top span { color: var(--faint); font-size: 12px; font-variant-numeric: tabular-nums; }
   #strip svg { width: 100%; flex: 1; min-height: 0; margin-top: 6px; }
+  .tl-band { fill: var(--fill); }
+  .tl-grid { stroke: var(--line); }
+  .tl-sec { fill: var(--faint); font-size: 10px; }
+  .tl-name { fill: var(--ink); font-size: 12px; font-weight: 500; }
+  .tl-count { fill: var(--faint); font-weight: 400; }
+  .tl-open { animation: glow 1.1s ease-in-out infinite; }
+  @keyframes glow { 50% { opacity: .45; } }
+  .tl-tick { stroke: var(--faint); }
+  .tl-crit { stroke: var(--red); opacity: .7; }
 
   .empty { color: var(--faint); font-size: 13px; padding: 24px 4px; }
   [data-enter] { animation: enter .4s ease-out both; }
-  @keyframes enter { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
-  @media (prefers-reduced-motion: reduce) { [data-enter] { animation: none; } }
-  @media (max-width: 1500px) { .brand .tagline { display: none; } header { gap: 20px; } }
+  @keyframes enter { from { opacity: 0; transform: translateY(5px) scale(.99); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { [data-enter], .spin, .tl-open, .typing .bubble i, .brand .status i.live { animation: none; } }
+  @media (max-width: 1500px) { .brand .tagline { display: none; } header { gap: 18px; } .stats { gap: 18px; } }
   @media (max-width: 1100px) {
     body { display: block; }
     header { flex-wrap: wrap; gap: 14px; padding: 12px 16px; }
     .stats { margin-left: 0; }
     main { grid-template-columns: 1fr; padding: 16px; }
     .scroll { overflow: visible; }
-    #strip { padding: 0 16px 16px; height: auto; }
+    #strip { padding: 0 16px 16px; height: 260px; }
   }
 </style>
 </head>
 <body>
 <header>
   <div class="brand">
-    <h1>Prenup</h1>
+    <h1 class="logo" role="img" aria-label="Prenup"></h1>
     <p class="tagline">Matches researchers to company challenges and agrees the terms up front</p>
     <p class="status"><i id="dot"></i><span id="note">Following the latest run</span></p>
   </div>
@@ -161,8 +257,9 @@
     <div class="segmented" id="speed" role="radiogroup" aria-label="Replay speed">
       <button data-speed="1">1×</button><button data-speed="2">2×</button><button data-speed="4" class="on">4×</button><button data-speed="16">16×</button>
     </div>
-    <button class="secondary" id="plant" title="20 false claims built from real records, checked by the Critic">Plant false claims</button>
-    <button class="primary" id="run">Run the demo set</button>
+    <button class="icon-btn" id="theme" title="Light or dark"></button>
+    <button class="secondary" id="plant" title="20 false claims built from real records, checked by the Critic"></button>
+    <button class="primary" id="run"></button>
   </div>
 </header>
 <main>
@@ -182,8 +279,29 @@ const IP = {
   split_by_field: "Split by field of use",
   contract_research_company_owns: "Contract research: company owns",
 }
+const FIELD = { engagement: "format", ip: "IP", backgroundIp: "background IP", publication: "publication", exclusivity: "exclusivity", contributions: "contributions", money: "money", timeline: "timeline", scope: "scope", contact: "contacts" }
+const ACTION = { propose: "proposes", accept: "accepts", walk_away: "walks away" }
 const GROUPS = ["Matchmakers", "Analysts", "Profilers", "Critic", "Arbiter", "Negotiators", "Writers"]
 const ID = /\b(SYN-(?:PUB|PRJ|PAT)-\d+|C\d{3}-CH\d+|C\d{3}|R\d{4})\b/g
+
+// SF Symbols-like line icons (24 px grid, stroke = currentColor).
+const ICONS = {
+  check: '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+  x: '<path d="M7 7l10 10M17 7L7 17"/>',
+  warn: '<path d="M12 4l9 16H3z"/><path d="M12 10v4"/><path d="M12 17.2v.3"/>',
+  rematch: '<path d="M4.5 10a8 8 0 0 1 14-3.5L20 8"/><path d="M20 3.5V8h-4.5"/><path d="M19.5 14a8 8 0 0 1-14 3.5L4 16"/><path d="M4 20.5V16h4.5"/>',
+  scale: '<path d="M12 4v16"/><path d="M7 20h10"/><path d="M5 7h14"/><path d="M5 7l-2.5 6a2.5 2.5 0 0 0 5 0z"/><path d="M19 7l-2.5 6a2.5 2.5 0 0 0 5 0z"/>',
+  building: '<path d="M4 21V6l8-3v18"/><path d="M12 9l8 2.5V21"/><path d="M2.5 21h19"/><path d="M8 9v.01M8 13v.01M8 17v.01M16 14v.01M16 17.5v.01"/>',
+  cap: '<path d="M2.5 9.5L12 5l9.5 4.5L12 14z"/><path d="M6.5 11.7v4.3c3 2.3 8 2.3 11 0v-4.3"/>',
+  shield: '<path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.4-7.5 9.5-4.3-1.1-7.5-4.9-7.5-9.5V6z"/>',
+  doc: '<path d="M6.5 3h7.5l4.5 4.5V21h-12z"/><path d="M14 3v4.5h4.5"/><path d="M9 12.5h6M9 16.5h6"/>',
+  arrows: '<path d="M4 8h15l-3.5-3.5"/><path d="M20 16H5l3.5 3.5"/>',
+  moon: '<path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/>',
+  sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/>',
+  play: '<path d="M7 4.5l12.5 7.5L7 19.5z" fill="currentColor"/>',
+  flask: '<path d="M9 3h6"/><path d="M10 3v6l-5.5 9.5A1.6 1.6 0 0 0 5.9 21h12.2a1.6 1.6 0 0 0 1.4-2.5L14 9V3"/><path d="M7.4 15h9.2"/>',
+}
+const icon = (name, cls = "") => `<svg class="ic ${cls}" viewBox="0 0 24 24" aria-hidden="true">${ICONS[name]}</svg>`
 
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c])
 // Pair ids (C001-CH1__R1015) read as "C001-CH1 × R1015", so both halves link.
@@ -204,11 +322,12 @@ function group(producer) {
   return null
 }
 
-// Every item that can appear gets a number and a birth time. The page is redrawn whole, so a new item's fade-in
-// continues across redraws (negative delay) instead of restarting or being cut short.
+// Every item that can appear gets a number and a birth time. The page is redrawn whole, so animations restart on
+// every redraw; a negative delay (an item's age, or the global phase for loops) makes them continue instead.
 let S
 function reset() {
-  S = { t0: null, tLast: 0, seq: 0, born: [], challenges: new Map(), pairs: new Map(), loops: new Map(), ticks: [], log: [], stops: 0, focus: null, pinned: false, records: new Map(), faults: null }
+  S = { t0: null, tLast: 0, seq: 0, born: [], challenges: new Map(), pairs: new Map(), loops: new Map(), ticks: [], log: [], stops: 0, focus: null, pinned: false, records: new Map(), faults: null, open: new Set() }
+  shownStats = {}
   dirty()
 }
 const FADE_MS = 400
@@ -220,6 +339,8 @@ function anim(item) {
   const age = performance.now() - (S.born[item.seq] ?? 0)
   return age < FADE_MS ? ` data-enter style="animation-delay:-${age.toFixed(0)}ms"` : ""
 }
+const phase = (ms, offset = 0) => `animation-delay:-${((performance.now() + offset) % ms).toFixed(0)}ms`
+const spinner = () => `<i class="spin" style="${phase(900)}"></i>`
 
 const challenge = (id) => {
   if (!S.challenges.has(id)) S.challenges.set(id, { id, owner: "", status: "submitted", steps: [], shortlist: [], cards: {}, picked: null, stopped: 0, fixed: 0, seq: next() })
@@ -229,9 +350,10 @@ const pair = (pairId) => {
   if (!S.pairs.has(pairId)) S.pairs.set(pairId, { pairId, moves: [], verdicts: [], status: "negotiating" })
   return S.pairs.get(pairId)
 }
-const step = (challengeId, html, cls = "") => challenge(challengeId).steps.push({ html, cls, seq: next() })
+const step = (challengeId, s) => challenge(challengeId).steps.push({ kind: "text", cls: "", ...s, seq: next() })
 const focus = (pairId) => { if (!S.pinned) S.focus = pairId }
-const log = (e, text, cls = "") => S.log.push({ t: e.t, producer: e.producer, text, cls, seq: next() })
+const GLYPH = { "prenup.match.proposed": "acc", "prenup.proposal.ready": "acc", "prenup.negotiation.agreed": "acc", "prenup.reservation.conflict": "ink", "prenup.arbiter.decided": "ink", "prenup.rematch": "ink", "prenup.pair.cancelled": "ink", "prenup.nomatch": "ink" }
+const log = (e, text, cls = "") => S.log.push({ t: e.t, producer: e.producer, text, cls, glyph: cls === "crit" ? "crit" : GLYPH[e.type] ?? "", seq: next() })
 const at = (t) => (t - S.t0) / 1000
 
 function apply(e) {
@@ -253,7 +375,7 @@ function apply(e) {
     case "prenup.challenge.analyzed": {
       const c = challenge(p.challengeId)
       c.status = "searching"
-      step(p.challengeId, p.researchProblem ? `Analyst: a research problem. <span class="why">Searching for ${esc(p.searchTerms.slice(0, 4).join(", "))}…</span>` : `Analyst: not a research problem`)
+      step(p.challengeId, { html: p.researchProblem ? `Analyst: a research problem. <span class="why">Searching for ${esc(p.searchTerms.slice(0, 4).join(", "))}…</span>` : `Analyst: not a research problem` })
       log(e, `${p.challengeId}: ${p.researchProblem ? "research problem" : "not a research problem"}`)
       tick()
       break
@@ -268,8 +390,8 @@ function apply(e) {
     }
     case "prenup.profile.ready":
       challenge(p.challengeId).cards[p.researcherId] = p
-      tick()
       log(e, `${p.researcherId} card for ${p.challengeId}: fit ${p.fit}${p.flags.length ? `, flags: ${p.flags.map((f) => f.kind).join(", ")}` : ""}`)
+      tick()
       break
     case "prenup.eval.planted":
       S.faults = { list: p.faults.map((f) => ({ ...f, seq: next() })), claims: {}, verdicts: {} }
@@ -301,8 +423,8 @@ function apply(e) {
       const c = challenge(p.challengeId)
       c.picked = p.researcherId
       c.status = "negotiating"
-      for (const s of p.skipped ?? []) if (!c.steps.some((x) => x.skip === s.researcherId)) c.steps.push({ html: `Skipped ${idLink(s.researcherId)}: <span class="why">${linked(s.reason)}</span>`, skip: s.researcherId, seq: next() })
-      step(p.challengeId, `Reserved ${idLink(p.researcherId)} at board version ${p.reservationVersion}, fit ${esc(p.fit)}. Negotiation starts.`, "key")
+      for (const s of p.skipped ?? []) if (!c.steps.some((x) => x.skip === s.researcherId)) step(p.challengeId, { html: `Skipped ${idLink(s.researcherId)}: <span class="why">${linked(s.reason)}</span>`, skip: s.researcherId })
+      step(p.challengeId, { html: `Reserved ${idLink(p.researcherId)} at board version ${p.reservationVersion}, fit ${esc(p.fit)}. Negotiation starts.`, cls: "key" })
       pair(p.pairId).challengeId = p.challengeId
       focus(p.pairId)
       log(e, `${p.challengeId} reserved ${p.researcherId} (version ${p.reservationVersion})`)
@@ -311,24 +433,24 @@ function apply(e) {
     }
     case "prenup.reservation.conflict":
       challenge(p.challengeId).status = "conflict"
-      step(p.challengeId, `Conflict on ${idLink(p.researcherId)}, held by ${idLink(p.holder)}. <span class="why">Read version ${p.seenVersion}, the board is now at ${p.version}: the write fails and goes to the Arbiter.</span>`, "warn")
+      step(p.challengeId, { kind: "conflict", data: p })
       log(e, `conflict on ${p.researcherId}: ${p.challengeId} vs holder ${p.holder} (read v${p.seenVersion}, now v${p.version})`)
       tick()
       break
     case "prenup.arbiter.decided":
-      for (const id of [p.winner, p.loser]) step(id, `Arbiter: ${idLink(p.researcherId)} goes to ${idLink(p.winner)}. <span class="why">${linked(p.reason)}</span>`, "warn")
+      for (const id of [p.winner, p.loser]) step(id, { kind: "arbiter", data: p })
       log(e, `${p.researcherId} -> ${p.winner}; ${p.loser} re-matches`)
       tick()
       break
     case "prenup.pair.cancelled":
       pair(p.pairId).status = "cancelled"
       pair(p.pairId).why = p.reason
-      step(p.pairId.split("__")[0], `Negotiation ${pairLabel(p.pairId)} stopped: <span class="why">${esc(p.reason)}</span>`)
+      step(p.pairId.split("__")[0], { html: `Negotiation ${pairLabel(p.pairId)} stopped: <span class="why">${esc(p.reason)}</span>` })
       log(e, `${p.pairId} cancelled: ${p.reason}`)
       break
     case "prenup.rematch":
       challenge(p.challengeId).status = "re-matching"
-      step(p.challengeId, `Re-matches by itself, away from ${idLink(p.from)}`, "key")
+      step(p.challengeId, { html: `${icon("rematch")} Re-matches by itself, away from ${idLink(p.from)}`, cls: "key" })
       log(e, `${p.challengeId} re-matches (away from ${p.from})`)
       tick()
       break
@@ -354,15 +476,14 @@ function apply(e) {
       Object.assign(pair(p.pairId), { status: "proposal ready", ready: p })
       const c = challenge(p.pairId.split("__")[0])
       c.status = "proposal"
-      step(c.id, `Proposal ready: <a href="/proposal/${esc(p.pairId)}" target="_blank">open the page</a>. <span class="why">${p.claims} claims checked; the Critic stopped ${p.stopped}, ${p.fixed} fixed on rewrite, ${p.dropped} dropped.</span>`, "key")
+      step(c.id, { kind: "proposal", data: p, cls: "key" })
       focus(p.pairId)
       log(e, `proposal ready: ${p.pairId}`)
       break
     }
     case "prenup.nomatch": {
-      const c = challenge(p.challengeId)
-      c.status = "no match"
-      step(p.challengeId, `No match, ${esc(p.verdict)}. <span class="why">${linked(p.reason)}</span>`, "key")
+      challenge(p.challengeId).status = "no match"
+      step(p.challengeId, { kind: "nomatch", data: p })
       log(e, `no match for ${p.challengeId}: ${p.verdict}`)
       tick()
       break
@@ -386,7 +507,7 @@ function dirty() {
 }
 
 const TITLES = {
-  demo: ["Matchmakers and Arbiter", "Each challenge, from search to outcome", "Negotiation and Critic", "The focused pair's terms, moves and checked claims"],
+  demo: ["Matchmakers and Arbiter", "Each challenge, from search to outcome", "Negotiation and Critic", "The focused pair talking it out, and the claims the Critic checked"],
   plant: ["Critic test", "False claims planted on purpose, by kind", "Planted claims", "Each claim, its source, and the check that stopped it"],
 }
 
@@ -408,37 +529,57 @@ function render() {
   if (performance.now() - (S.born[S.seq] ?? 0) < FADE_MS) dirty()
 }
 
+// Header numbers count toward their value instead of jumping.
+let shownStats = {}
+let statLayout = ""
+let tweening = false
 function renderStats() {
   const loops = [...S.loops.values()]
   const running = loops.filter((l) => l.end === null).length
-  const proposals = [...S.pairs.values()].filter((p) => p.ready).length
-  const stat = (value, label, cls = "") => `<div class="stat ${cls}"><b>${value}</b><span>${label}</span></div>`
+  let items = []
   if (S.faults) {
-    const vs = Object.values(S.faults.verdicts)
-    const stopped = vs.filter((v) => v.verdict !== "pass")
+    const stopped = Object.values(S.faults.verdicts).filter((v) => v.verdict !== "pass")
     const bySupport = stopped.filter((v) => v.check === "support").length
-    return void ($("stats").innerHTML = [stat(S.faults.list.length, "planted"), stat(stopped.length, "stopped", stopped.length ? "crit" : ""), stat(stopped.length - bySupport, "code checks"), stat(bySupport, "support check"), stat(loops.length, loops.length === 1 ? "model call" : "model calls")].join(""))
+    items = [["planted", S.faults.list.length, "planted"], ["stopped", stopped.length, "stopped", stopped.length ? "crit" : ""], ["code", stopped.length - bySupport, "code checks"], ["support", bySupport, "support check"], ["calls", loops.length, loops.length === 1 ? "model call" : "model calls"]]
+  } else if (S.t0) {
+    const proposals = [...S.pairs.values()].filter((p) => p.ready).length
+    items = [["running", running, "calls running", running ? "live" : ""], ["calls", loops.length, "model calls"], ["proposals", proposals, proposals === 1 ? "proposal" : "proposals"], ["stops", S.stops, "claims stopped", S.stops ? "crit" : ""], ["elapsed", Math.round(at(S.tLast)), "elapsed", "", "s"]]
   }
-  $("stats").innerHTML = S.t0
-    ? [stat(running, "calls running", running ? "live" : ""), stat(loops.length, "model calls"), stat(proposals, proposals === 1 ? "proposal" : "proposals"), stat(S.stops, "claims stopped", S.stops ? "crit" : ""), stat(`${at(S.tLast).toFixed(0)}s`, "elapsed")].join("")
-    : ""
+  const layout = items.map((i) => i[0] + i[2]).join()
+  if (layout !== statLayout) {
+    $("stats").innerHTML = items.map(([k, , label, , suffix]) => `<div class="stat" data-k="${k}" data-suffix="${suffix ?? ""}"><b>0${suffix ?? ""}</b><span>${label}</span></div>`).join("")
+    statLayout = layout
+  }
+  for (const [k, value, , cls] of items) {
+    const el = $("stats").querySelector(`[data-k="${k}"]`)
+    el.dataset.target = value
+    el.className = `stat ${cls ?? ""}`
+  }
+  if (!tweening) tween()
+}
+function tween() {
+  tweening = false
+  for (const el of $("stats").querySelectorAll("[data-target]")) {
+    const target = Number(el.dataset.target)
+    const now = shownStats[el.dataset.k] ?? 0
+    const value = Math.abs(target - now) < 0.6 ? target : now + (target - now) * 0.22
+    shownStats[el.dataset.k] = value
+    el.querySelector("b").textContent = `${Math.round(value)}${el.dataset.suffix}`
+    if (value !== target) tweening = true
+  }
+  if (tweening) requestAnimationFrame(tween)
 }
 
-function renderChallenges() {
-  if (S.challenges.size === 0) return void ($("challenges").innerHTML = `<p class="empty">No run yet. Press <b>Run the demo set</b>.</p>`)
-  $("challenges").innerHTML = [...S.challenges.values()].map((c) => {
-    const chips = c.shortlist.map((r) => {
-      const card = c.cards[r]
-      const cls = ["chip", card && "ready", c.picked === r && "picked", c.steps.some((s) => s.skip === r) && "out"].filter(Boolean).join(" ")
-      return `<span class="${cls}" title="${card ? `fit ${card.fit}` : "profiling"}">${r}${card ? ` · ${card.fit}` : ""}</span>`
-    }).join("")
-    const done = ["proposal", "no match"].includes(c.status)
-    const profiles = c.shortlist.length ? `<li>Profiler cards ${Object.keys(c.cards).length} of ${c.shortlist.length}${c.stopped ? `. <span class="why">The Critic stopped ${c.stopped} card claims; ${c.fixed} passed after a rewrite.</span>` : ""}<div class="chips">${chips}</div></li>` : ""
-    const steps = c.steps.map((s) => `<li class="${s.cls ?? ""}"${anim(s)}>${s.html}</li>`)
-    const [first, ...rest] = steps
-    return `<div class="card"${anim(c)}><div class="top"><span class="who">${idLink(c.id)}<span class="owner">${esc(c.owner)}</span></span><span class="pill ${done ? "done" : ""}">${esc(c.status)}</span></div>
-      <ul class="steps">${first ?? ""}${profiles}${rest.join("")}</ul></div>`
-  }).join("")
+const STATUS = {
+  submitted: ["spin", "Submitted", ""], searching: ["spin", "Searching", ""], profiling: ["spin", "Profiling", ""],
+  conflict: ["warn", "Conflict", "dark"], negotiating: ["spin", "Negotiating", "soft"], "re-matching": ["rematch", "Re-matching", ""],
+  writing: ["spin", "Writing", "soft"], proposal: ["check", "Proposal", "solid"], "no match": ["x", "No match", ""],
+  agreed: ["check", "Agreed", "soft"], "proposal ready": ["check", "Proposal ready", "solid"], cancelled: ["x", "Cancelled", "gone"], "no deal": ["x", "No deal", ""],
+  "all stopped": ["shield", "All stopped", "crit"], checking: ["spin", "Checking", ""],
+}
+function pill(status) {
+  const [ic, label, tone] = STATUS[status] ?? ["", status, ""]
+  return `<span class="pill ${tone}">${ic === "spin" ? spinner() : ic ? icon(ic) : ""}${esc(label)}</span>`
 }
 
 function record(id) {
@@ -449,26 +590,80 @@ function record(id) {
   return S.records.get(id)
 }
 
+function renderStep(s, c) {
+  const a = anim(s)
+  const d = s.data
+  switch (s.kind) {
+    case "conflict":
+      return `<li class="co-li"${a}><div class="callout dark">${icon("warn")}<div><b>Conflict on ${idLink(d.researcherId)}</b><span class="why">Held by ${idLink(d.holder)}. Read version ${d.seenVersion}, the board is at ${d.version}: the write fails and goes to the Arbiter.</span></div></div></li>`
+    case "arbiter": {
+      const key = `arb-${c.id}-${s.seq}`
+      const open = S.open.has(key)
+      return `<li class="co-li"${a}><div class="callout arb">${icon("scale")}<div><b>Arbiter: ${idLink(d.researcherId)} goes to ${idLink(d.winner)}</b><div class="reason ${open ? "open" : ""}">${linked(d.reason)}</div><button class="more" data-open="${key}">${open ? "Show less" : "Show the reasoning"}</button></div></div></li>`
+    }
+    case "nomatch":
+      return `<li class="co-li"${a}><div class="callout">${icon("x")}<div><b>No match: ${esc(d.verdict)}</b><span class="why">${linked(d.reason)}</span></div></div></li>`
+    case "proposal":
+      return `<li class="key"${a}><a class="cta" href="/proposal/${esc(d.pairId)}" target="_blank">${icon("doc")}Open the proposal</a><div class="why" style="margin-top:4px">${d.claims} claims checked; the Critic stopped ${d.stopped}, ${d.fixed} fixed on rewrite, ${d.dropped} dropped.</div></li>`
+    default:
+      return `<li class="${s.cls}"${a}>${s.html}</li>`
+  }
+}
+
+function renderChallenges() {
+  if (S.challenges.size === 0) return void ($("challenges").innerHTML = `<p class="empty">No run yet.</p>`)
+  $("challenges").innerHTML = [...S.challenges.values()].map((c) => {
+    const company = record(c.id.split("-")[0])
+    const ask = record(c.id)
+    const chips = c.shortlist.map((r) => {
+      const card = c.cards[r]
+      const cls = ["chip", card && "ready", c.picked === r && "picked", c.steps.some((s) => s.skip === r) && "out"].filter(Boolean).join(" ")
+      return `<span class="${cls}" title="${card ? `fit ${card.fit}` : "profiling"}">${r}${card ? ` · ${card.fit}` : ""}</span>`
+    }).join("")
+    const profiles = c.shortlist.length ? `<li>Profiler cards ${Object.keys(c.cards).length} of ${c.shortlist.length}${c.stopped ? `. <span class="why">The Critic stopped ${c.stopped} card claims; ${c.fixed} passed after a rewrite.</span>` : ""}<div class="chips">${chips}</div></li>` : ""
+    const [first, ...rest] = c.steps.map((s) => renderStep(s, c))
+    return `<div class="card"${anim(c)}><div class="top"><div><div class="co">${esc(company?.name ?? c.id.split("-")[0])}</div><div class="meta">${idLink(c.id)}<span>·</span><span>${esc(c.owner)}</span></div></div>${pill(c.status)}</div>
+      ${ask?.text ? `<p class="ask">${esc(ask.text)}</p>` : ""}
+      <ul class="steps">${first ?? ""}${profiles}${rest.join("")}</ul></div>`
+  }).join("")
+}
+
 function renderPair() {
   const tabs = [...S.pairs.values()]
-  if (tabs.length === 0) return void ($("pair").innerHTML = `<p class="empty">No pair yet. Negotiations appear here as soon as a matchmaker reserves a researcher.</p>`)
+  if (tabs.length === 0) {
+    return void ($("pair").innerHTML = `<div class="hero">${icon("arrows")}<h3>Watch an agreement form</h3><p>Press <b>Run the demo set</b>: four company challenges are matched to researchers, contested, negotiated and fact-checked, live.</p></div>`)
+  }
   const p = S.pairs.get(S.focus) ?? tabs.at(-1)
   const [challengeId, researcherId] = p.pairId.split("__")
   const company = record(challengeId.split("-")[0])
   const researcher = record(researcherId)
   const last = p.moves.at(-1)
   const sheet = last?.sheet
-  const changed = new Set(last?.changes ?? [])
+  const agreed = ["agreed", "proposal ready"].includes(p.status)
+  const changed = new Set(agreed ? [] : last?.changes ?? [])
   const row = (key, label, value) => `<div class="row ${changed.has(key) ? "changed" : ""}"><span>${label}</span><span>${value}</span></div>`
   const list = (xs) => (xs.length ? xs.map(linked).join("; ") : `<span class="muted">none</span>`)
-  const good = ["agreed", "proposal ready"].includes(p.status)
 
   const header = `<div class="tabs">${tabs.map((x) => `<button class="${x === p ? "on" : ""} ${x.status === "cancelled" ? "gone" : ""}" data-pair="${esc(x.pairId)}">${esc(x.pairId.replace("__", " × "))}</button>`).join("")}
     <span class="follow">${S.pinned ? `<button data-follow>Follow live</button>` : "Following live"}</span></div>`
-  const who = `<div class="card"><div class="top"><span class="who">${pairLabel(p.pairId)}</span><span class="pill ${good ? "done" : ""} ${p.status === "cancelled" ? "gone" : ""}">${esc(p.status)}</span></div>
-    <div class="why" style="margin-top:4px">${company ? `${esc(company.name)} · ${esc(company.sector)} · ${company.employees} employees` : idLink(challengeId.split("-")[0])}<br>${researcher ? `${esc(researcher.title)}, ${esc(researcher.department)}` : idLink(researcherId)}</div></div>`
+  const parties = `<div class="card"><div class="top" style="margin-bottom:12px"><span class="meta">${pairLabel(p.pairId)}</span>${pill(p.status)}</div>
+    <div class="parties">
+      <div class="party"><span class="avatar">${icon("building")}</span><div class="txt"><b>${esc(company?.name ?? challengeId.split("-")[0])}</b><span>${company ? `${esc(company.sector)} · ${company.employees} employees` : ""}</span></div></div>
+      <span class="vs">${icon("arrows")}</span>
+      <div class="party right"><span class="avatar uni">${icon("cap")}</span><div class="txt"><b>${esc(researcher?.title ?? researcherId)}</b><span>${esc(researcher?.department ?? "")}</span></div></div>
+    </div></div>`
 
-  const terms = sheet ? `<div class="label">Term sheet${last ? `, round ${last.round}` : ""}</div><div class="group">
+  // The moves as a conversation: company on the left, researcher on the right; the side that moves next is typing.
+  const bubbles = p.moves.map((m) => `<div class="msg ${m.side}"${anim(m)}><div class="who">${m.side === "company" ? "Company" : "Researcher"} · round ${m.round} · ${ACTION[m.action] ?? m.action}</div>
+    <div class="bubble">${linked(m.reason)}${m.changes.length ? `<div class="changes">${m.changes.map((c) => `<span>${esc(FIELD[c] ?? c)}</span>`).join("")}</div>` : ""}</div></div>`).join("")
+  const nextSide = !last ? "company" : last.side === "company" ? "researcher" : "company"
+  const typing = p.status === "negotiating" ? `<div class="msg ${nextSide} typing"><div class="who">${nextSide === "company" ? "Company" : "Researcher"}</div><div class="bubble">${[0, 1, 2].map((i) => `<i style="${phase(1200, 1200 - i * 200)}"></i>`).join("")}</div></div>` : ""
+  const system = agreed ? `<div class="system ok">${icon("check")}Agreed in round ${p.round ?? last?.round}</div>${p.ready ? "" : `<div class="system">${spinner()}The writer is drafting the proposal</div>`}`
+    : p.status === "no deal" ? `<div class="system">${icon("x")}No deal: ${esc(p.why)}</div>`
+    : p.status === "cancelled" ? `<div class="system">${icon("x")}Stopped: ${esc(p.why)}</div>` : ""
+  const chat = `<div class="chat">${bubbles}${typing}${system}</div>`
+
+  const terms = sheet ? `<div class="label">${agreed ? `${icon("check")}Agreed up front` : `On the table · round ${last.round}`}</div><div class="group ${agreed ? "agreed" : ""}">
       ${row("engagement", "Format", esc(ENGAGEMENT[sheet.engagement] ?? sheet.engagement))}
       ${row("ip", "IP", esc(IP[sheet.ip] ?? sheet.ip))}
       ${row("publication", "Publication", `${sheet.publication.reviewDays}-day company review${sheet.publication.companyMayRemoveConfidential ? "; the company may remove its confidential information, not results" : ""}`)}
@@ -477,10 +672,7 @@ function renderPair() {
       ${row("contributions", "Contributions", `<b>Company</b> ${list(sheet.contributions.company)}<br><b>University</b> ${list(sheet.contributions.university)}`)}
       ${row("money", "Money", esc(sheet.money))}
       ${row("timeline", "Timeline", `${sheet.timeline.months} months${sheet.timeline.milestones.length ? `: ${list(sheet.timeline.milestones)}` : ""}`)}
-    </div>` : `<p class="empty">Waiting for the company side's opening sheet.</p>`
-
-  const outcome = good ? `Agreed in round ${p.round ?? last?.round}.` : p.status === "no deal" ? `No deal: ${esc(p.why)}` : p.status === "cancelled" ? `Stopped: ${esc(p.why)}` : ""
-  const moves = p.moves.length ? `<div class="label">Moves</div>${p.moves.map((m) => `<div class="move"${anim(m)}><div class="head">Round ${m.round} · ${esc(m.side)} · ${esc(m.action)}${m.changes.length ? `<span class="changes">${m.changes.map((c) => `<span>${esc(c)}</span>`).join("")}</span>` : ""}</div>${linked(m.reason)}</div>`).join("")}` : ""
+    </div>` : ""
 
   // The Critic on this pair's proposal: what it stopped on the first pass, and what the rewrite did.
   const first = p.verdicts.filter((v) => v.attempt === 1 && v.verdict !== "pass")
@@ -489,16 +681,16 @@ function renderPair() {
   const rewritten = new Set(p.rewrote?.rewritten ?? [])
   const stops = first.map((v) => {
     const again = second.get(v.claimId)
-    const then = !p.rewrote ? `<span class="then wait">Sent back to the writer…</span>`
-      : again?.verdict === "pass" ? `<span class="then fixed">Rewritten by the writer, then passed</span>`
-      : again ? `<span class="then dropped">Rewritten, stopped again (${esc(again.check)}: ${linked(again.reason)}); dropped</span>`
-      : rewritten.has(v.claimId) ? `<span class="then wait">Rewritten, checking…</span>` : `<span class="then dropped">Left out by the writer; dropped</span>`
-    return `<div class="stop"${anim(v)}><span class="what">${esc(shortClaim(v.claimId))} · ${esc(v.check)}</span> ${linked(v.reason)}${v.suggestion ? `<br><span class="muted">Suggested: ${linked(v.suggestion)}</span>` : ""}${then}</div>`
+    const then = !p.rewrote ? `<span class="then wait">${spinner()}Sent back to the writer</span>`
+      : again?.verdict === "pass" ? `<span class="then fixed">${icon("check")}Rewritten by the writer, then passed</span>`
+      : again ? `<span class="then dropped">${icon("x")}Rewritten, stopped again (${esc(again.check)}: ${linked(again.reason)}); dropped</span>`
+      : rewritten.has(v.claimId) ? `<span class="then wait">${spinner()}Rewritten, checking</span>` : `<span class="then dropped">${icon("x")}Left out by the writer; dropped</span>`
+    return `<div class="stop"${anim(v)}><span class="what">${icon("shield")}${esc(shortClaim(v.claimId))} · ${esc(v.check)}</span> ${linked(v.reason)}${v.suggestion ? `<br><span class="muted">Suggested: ${linked(v.suggestion)}</span>` : ""}${then}</div>`
   }).join("")
-  const critic = p.verdicts.length ? `<div class="label">Critic on the proposal · ${p.verdicts.filter((v) => v.attempt === 1).length} claims, ${passed} passed first time</div>${stops}` : ""
-  const ready = p.ready ? `<p class="outcome"><a href="/proposal/${esc(p.pairId)}" target="_blank">Open the proposal →</a></p>` : ""
+  const critic = p.verdicts.length ? `<div class="label">${icon("shield")}Critic on the proposal · ${p.verdicts.filter((v) => v.attempt === 1).length} claims, ${passed} passed first time</div>${stops}` : ""
+  const ready = p.ready ? `<div class="open-cta"><a class="cta" href="/proposal/${esc(p.pairId)}" target="_blank">${icon("doc")}Open the proposal</a></div>` : ""
 
-  $("pair").innerHTML = `${header}${who}${outcome ? `<p class="outcome">${outcome}</p>` : ""}${terms}${moves}${critic}${ready}`
+  $("pair").innerHTML = `${header}${parties}${chat}${ready}${terms}${critic}`
 }
 
 // The Critic test: what was planted, and which check stopped each claim. Same-name swaps first: the demo points at one.
@@ -510,8 +702,9 @@ function renderFaults() {
   const done = Object.keys(F.verdicts).length === F.list.length
   const n = F.list.filter(caught).length
   const kinds = KINDS.filter((k) => F.list.some((f) => f.kind === k))
-  $("challenges").innerHTML = `<div class="card"><div class="top"><span class="who"><b>Planted false claims</b></span><span class="pill">${done ? `${n} of ${F.list.length} stopped` : "checking…"}</span></div>
-      <p class="why" style="margin:8px 0 0">Built by code from real records and sent to the Critic as one check, the way a writer's draft is: code checks first, then one cheap-model support check for what passes them. Planted on purpose.</p></div>
+  $("challenges").innerHTML = `<div class="card"><div class="top"><div><div class="co">Planted false claims</div><div class="meta">${icon("flask")}Built by code from real records</div></div>${pill(done ? (n === F.list.length ? "all stopped" : `${n} stopped`) : "checking")}</div>
+      <div class="big" style="margin:16px 0 2px; color:${done ? "var(--red)" : "var(--ink)"}">${done ? n : "…"}<small> / ${F.list.length} stopped</small></div>
+      <p class="why" style="margin:8px 0 0">Sent to the Critic as one check, the way a writer's draft is: code checks first, then one cheap-model support check for what passes them. Planted on purpose.</p></div>
     <div class="group kinds">${kinds.map((k) => {
       const mine = F.list.filter((f) => f.kind === k)
       const got = mine.filter(caught).length
@@ -522,9 +715,9 @@ function renderFaults() {
     const v = verdict(f)
     const src = c?.sources[0]
     const quote = src ? (src.quote.length > 90 ? `${src.quote.slice(0, 90)}…` : src.quote) : ""
-    const result = !v ? `<div class="checking">Checking…</div>`
+    const result = !v ? `<div class="checking">${spinner()}Checking</div>`
       : v.verdict === "pass" ? `<div class="checking">Passed: not caught</div>`
-      : `<div class="stop"><span class="what">Stopped · ${esc(v.check)}</span> ${linked(v.reason)}</div>`
+      : `<div class="stop"><span class="what">${icon("shield")}Stopped · ${esc(v.check)}</span> ${linked(v.reason)}</div>`
     return `<div class="fault"${anim(f)}><div class="claim">${c ? linked(c.text) : esc(f.claimId)}</div>
       ${src ? `<div class="src">Cites ${src.id.startsWith("move:") ? "the term sheet" : idLink(src.id)} · ${esc(src.field)} · “${esc(quote)}”</div>` : ""}
       <div class="src">Planted: ${linked(f.planted)}</div>${result}</div>`
@@ -533,14 +726,14 @@ function renderFaults() {
 
 function renderLog() {
   $("log").innerHTML = S.log.length ? S.log.slice(-300).reverse().map((l) =>
-    `<div class="${l.cls}"${anim(l)}><span class="t">${l.t ? `${at(l.t).toFixed(1)}s` : ""}</span>${l.producer ? `<span class="p">${esc(l.producer)}</span>` : ""}${linked(l.text)}</div>`).join("") : `<div class="empty">Events appear here as agents emit them.</div>`
+    `<div${anim(l)}><i class="g ${l.glyph ?? ""}"></i><span class="t">${l.t ? `${at(l.t).toFixed(1)}s` : ""}</span><span class="${l.cls === "crit" ? "crit-text" : l.cls}">${l.producer ? `<span class="p">${esc(l.producer)}</span>` : ""}${linked(l.text)}</span></div>`).join("") : `<p class="empty" style="margin:0;padding:16px">Events appear here as agents emit them.</p>`
 }
 
 function renderTimeline() {
   const svg = $("timeline")
   const width = svg.clientWidth || 800
   const height = svg.clientHeight || 160
-  const label = 132
+  const label = 138
   const span = Math.max((S.tLast - (S.t0 ?? 0)) / 1000, 1)
   const x = (t) => label + ((t - S.t0) / 1000 / span) * (width - label - 6)
   const lanes = {}
@@ -558,30 +751,44 @@ function renderTimeline() {
   const rowH = (height - top) / GROUPS.length
   const rows = Object.fromEntries(GROUPS.map((g, i) => [g, { y: top + i * rowH, n: Math.max((lanes[g] ?? []).length, 1) }]))
   const laneH = (g) => Math.min(5, (rowH - 6) / rows[g].n)
-  const parts = []
-  for (const g of GROUPS) parts.push(`<rect x="${label}" y="${rows[g].y + 1}" width="${width - label - 6}" height="${rowH - 2}" rx="5" fill="#f5f5f7"/>`)
+  const parts = [`<defs><linearGradient id="bar" x1="0" x2="1"><stop offset="0" style="stop-color:var(--accent-2)"/><stop offset="1" style="stop-color:var(--accent)"/></linearGradient></defs>`]
+  for (const g of GROUPS) parts.push(`<rect class="tl-band" x="${label}" y="${rows[g].y + 1}" width="${width - label - 6}" height="${rowH - 2}" rx="5"/>`)
   const tickStep = span > 120 ? 30 : span > 40 ? 10 : span > 12 ? 5 : 1
-  for (let s = 0; s <= span; s += tickStep) parts.push(`<line x1="${x(S.t0 + s * 1000)}" x2="${x(S.t0 + s * 1000)}" y1="${top}" y2="${height}" stroke="rgba(0,0,0,.06)"/><text x="${x(S.t0 + s * 1000) + 3}" y="11" font-size="10" fill="#86868b">${s}s</text>`)
+  for (let s = 0; s <= span; s += tickStep) parts.push(`<line class="tl-grid" x1="${x(S.t0 + s * 1000)}" x2="${x(S.t0 + s * 1000)}" y1="${top}" y2="${height}"/><text class="tl-sec" x="${x(S.t0 + s * 1000) + 3}" y="11">${s}s</text>`)
   // Matchmakers are code; an agent row with events but no model calls was served from the local cache.
   const calls = (g) => bars.filter((b) => b.group === g).length
   const note = (g) => (calls(g) ? calls(g) : g === "Matchmakers" ? "code" : S.ticks.some((t) => t.group === g) ? "cached" : "")
-  for (const g of GROUPS) parts.push(`<text x="0" y="${rows[g].y + rowH / 2 + 4}" font-size="12" font-weight="500" fill="#1d1d1f">${g}${note(g) ? ` <tspan fill="#86868b" font-weight="400">${note(g)}</tspan>` : ""}</text>`)
+  for (const g of GROUPS) parts.push(`<text class="tl-name" x="0" y="${rows[g].y + rowH / 2 + 4}">${g}${note(g) ? ` <tspan class="tl-count">${note(g)}</tspan>` : ""}</text>`)
   for (const b of bars) {
     const h = Math.max(laneH(b.group) - 1, 1.5)
     const y = rows[b.group].y + 3 + (b.lane % rows[b.group].n) * laneH(b.group)
-    parts.push(`<rect x="${x(b.start).toFixed(1)}" y="${y.toFixed(1)}" width="${Math.max(x(b.end) - x(b.start), 2).toFixed(1)}" height="${h.toFixed(1)}" rx="${(h / 2).toFixed(1)}" fill="#0071e3" opacity="${b.open ? 1 : 0.78}"/>`)
+    parts.push(`<rect x="${x(b.start).toFixed(1)}" y="${y.toFixed(1)}" width="${Math.max(x(b.end) - x(b.start), 2).toFixed(1)}" height="${h.toFixed(1)}" rx="${(h / 2).toFixed(1)}" fill="url(#bar)"${b.open ? ` class="tl-open" style="${phase(1100)}"` : ""}/>`)
   }
-  for (const t of S.ticks) if (rows[t.group]) parts.push(`<line x1="${x(t.t)}" x2="${x(t.t)}" y1="${rows[t.group].y + 2}" y2="${rows[t.group].y + rowH - 2}" stroke="${t.red ? "#d70015" : "#86868b"}" stroke-width="1" opacity="${t.red ? 0.6 : 0.9}"/>`)
+  for (const t of S.ticks) if (rows[t.group]) parts.push(`<line class="${t.red ? "tl-crit" : "tl-tick"}" x1="${x(t.t)}" x2="${x(t.t)}" y1="${rows[t.group].y + 2}" y2="${rows[t.group].y + rowH - 2}"/>`)
   svg.innerHTML = S.t0 ? parts.join("") : ""
   $("span").textContent = S.t0 ? `${bars.length} model calls in ${span.toFixed(1)} s · one bar per call · red marks: the Critic stopped a claim` : "One row per kind of participant, one bar per model call"
 }
 
 // --- wiring ---
 let speed = 4
+let running = false
+function buttons() {
+  $("run").innerHTML = running ? `${spinner()}Running` : `${icon("play")}Run the demo set`
+  $("plant").innerHTML = `${icon("flask")}Plant false claims`
+  $("theme").innerHTML = icon(document.documentElement.dataset.theme === "dark" ? "sun" : "moon")
+}
+function setTheme(theme) {
+  document.documentElement.dataset.theme = theme
+  try { localStorage.setItem("prenup-theme", theme) } catch { /* private window: the toggle still works for this page */ }
+  buttons()
+  dirty()
+}
 document.addEventListener("click", (ev) => {
   const tab = ev.target.closest("[data-pair]")
   if (tab) { S.focus = tab.dataset.pair; S.pinned = true; dirty() }
   if (ev.target.closest("[data-follow]")) { S.pinned = false; S.focus = [...S.pairs.keys()].at(-1); dirty() }
+  const more = ev.target.closest("[data-open]")
+  if (more) { S.open.has(more.dataset.open) ? S.open.delete(more.dataset.open) : S.open.add(more.dataset.open); dirty() }
   const pace = ev.target.closest("[data-speed]")
   if (pace) {
     speed = Number(pace.dataset.speed)
@@ -590,9 +797,14 @@ document.addEventListener("click", (ev) => {
 })
 $("run").addEventListener("click", () => fetch(`/run?speed=${speed}`, { method: "POST" }))
 $("plant").addEventListener("click", () => fetch("/plant", { method: "POST" }))
+$("theme").addEventListener("click", () => setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark"))
 window.addEventListener("resize", dirty)
 
+let saved = null
+try { saved = localStorage.getItem("prenup-theme") } catch { /* no storage: light */ }
+document.documentElement.dataset.theme = new URLSearchParams(location.search).get("theme") ?? saved ?? "light"
 reset()
+buttons()
 const source = new EventSource("/events")
 source.addEventListener("reset", () => reset())
 source.addEventListener("trace", (msg) => { try { apply(JSON.parse(msg.data)) } catch { /* a half-written line */ } dirty() })
@@ -604,8 +816,9 @@ source.addEventListener("log", (msg) => {
 })
 source.addEventListener("status", (msg) => {
   const s = JSON.parse(msg.data)
+  running = s.running
   $("run").disabled = $("plant").disabled = s.running
-  $("run").textContent = s.running && s.scene === "demo" ? "Running…" : "Run the demo set"
+  buttons()
   $("dot").classList.toggle("live", s.running)
   $("note").textContent = !s.running
     ? "Latest run · any run, here or in a terminal, appears as it happens"
