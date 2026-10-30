@@ -1,0 +1,38 @@
+{
+  "key": "cf0f5ed365c2f8d1",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We accept the 30-day review window in exchange for moving from option-to-licence to option-to-assign, because we want a clear path to full owner",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":true,\"reason\":\"\"},{\"item\":2,\"backed\":false,\"reason\":\"Words say traffic archives are available under NDA, not that they are central to training the detector.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 700,
+    "outputTokens": 52,
+    "totalTokens": 752,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 700,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 52,
+    "service_tier": "standard"
+  },
+  "ms": 1135
+}

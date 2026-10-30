@@ -1,0 +1,38 @@
+{
+  "key": "5a919a38b7c15d34",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: Contract research with company ownership of results is appropriate here because we need findings we can apply directly to our production line an",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"The cited words describe a past seed trial collaboration, not confidentiality provisions or review periods protecting batch data.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 514,
+    "outputTokens": 42,
+    "totalTokens": 556,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 514,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 42,
+    "service_tier": "standard"
+  },
+  "ms": 18724
+}

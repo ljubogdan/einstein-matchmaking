@@ -1,0 +1,38 @@
+{
+  "key": "b69b5930fb19e80c",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The module needs to detect unusual behaviour on Modbus and BACnet networks without labelled attack data, as clients have zero examples of malici",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"Fields do not mention NDA status of traffic archives\", \"rewrite\": \"Traffic archives consisting of several terabytes of captures from consenting clients collected over three years are available.\"}, {\"claim\": 5, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 10, \"support\": \"partly\", \"reason\": \"Fields support that company has data and needs methods, and research group has methods and testbed, but do not explicitly state that research group lacks access to multi-site operational captures at that scale\", \"rewrite\": \"The company holds several terabytes of site-specific operational traffic and needs baseline modelling methods, while the research group holds those methods and a testbed, suggesting complementary capabilities for collaboration.\"}, {\"claim\": 11, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 360,
+    "totalTokens": 363,
+    "inputTokenDetails": {
+      "cached_tokens": 4652
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 4652,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 4652,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 360,
+    "service_tier": "standard"
+  },
+  "ms": 2916
+}

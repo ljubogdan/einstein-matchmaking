@@ -1,0 +1,38 @@
+{
+  "key": "b60cc700e928df55",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The ProtoSense module monitors Modbus and BACnet networks at sites where none of the clients has ever provided a packet capture that contains a ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"Fields confirm terabytes of captures but do not specify that they cover Modbus TCP and BACnet/IP operational traffic specifically.\", \"rewrite\": \"The company has collected several terabytes of captures from consenting clients over the past three years.\"}, {\"claim\": 5, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 10, \"support\": \"partly\", \"reason\": \"Fields confirm company has archives and hardware and one engineer reading about anomaly detection, and that research group has unsupervised algorithms, but fields do not state that the research group lacks BACnet/IP operational captures at deployment scale or that neither party can complete scope without the other.\", \"rewrite\": \"The company has the traffic archives and the hardware to run inference on-device but only one engineer who has been reading about anomaly detection for six months, while the research group holds validated unsupervised detection algorithms.\"}, {\"claim\": 11, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 12, \"support\": \"partly\", \"reason\": \"Fields confirm research group is interested in proprietary/undocumented ICS protocols and company does BACnet/IP protocol parsing, but do not state that BACnet/IP is undocumented or proprietary, or that company operational captures are not covered by published testbed datasets.\", \"rewrite\": \"The research group is particularly interested in partners dealing with proprietary or undocumented ICS protocols, and the company has BACnet/IP protocol parsing and operational captures.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 519,
+    "totalTokens": 522,
+    "inputTokenDetails": {
+      "cached_tokens": 5269
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 5269,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 5269,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 519,
+    "service_tier": "standard"
+  },
+  "ms": 5345
+}

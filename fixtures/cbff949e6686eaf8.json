@@ -1,0 +1,38 @@
+{
+  "key": "cbff949e6686eaf8",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The company's cold-pressed pumpkin seed oil goes rancid within 4 months on shelf, while competitors manage 9–12 months.\n  C061-CH1 text: \"cold-p",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 5, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 10, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 11, \"support\": \"partly\", \"reason\": \"Claim states neither side can identify dominant pathway and deliver process changes without the other; fields show research group has kinetics methods and analytical capacity, and company has batch samples and constraints, but do not explicitly state that neither can independently identify the pathway or that both contributions are mutually necessary.\", \"rewrite\": \"The research group focuses on lipid oxidation mechanisms in cold-pressed seed oils and operates analytical instruments for kinetic studies; the company traces batches to specific harvests and experiences oxidative stability issues but lacks gas chromatography and specialist analysis capability.\"}, {\"claim\": 12, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 381,
+    "totalTokens": 384,
+    "inputTokenDetails": {
+      "cached_tokens": 5164
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 5164,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 5164,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 381,
+    "service_tier": "standard"
+  },
+  "ms": 2927
+}

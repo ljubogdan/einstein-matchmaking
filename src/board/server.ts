@@ -144,7 +144,7 @@ const server = createServer((req, res) => {
   if ((path === "/run" || path === "/plant") && req.method === "POST") {
     if (run) return void res.writeHead(409).end("a run is in progress")
     // The planted claims run at recorded pace: one support-check call, a couple of seconds.
-    const speed = path === "/plant" ? 1 : Math.min(Math.max(Number(url.searchParams.get("speed")) || 4, 1), 64)
+    const speed = path === "/plant" ? 1 : Math.min(Math.max(Number(url.searchParams.get("speed")) || 8, 1), 64)
     if (path === "/run") {
       decisions = {}
       saveDecisions()

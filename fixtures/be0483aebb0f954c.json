@@ -1,0 +1,38 @@
+{
+  "key": "be0483aebb0f954c",
+  "model": "claude-sonnet-4-6",
+  "prompt": "The fact checker did not pass these claims. Fix each one: change the sentence so its quotes say everything it says, or pick quotes that do. Leave a claim out to",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"The company employs four security engineers who do the core research and product work.\",\"sources\":[{\"id\":\"C032\",\"field\":\"about\",\"quote\":\"four security engineers who do the core research and product work\"}]},{\"claim\":2,\"text\":\"The company has in-house Modbus and BACnet protocol parsers and the EdgeWatch sensor hardware.\",\"sources\":[{\"id\":\"C032\",\"field\":\"tech\",\"quote\":\"Modbus and BACnet protocol parsers (in-house)\"},{\"id\":\"C032\",\"field\":\"products\",\"quote\":\"EdgeWatch sensor — passive network tap and protocol parser for OT environments\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 151,
+    "totalTokens": 154,
+    "inputTokenDetails": {
+      "cached_tokens": 5640
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 5640,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 5640,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 151,
+    "service_tier": "standard"
+  },
+  "ms": 1513
+}

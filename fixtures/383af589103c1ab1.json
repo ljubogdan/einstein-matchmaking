@@ -1,0 +1,47 @@
+{
+  "key": "383af589103c1ab1",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: The researcher's methods work without labelled attack examples and are suited to the statistical properties of ICS traffic [SYN-PUB-10477], whic",
+  "items": [
+    {
+      "type": "reasoning",
+      "content": {
+        "text": "Check each item quickly.",
+        "type": "input_text"
+      },
+      "encryptedContent": "EvcBCnwIExABGAIqQJVElqm6dqRaMXwbqIFfIwsUF6w36sszyEoo2NVAXJ+aCOl/1+ZBpTJeaxufocjhsG/tOlva2/nEB3K9j6JXVzwyEWNsYXVkZS1zb25uZXQtNC02OABCCHRoaW5raW5nWgw2NjU3Njc3MDczNzKoAbHrk9cGEgzryi3AoO02WxFHmKAaDPvmaOd6jX8OSu5ESSIwgVreV0iof6pWuBf+UPzkIUTohqArLufVvVC4nYtm6OlN6Jta0bvbLLf5K7oCzB4xKinZM1C0D6sWn6VA8lu3f5FsgRRku//6sMWRy6oc4q4H/Gd2F2p6TEAqLhgB",
+      "summary": []
+    },
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":true,\"reason\":\"\"},{\"item\":2,\"backed\":true,\"reason\":\"\"},{\"item\":3,\"backed\":false,\"reason\":\"The words say the collaboration was not continued formally but do not mention a lack of formal checkpoints as the cause.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 911,
+    "outputTokens": 87,
+    "totalTokens": 998,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 911,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 87,
+    "service_tier": "standard"
+  },
+  "ms": 16312
+}

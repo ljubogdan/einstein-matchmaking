@@ -24,9 +24,9 @@ Shortlisted researchers with trap flags (1):
 
 - [R0128] on [C061-CH1]: identity_conflict, same_name
 
-Times the Critic stopped a claim (49, rewrites included; stopped claims go back to their author once), by check:
+Times the Critic stopped a claim (46, rewrites included; stopped claims go back to their author once), by check:
 
 - quote: 11 (e.g. profile:C001-CH1__R0817/2: quote not found in SYN-PUB-08881.abstract; profile:C001-CH1__R0817/2: quote not found in SYN-PUB-08881.abstract)
 - policy: 2 (e.g. profile:C001-CH1__R1015/3: ranks or praises a person; profile:C061-CH1__R0922/2: ranks or praises a person)
 - numbers: 1 (e.g. profile:C032-CH1__R0071/2: 512 is not in any cited field)
-- support: 35 (e.g. C001-CH1__R1008/companyBrings/1: Fields confirm terabytes over three years and volume, but do not specify 'Modbus TCP and BACnet/IP' or claim about diversity vs. synthetic testbeds; C001-CH1__R1008/companyBrings/1: Adds 'real', 'operational', and 'volume' not explicitly stated in source; source says 'normal traffic' and 'consenting clients' but not that these are from operational networks or characterizes them as providing 'volume'.)
+- support: 32 (e.g. C001-CH1__R1008/companyBrings/1: Fields confirm terabytes of captures but do not specify that they cover Modbus TCP and BACnet/IP operational traffic specifically.; C001-CH1__R1008/whyThisPair/1: Fields confirm company has archives and hardware and one engineer reading about anomaly detection, and that research group has unsupervised algorithms, but fields do not state that the research group lacks BACnet/IP operational captures at deployment scale or that neither party can complete scope without the other.)

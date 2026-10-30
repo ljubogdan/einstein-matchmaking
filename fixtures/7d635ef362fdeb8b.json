@@ -1,0 +1,47 @@
+{
+  "key": "7d635ef362fdeb8b",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Round 1 of 4. Open with the term sheet you would prefer. action must be \"propose\".",
+  "items": [
+    {
+      "type": "reasoning",
+      "content": {
+        "text": "Let me construct a favorable opening term sheet for ArmaturaSec.",
+        "type": "input_text"
+      },
+      "encryptedContent": "Ep8CCnwIExABGAIqQCU0sHy7XqGVDeeT8X5Nj+VGx93e4aQB7QiaoBvniW2PKY83TvRn498PhNpFk1UVbF0Om20Y7EA2bWqD9DF7eUEyEWNsYXVkZS1zb25uZXQtNC02OABCCHRoaW5raW5nWgw2NjU3Njc3MDczNzKoAeTek9cGEgzQb0XBzfCdGXVxyC8aDNiLurOabgoCRNuOoyIw3fNoNlDpzgWzQp11s64fjwdtae3vZ38vJiIyMXOX8XaqMAKdA4/363Zn5XMrQOGcKlGZDvaMRTpSJlu/ZMh8zfS81zgmiv0w1a/gCsrkXaCGK2IG/ieJaCGgRliwiV91KlGa2pVcHGQout4jeQAvhWcF7hcI/JOQY2zhc5LA3SRDy8YYAQ==",
+      "summary": []
+    },
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"action\":\"propose\",\"sheet\":{\"engagement\":\"joint_project\",\"scope\":\"Develop and validate an unsupervised anomaly detection method for Modbus TCP and BACnet/IP traffic that learns normal-behaviour baselines from unlabelled captures and produces explainable alerts suitable for plant operators, targeting deployment on ArmaturaSec embedded hardware.\",\"ip\":\"company_owns_uni_academic_use\",\"exclusivity\":{\"field\":\"OT network security appliances and passive protocol inspection modules\",\"months\":24},\"publication\":{\"reviewDays\":60,\"companyMayRemoveConfidential\":true},\"backgroundIp\":[\"ArmaturaSec: ProtoSense firmware, traffic archives, Yocto-based embedded Linux build, Modbus TCP and BACnet/IP parsers, hardware bench\",\"Researcher/FTS: prior statistical baseline methods and testbed infrastructure\"],\"contributions\":{\"company\":[\"One to two engineers part-time with access to traffic archives, hardware bench, and firmware codebase under NDA\"],\"university\":[\"Full Professor research lead\",\"ICS testbed access\",\"Anomaly detection methodology and algorithm development\"]},\"money\":\"to be agreed\",\"timeline\":{\"months\":18,\"milestones\":[\"M3: baseline modelling approach agreed and prototyped on ArmaturaSec traffic archives\",\"M9: anomaly detector integrated into ProtoSense firmware, tested on hardware bench\",\"M15: field validation with at least one client network, false-positive rate assessed\",\"M18: final report, documented method, and production-ready firmware module delivered\"]},\"contact\":{\"company\":\"Technical Project Lead (engineering side)\",\"university\":\"Full Professor, Department of Computing and Control Engineering\"}},\"reason\":\"The researcher's work directly addresses unsupervised detection on Modbus networks using statistical baselines without labelled attack examples [SYN-PUB-10472], and handles the scarcity of labelled data [SYN-PUB-10477]; we want company ownership of results so the anomaly detection method can be embedded in ProtoSense and the planned fifth hardware variant without restriction. We include quarterly milestones to avoid a repeat of the 2021 student project where the collaboration was not continued formally and produced only a prototype with no follow-through [C001 past_collaborations].\",\"citations\":[\"SYN-PUB-10472\",\"SYN-PUB-10477\",\"C001 past_collaborations\"],\"evidence\":[{\"citation\":\"SYN-PUB-10472\",\"quote\":\"Kernel density estimators and one-class methods based on Mahalanobis distance thresholding can detect Modbus/TCP anomalies with empirical distributions of inter-request intervals, payload values, and function code sequences.\"},{\"citation\":\"SYN-PUB-10477\",\"quote\":\"Unsupervised anomaly detection and one-class classification for industrial control system protocol traffic can exploit the statistical properties of ICS environments to identify deviations from learned baselines without requiring labelled attack examples.\"},{\"citation\":\"C001 past_collaborations\",\"quote\":\"We ran a one-semester student project with a technical faculty in Novi Sad in 2021 that produced a prototype BACnet fuzzer; the code was useful but the collaboration was not continued formally.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 767,
+    "totalTokens": 770,
+    "inputTokenDetails": {
+      "cached_tokens": 3203
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 3203,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 26,
+      "ephemeral_1h_input_tokens": 3177
+    },
+    "output_tokens": 767,
+    "service_tier": "standard"
+  },
+  "ms": 10390
+}

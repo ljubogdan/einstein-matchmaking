@@ -69,6 +69,6 @@ The Arbiter's prompt lists the two challenges in id order, never as holder and r
 
 Concurrent vs one call at a time, on 30 Oct: the demo set (4 challenges) run twice live with `--fresh`, same code and models, up to 8 model calls at once vs `--in-flight=1`. **170.7 s vs 380.3 s, 2.2x faster**, 89 model calls each. The concurrent run hit the gateway's rate limit 11 times and retried. The answers were fresh, so the runs took slightly different paths: the concurrent one wrote more (42k vs 26k strong-model output tokens) and still finished first. Raw data: [`out/eval/concurrency.json`](out/eval/concurrency.json), with both runs' logs and traces next to it.
 
-The demo set replayed at recorded latency, drawn: [`out/eval/timeline.svg`](out/eval/timeline.svg) (68 calls in 75 s, up to 15 open at once).
+The demo set replayed at recorded latency, drawn: [`out/eval/timeline.svg`](out/eval/timeline.svg) (79 calls in 225 s, up to 15 open at once).
 
 Without the version check, the same matchmaker code would double-book 104 researchers across 264 of the 489 challenges; with it, none ([`out/eval/arbiter-*.json`](out/eval/), a code-only simulation with stand-ins for the model agents).

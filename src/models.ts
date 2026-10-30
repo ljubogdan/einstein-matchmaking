@@ -16,5 +16,5 @@ export const PRICE: Record<string, { input: number; output: number; cacheWrite: 
 }
 
 // Output cap per job, thinking included. Anthropic rejects a call without one, and Mozaik sets no default.
-// write was 8000 until 30 Oct: the C061-CH1__R0231 writer spent all of it thinking and gave no answer.
-export const MAX_OUTPUT = { analyze: 1500, profile: 2000, support: 2000, arbitrate: 2000, negotiate: 4000, write: 16000, rewrite: 6000 } as const
+// write was 8000, then 16000, until 30 Oct: writers spent all of it thinking and gave no answer.
+export const MAX_OUTPUT = { analyze: 1500, profile: 2000, support: 2000, arbitrate: 2000, negotiate: 4000, write: 24000, rewrite: 6000 } as const

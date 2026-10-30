@@ -1,0 +1,38 @@
+{
+  "key": "7be1fb3436d1aaf9",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We own the ProtoSense module and the traffic archives, so we need to own the results to ship them in our product [C001 products]; the university",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":true,\"reason\":\"\"},{\"item\":2,\"backed\":false,\"reason\":\"Words confirm NDA-protected archives exist but say nothing about confidential client data or know-how embedded in them justifying a 60-day review period.\"},{\"item\":3,\"backed\":true,\"reason\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 816,
+    "outputTokens": 77,
+    "totalTokens": 893,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 816,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 77,
+    "service_tier": "standard"
+  },
+  "ms": 18301
+}

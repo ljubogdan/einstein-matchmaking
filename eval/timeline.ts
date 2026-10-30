@@ -11,7 +11,7 @@ const GROUPS: [string, RegExp][] = [
   ["Profilers", /^profiler/],
   ["Critic support check", /^critic/],
   ["Arbiter", /^arbiter/],
-  ["Negotiators", /negotiator$/],
+  ["Negotiators", /negotiator(-check)?$/],
   ["Writers", /^writer/],
 ]
 type Line = { t: string; type: string; producer: string; loopId?: string }

@@ -32,7 +32,7 @@ export function renderProposal({ pair, draft, claims, verdicts, first, moves, ag
     `# ${draft.title}`,
     "",
     `**Company:** ${c.name} [${c.id}], ${c.sector}, ${c.employees} employees, ${c.location}.  `,
-    `**Faculty:** ${r.faculty}, ${r.department} [${r.id}].  `,
+    `**Researcher:** ${r.name}, ${r.title}, ${r.faculty}, ${r.department} [${r.id}].  `,
     `**Format:** ${engagement}  `,
     `**Supervisors / contacts:** ${agreed.sheet.contact.university} (academic) and ${agreed.sheet.contact.company} (company)`,
     "",

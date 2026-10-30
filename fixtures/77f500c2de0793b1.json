@@ -1,0 +1,38 @@
+{
+  "key": "77f500c2de0793b1",
+  "model": "claude-sonnet-4-6",
+  "prompt": "The fact checker did not pass these claims. Fix each one: change the sentence so its quotes say everything it says, or pick quotes that do. Leave a claim out to",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"The company holds about eighteen months of raw packet logs from three customer sites, averaging around four gigabytes per day per site, available in anonymised versions.\",\"sources\":[{\"id\":\"C032-CH1\",\"field\":\"detail\",\"quote\":\"eighteen months of raw packet logs from three customer sites, averaging around four gigabytes per day per site\"},{\"id\":\"C032-CH1\",\"field\":\"detail\",\"quote\":\"We can share anonymised versions\"}]},{\"claim\":2,\"text\":\"In-house Modbus and BACnet protocol parsers and four security engineers who do the core research and product work are available at the company.\",\"sources\":[{\"id\":\"C032\",\"field\":\"tech\",\"quote\":\"Modbus and BACnet protocol parsers (in-house)\"},{\"id\":\"C032\",\"field\":\"about\",\"quote\":\"four security engineers who do the core research and product work\"}]},{\"claim\":3,\"text\":\"The company needs a way to build detection models from unlabelled traffic, while prior research was evaluated on a synthetic dataset rather than logs from live production sites.\",\"sources\":[{\"id\":\"C032-CH1\",\"field\":\"detail\",\"quote\":\"a way to build detection models from unlabelled traffic that can flag genuinely unusual sequences\"},{\"id\":\"SYN-PUB-10523\",\"field\":\"abstract\",\"quote\":\"evaluated on a synthetic dataset generated from a real-world programmable logic controller testbed\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 324,
+    "totalTokens": 327,
+    "inputTokenDetails": {
+      "cached_tokens": 5888
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 5888,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 5888,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 324,
+    "service_tier": "standard"
+  },
+  "ms": 2370
+}

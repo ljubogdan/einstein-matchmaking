@@ -326,7 +326,7 @@ function group(producer) {
   if (/^profiler/.test(producer)) return "Profilers"
   if (/^critic/.test(producer)) return "Critic"
   if (/^arbiter/.test(producer)) return "Arbiter"
-  if (/negotiator$/.test(producer)) return "Negotiators"
+  if (/negotiator(-check)?$/.test(producer)) return "Negotiators"
   if (producer === "writer") return "Writers"
   return null
 }
@@ -801,7 +801,7 @@ $("logbtn").addEventListener("click", () => {
   $("logcol").hidden = !$("logcol").hidden
   document.querySelector("main").classList.toggle("with-log", !$("logcol").hidden)
 })
-$("run").addEventListener("click", () => fetch("/run?speed=4", { method: "POST" }))
+$("run").addEventListener("click", () => fetch("/run?speed=8", { method: "POST" }))
 $("plant").addEventListener("click", () => fetch("/plant", { method: "POST" }))
 $("theme").addEventListener("click", () => setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark"))
 window.addEventListener("resize", dirty)

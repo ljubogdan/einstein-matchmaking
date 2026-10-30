@@ -1,7 +1,8 @@
 import { createAgent, SemanticEvent, type Agent } from "@mozaik-ai/core"
+import { z } from "zod"
 import { answerText, parseJson } from "../llm/answer"
 import { EFFORT, MAX_OUTPUT, MODELS } from "../models"
-import { on, own, runLoop, sendEvent, type Board } from "../runtime"
+import { join, on, own, runLoop, sendEvent, type Board } from "../runtime"
 import { structuredOutput } from "../schema/model-schema"
 import { IP_MODELS, NegotiationReply, REVIEW_DAYS, type NegotiationMove, type TermSheet } from "../schema/termsheet"
 import { IP_LABELS } from "../proposal/terms"
@@ -21,10 +22,17 @@ const RULES = `Each turn, answer with JSON: action (propose | accept | walk_away
 - ip, one of these Lambert Toolkit models:
 ${IP_MODELS.map((ip) => `  ${ip}: ${IP_LABELS[ip]}`).join("\n")}
 - publication: reviewDays is 0, 30, 60 or 90 (how long the company may review a paper before it goes out); companyMayRemoveConfidential: the company may remove its confidential information, never results.
-- exclusivity: a field of use and months; months 0 means none.
-- backgroundIp: what each side keeps, with ids (patents, earlier projects, products). contributions: in kind, from the position cards.
+- exclusivity: a field of use and months; months 0 means none, 24 is the most either side may ask for, and if the other side lengthens it, say whether you accept and why.
+- backgroundIp: what each side keeps, with ids (patents, earlier projects, products). contributions: in kind, from the position cards; give people as roles with their time (part-time unless your card says otherwise), never a whole team.
 - money is "to be agreed" or a named funding route. Never an amount.
-- contact: roles, not names. Use only facts from your position card.`
+- timeline milestones are deliverables. Never say IP is transferred: the ip field says who owns what, and an option is exercised later, if at all.
+- contact: roles, never a person's name, and no student unless the engagement is an industrial PhD. Use only facts from your position card.`
+
+const CHECK_INSTRUCTION = `You check the citations in a negotiator's reasoning. Each numbered item gives a reason, one citation in it, and the exact words that citation rests on. Read only those words, not your own knowledge.
+Find the statement the citation is attached to, usually the clause just before the bracket. Answer for each item:
+- backed: true if the words state that statement (the same meaning in other words is fine). False if they are about something else or only show that a related thing exists.
+- reason: one short line; "" when backed.`
+const CitationCheck = z.object({ checks: z.array(z.object({ item: z.number(), backed: z.boolean(), reason: z.string() })) })
 
 const INTERESTS: Record<Side, string> = {
   company: "Your interests: results you can use in your products, confidentiality of your data and know-how, a usable result within the timeline. Turn what went wrong in past collaborations into a term (milestones, a contact role).",
@@ -105,6 +113,41 @@ export function createNegotiator(side: Side, pair: Pair, board: Board, data: Dat
       reply = { ...reply, action: "walk_away", reason: `hard limit: ${reply.sheet.engagement} is not allowed for ${pair.researcher.id} (allowed: ${allowed.join(", ") || "none"})` }
 
     const move: NegotiationMove = { ...reply, ...checkCitations(reply, card), pairId: pair.pairId, side, round: moves.length + 1, changes: previous ? changedFields(previous.sheet, reply.sheet) : [] }
+    if (move.evidence.length === 0) return publish(move)
+    // One model call per move: the code above proved the words exist, this asks whether they back the statement.
+    const checker: Agent = createAgent({
+      name: `${side}-negotiator-check`,
+      capabilities: ["check-citations"],
+      instruction: CHECK_INSTRUCTION,
+      tools: [],
+      handlers: [
+        {
+          specification: own("model.answer"),
+          processor: {
+            apply: ({ event }) => {
+              // An unreadable answer leaves the citations as they are: their quotes already passed the code check.
+              const answer = CitationCheck.safeParse(parseJson(answerText(event.payload)))
+              const refs = answer.success ? move.evidence.filter((_, i) => answer.data.checks.find((c) => c.item === i + 1)?.backed === false).map((e) => e.citation) : []
+              publish(refs.length ? { ...move, ...dropCitations(move, refs) } : move)
+            },
+          },
+        },
+      ],
+    })
+    join(checker)
+    const items = move.evidence.map((e, i) => `Item ${i + 1}. Reason: ${move.reason}\n  Citation: [${e.citation}]\n  Words: "${e.quote}"`).join("\n\n")
+    runLoop(checker.getId(), items, {
+      model: MODELS.strong,
+      reasoningEffort: EFFORT.negotiate,
+      maxOutputTokens: MAX_OUTPUT.negotiate,
+      context: checker.getMemory().getContext(),
+      tools: [],
+      structuredOutput: structuredOutput("citation_check", CitationCheck, MODELS.strong),
+    })
+  }
+
+  function publish(move: NegotiationMove): void {
+    if (cancelled()) return
     board.addMove(move)
     emit("prenup.negotiation.move", move)
     if (move.action === "accept") emit("prenup.negotiation.agreed", { pairId: pair.pairId, round: move.round, sheet: move.sheet })
@@ -112,6 +155,17 @@ export function createNegotiator(side: Side, pair: Pair, board: Board, data: Dat
   }
 
   return agent
+}
+
+/** Takes these citations out of a move: the sentence stands as unsourced. Used when the check finds a quote doesn't back its statement. */
+export function dropCitations(move: Pick<NegotiationMove, "reason" | "citations" | "evidence" | "uncited">, refs: string[]): Pick<NegotiationMove, "reason" | "citations" | "evidence" | "uncited"> {
+  const gone = new Set(refs)
+  const reason = move.reason.replace(/\s*\[([^\]]+)\]/g, (_, inner: string) => {
+    const kept = inner.split(/,\s*/).map((ref) => ref.trim()).filter((ref) => !gone.has(ref))
+    return kept.length ? ` [${kept.join(", ")}]` : ""
+  })
+  const evidence = move.evidence.filter((e) => !gone.has(e.citation))
+  return { reason, evidence, citations: [...new Set(evidence.map((e) => e.citation))], uncited: [...(move.uncited ?? []), ...refs] }
 }
 
 /**

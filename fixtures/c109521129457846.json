@@ -1,0 +1,38 @@
+{
+  "key": "c109521129457846",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The company needs to detect unusual behaviour on Modbus and BACnet networks without labelled attack data.\n  C032-CH1 text: \"detect unusual behav",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 5, \"support\": \"partly\", \"reason\": \"Source lists EdgeWatch sensor and parsers as products/tech available, but does not state they will be available for integration and testing throughout the project.\", \"rewrite\": \"The EdgeWatch sensor hardware and in-house Modbus and BACnet protocol parsers are available as company products and technologies.\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 10, \"support\": \"partly\", \"reason\": \"Source confirms the company holds eighteen months of real traffic and has not validated unsupervised methods, and confirms the researcher has expertise in anomaly detection in industrial control systems. However, the source does not explicitly state the researcher has no access to continuous packet logs from live deployments.\", \"rewrite\": \"The company holds about eighteen months of real OT traffic but has no validated unsupervised detection methods; the researcher has published on anomaly detection methods for industrial protocols but the source does not specify access to live deployment logs.\"}, {\"claim\": 11, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 12, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 432,
+    "totalTokens": 435,
+    "inputTokenDetails": {
+      "cached_tokens": 5116
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 5116,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 5116,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 432,
+    "service_tier": "standard"
+  },
+  "ms": 3413
+}

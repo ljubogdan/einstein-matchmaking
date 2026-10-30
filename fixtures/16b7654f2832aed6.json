@@ -1,0 +1,38 @@
+{
+  "key": "16b7654f2832aed6",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The company has almost no labelled examples of actual attacks on these networks, and customers do not want attack simulations run on live plant.",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"Fields state data can be shared anonymised but do not explicitly confirm it is available for training\", \"rewrite\": \"The company holds about eighteen months of raw packet logs from three customer sites, averaging around four gigabytes per day per site, available in anonymised versions.\"}, {\"claim\": 5, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 6, \"support\": \"partly\", \"reason\": \"Fields mention in-house parsers and four security engineers but do not state they will support this specific project throughout\", \"rewrite\": \"In-house Modbus and BACnet protocol parsers and four security engineers who do the core research and product work are available at the company.\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 10, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 11, \"support\": \"partly\", \"reason\": \"Fields support that company needs unlabelled detection methods and research used synthetic data, but do not state the company has not developed methods or that neither side can complete work alone\", \"rewrite\": \"The company needs a way to build detection models from unlabelled traffic, while prior research was evaluated on a synthetic dataset rather than logs from live production sites.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 422,
+    "totalTokens": 425,
+    "inputTokenDetails": {
+      "cached_tokens": 5441
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 5441,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 5441,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 422,
+    "service_tier": "standard"
+  },
+  "ms": 3602
+}

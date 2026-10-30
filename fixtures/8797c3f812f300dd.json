@@ -1,0 +1,38 @@
+{
+  "key": "8797c3f812f300dd",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: Our position is university ownership of results, so we propose uni_owns_option_to_licence, which still gives the company a clear commercial path",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":true,\"reason\":\"\"},{\"item\":2,\"backed\":true,\"reason\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 737,
+    "outputTokens": 32,
+    "totalTokens": 769,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 737,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 32,
+    "service_tier": "standard"
+  },
+  "ms": 720
+}

@@ -1,153 +1,90 @@
 {
   "what": "Citations in the recorded negotiation moves, with the exact words behind each. resolves: checked by code. review: whether the quote backs the statement the citation is attached to, read by Claude, not by a person.",
   "trace": "out/eval/trace-replay-1x.jsonl",
-  "citations": 20,
-  "resolve": 20,
+  "citations": 10,
+  "removedDuringRun": [
+    "C061 past_collaborations",
+    "C001 past_collaborations",
+    "C032 rd_capacity",
+    "R0231 publications",
+    "C001 rd_capacity",
+    "R1015 projects"
+  ],
+  "resolve": 10,
   "review": {
-    "yes": 16,
-    "no": 2,
+    "yes": 8,
     "partly": 2
   },
   "rows": [
     {
-      "citation": "C001-CH1__R1015/1/company/C001 rd_capacity",
+      "citation": "C001-CH1__R1008/1/company/SYN-PUB-10477",
       "resolves": true,
-      "quote": "We can dedicate one to two engineers part-time to a collaborative project, with access to our traffic archives, our hardware bench, and our existing firmware codebase under NDA.",
-      "reason": "The results must be integrable into ProtoSense and the planned fifth hardware variant, so we want company ownership with the university retaining academic use rights. Our traffic archives and hardware bench are the core contribution [C001 rd_capacity], and milestone sign-off by a named company engineer addresses the lesson from our 2021 collaboration where there was no formal continuation mechanism [C001 past_collaborations].",
+      "quote": "Unsupervised anomaly detection and one-class classification for industrial control system protocol traffic can exploit the statistical properties of ICS environments to identify deviations from learned baselines without requiring labelled attack examples.",
+      "reason": "The researcher's methods work without labelled attack examples and are suited to the statistical properties of ICS traffic [SYN-PUB-10477], which directly matches our challenge of having no confirmed malicious captures. We want company ownership of results so the detector can ship in ProtoSense and the planned fifth hardware variant [C001 plans], and we propose a milestone at M6 to avoid the lack of formal checkpoints that left our 2021 faculty collaboration without continuation.",
       "review": "yes"
     },
     {
-      "citation": "C001-CH1__R1015/1/company/C001 past_collaborations",
+      "citation": "C001-CH1__R1008/1/company/C001 plans",
       "resolves": true,
-      "quote": "the code was useful but the collaboration was not continued formally",
-      "reason": "The results must be integrable into ProtoSense and the planned fifth hardware variant, so we want company ownership with the university retaining academic use rights. Our traffic archives and hardware bench are the core contribution [C001 rd_capacity], and milestone sign-off by a named company engineer addresses the lesson from our 2021 collaboration where there was no formal continuation mechanism [C001 past_collaborations].",
-      "review": "yes"
-    },
-    {
-      "citation": "C061-CH1__R0231/1/company/SYN-PUB-02918",
-      "resolves": true,
-      "quote": "Peroxide formation in cold-pressed pumpkin seed oil follows predictable pseudo-first-order kinetics at different storage temperatures, with rate constants ranging from 0.018 to 0.091 meq O₂/(kg·day) depending on conditions and activation energy of 48.3 kJ/mol indicating autoxidation of polyunsaturated fatty acids rather than photosensitised oxidation.",
-      "reason": "The researcher has directly studied peroxide formation kinetics in cold-pressed pumpkin seed oil and the effect of headspace oxygen on oxidation rate in small-scale filling lines [SYN-PUB-02918, SYN-PUB-02921], making contract research the right engagement type. We want company ownership of results because the findings will be embedded in our production process and product range, and we need 24 months exclusivity to recoup investment before competitors can access the same protocol.",
-      "review": "yes"
-    },
-    {
-      "citation": "C061-CH1__R0231/1/company/SYN-PUB-02921",
-      "resolves": true,
-      "quote": "residual oxygen in the headspace critically influences oxidation rate, with a maximum residual oxygen threshold of 2% recommended for practical filling-line specifications in small-scale cold-press operations",
-      "reason": "The researcher has directly studied peroxide formation kinetics in cold-pressed pumpkin seed oil and the effect of headspace oxygen on oxidation rate in small-scale filling lines [SYN-PUB-02918, SYN-PUB-02921], making contract research the right engagement type. We want company ownership of results because the findings will be embedded in our production process and product range, and we need 24 months exclusivity to recoup investment before competitors can access the same protocol.",
-      "review": "yes"
+      "quote": "ArmaturaSec intends to release a fifth hardware variant in late 2025 with a dedicated security processor to support on-device anomaly detection without affecting packet forwarding latency.",
+      "reason": "The researcher's methods work without labelled attack examples and are suited to the statistical properties of ICS traffic [SYN-PUB-10477], which directly matches our challenge of having no confirmed malicious captures. We want company ownership of results so the detector can ship in ProtoSense and the planned fifth hardware variant [C001 plans], and we propose a milestone at M6 to avoid the lack of formal checkpoints that left our 2021 faculty collaboration without continuation.",
+      "review": "partly"
     },
     {
       "citation": "C061-CH1__R0231/2/researcher/R0231 publications",
       "resolves": true,
       "quote": "16 authored publications, latest 2026",
-      "reason": "We accept company ownership of results under contract research terms but we want the university to retain rights to use findings for academic research and teaching, which is standard under company_owns_uni_academic_use. We also want exclusivity reduced to 12 months, in exchange for accepting company ownership; the researcher has 16 authored publications [R0231 publications] and an active publication record that must not be suppressed long-term, and 12 months is sufficient for the company to implement process changes before findings enter academic literature.",
+      "reason": "We accept the 18-month exclusivity in the field of cold-pressed pumpkin seed oil production as a trade for moving IP to university ownership with a non-exclusive licence to the company, which is our standard position; we have 16 authored publications [R0231 publications] and need to retain publication rights, so we also reduce the review period to 60 days to keep academic dissemination viable.",
       "review": "yes"
     },
     {
-      "citation": "C032-CH1__R1015/1/company/C032 products",
+      "citation": "C032-CH1__R1015/1/company/C032 past_collaborations",
       "resolves": true,
-      "quote": "EdgeWatch sensor — passive network tap and protocol parser for OT environments; SOC service — 24/7 analyst monitoring with incident triage for industrial and building networks",
-      "reason": "We need results we can deploy directly in our EdgeWatch sensor and SOC service, so company ownership of project results is our preferred position [C032 products]. The 60-day publication review window and right to remove confidential information protect the customer traffic data and know-how embedded in our anonymised logs [C032-CH1].",
+      "quote": "None.",
+      "reason": "We have no past collaborations to draw on [C032 past_collaborations], so clear milestones at M3, M6, M9 and M12 protect both sides and keep the twelve-month deployment target on track. Our anonymised customer traffic and in-house OT parsers are the core technical asset here, so we want company ownership with university academic-use rights and 24-month exclusivity in OT anomaly detection to support our EdgeWatch and SOC products.",
       "review": "yes"
     },
     {
-      "citation": "C032-CH1__R1015/1/company/C032-CH1",
+      "citation": "C001-CH1__R1008/2/researcher/R1008 publications",
       "resolves": true,
-      "quote": "customers do not want us running attack simulations on live plant",
-      "reason": "We need results we can deploy directly in our EdgeWatch sensor and SOC service, so company ownership of project results is our preferred position [C032 products]. The 60-day publication review window and right to remove confidential information protect the customer traffic data and know-how embedded in our anonymised logs [C032-CH1].",
-      "review": "no"
-    },
-    {
-      "citation": "C001-CH1__R1008/1/company/SYN-PUB-10477",
-      "resolves": true,
-      "quote": "Unsupervised anomaly detection and one-class classification for industrial control system protocol traffic can exploit the statistical properties of ICS environments to identify deviations from learned baselines without requiring labelled attack examples.",
-      "reason": "The researcher's methods work directly from normal traffic with no labelled attack examples, matching our core need [SYN-PUB-10477], and the statistical baseline approaches have been demonstrated on Modbus/TCP [SYN-PUB-10472]. We want company ownership of results to protect the ProtoSense integration roadmap, and we propose a named company technical lead to avoid the lack of continuity that ended our last collaboration without a formal follow-on [C001 past_collaborations].",
-      "review": "yes"
-    },
-    {
-      "citation": "C001-CH1__R1008/1/company/SYN-PUB-10472",
-      "resolves": true,
-      "quote": "Kernel density estimators and one-class methods based on Mahalanobis distance thresholding can detect Modbus/TCP anomalies with empirical distributions of inter-request intervals, payload values, and function code sequences.",
-      "reason": "The researcher's methods work directly from normal traffic with no labelled attack examples, matching our core need [SYN-PUB-10477], and the statistical baseline approaches have been demonstrated on Modbus/TCP [SYN-PUB-10472]. We want company ownership of results to protect the ProtoSense integration roadmap, and we propose a named company technical lead to avoid the lack of continuity that ended our last collaboration without a formal follow-on [C001 past_collaborations].",
-      "review": "yes"
-    },
-    {
-      "citation": "C001-CH1__R1008/1/company/C001 past_collaborations",
-      "resolves": true,
-      "quote": "We ran a one-semester student project with a technical faculty in Novi Sad in 2021 that produced a prototype BACnet fuzzer; the code was useful but the collaboration was not continued formally.",
-      "reason": "The researcher's methods work directly from normal traffic with no labelled attack examples, matching our core need [SYN-PUB-10477], and the statistical baseline approaches have been demonstrated on Modbus/TCP [SYN-PUB-10472]. We want company ownership of results to protect the ProtoSense integration roadmap, and we propose a named company technical lead to avoid the lack of continuity that ended our last collaboration without a formal follow-on [C001 past_collaborations].",
+      "quote": "20 authored publications, latest 2026",
+      "reason": "We want university ownership of results with the company holding an option to licence, which protects both the academic publication record and the company's route to commercialisation in ProtoSense. In trade for accepting the 18-month exclusivity period, we ask that the publication review window be reduced from 60 to 30 days, since the group has 20 authored publications with the latest in 2026 and timely dissemination is important [R1008 publications].",
       "review": "yes"
     },
     {
       "citation": "C032-CH1__R1015/2/researcher/R1015 projects",
       "resolves": true,
-      "quote": "SECURE-ICS: security monitoring for factories",
-      "reason": "University ownership of results is our position, and we offer the company a 24-month exclusive option to licence in the OT monitoring field as a commercial trade for that ownership. We retain the know-how from SYN-PRJ-0017 SECURE-ICS as background IP [R1015 projects].",
+      "quote": "SYN-PRJ-0017 \"SECURE-ICS: security monitoring for factories\"",
+      "reason": "Our position is university ownership of results, so we propose uni_owns_option_to_licence, which still gives the company a clear commercial path through a licence option. In exchange we accept the milestones as proposed and reduce our ask on exclusivity to 12 months rather than seeking zero, since the autoencoder and federated learning methods in this work build directly on know-how from SYN-PRJ-0017 [R1015 projects] and our published research [SYN-PUB-10523] that the university must remain free to develop further.",
       "review": "yes"
     },
     {
-      "citation": "C001-CH1__R1008/2/researcher/R1008 open_to",
+      "citation": "C032-CH1__R1015/2/researcher/SYN-PUB-10523",
       "resolves": true,
-      "quote": "joint projects with companies deploying ICS monitoring solutions",
-      "reason": "We want university ownership of results with a licence option for the company, consistent with a joint project where the university contributes core methodology and testbed infrastructure [R1008 open_to]. We accept the 60-day review period and offer to reduce exclusivity to 12 months as a trade for the IP ownership change.",
+      "quote": "Unsupervised anomaly detection on industrial protocols can be performed using autoencoder-based neural networks trained only on benign traffic to identify deviations without requiring labelled attack data.",
+      "reason": "Our position is university ownership of results, so we propose uni_owns_option_to_licence, which still gives the company a clear commercial path through a licence option. In exchange we accept the milestones as proposed and reduce our ask on exclusivity to 12 months rather than seeking zero, since the autoencoder and federated learning methods in this work build directly on know-how from SYN-PRJ-0017 [R1015 projects] and our published research [SYN-PUB-10523] that the university must remain free to develop further.",
       "review": "yes"
     },
     {
-      "citation": "C061-CH1__R0231/3/company/C061 plans",
+      "citation": "C061-CH1__R0231/3/company/C061 rd_capacity",
       "resolves": true,
-      "quote": "Within the next two years Zlatna Njiva intends to add a dedicated cold-press line for organic seeds, physically separated from the conventional line, to simplify certification compliance and expand the organic export range.",
-      "reason": "We accept company_owns_uni_academic_use and reduce reviewDays from 60 to 30 in recognition of the researcher's publication interests; in return we ask for 18 months exclusivity because we intend to add a dedicated organic cold-press line within two years and need the process-change protocol protected long enough to establish that line before findings enter public literature [C061 plans]. 18 months is a reasonable midpoint between our opening position of 24 and the researcher's counter of 12.",
+      "quote": "We have one in-house lab technician who handles routine quality checks and can support external partners with sample preparation and basic physical-chemical measurements, but we do not have dedicated research staff or specialised analytical instruments beyond titration and moisture analysis.",
+      "reason": "We accept the move to university ownership with an option to assign — giving us a path to full ownership if we choose to commercialise — in exchange for restoring the 90-day review period, since our batch records and nitrogen-flush configuration shared during the project are operationally sensitive and we have no dedicated research staff to monitor publications quickly [C061 rd_capacity].",
       "review": "yes"
     },
     {
       "citation": "C001-CH1__R1008/3/company/C001 plans",
       "resolves": true,
       "quote": "ArmaturaSec intends to release a fifth hardware variant in late 2025 with a dedicated security processor to support on-device anomaly detection without affecting packet forwarding latency.",
-      "reason": "We accept moving to uni_owns_option_to_assign as a compromise on ownership, which gives us a clear path to take over the IP and integrate it into ProtoSense without depending on ongoing licence negotiations; in exchange we need exclusivity restored to 18 months to align with our planned fifth hardware variant release in late 2025 [C001 plans]. We contributed the traffic archives and hardware bench that make embedded validation possible [C001 rd_capacity], and a longer exclusivity window protects the commercial value of that contribution.",
-      "review": "yes"
-    },
-    {
-      "citation": "C001-CH1__R1008/3/company/C001 rd_capacity",
-      "resolves": true,
-      "quote": "We can dedicate one to two engineers part-time to a collaborative project, with access to our traffic archives, our hardware bench, and our existing firmware codebase under NDA.",
-      "reason": "We accept moving to uni_owns_option_to_assign as a compromise on ownership, which gives us a clear path to take over the IP and integrate it into ProtoSense without depending on ongoing licence negotiations; in exchange we need exclusivity restored to 18 months to align with our planned fifth hardware variant release in late 2025 [C001 plans]. We contributed the traffic archives and hardware bench that make embedded validation possible [C001 rd_capacity], and a longer exclusivity window protects the commercial value of that contribution.",
-      "review": "yes"
-    },
-    {
-      "citation": "C032-CH1__R1015/3/company/C032 products",
-      "resolves": true,
-      "quote": "EdgeWatch sensor — passive network tap and protocol parser for OT environments; SOC service — 24/7 analyst monitoring with incident triage for industrial and building networks",
-      "reason": "We accept the university background IP position including SECURE-ICS know-how, and trade that concession for upgrading the IP term from option-to-licence to option-to-assign, which gives us a clearer path to embedding results directly in our EdgeWatch sensor and SOC service [C032 products]. We have no prior collaboration history so we are adding an explicit go/no-go review at M6 to protect our twelve-month deployment requirement [C032-CH1].",
-      "review": "yes"
-    },
-    {
-      "citation": "C032-CH1__R1015/3/company/C032-CH1",
-      "resolves": true,
-      "quote": "We need something we can deploy within twelve months.",
-      "reason": "We accept the university background IP position including SECURE-ICS know-how, and trade that concession for upgrading the IP term from option-to-licence to option-to-assign, which gives us a clearer path to embedding results directly in our EdgeWatch sensor and SOC service [C032 products]. We have no prior collaboration history so we are adding an explicit go/no-go review at M6 to protect our twelve-month deployment requirement [C032-CH1].",
-      "review": "yes"
-    },
-    {
-      "citation": "C061-CH1__R0231/4/researcher/R0231 publications",
-      "resolves": true,
-      "quote": "16 authored publications, latest 2026",
-      "reason": "The company has moved to 30-day review, which protects our publication rights [R0231 publications], and university academic use is preserved under company_owns_uni_academic_use. The 18-month exclusivity is a reasonable compromise given the company's planned organic cold-press expansion and the researcher's background IP in SYN-PRJ-0180 and SYN-PRJ-0181 is fully protected.",
+      "reason": "We accept the 30-day review window in exchange for moving from option-to-licence to option-to-assign, because we want a clear path to full ownership of the detector so it can ship embedded in ProtoSense and the planned fifth hardware variant [C001 plans] without ongoing licence dependency. Our traffic archives, contributed under NDA, are central to training the detector, and we want the option to assign to reflect that material contribution.",
       "review": "partly"
     },
     {
-      "citation": "C001-CH1__R1008/4/researcher/R1008 open_to",
+      "citation": "C032-CH1__R1015/3/company/C032 plans",
       "resolves": true,
-      "quote": "joint projects with companies deploying ICS monitoring solutions",
-      "reason": "The university retains ownership with an option to assign, publication rights are preserved with a 60-day review, and background IP is protected [R1008 open_to]. No hard limits are crossed and the engagement type matches our open collaborations.",
-      "review": "no"
-    },
-    {
-      "citation": "C032-CH1__R1015/4/researcher/R1015 projects",
-      "resolves": true,
-      "quote": "SECURE-ICS: security monitoring for factories",
-      "reason": "The university retains ownership with an option-to-assign, publication rights are preserved with a 60-day review, background IP including SYN-PRJ-0017 SECURE-ICS is protected [R1015 projects], and no hard limits are crossed.",
-      "review": "partly"
+      "quote": "Certify under the EU Cyber Resilience Act.",
+      "reason": "We accept the 12-month exclusivity in exchange for upgrading the IP model to uni_owns_option_to_assign: an option to licence gives us no certainty of ownership, which we need to embed results in EdgeWatch and our SOC service, whereas an option to assign gives us a clear path to full ownership if we choose to exercise it. Our anonymised traffic from live customer sites is the primary training asset, and we must be able to deploy and certify the resulting models under the EU Cyber Resilience Act [C032 plans] without renegotiating rights later.",
+      "review": "yes"
     }
   ]
 }

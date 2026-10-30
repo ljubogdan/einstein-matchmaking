@@ -1,0 +1,38 @@
+{
+  "key": "075afe956089e604",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The company has almost no labelled examples of actual attacks on these networks because real incidents are rare and customers do not allow attac",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 5, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 6, \"support\": \"partly\", \"reason\": \"Claims about contribution to data preparation, protocol integration, and deployment are not in the field\", \"rewrite\": \"The company employs four security engineers who do the core research and product work.\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 10, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 11, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 12, \"support\": \"partly\", \"reason\": \"The field lists in-house protocol parsers but does not state they provide the integration and deployment environment that model development requires\", \"rewrite\": \"The company has in-house Modbus and BACnet protocol parsers and the EdgeWatch sensor hardware.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 354,
+    "totalTokens": 357,
+    "inputTokenDetails": {
+      "cached_tokens": 5318
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 5318,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 5318,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 354,
+    "service_tier": "standard"
+  },
+  "ms": 2480
+}

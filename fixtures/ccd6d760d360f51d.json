@@ -1,0 +1,38 @@
+{
+  "key": "ccd6d760d360f51d",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The ProtoSense module must detect unusual behaviour on Modbus and BACnet networks, but the company has 'zero examples of malicious traffic and s",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"},{\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"},{\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"},{\"claim\": 4, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"},{\"claim\": 5, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"},{\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"},{\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"},{\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"},{\"claim\": 9, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"},{\"claim\": 10, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"},{\"claim\": 11, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 250,
+    "totalTokens": 253,
+    "inputTokenDetails": {
+      "cached_tokens": 4215
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 4215,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 4215,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 250,
+    "service_tier": "standard"
+  },
+  "ms": 1717
+}

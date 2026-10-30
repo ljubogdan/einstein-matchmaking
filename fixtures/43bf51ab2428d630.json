@@ -1,0 +1,38 @@
+{
+  "key": "43bf51ab2428d630",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The company holds about eighteen months of raw packet logs from three customer sites, averaging around four gigabytes per day per site, availabl",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"Fields do not state that prior research was evaluated on synthetic rather than live production data; only that the company needs unlabelled traffic methods and public datasets don't match field reality\", \"rewrite\": \"The company needs a way to build detection models from unlabelled traffic to flag genuinely unusual sequences, because public datasets for OT protocols are thin and often do not match what they see in the field.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2212,
+    "outputTokens": 152,
+    "totalTokens": 2364,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2212,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 152,
+    "service_tier": "standard"
+  },
+  "ms": 1779
+}

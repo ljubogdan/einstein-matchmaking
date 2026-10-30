@@ -1,0 +1,38 @@
+{
+  "key": "5143544c3c5e44be",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The oil goes rancid within 4 months on shelf, but competitors manage 9–12 months, and the company loses about 15% of each batch to returns.\n  C0",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":2,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":3,\"support\":\"partly\",\"reason\":\"Fields state company lacks equipment and has not performed analyses, but do not state that main oxidation pathway has not been identified—only that identifying it would be a good outcome.\",\"rewrite\":\"The company does not have gas chromatography equipment and has not performed a fatty acid profile breakdown or a tocopherol content analysis in-house.\"},{\"claim\":4,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":5,\"support\":\"partly\",\"reason\":\"Fields confirm batch traceability to field and harvest, but do not mention that batch-identified samples from multiple storage time-points are available for analysis.\",\"rewrite\":\"The company traces every batch back to a specific field and harvest.\"},{\"claim\":6,\"support\":\"partly\",\"reason\":\"Fields confirm dark glass bottling line with nitrogen flushing exists, but do not state it is available for headspace oxygen measurement trials under current production conditions.\",\"rewrite\":\"A dark glass bottling line with nitrogen flushing is available.\"},{\"claim\":7,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":8,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":9,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":10,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":11,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 340,
+    "totalTokens": 343,
+    "inputTokenDetails": {
+      "cached_tokens": 5658
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 5658,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 5658,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 340,
+    "service_tier": "standard"
+  },
+  "ms": 2777
+}
