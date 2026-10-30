@@ -1,5 +1,5 @@
-import { readdirSync, rmSync } from "node:fs"
-import { ModelContext, ModelMessageItem, SemanticEvent, UserMessageItem, type InferenceInput, type InferenceOutput, type InferenceRunner } from "@mozaik-ai/core"
+import { existsSync, readdirSync, rmSync } from "node:fs"
+import { ModelContext, ModelMessageItem, ReasoningItem, SemanticEvent, UserMessageItem, type InferenceInput, type InferenceOutput, type InferenceRunner } from "@mozaik-ai/core"
 import { beforeEach, expect, test } from "vitest"
 import { Semaphore, withRetry } from "../src/llm/limiter"
 import { RecordingRunner } from "../src/llm/runner"
@@ -79,4 +79,11 @@ test("the semaphore never runs more than its limit at once", async () => {
     })
   await Promise.all(Array.from({ length: 6 }, task))
   expect(peak).toBe(2)
+})
+
+test("an answer cut off while thinking (reasoning only) fails clearly and is not recorded", async () => {
+  const thinking: InferenceOutput = { items: [ReasoningItem.rehydrate({ content: undefined, encryptedContent: undefined, summary: [] })], tokenUsage: undefined, rowResponse: null }
+  const recorder = new RecordingRunner({ mode: "record", dir, inner: fakeModel(async () => thinking) })
+  await expect(recorder.run({ ...input("Write the proposal"), maxOutputTokens: 8000 })).rejects.toThrow("no answer within 8000 output tokens")
+  expect(existsSync(dir) ? readdirSync(dir) : []).toHaveLength(0)
 })

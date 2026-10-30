@@ -49,19 +49,19 @@ export function createProfiler(data: Dataset, cache: ResultCache): Human {
         processor: {
           apply: ({ event }) => {
             const { challengeId, candidates } = event.payload as { challengeId: string; candidates: Candidate[] }
-            for (const candidate of candidates) profile(challengeId, candidate)
+            candidates.forEach((candidate, i) => profile(challengeId, candidate, i + 1))
           },
         },
       },
     ],
   })
 
-  function profile(challengeId: string, candidate: Candidate): void {
+  function profile(challengeId: string, candidate: Candidate, rank: number): void {
     const name = `${challengeId}__${candidate.researcherId}`
     const message = profileMessage(data, challengeId, candidate)
     const key = ResultCache.key(MODELS.cheap, INSTRUCTION, message)
     const cached = cache.get("profile", name, key, ProfilerAnswer)
-    if (cached) return emit(profiler.getId(), "prenup.profile.ready", card(challengeId, candidate, cached, true))
+    if (cached) return void setImmediate(() => emit(profiler.getId(), "prenup.profile.ready", card(challengeId, candidate, rank, cached, true))) // next tick, like the analyst
 
     const agent = createAgent({
       name: `profiler:${candidate.researcherId}`,
@@ -76,7 +76,7 @@ export function createProfiler(data: Dataset, cache: ResultCache): Human {
               const parsed = ProfilerAnswer.safeParse(parseJson(answerText(event.payload)))
               const answer = parsed.success ? parsed.data : { expertise: [], fit: "none" as const, fitReason: `invalid profiler answer: ${parsed.error.issues[0]?.message}` }
               if (parsed.success) cache.set("profile", name, key, answer)
-              emit(agent.getId(), "prenup.profile.ready", card(challengeId, candidate, answer, false))
+              emit(agent.getId(), "prenup.profile.ready", card(challengeId, candidate, rank, answer, false))
             },
           },
         },
@@ -93,13 +93,14 @@ export function createProfiler(data: Dataset, cache: ResultCache): Human {
   }
 
   // The model reads the evidence; code adds availability and trap flags, and the Critic's checks decide which facts stay.
-  function card(challengeId: string, candidate: Candidate, answer: ProfilerAnswer, cached: boolean): ProfileCard {
+  function card(challengeId: string, candidate: Candidate, rank: number, answer: ProfilerAnswer, cached: boolean): ProfileCard {
     const r = data.researchers.get(candidate.researcherId)!
     const claims = answer.expertise.map((c, i): Claim => ({ ...c, id: `profile:${challengeId}__${r.id}/${i + 1}`, subject: r.id, kind: "fact" }))
     const passed = claims.filter((claim) => checkClaim(claim, { data, move: () => undefined }).verdict === "pass")
     return {
       challengeId,
       researcherId: r.id,
+      rank,
       publications: candidate.publications.map((hit) => hit.id),
       availability: availabilityOf(r).availability,
       allowedEngagements: allowedEngagements(r),

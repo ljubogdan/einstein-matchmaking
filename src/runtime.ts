@@ -9,6 +9,8 @@ export class Board extends RuntimeState {
   readonly reservations = new Map<string, Reservation>()
   /** pairId -> moves in order; move n is round n. */
   readonly negotiations = new Map<string, NegotiationMove[]>()
+  /** Pairs the Arbiter took the researcher away from: their agents drop whatever is still in flight. */
+  readonly cancelled = new Set<string>()
 
   /** What a matchmaker reads before reserving: the current holder and version. */
   reservation(researcherId: string): Reservation | undefined {

@@ -60,9 +60,13 @@ export class RecordingRunner implements InferenceRunner {
     const report = (error: unknown, attempt: number) =>
       console.warn(`${input.model}: attempt ${attempt} failed (${redactKeys(String(error)).slice(0, 200)}); retrying`)
     const output = await this.limiter.use(() => withRetry(() => withTimeout(viaStream(inner, input), this.timeoutMs), this.retries, this.retryBaseMs, report))
+    this.count(input.model, output, "live")
+    // Thinking can use up the whole output cap and leave no answer; Mozaik would then fail with the opaque
+    // "No transition rule found after inference". Fail clearly instead, and never record it (replay would repeat it).
+    if (!output.items.some((item) => item.type === "message" || item.type === "function_call"))
+      throw new Error(`${input.model}: no answer within ${input.maxOutputTokens} output tokens (reasoning only); not recorded. Raise MAX_OUTPUT or lower EFFORT`)
     mkdirSync(this.dir, { recursive: true })
     writeFileSync(path, JSON.stringify(toFixture(key, input, output), null, 2) + "\n")
-    this.count(input.model, output, "live")
     return output
   }
 

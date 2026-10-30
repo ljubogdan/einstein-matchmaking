@@ -61,11 +61,16 @@ export function createNegotiator(side: Side, pair: Pair, board: Board, data: Dat
     ],
   })
 
+  // A pair the Arbiter cancelled stays silent: no new rounds, and answers still in flight are dropped.
+  const cancelled = () => board.cancelled.has(pair.pairId)
+
   function emit(type: string, payload: unknown): void {
+    if (cancelled()) return
     sendEvent(SemanticEvent.create(type, agent.getId(), payload), agent.getId())
   }
 
   function ask(message: string): void {
+    if (cancelled()) return
     runLoop(agent.getId(), message, {
       model: MODELS.strong,
       reasoningEffort: EFFORT.negotiate,
@@ -78,6 +83,7 @@ export function createNegotiator(side: Side, pair: Pair, board: Board, data: Dat
 
   // The model proposes; code records the move, enforces hard limits and computes what changed.
   function record(text: string): void {
+    if (cancelled()) return
     const parsed = NegotiationReply.safeParse(parseJson(text))
     if (!parsed.success) return emit("prenup.negotiation.no_deal", { pairId: pair.pairId, reason: `${side} sent an invalid move: ${parsed.error.issues[0]?.message}` })
     const moves = board.negotiations.get(pair.pairId) ?? []

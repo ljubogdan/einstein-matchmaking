@@ -48,7 +48,8 @@ export function createAnalyst(data: Dataset, cache: ResultCache): Human {
     const message = challengeMessage(data, challengeId)
     const key = ResultCache.key(MODELS.cheap, INSTRUCTION, message)
     const cached = cache.get("analysis", challengeId, key, AnalystAnswer)
-    if (cached) return emit(analyst.getId(), "prenup.challenge.analyzed", { challengeId, ...cached, cached: true })
+    // Next tick, like a model answer: a cached run keeps the concurrent shape (every matchmaker reads the board before anyone writes).
+    if (cached) return void setImmediate(() => emit(analyst.getId(), "prenup.challenge.analyzed", { challengeId, ...cached, cached: true }))
 
     const agent = createAgent({
       name: `analyst:${challengeId}`,

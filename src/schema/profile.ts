@@ -21,6 +21,7 @@ export type ProfilerAnswer = z.infer<typeof ProfilerAnswer>
 export type ProfileCard = {
   challengeId: string
   researcherId: string
+  rank: number // 1-based position in the challenge's search shortlist
   publications: string[] // the search hits the Profiler read
   availability: Availability
   allowedEngagements: Engagement[]

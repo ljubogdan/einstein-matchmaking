@@ -1,0 +1,37 @@
+{
+  "key": "ead7aa0a4973d2bd",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C032-CH1: We need to detect unusual behaviour on Modbus and BACnet networks without labelled attack data.\nDetail: Our EdgeWatch sensor captures all tr",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"expertise\":[{\"text\":\"Semi-supervised anomaly detection methods can be trained on mostly unlabelled data by incorporating partial labels or using self-training with uncertainty filtering to avoid pseudo-label noise in imbalanced industrial streams.\",\"sources\":[{\"id\":\"SYN-PUB-00960\",\"field\":\"abstract\",\"quote\":\"Standard one-class SVM ignores partial labels entirely; this paper proposes a constrained OC-SVM variant that incorporates labelled anomalies\"},{\"id\":\"SYN-PUB-00962\",\"field\":\"abstract\",\"quote\":\"Self-training iteratively assigns pseudo-labels to unlabelled samples and retrains a classifier, but in highly imbalanced settings pseudo-label noise disproportionately corrupts the minority class\"}]},{\"text\":\"Anomaly detection models can be optimised to run inference on edge devices with severe memory constraints such as 512 MB RAM and ARM processors while maintaining detection accuracy through quantisation and model selection.\",\"sources\":[{\"id\":\"SYN-PUB-00963\",\"field\":\"abstract\",\"quote\":\"Deploying anomaly detection at the network edge requires balancing model accuracy against strict memory budgets and latency targets\"},{\"id\":\"SYN-PUB-00963\",\"field\":\"abstract\",\"quote\":\"The quantised convolutional network fits within 200 KB and achieves 97% of its full-precision AUPRC while meeting a 5 ms per-window latency budget on the ARM board\"}]},{\"text\":\"Concept drift and label scarcity in time-series data from industrial monitoring can be addressed through ensemble methods and high-dimensional imbalanced learning techniques relevant to detecting rare fault events.\",\"sources\":[{\"id\":\"R0071\",\"field\":\"bio\",\"quote\":\"Her group focuses on anomaly detection and classification in high-dimensional, heavily imbalanced time-series data, including methods for handling concept drift and label scarcity\"},{\"id\":\"R0071\",\"field\":\"keywords\",\"quote\":\"anomaly detection, imbalanced learning, semi-supervised classification, concept drift, time-series\"}]}],\"fit\":\"strong\",\"fitReason\":\"The researcher's publications directly address the core challenge: detecting anomalies in unlabelled or minimally labelled OT data streams [SYN-PUB-00960, SYN-PUB-00962], handling concept drift in industrial settings [R0071], and deploying inference-efficient models on edge hardware with tight memory and latency budgets [SYN-PUB-00963].\"}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2189,
+    "outputTokens": 564,
+    "totalTokens": 2753,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2189,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 564,
+    "service_tier": "standard"
+  }
+}

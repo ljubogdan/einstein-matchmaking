@@ -1,0 +1,37 @@
+{
+  "key": "a8bf5429b74aa60e",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C061-CH1: Our cold-pressed pumpkin seed oil goes rancid within 4 months on shelf, but competitors manage 9–12 months; we lose about 15% of each batch ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"expertise\":[{\"text\":\"Photo-oxidation causes rapid degradation of polyunsaturated oils, with peroxide value increasing sixfold faster under UV-A radiation and degradation products including lipid endoperoxides and epoxides.\",\"sources\":[{\"id\":\"SYN-PUB-06406\",\"field\":\"abstract\",\"quote\":\"Peroxide value increased sixfold faster under UV-A. Addition of 0.05 % tocopherol to the oil phase extended UV-A half-life to 19.1 h and suppressed malondialdehyde formation by 34 %.\"}]},{\"text\":\"Carrier oil fatty acid composition directly influences oxidative stability, with high polyunsaturated fatty acid content correlating strongly with faster peroxide value increases and carotenoid photodegradation rates.\",\"sources\":[{\"id\":\"SYN-PUB-06409\",\"field\":\"abstract\",\"quote\":\"β-Carotene photodegradation rate constants were 0.031, 0.012, and 0.049 h⁻¹ for sunflower, MCT, and hemp seed oil emulsions, respectively. The markedly higher rate in hemp seed emulsions correlated with faster peroxide value increases (r = 0.94) attributed to the high polyunsaturated fatty acid content.\"}]},{\"text\":\"Light intensity is the dominant variable controlling shelf life of oily functional foods under retail conditions, exceeding the effect of temperature fluctuations, and can be quantitatively modelled using accelerated degradation kinetics.\",\"sources\":[{\"id\":\"SYN-PUB-04277\",\"field\":\"abstract\",\"quote\":\"Sensitivity analysis identified light intensity as the dominant variable controlling shelf life under retail conditions, exceeding the effect of temperature fluctuations typical of Serbian supermarket cold chains.\"}]}],\"fit\":\"strong\",\"fitReason\":\"The researcher has demonstrated expertise in quantifying photo-oxidation pathways in cold-pressed oils [SYN-PUB-06406, SYN-PUB-06409], identifying how polyunsaturated fatty acids accelerate lipid oxidation and peroxide formation, and has developed practical shelf-life prediction methods applicable to the company's peroxide threshold problem [SYN-PUB-04277].\"}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2438,
+    "outputTokens": 520,
+    "totalTokens": 2958,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2438,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 520,
+    "service_tier": "standard"
+  }
+}

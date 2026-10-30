@@ -1,0 +1,37 @@
+{
+  "key": "a4eca6bafc7f067b",
+  "model": "claude-haiku-4-5",
+  "prompt": "Company: Food production and food tech. Zlatna Njiva d.o.o. has been pressing oil in Zrenjanin since 1991, when Dragoljub Kovačević converted a small grain coop",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"researchProblem\": true, \"reason\": \"The company faces a fundamental scientific challenge in understanding and controlling lipid oxidation pathways in cold-pressed pumpkin seed oil, which requires research-level knowledge of oxidation mechanisms, antioxidant efficacy, and storage conditions rather than routine operational troubleshooting.\", \"researchQuestions\": [\"What are the dominant oxidation pathways (autoxidation, photo-oxidation, enzymatic lipoxidase activity, or pro-oxidant trace metals) in cold-pressed pumpkin seed oil and how do they contribute to peroxide value accumulation under dark glass packaging with nitrogen flushing?\", \"How do seed provenance, moisture content, storage temperature, and residual dissolved oxygen in headspace interact to modulate the shelf-life stability of unrefined seed oils, and which factors are most critical for pumpkin seed oil?\", \"What is the efficacy of natural antioxidants such as rosemary extract, tocopherols, and other phenolic compounds at inhibiting specific oxidation pathways in cold-pressed pumpkin seed oil, and how does their effectiveness depend on oil composition and storage conditions?\"], \"searchTerms\": [\"lipid oxidation\", \"peroxide value kinetics\", \"cold-pressed seed oil\", \"pumpkin seed oil stability\", \"autoxidation mechanism\", \"photo-oxidation\", \"lipoxygenase activity\", \"natural antioxidants\", \"tocopherol\", \"headspace oxygen\", \"fatty acid composition\", \"shelf-life prediction\"]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1242,
+    "outputTokens": 342,
+    "totalTokens": 1584,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1242,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 342,
+    "service_tier": "standard"
+  }
+}

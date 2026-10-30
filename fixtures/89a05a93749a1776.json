@@ -1,0 +1,37 @@
+{
+  "key": "89a05a93749a1776",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C061-CH1: Our cold-pressed pumpkin seed oil goes rancid within 4 months on shelf, but competitors manage 9–12 months; we lose about 15% of each batch ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"expertise\":[{\"text\":\"Research on cold-pressed hemp seed oil characterization includes measurement of fatty acid composition by gas chromatography with flame ionization detection and tocopherol content by high-performance liquid chromatography with fluorescence detection.\",\"sources\":[{\"id\":\"SYN-PUB-01692\",\"field\":\"abstract\",\"quote\":\"Linoleic acid (C18:2n-6) constituted 54–57% and α-linolenic acid (C18:3n-3) 16–19% of total fatty acids as determined by GC-FID after transmethylation. Tocopherol content measured by HPLC-FLD varied significantly\"}]},{\"text\":\"Work on accelerated shelf-life testing of oil microcapsules includes kinetic modelling of peroxide value development over time using the Arrhenius model.\",\"sources\":[{\"id\":\"SYN-PUB-01696\",\"field\":\"keywords\",\"quote\":\"Accelerated shelf-life testing of hemp seed oil microcapsules: kinetic modelling of peroxide value\"}]},{\"text\":\"Research demonstrates that lipid oxidation markers including peroxide values increase during storage of encapsulated oils in different matrices and that reducing environments and antioxidant metabolites can influence oxidation rates.\",\"sources\":[{\"id\":\"SYN-PUB-01700\",\"field\":\"abstract\",\"quote\":\"Peroxide values in the beverage increased from 0.9 to 3.4 mEq O₂/kg fat by day 28, remaining within acceptable limits\"}]}],\"fit\":\"partial\",\"fitReason\":\"The researcher has expertise in lipid oxidation measurement and shelf-life kinetics of cold-pressed seed oils [SYN-PUB-01692, SYN-PUB-01696], but prior work focuses on microencapsulated products and does not directly address oxidation pathways (enzymatic, photo-oxidative, or metal-catalysed) in bulk cold-pressed oils with basic headspace nitrogen flushing.\"}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2257,
+    "outputTokens": 461,
+    "totalTokens": 2718,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2257,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 461,
+    "service_tier": "standard"
+  }
+}

@@ -1,4 +1,4 @@
-import { mkdirSync, writeFileSync } from "node:fs"
+import { existsSync, mkdirSync, rmSync, writeFileSync } from "node:fs"
 import { createAgent, SemanticEvent, type Agent } from "@mozaik-ai/core"
 import { answerText, parseJson } from "../llm/answer"
 import { EFFORT, MAX_OUTPUT, MODELS } from "../models"
@@ -25,6 +25,7 @@ You get records (JSON lines, each with an id) and the agreed term sheet. Answer 
 export function createWriter(pair: Pair, board: Board, data: Dataset, outDir = "out/proposals"): Agent {
   let draft: Draft | undefined
   let claims: Claim[] = []
+  const path = `${outDir}/${pair.pairId}.md`
 
   const agent: Agent = createAgent({
     name: "writer",
@@ -37,7 +38,7 @@ export function createWriter(pair: Pair, board: Board, data: Dataset, outDir = "
         processor: {
           apply: ({ event }) => {
             const { pairId, sheet } = event.payload as { pairId: string; sheet: unknown }
-            if (pairId !== pair.pairId) return
+            if (pairId !== pair.pairId || cancelled()) return
             runLoop(agent.getId(), `Pair id: ${pair.pairId}\n\nRecords:\n${evidencePack(pair, data)}\n\nAgreed term sheet:\n${JSON.stringify(sheet)}`, {
               model: MODELS.strong,
               reasoningEffort: EFFORT.write,
@@ -53,6 +54,7 @@ export function createWriter(pair: Pair, board: Board, data: Dataset, outDir = "
         specification: own("model.answer"),
         processor: {
           apply: ({ event }) => {
+            if (cancelled()) return
             const parsed = Draft.safeParse(parseJson(answerText(event.payload)))
             if (!parsed.success) return emit("prenup.proposal.failed", { pairId: pair.pairId, reason: `invalid draft: ${parsed.error.issues[0]?.message}` })
             draft = parsed.data
@@ -73,8 +75,7 @@ export function createWriter(pair: Pair, board: Board, data: Dataset, outDir = "
             const { pairId, verdicts } = event.payload as { pairId: string; verdicts: Verdict[] }
             const moves = board.negotiations.get(pair.pairId) ?? []
             const agreed = moves.at(-1)
-            if (pairId !== pair.pairId || !draft || !agreed) return
-            const path = `${outDir}/${pair.pairId}.md`
+            if (pairId !== pair.pairId || !draft || !agreed || cancelled()) return
             mkdirSync(outDir, { recursive: true })
             writeFileSync(path, renderProposal({ pair, draft, claims, verdicts, moves, agreed }))
             const blocked = verdicts.filter((v) => v.verdict === "block").length
@@ -82,8 +83,17 @@ export function createWriter(pair: Pair, board: Board, data: Dataset, outDir = "
           },
         },
       },
+      {
+        // The Arbiter gave the researcher to another challenge: a proposal already written is withdrawn.
+        specification: on("prenup.pair.cancelled"),
+        processor: { apply: ({ event }) => void ((event.payload as { pairId: string }).pairId === pair.pairId && existsSync(path) && rmSync(path)) },
+      },
     ],
   })
+
+  function cancelled(): boolean {
+    return board.cancelled.has(pair.pairId)
+  }
 
   function emit(type: string, payload: unknown): void {
     sendEvent(SemanticEvent.create(type, agent.getId(), payload), agent.getId())
