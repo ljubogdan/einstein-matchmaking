@@ -1,4 +1,4 @@
-{"t":"2026-10-30T11:48:32.606Z","type":"participant.joined","producer":"observer","payload":{"id":"6aa58632-fe06-4a8e-929d-c717c4d63898","name":"observer","capabilities":["trace"],"role":"human"}}
-{"t":"2026-10-30T11:48:32.606Z","type":"participant.joined","producer":"analyst","payload":{"id":"8e0d6f68-6d68-4af6-95a2-c204fbd4026e","name":"analyst","capabilities":["analyze-challenge"],"role":"agent"}}
-{"t":"2026-10-30T11:48:32.606Z","type":"participant.joined","producer":"matchmaker","payload":{"id":"b4e836ea-2107-424c-8e7a-b47bbbeffd22","name":"matchmaker","capabilities":["match"],"role":"agent"}}
-{"t":"2026-10-30T11:48:32.607Z","type":"prenup.challenge.analyzed","producer":"analyst","payload":{"challengeId":"C001-CH1"}}
+{"t":"2026-10-30T11:55:34.407Z","type":"participant.joined","producer":"observer","payload":{"id":"ac0c04be-4100-4a28-ac7f-8ce1c75b756c","name":"observer","capabilities":["trace"],"role":"human"}}
+{"t":"2026-10-30T11:55:34.408Z","type":"participant.joined","producer":"analyst","payload":{"id":"93c974fd-0cab-4117-96f7-e123cd168f35","name":"analyst","capabilities":["analyze-challenge"],"role":"agent"}}
+{"t":"2026-10-30T11:55:34.408Z","type":"participant.joined","producer":"matchmaker","payload":{"id":"dd2ded19-27b6-491a-9705-a11643ab85e0","name":"matchmaker","capabilities":["match"],"role":"agent"}}
+{"t":"2026-10-30T11:55:34.408Z","type":"prenup.challenge.analyzed","producer":"analyst","payload":{"challengeId":"C001-CH1"}}

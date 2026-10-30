@@ -1,8 +1,9 @@
-// npm run check-key: one live call through Mozaik to prove the provider key in .env works. Not part of the demo.
-// Uses Mozaik's default runner directly: the recording wrapper (record/replay, rate limit) arrives in M1.
+// npm run check-key: one live call through our runner proves the provider key in .env works and records the answer.
+// npm run check-key -- --replay: the same call from that recording, no network. Not part of the demo.
 import "./env"
 import { createAgent, createHuman, supportedModels } from "@mozaik-ai/core"
 import { createTraceObserver } from "./agents/observer"
+import { RecordingRunner } from "./llm/runner"
 import { MODELS } from "./models"
 import { redactKeys } from "./redact"
 import { Board, initializeRuntime, join, on, runLoop } from "./runtime"
@@ -15,15 +16,19 @@ function fail(reason: string): never {
   process.exit(1)
 }
 
-const provider = supportedModels.find((m) => m.specification.name === MODELS.cheap)?.specification.provider ?? ""
-const keyVar = KEY_VARS[provider] ?? fail(`no key variable known for ${MODELS.cheap} (provider "${provider}")`)
-if (!process.env[keyVar]) fail(`${keyVar} is empty or missing in .env`)
+const replay = process.argv.includes("--replay")
+if (!replay) {
+  const provider = supportedModels.find((m) => m.specification.name === MODELS.cheap)?.specification.provider ?? ""
+  const keyVar = KEY_VARS[provider] ?? fail(`no key variable known for ${MODELS.cheap} (provider "${provider}")`)
+  if (!process.env[keyVar]) fail(`${keyVar} is empty or missing in .env`)
+}
 
 // Mozaik doesn't catch loop errors (bad key, quota): they surface as unhandled rejections.
 process.on("unhandledRejection", (error) => fail(String(error)))
 const timer = setTimeout(() => fail(`no answer within ${TIMEOUT_MS / 1000}s`), TIMEOUT_MS)
 
-initializeRuntime({ state: new Board() })
+const runner = new RecordingRunner({ mode: replay ? "replay" : "record", dir: "out/tmp/fixtures" })
+initializeRuntime({ state: new Board(), inferenceRunnerConfig: { runner } })
 const agent = createAgent({ name: "key-check", capabilities: [], instruction: "Answer in one word.", tools: [], handlers: [] })
 const listener = createHuman({
   name: "key-check-listener",
@@ -34,7 +39,8 @@ const listener = createHuman({
       processor: {
         apply: ({ event }) => {
           clearTimeout(timer)
-          console.log(`key works: ${MODELS.cheap} answered ${redactKeys(JSON.stringify(event.payload)).slice(0, 200)}`)
+          console.log(`${replay ? "replay works" : "key works"}: ${MODELS.cheap} answered ${redactKeys(JSON.stringify(event.payload)).slice(0, 200)}`)
+          console.log(runner.summary().join("\n"))
           process.exit(0)
         },
       },
