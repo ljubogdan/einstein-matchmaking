@@ -1,0 +1,15 @@
+no match for C043-CH3 (not a research problem): This is a business development and market entry challenge requiring sales connections and partnerships, not academic research into unmapped scientific questions.
+pair: C001-CH1__R1015 (picked by search)
+pair: C061-CH1__R0231 (picked by search)
+pair: C001-CH1__R1008 (picked by search)
+pair: C032-CH1__R1015 (picked by search)
+arbiter: R1015 -> C032-CH1
+proposal: out/proposals/C061-CH1__R0231.md (22 claims checked; the Critic stopped 4, 4 fixed on rewrite, 0 dropped)
+proposal: out/proposals/C001-CH1__R1008.md (22 claims checked; the Critic stopped 4, 3 fixed on rewrite, 1 dropped)
+proposal: out/proposals/C032-CH1__R1015.md (22 claims checked; the Critic stopped 5, 2 fixed on rewrite, 3 dropped)
+done: 4 challenges, 3 proposals; reports: out/nomatch.md, out/traps.md
+wall-clock: 380.3 s, at most 1 model calls at once
+claude-haiku-4-5: 68 live, 0 replayed, 99836 in / 16957 out tokens, $0.18 at list price
+claude-sonnet-4-6: 21 live, 0 replayed, 81132 in / 26461 out tokens, $0.62 at list price
+trace: out/trace.jsonl
+exit 0

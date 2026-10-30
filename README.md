@@ -102,8 +102,21 @@ Measured on the demo run (4 challenges, 3 matchmakers, models below):
 | Claims checked by the Critic | 111. Profile cards: 45, of which 34 were stopped on the first pass (23 said more than their quotes, 7 quotes not word for word, 4 numbers not in any quote); after one rewrite 27 pass and 18 are dropped. Proposals: 36 sentences, 12 stopped by the support check; after one rewrite 32 pass and 4 are dropped. Negotiated terms: 30, all pass |
 | Traps the code flags across all 1,047 profiles | 22 stale (6 unavailable, 16 consulting only), 7 where `open_to` contradicts the notes, 2 notes about another person, 8 same-name profiles, 26 with Cyrillic text ([`out/traps.md`](out/traps.md)) |
 | Model calls per run (replay from a fresh clone) | 67 cheap (100,855 input / 18,120 output tokens), 19 strong (77,370 input / 23,994 output tokens) |
+| Cost of one demo run | $0.76 at list price ($0.19 cheap, $0.57 strong), about $0.25 per proposal; every run prints its own |
 
-Not measured yet: concurrent vs sequential wall-clock, how many planted false facts the Critic catches, and double-bookings with the Arbiter vs last-writer-wins.
+And three measurements made for the question "does the design hold up?" (`npm run eval`; results and raw data in [`out/eval/`](out/eval/)):
+
+| Measurement | Result |
+|---|---|
+| **Concurrent vs one call at a time**: the demo set run twice live on 30 Oct, same code, up to 8 model calls at once vs `--in-flight=1` | **170.7 s vs 380.3 s (2.2x faster)**, 89 model calls each; $1.04 vs $0.80. The concurrent run hit the gateway's rate limit 11 times and retried. Fresh answers, so the two runs took slightly different paths ([`concurrency.json`](out/eval/concurrency.json)) |
+| **Planted false claims**: 20 claims of 7 kinds built from real records (fake ids, altered quotes, same-name swaps, engagement not in `open_to`, invented money, retired or departed researchers, sentences that say more than their quote), sent to the Critic as one check | **20/20 stopped.** The code checks stop 16 (exists 3, quote 4, ownership 3, policy 5, numbers 1); the 4 overstatements pass them and are stopped by the support check. Without the support check: 16/20. The faults go to the Critic directly, not through the writer ([`critic.json`](out/eval/critic.json)) |
+| **Version check + Arbiter vs last-writer-wins**: the real matchmaker code on all 489 challenges, with code stand-ins for the model agents (search on the one-line challenge text, every card a strong fit, real availability and trap flags, the holder keeps a contested researcher), seed 42 | **0 double-booked researchers vs 104** (promised to 264 challenges at once). The price: 438 conflicts settled by re-matching, and 50 challenges whose whole shortlist was already taken ([`arbiter-versioned.json`](out/eval/arbiter-versioned.json), [`arbiter-last-writer-wins.json`](out/eval/arbiter-last-writer-wins.json)) |
+
+![68 model calls of the recording run on a timeline, up to 15 open at once](out/eval/timeline.svg)
+
+The recording run on a timeline: 68 model calls in 137 s, 3.2 open on average and up to 15 at once (a call counts from its request to its answer, waiting for one of the 8 slots included). Analysts and profilers came from the local cache in that run, so they aren't on it.
+
+Not measured yet: how often the Critic stops a true claim (needs a human-checked sample).
 
 ## Where the Critic stepped in
 
@@ -150,7 +163,7 @@ Each proposal lists, under "How we got here", every claim the Critic stopped, wh
 ## Limits and honest notes
 
 - Not built yet: the human approval step.
-- The support check is a cheap model and strict: it stopped a third of the proposal sentences on the first pass. How many planted false facts it catches is not measured yet. The people-praise check is a word list, and it also blocked a sentence that called a method's result "best".
+- The support check is a cheap model and strict: it stopped a third of the proposal sentences on the first pass, and we haven't measured how many of those were true. The people-praise check is a word list, and it also blocked a sentence that called a method's result "best".
 - The cheap model rates most shortlisted candidates as a strong fit, so search order often decides. The Arbiter's and the Profiler's fit reasons aren't checked by the Critic yet (we checked the Arbiter's citations above by hand).
 - After a no-deal the researcher stays reserved for that challenge.
 - Negotiators cite fields of their position cards in each move; the Critic doesn't check those citations yet.

@@ -1,0 +1,71 @@
+{
+  "what": "The demo set (4 challenges) run twice live on 30 Oct with --fresh: up to 8 model calls at once (the default) vs one at a time (--in-flight=1). Same code and models; fresh answers, so the two runs took slightly different paths (calls, tokens and the contested researcher differ).",
+  "date": "2026-10-30",
+  "models": {
+    "cheap": "claude-haiku-4-5",
+    "strong": "claude-sonnet-4-6"
+  },
+  "commands": [
+    "npm run demo -- --fresh --fixtures=out/tmp/fixtures-concurrent --timeout=30",
+    "npm run demo -- --fresh --fixtures=out/tmp/fixtures-sequential --in-flight=1 --timeout=40"
+  ],
+  "concurrent": {
+    "wallClockSeconds": 170.7,
+    "calls": 89,
+    "dollars": 1.04,
+    "rateLimitRetries": 11,
+    "byModel": {
+      "claude-haiku-4-5": {
+        "calls": 70,
+        "inputTokens": 103517,
+        "outputTokens": 18905,
+        "dollars": 0.2
+      },
+      "claude-sonnet-4-6": {
+        "calls": 19,
+        "inputTokens": 77223,
+        "outputTokens": 42143,
+        "dollars": 0.84
+      }
+    },
+    "outcome": [
+      "no match for C043-CH3 (not a research problem): This is a business development and market entry challenge requiring sales strategy, investor relations, and go-to-market execution\u2014not fundamental research.",
+      "arbiter: R1008 -> C032-CH1",
+      "proposal: out/proposals/C001-CH1__R1015.md (22 claims checked; the Critic stopped 4, 2 fixed on rewrite, 2 dropped)",
+      "proposal: out/proposals/C061-CH1__R0231.md (22 claims checked; the Critic stopped 5, 4 fixed on rewrite, 1 dropped)",
+      "proposal: out/proposals/C032-CH1__R1008.md (22 claims checked; the Critic stopped 6, 5 fixed on rewrite, 1 dropped)"
+    ],
+    "log": "out/eval/run-concurrent.log",
+    "trace": "out/eval/trace-concurrent.jsonl"
+  },
+  "oneAtATime": {
+    "wallClockSeconds": 380.3,
+    "calls": 89,
+    "dollars": 0.8,
+    "rateLimitRetries": 0,
+    "byModel": {
+      "claude-haiku-4-5": {
+        "calls": 68,
+        "inputTokens": 99836,
+        "outputTokens": 16957,
+        "dollars": 0.18
+      },
+      "claude-sonnet-4-6": {
+        "calls": 21,
+        "inputTokens": 81132,
+        "outputTokens": 26461,
+        "dollars": 0.62
+      }
+    },
+    "outcome": [
+      "no match for C043-CH3 (not a research problem): This is a business development and market entry challenge requiring sales connections and partnerships, not academic research into unmapped scientific questions.",
+      "arbiter: R1015 -> C032-CH1",
+      "proposal: out/proposals/C061-CH1__R0231.md (22 claims checked; the Critic stopped 4, 4 fixed on rewrite, 0 dropped)",
+      "proposal: out/proposals/C001-CH1__R1008.md (22 claims checked; the Critic stopped 4, 3 fixed on rewrite, 1 dropped)",
+      "proposal: out/proposals/C032-CH1__R1015.md (22 claims checked; the Critic stopped 5, 2 fixed on rewrite, 3 dropped)"
+    ],
+    "log": "out/eval/run-sequential.log",
+    "trace": "out/eval/trace-sequential.jsonl"
+  },
+  "speedUp": 2.23
+}

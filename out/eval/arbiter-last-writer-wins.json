@@ -1,0 +1,61 @@
+{
+  "arm": "last-writer-wins",
+  "what": "real matchmaker code on every challenge; stand-ins for the Analyst (one-line text as the query), Profiler (fit strong, real availability and trap flags) and Arbiter (holder keeps); no model",
+  "date": "2026-10-30",
+  "seed": 42,
+  "challenges": 489,
+  "paired": 489,
+  "noMatch": 0,
+  "conflicts": 0,
+  "failedWrites": 0,
+  "heldWhenRead": 0,
+  "rematches": 0,
+  "doubleBookedResearchers": 104,
+  "challengesSharingAResearcher": 264,
+  "examples": [
+    {
+      "researcherId": "R0837",
+      "challenges": [
+        "C127-CH1",
+        "C002-CH1"
+      ]
+    },
+    {
+      "researcherId": "R0771",
+      "challenges": [
+        "C071-CH1",
+        "C104-CH1"
+      ]
+    },
+    {
+      "researcherId": "R0269",
+      "challenges": [
+        "C088-CH2",
+        "C144-CH2"
+      ]
+    },
+    {
+      "researcherId": "R0064",
+      "challenges": [
+        "C137-CH2",
+        "C113-CH1"
+      ]
+    },
+    {
+      "researcherId": "R0764",
+      "challenges": [
+        "C046-CH2",
+        "C011-CH2",
+        "C060-CH3",
+        "C030-CH3",
+        "C092-CH3",
+        "C027-CH3",
+        "C130-CH3",
+        "C131-CH3",
+        "C142-CH3",
+        "C113-CH2"
+      ]
+    }
+  ],
+  "seconds": 12.726
+}

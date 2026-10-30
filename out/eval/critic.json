@@ -1,0 +1,234 @@
+{
+  "what": "20 planted false claims sent to the Critic as one check request (deterministic checks, then the support check)",
+  "date": "2026-10-30",
+  "supportModel": "claude-haiku-4-5",
+  "planted": 20,
+  "caught": 20,
+  "byKind": [
+    {
+      "kind": "fake id",
+      "planted": 3,
+      "caught": 3
+    },
+    {
+      "kind": "altered quote",
+      "planted": 4,
+      "caught": 4
+    },
+    {
+      "kind": "same-name swap",
+      "planted": 3,
+      "caught": 3
+    },
+    {
+      "kind": "engagement not in open_to",
+      "planted": 2,
+      "caught": 2
+    },
+    {
+      "kind": "invented money",
+      "planted": 2,
+      "caught": 2
+    },
+    {
+      "kind": "unavailable person",
+      "planted": 2,
+      "caught": 2
+    },
+    {
+      "kind": "says more than its quote",
+      "planted": 4,
+      "caught": 4
+    }
+  ],
+  "byCheck": {
+    "exists": 3,
+    "quote": 4,
+    "ownership": 3,
+    "policy": 5,
+    "numbers": 1,
+    "support": 4
+  },
+  "faults": [
+    {
+      "kind": "fake id",
+      "planted": "publication id that doesn't exist",
+      "claim": "R1015 has published on BACnet fuzzing.",
+      "caught": true,
+      "verdict": "block",
+      "check": "exists",
+      "reason": "SYN-PUB-99999 not found"
+    },
+    {
+      "kind": "fake id",
+      "planted": "project id that doesn't exist",
+      "claim": "R1015 led a national project on substation security.",
+      "caught": true,
+      "verdict": "block",
+      "check": "exists",
+      "reason": "SYN-PRJ-9999 not found"
+    },
+    {
+      "kind": "fake id",
+      "planted": "company id that doesn't exist",
+      "claim": "ArmaturaSec has a sister company that funds research.",
+      "caught": true,
+      "verdict": "block",
+      "check": "exists",
+      "reason": "C999 not found"
+    },
+    {
+      "kind": "altered quote",
+      "planted": "one word changed in a real abstract window",
+      "claim": "Their study compares intrusion detection architectures.",
+      "caught": true,
+      "verdict": "block",
+      "check": "quote",
+      "reason": "quote not found in SYN-PUB-10525.abstract"
+    },
+    {
+      "kind": "altered quote",
+      "planted": "one word changed in a real abstract window",
+      "claim": "Their work detects anomalies in Modbus traffic.",
+      "caught": true,
+      "verdict": "block",
+      "check": "quote",
+      "reason": "quote not found in SYN-PUB-10523.abstract"
+    },
+    {
+      "kind": "altered quote",
+      "planted": "one word changed in the company's R&D capacity",
+      "claim": "ArmaturaSec can dedicate engineers full-time.",
+      "caught": true,
+      "verdict": "block",
+      "check": "quote",
+      "reason": "quote not found in C001.rd_capacity"
+    },
+    {
+      "kind": "altered quote",
+      "planted": "a real quote attributed to the wrong field",
+      "claim": "Their paper compares five architectures.",
+      "caught": true,
+      "verdict": "block",
+      "check": "quote",
+      "reason": "quote not found in SYN-PUB-10525.title"
+    },
+    {
+      "kind": "same-name swap",
+      "planted": "R0128's paper credited to R0881, who has the same name",
+      "claim": "R0881 published \"Influence of homogenisation pressure on emulsion stability prior to spray drying of flaxseed oil in sodium caseinate–lactose matrices\".",
+      "caught": true,
+      "verdict": "block",
+      "check": "ownership",
+      "reason": "SYN-PUB-01689 does not belong to R0881"
+    },
+    {
+      "kind": "same-name swap",
+      "planted": "R0191's paper credited to R0435, who has the same name",
+      "claim": "R0435 published \"Estimation of blood–brain barrier transfer constant Ktrans in patients with leukoaraiosis using a two-compartment DCE-MRI model\".",
+      "caught": true,
+      "verdict": "block",
+      "check": "ownership",
+      "reason": "SYN-PUB-02454 does not belong to R0435"
+    },
+    {
+      "kind": "same-name swap",
+      "planted": "R0929's paper credited to R0894, who has the same name",
+      "claim": "R0894 published \"Seasonal decomposition as a preprocessing step for short-horizon retail revenue forecasting: a comparative study\".",
+      "caught": true,
+      "verdict": "block",
+      "check": "ownership",
+      "reason": "SYN-PUB-09834 does not belong to R0894"
+    },
+    {
+      "kind": "engagement not in open_to",
+      "planted": "contract research for R1015 (open to joint projects, industrial PhD)",
+      "claim": "Format: Contract research",
+      "caught": true,
+      "verdict": "block",
+      "check": "policy",
+      "reason": "contract_research is not allowed for R1015 (allowed: joint_project, industrial_phd)"
+    },
+    {
+      "kind": "engagement not in open_to",
+      "planted": "industrial PhD for R0001 (not in open_to)",
+      "claim": "Format: Industrial PhD",
+      "caught": true,
+      "verdict": "block",
+      "check": "policy",
+      "reason": "industrial_phd is not allowed for R0001 (allowed: joint_project, contract_research, consulting, internship)"
+    },
+    {
+      "kind": "invented money",
+      "planted": "a euro figure in a fact, quoting a sentence without it",
+      "claim": "ArmaturaSec will fund the project with €50,000.",
+      "caught": true,
+      "verdict": "block",
+      "check": "numbers",
+      "reason": "50,000 is not in any quoted source"
+    },
+    {
+      "kind": "invented money",
+      "planted": "an amount in the agreed money term",
+      "claim": "Money: €30,000 from the company.",
+      "caught": true,
+      "verdict": "block",
+      "check": "policy",
+      "reason": "money must be 'to be agreed' or a funding route, never an amount"
+    },
+    {
+      "kind": "unavailable person",
+      "planted": "consulting for R0881 (open_to says consulting; notes say fully retired)",
+      "claim": "Format: Consulting",
+      "caught": true,
+      "verdict": "block",
+      "check": "policy",
+      "reason": "R0881 is not available: \"Professor Mamužić is fully retired and is not available for project leadership, supervision of doctoral students, or laboratory work.\""
+    },
+    {
+      "kind": "unavailable person",
+      "planted": "a joint project for R0068 (left the university)",
+      "claim": "Format: Joint project",
+      "caught": true,
+      "verdict": "block",
+      "check": "policy",
+      "reason": "R0068 is not available: \"Left the University of Novi Sad in March 2026;\""
+    },
+    {
+      "kind": "says more than its quote",
+      "planted": "real verbatim quote, sentence adds a deployment",
+      "claim": "R1015's autoencoder detector has been deployed at several utilities.",
+      "caught": true,
+      "verdict": "block",
+      "check": "support",
+      "reason": "Quote discusses Modbus protocol deployment, not R1015's autoencoder detector deployment at utilities."
+    },
+    {
+      "kind": "says more than its quote",
+      "planted": "real verbatim quote, sentence turns part-time into full-time",
+      "claim": "ArmaturaSec will put two engineers on the project full-time for its whole duration.",
+      "caught": true,
+      "verdict": "block",
+      "check": "support",
+      "reason": "Quote says 'one to two engineers part-time', but claim says 'full-time for its whole duration'."
+    },
+    {
+      "kind": "says more than its quote",
+      "planted": "real verbatim quote, sentence adds lost clients",
+      "claim": "ArmaturaSec has already lost clients because its detector missed attacks.",
+      "caught": true,
+      "verdict": "block",
+      "check": "support",
+      "reason": "Quote expresses a need for detection capability, not evidence of lost clients due to missed attacks."
+    },
+    {
+      "kind": "says more than its quote",
+      "planted": "real verbatim quote, sentence claims the hybrid approach was proven in the field",
+      "claim": "R1015 proved in field trials that hybrid detectors outperform every other approach.",
+      "caught": true,
+      "verdict": "block",
+      "check": "support",
+      "reason": "Quote discusses SCADA networks as critical infrastructure; it does not address R1015's field trials or comparative performance of hybrid detectors."
+    }
+  ]
+}

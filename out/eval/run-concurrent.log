@@ -1,0 +1,25 @@
+no match for C043-CH3 (not a research problem): This is a business development and market entry challenge requiring sales strategy, investor relations, and go-to-market execution—not fundamental research.
+claude-haiku-4-5: attempt 1 failed (Error: 429 {"type":"error","error":{"type":"rate_limit_error","message":"too many requests at once"}}); retrying
+claude-haiku-4-5: attempt 1 failed (Error: 429 {"type":"error","error":{"type":"rate_limit_error","message":"too many requests at once"}}); retrying
+claude-haiku-4-5: attempt 2 failed (Error: 429 {"type":"error","error":{"type":"rate_limit_error","message":"too many requests at once"}}); retrying
+claude-haiku-4-5: attempt 1 failed (Error: 429 {"type":"error","error":{"type":"rate_limit_error","message":"too many requests at once"}}); retrying
+claude-haiku-4-5: attempt 2 failed (Error: 429 {"type":"error","error":{"type":"rate_limit_error","message":"too many requests at once"}}); retrying
+claude-haiku-4-5: attempt 1 failed (Error: 429 {"type":"error","error":{"type":"rate_limit_error","message":"too many requests at once"}}); retrying
+claude-haiku-4-5: attempt 3 failed (Error: 429 {"type":"error","error":{"type":"rate_limit_error","message":"too many requests at once"}}); retrying
+claude-haiku-4-5: attempt 1 failed (Error: 429 {"type":"error","error":{"type":"rate_limit_error","message":"too many requests at once"}}); retrying
+claude-haiku-4-5: attempt 1 failed (Error: 429 {"type":"error","error":{"type":"rate_limit_error","message":"too many requests at once"}}); retrying
+claude-haiku-4-5: attempt 4 failed (Error: 429 {"type":"error","error":{"type":"rate_limit_error","message":"too many requests at once"}}); retrying
+claude-haiku-4-5: attempt 2 failed (Error: 429 {"type":"error","error":{"type":"rate_limit_error","message":"too many requests at once"}}); retrying
+pair: C032-CH1__R1008 (picked by search)
+pair: C001-CH1__R1015 (picked by search)
+arbiter: R1008 -> C032-CH1
+pair: C061-CH1__R0231 (picked by search)
+proposal: out/proposals/C001-CH1__R1015.md (22 claims checked; the Critic stopped 4, 2 fixed on rewrite, 2 dropped)
+proposal: out/proposals/C061-CH1__R0231.md (22 claims checked; the Critic stopped 5, 4 fixed on rewrite, 1 dropped)
+proposal: out/proposals/C032-CH1__R1008.md (22 claims checked; the Critic stopped 6, 5 fixed on rewrite, 1 dropped)
+done: 4 challenges, 3 proposals; reports: out/nomatch.md, out/traps.md
+wall-clock: 170.7 s
+claude-haiku-4-5: 70 live, 0 replayed, 103517 in / 18905 out tokens, $0.20 at list price
+claude-sonnet-4-6: 19 live, 0 replayed, 77223 in / 42143 out tokens, $0.84 at list price
+trace: out/trace.jsonl
+exit 0

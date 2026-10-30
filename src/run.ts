@@ -24,11 +24,16 @@ import type { Pair } from "./tools/cards"
 import { Dataset, hasDataset } from "./tools/dataset"
 import { PublicationIndex } from "./tools/search"
 
-const TIMEOUT_MS = 10 * 60_000
 const mode = process.argv.includes("--replay") ? "replay" : process.argv.includes("--fresh") ? "fresh" : "record"
 // --paced[=N]: replayed answers arrive after their recorded latency (divided by N), so the trace keeps the live run's shape.
 const paced = process.argv.find((arg) => arg.startsWith("--paced"))
 const pace = paced ? Number(paced.split("=")[1] ?? 1) || 1 : undefined
+// For measurements: --in-flight=N caps model calls at once (1 = one at a time); --fixtures=DIR records elsewhere.
+const flag = (name: string) => process.argv.find((arg) => arg.startsWith(`--${name}=`))?.split("=")[1]
+const maxInFlight = Number(flag("in-flight")) || undefined
+const fixtureDir = flag("fixtures")
+const started = Date.now()
+const TIMEOUT_MS = (Number(flag("timeout")) || 10) * 60_000 // --timeout=MINUTES
 // The demo set: two companies with the same challenge (C001-CH1, C032-CH1) want the same researcher; C061-CH1 has the
 // R0128 identity-conflict profile on its shortlist; C043-CH3 (raise a seed round) is not a research problem.
 const DEMO = ["C001-CH1", "C032-CH1", "C061-CH1", "C043-CH3"]
@@ -46,12 +51,13 @@ for (const id of challengeIds.filter((id) => !data.challenges.has(id))) {
   process.exit(1)
 }
 const index = new PublicationIndex(data)
-const runner = new RecordingRunner({ mode, pace })
+const runner = new RecordingRunner({ mode, pace, maxInFlight, dir: fixtureDir })
 const board = new Board()
 initializeRuntime({ state: board, inferenceRunnerConfig: { runner } })
 
 function finish(code: number, message: string): never {
   console.log(message)
+  console.log(`wall-clock: ${((Date.now() - started) / 1000).toFixed(1)} s${maxInFlight ? `, at most ${maxInFlight} model calls at once` : ""}`)
   for (const line of runner.summary()) console.log(line)
   console.log("trace: out/trace.jsonl")
   process.exit(code)

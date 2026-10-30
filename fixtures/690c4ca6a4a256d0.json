@@ -1,0 +1,38 @@
+{
+  "key": "690c4ca6a4a256d0",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): R1015's autoencoder detector has been deployed at several utilities.\n  SYN-PUB-10523 abstract: \"Industrial control systems increasingly rely on ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"no\", \"reason\": \"Quote discusses Modbus protocol deployment, not R1015's autoencoder detector deployment at utilities.\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"no\", \"reason\": \"Quote says 'one to two engineers part-time', but claim says 'full-time for its whole duration'.\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"no\", \"reason\": \"Quote expresses a need for detection capability, not evidence of lost clients due to missed attacks.\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"no\", \"reason\": \"Quote discusses SCADA networks as critical infrastructure; it does not address R1015's field trials or comparative performance of hybrid detectors.\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 696,
+    "outputTokens": 190,
+    "totalTokens": 886,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 696,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 190,
+    "service_tier": "standard"
+  },
+  "ms": 2056
+}

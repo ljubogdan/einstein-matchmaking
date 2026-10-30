@@ -2,6 +2,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs"
 import { join } from "node:path"
 import { defineRuntime, RuntimeState, type InferenceInput, type InferenceOutput, type InferenceRunner } from "@mozaik-ai/core"
 import { fixtureKey, fromFixture, toFixture, type Fixture } from "./fixtures"
+import { PRICE } from "../models"
 import { redactKeys } from "../redact"
 import { Semaphore, withRetry, withTimeout } from "./limiter"
 
@@ -22,7 +23,16 @@ export type RecordingRunnerOptions = {
   pace?: number // replayed answers wait their recorded `ms` divided by this (1 = as recorded); unset = at once
 }
 
-type Usage = { live: number; replayed: number; inputTokens: number; outputTokens: number }
+type Usage = { live: number; replayed: number; inputTokens: number; outputTokens: number; dollars: number }
+type ProviderUsage = { input_tokens?: number; output_tokens?: number; cache_creation_input_tokens?: number; cache_read_input_tokens?: number }
+
+/** List price of one answer from the provider's own usage block (cache writes and reads priced apart). */
+function dollars(model: string, usage: ProviderUsage | undefined): number {
+  const price = PRICE[model]
+  if (!price || !usage) return 0
+  const u = (n?: number) => n ?? 0
+  return (u(usage.input_tokens) * price.input + u(usage.cache_creation_input_tokens) * price.cacheWrite + u(usage.cache_read_input_tokens) * price.cacheRead + u(usage.output_tokens) * price.output) / 1e6
+}
 
 /**
  * The only way our agents reach a model (AGENTS.md rule 5): record/replay, a cap on calls in flight,
@@ -58,7 +68,7 @@ export class RecordingRunner implements InferenceRunner {
       const fixture = JSON.parse(readFileSync(path, "utf8")) as Fixture
       if (this.pace && fixture.ms) await new Promise((resolve) => setTimeout(resolve, fixture.ms! / this.pace!))
       const output = fromFixture(fixture)
-      this.count(input.model, output, "replayed")
+      this.count(input.model, output, "replayed", fixture.providerUsage as ProviderUsage)
       return output
     }
     const started = Date.now()
@@ -66,13 +76,14 @@ export class RecordingRunner implements InferenceRunner {
     const report = (error: unknown, attempt: number) =>
       console.warn(`${input.model}: attempt ${attempt} failed (${redactKeys(String(error)).slice(0, 200)}); retrying`)
     const output = await this.limiter.use(() => withRetry(() => withTimeout(viaStream(inner, input), this.timeoutMs), this.retries, this.retryBaseMs, report))
-    this.count(input.model, output, "live")
+    const fixture = toFixture(key, input, output, Date.now() - started)
+    this.count(input.model, output, "live", fixture.providerUsage as ProviderUsage)
     // Thinking can use up the whole output cap and leave no answer; Mozaik would then fail with the opaque
     // "No transition rule found after inference". Fail clearly instead, and never record it (replay would repeat it).
     if (!output.items.some((item) => item.type === "message" || item.type === "function_call"))
       throw new Error(`${input.model}: no answer within ${input.maxOutputTokens} output tokens (reasoning only); not recorded. Raise MAX_OUTPUT or lower EFFORT`)
     mkdirSync(this.dir, { recursive: true })
-    writeFileSync(path, JSON.stringify(toFixture(key, input, output, Date.now() - started), null, 2) + "\n")
+    writeFileSync(path, JSON.stringify(fixture, null, 2) + "\n")
     return output
   }
 
@@ -83,11 +94,12 @@ export class RecordingRunner implements InferenceRunner {
 
   /** One line per model, e.g. "gemini-3.5-flash-lite: 3 live, 0 replayed, 1200 in / 40 out tokens". */
   summary(): string[] {
-    return [...this.usage].map(([model, u]) => `${model}: ${u.live} live, ${u.replayed} replayed, ${u.inputTokens} in / ${u.outputTokens} out tokens`)
+    return [...this.usage].map(([model, u]) => `${model}: ${u.live} live, ${u.replayed} replayed, ${u.inputTokens} in / ${u.outputTokens} out tokens${PRICE[model] ? `, $${u.dollars.toFixed(2)} at list price` : ""}`)
   }
 
-  private count(model: string, output: InferenceOutput, kind: "live" | "replayed"): void {
-    const u = this.usage.get(model) ?? { live: 0, replayed: 0, inputTokens: 0, outputTokens: 0 }
+  private count(model: string, output: InferenceOutput, kind: "live" | "replayed", usage?: ProviderUsage): void {
+    const u = this.usage.get(model) ?? { live: 0, replayed: 0, inputTokens: 0, outputTokens: 0, dollars: 0 }
+    u.dollars += dollars(model, usage)
     u[kind]++
     // Anthropic leaves cache writes and reads out of input_tokens; Mozaik reports them as cached_tokens.
     u.inputTokens += (output.tokenUsage?.inputTokens ?? 0) + (output.tokenUsage?.inputTokenDetails.cached_tokens ?? 0)

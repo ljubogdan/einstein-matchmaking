@@ -1,0 +1,17 @@
+{
+  "arm": "versioned",
+  "what": "real matchmaker code on every challenge; stand-ins for the Analyst (one-line text as the query), Profiler (fit strong, real availability and trap flags) and Arbiter (holder keeps); no model",
+  "date": "2026-10-30",
+  "seed": 42,
+  "challenges": 489,
+  "paired": 439,
+  "noMatch": 50,
+  "conflicts": 438,
+  "failedWrites": 438,
+  "heldWhenRead": 0,
+  "rematches": 438,
+  "doubleBookedResearchers": 0,
+  "challengesSharingAResearcher": 0,
+  "examples": [],
+  "seconds": 12.129
+}

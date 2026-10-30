@@ -15,7 +15,11 @@
     "check-key": "tsx src/check-key.ts",
     "find-contested": "tsx eval/find-contested.ts",
     "fixture-latency": "tsx eval/fixture-latency.ts",
-    "board": "tsx src/board/server.ts"
+    "board": "tsx src/board/server.ts",
+    "eval:critic": "tsx eval/critic.ts",
+    "eval:arbiter": "tsx eval/arbiter.ts && tsx eval/arbiter.ts --lww",
+    "eval:timeline": "tsx eval/timeline.ts",
+    "eval": "npm run eval:critic -- --replay && npm run eval:arbiter && npm run eval:timeline"
   },
   "dependencies": {
     "@mozaik-ai/core": "4.2.0",
