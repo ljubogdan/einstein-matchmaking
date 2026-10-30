@@ -69,7 +69,19 @@ process.on("unhandledRejection", (error) => {
 })
 setTimeout(() => finish(1, `timed out after ${TIMEOUT_MS / 60_000} minutes`), TIMEOUT_MS)
 
+// Reserve the researcher before proposing (one matchmaker here; in M3 the losers of this race emit a conflict).
+const version = board.reservation(researcherId)?.version ?? 0
+if (!board.reserve(researcherId, challengeId, version)) {
+  sendEvent(SemanticEvent.create("prenup.reservation.conflict", matchmaker.getId(), { researcherId, challengeId, version }), matchmaker.getId())
+  finish(1, `${researcherId} is already reserved`)
+}
 sendEvent(
-  SemanticEvent.create("prenup.match.proposed", matchmaker.getId(), { pairId: pair.pairId, challengeId, researcherId, reason: "fixed pair for M1" }),
+  SemanticEvent.create("prenup.match.proposed", matchmaker.getId(), {
+    pairId: pair.pairId,
+    challengeId,
+    researcherId,
+    reservationVersion: version + 1,
+    reason: "fixed pair for M1",
+  }),
   matchmaker.getId(),
 )
