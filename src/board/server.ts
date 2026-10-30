@@ -173,10 +173,10 @@ const server = createServer((req, res) => {
     return void res.end(JSON.stringify(found, null, 2))
   }
 
-  // The logo and app mark (media/), for the page header and the favicon.
-  const media = /^\/media\/([A-Za-z0-9-]+)\.(svg|png)$/.exec(path)
+  // The logo, app mark and font (media/), for the page.
+  const media = /^\/media\/([A-Za-z0-9-]+)\.(svg|png|woff2)$/.exec(path)
   if (media && existsSync(`media/${media[1]}.${media[2]}`)) {
-    res.writeHead(200, { "content-type": media[2] === "svg" ? "image/svg+xml" : "image/png", "cache-control": "max-age=3600" })
+    res.writeHead(200, { "content-type": { svg: "image/svg+xml", png: "image/png", woff2: "font/woff2" }[media[2]]!, "cache-control": "max-age=3600" })
     return void res.end(readFileSync(`media/${media[1]}.${media[2]}`))
   }
 
