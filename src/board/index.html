@@ -56,10 +56,11 @@
   .brand .status i { width: 7px; height: 7px; border-radius: 50%; background: var(--faint); opacity: .6; }
   .brand .status i.live { background: var(--accent); opacity: 1; animation: pulse 1.6s ease-out infinite; }
   @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(0, 113, 227, .55); } 100% { box-shadow: 0 0 0 8px rgba(0, 113, 227, 0); } }
-  .stats { display: flex; gap: 22px; margin-left: auto; }
-  .stat { display: flex; flex-direction: column; align-items: flex-end; min-width: 52px; }
-  .stat b { font: 600 22px/1.05 var(--display); letter-spacing: -0.025em; font-variant-numeric: tabular-nums; }
-  .stat span { color: var(--faint); font-size: 11.5px; white-space: nowrap; }
+  .stats { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(88px, 1fr); margin-left: auto; }
+  .stat { display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 1px 14px; text-align: center; }
+  .stat + .stat { box-shadow: inset 1px 0 0 var(--line); }
+  .stat b { font: 600 24px/1 var(--display); letter-spacing: -0.025em; font-variant-numeric: tabular-nums; }
+  .stat span { color: var(--faint); font-size: 11px; line-height: 1.2; font-weight: 500; white-space: nowrap; }
   .stat.live b { color: var(--accent); }
   .stat.crit b { color: var(--red); }
   .controls { display: flex; align-items: center; gap: 10px; white-space: nowrap; }
@@ -234,7 +235,21 @@
   [data-enter] { animation: enter .4s ease-out both; }
   @keyframes enter { from { opacity: 0; transform: translateY(5px) scale(.99); } to { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion: reduce) { [data-enter], .spin, .tl-open, .typing .bubble i, .brand .status i.live { animation: none; } }
-  @media (max-width: 1500px) { .brand .tagline { display: none; } header { gap: 18px; } .stats { gap: 18px; } }
+  @media (max-width: 1500px) { .brand .tagline { display: none; } header { gap: 18px; } .stats { grid-auto-columns: minmax(78px, 1fr); } .stat { padding: 1px 8px; } .stat b { font-size: 21px; } }
+  /* Small laptops: the status line gives way before the buttons, and the timeline before the columns. */
+  @media (max-width: 1420px) {
+    header { gap: 12px; padding: 12px 16px; }
+    .brand { flex: 1 1 164px; min-width: 164px; }
+    #note { overflow: hidden; text-overflow: ellipsis; }
+    .stats, .controls { flex: none; }
+    .stats { margin-left: 0; grid-auto-columns: minmax(70px, 1fr); }
+    .stat { padding: 1px 4px; }
+    .controls { gap: 6px; }
+    .controls .primary svg, .controls .secondary svg { display: none; }
+    #speed button { padding-left: 8px; padding-right: 8px; }
+  }
+  @media (max-width: 1270px) { header { flex-wrap: wrap; row-gap: 10px; } .controls { margin-left: auto; } }
+  @media (max-height: 800px) { :root { --strip: 180px; } }
   @media (max-width: 1100px) {
     body { display: block; }
     header { flex-wrap: wrap; gap: 14px; padding: 12px 16px; }

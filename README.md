@@ -14,6 +14,14 @@ Built on [Mozaik](https://github.com/jigjoy-ai/mozaik) for the NTP Novi Sad x Ji
 npm run setup && npm run demo -- --replay
 ```
 
+You need git and Node.js 22 (tested on 22.18, Linux; the demo needs at least 20.12, `npm test` at least 22.12). `npm run setup` needs bash. On Windows, use Git Bash or WSL, or run these three lines instead of it in any shell (not tested on Windows or macOS yet):
+
+```sh
+npm ci
+git clone https://github.com/jigjoy-ai/einstein-matchmaker-data.git data/einstein
+git -C data/einstein checkout 4fb99b3
+```
+
 `npm run setup` checks your tools, installs dependencies and clones the dataset at a pinned commit. `npm run demo -- --replay` runs the whole system from recorded model answers (`fixtures/`), with no key and no network. It writes:
 
 | Where | What |
@@ -30,6 +38,20 @@ npm run board
 ```
 
 Open http://localhost:4173 and press **Run the demo set** (the moon button switches to a dark theme). The agents run again on the recorded answers, and each answer arrives after the latency measured when it was recorded (4x faster by default), so the board shows the shape of the live run with no key: matchmakers and the Arbiter on the left, the focused pair's negotiation as a conversation between the two sides and every claim the Critic stopped in the middle, the event log on the right, and one bar per model call on the timeline. Ids link to the cited dataset record, and the header counts calls running, model calls, proposals and claims the Critic stopped. **Plant false claims** runs the Critic test on the board: the 20 planted claims below, each with its source and the check that stopped it. Both buttons write their own trace (`out/tmp/trace.board.jsonl`), so the committed one stays as it is; the board always shows the newest run, so an `npm run demo` started in a terminal shows up too. `npm run demo -- --replay --paced[=N]` is the same paced run from the command line.
+
+### A two-minute tour of the board
+
+Press **Run the demo set**. It takes about 40 s at 4x and ends with 3 proposals, 1 no-match and 46 claims stopped. Then look at:
+
+1. **The conflict.** On the ArmaturaSec card (`C001-CH1`): "Conflict on R1015", held by `C032-CH1`. Two matchmakers wanted the same researcher, and the second write failed the version check. Nobody overwrote anybody.
+2. **The decision.** The blue callout below it: the Arbiter gives R1015 to `C001-CH1`. It's a close call, and "Show the reasoning" has the whole text ([what's weak in it](#limits-and-honest-notes)).
+3. **The re-match.** The tabs above the middle column: `C032-CH1 × R1015` is struck through and `C032-CH1 × R1008` is new. Nobody told matchmaker-2 to do that; it reacted to the Arbiter's event.
+4. **The negotiation.** Click the `C001-CH1 × R1015` tab and read down. The company wants to own the results, the researcher keeps ownership and ring-fences an earlier project, and they settle on an option to take the results over. Below that are the agreed terms and **Open the proposal**.
+5. **The Critic.** Scroll that column to the bottom. In the last red card, the writer had turned one 2021 student project into a "prior working relationship". The quote doesn't say that, so the sentence never reached the proposal.
+6. **The no.** On the KartografTech card (`C043-CH3`): raising a seed round isn't a research problem. On the Zlatna Njiva card (`C061-CH1`), R0128 is skipped because the notes are about another person.
+7. **The trap.** Press **Plant false claims**: 20 false claims we planted on purpose, all stopped in about 5 s. The first row credits R0881 with a paper by R0128, who has the same name. Click `SYN-PUB-01689` and check the author id.
+
+**Run the demo set** brings the demo back after that. The header counts 87 model calls if nothing has run yet and 68 once `out/cache/` exists, because analyst and profile answers are then reused; any earlier run fills it. The outcome is the same. A plain `npm run demo -- --replay` has no pacing, so `C001-CH1` reserves first and it counts 86, with the same proposals. The live measurements below are separate runs with no cache.
 
 The default run takes the demo set of four challenges. Other challenges (`npm run demo -- C012-CH3 C041-CH2`) need your own Anthropic key in `.env` the first time: `npm run demo` calls the model only for answers not yet recorded, and records them.
 
@@ -165,10 +187,11 @@ Each proposal lists, under "How we got here", every claim the Critic stopped, wh
 ## Limits and honest notes
 
 - Not built yet: the human approval step.
-- The support check is a cheap model and strict: it stopped a third of the proposal sentences on the first pass, and we haven't measured how many of those were true. The people-praise check is a word list, and it also blocked a sentence that called a method's result "best".
-- The cheap model rates most shortlisted candidates as a strong fit, so search order often decides. The Arbiter's and the Profiler's fit reasons aren't checked by the Critic yet (we checked the Arbiter's citations above by hand).
+- The support check is a cheap model and strict: it stopped a third of the proposal sentences on the first pass, and we haven't measured how many of those were true. We know of at least one: it stopped "physical PLC simulators" on `C001-CH1 × R1015`, which is true (`C001`'s tech stack), because the writer quoted a field that doesn't mention them. The people-praise check is a word list, and it also blocked a sentence that called a method's result "best".
+- The cheap model rates most shortlisted candidates as a strong fit, so search order often decides. The Arbiter's and the Profiler's fit reasons aren't checked by the Critic yet. We checked by hand that each paper the Arbiter cites is by the researcher it's cited for, but its reasoning is weaker than that: the two challenges are nearly identical, it says `SYN-PUB-10526` is cited only for `C032-CH1` when it's on both cards, and it credits "deployment guidance" to `SYN-PUB-10525` when that's in `SYN-PUB-10523`. What the design guarantees is that nobody is double-booked, not that the model picked the better side of a close call.
 - After a no-deal the researcher stays reserved for that challenge.
-- Negotiators cite fields of their position cards in each move; the Critic doesn't check those citations yet.
+- Negotiators cite fields of their position cards in each move; the Critic doesn't check those citations yet, and some are loose. In `C001-CH1 × R1015`, round 2 cites `open_to` for university ownership, but `open_to` only lists engagement types: that stance comes from the role the negotiator is given. Rounds 1 and 3 tie ProtoSense to a late-2025 plan that names a hardware variant.
+- Tested on Linux with Node 22 only.
 
 ## Tech
 

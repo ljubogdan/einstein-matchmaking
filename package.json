@@ -5,7 +5,7 @@
   "description": "Mozaik agents that pre-negotiate researcher-company collaborations on the EINSTEIN dataset",
   "type": "module",
   "engines": {
-    "node": ">=20"
+    "node": ">=20.12"
   },
   "scripts": {
     "setup": "bash scripts/setup.sh",

@@ -1,0 +1,2 @@
+# LF everywhere, also on Windows: bash can't run scripts/setup.sh with CRLF line endings.
+* text=auto eol=lf

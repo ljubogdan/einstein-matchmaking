@@ -88,19 +88,22 @@ function status(): string {
 
 function startRun(scene: Scene, speed: number): void {
   const script = scene === "demo" ? "src/run.ts" : "eval/critic.ts"
-  const child = spawn("node_modules/.bin/tsx", [script, "--replay", `--paced=${speed}`, `--trace=${TRACES[1]}`], { stdio: ["ignore", "pipe", "pipe"] })
+  // Node with tsx's own entry file: the node_modules/.bin/tsx shim can't be spawned directly on Windows.
+  const child = spawn(process.execPath, ["node_modules/tsx/dist/cli.mjs", script, "--replay", `--paced=${speed}`, `--trace=${TRACES[1]}`], { stdio: ["ignore", "pipe", "pipe"] })
   run = { child, speed, scene }
   broadcast("status", status())
+  const finished = (how: string) => {
+    run = undefined
+    broadcast("log", JSON.stringify(`run finished (${how})`))
+    broadcast("status", status())
+  }
   const forward = (chunk: Buffer) => {
     for (const line of chunk.toString("utf8").split("\n").filter((l) => l && !l.startsWith("mozaik cloud"))) broadcast("log", JSON.stringify(line))
   }
   child.stdout?.on("data", forward)
   child.stderr?.on("data", forward)
-  child.on("exit", (code) => {
-    run = undefined
-    broadcast("log", JSON.stringify(`run finished (exit ${code})`))
-    broadcast("status", status())
-  })
+  child.on("error", (error) => finished(`could not start: ${error.message}`)) // no "exit" follows; unhandled, it would kill the board
+  child.on("exit", (code) => finished(`exit ${code}`))
 }
 
 const server = createServer((req, res) => {

@@ -12,3 +12,14 @@ try {
   // no .env
 }
 for (const [name, value] of Object.entries(parseEnv(file))) if (value) process.env[name] = value
+
+// With no key, Mozaik's telemetry client warns once per model loop (86 lines in a replay). One line says it.
+const warn = console.warn
+let warned = false
+console.warn = (...args: unknown[]) => {
+  if (String(args[0]).startsWith("mozaik cloud: no API key")) {
+    if (warned) return
+    warned = true
+  }
+  warn(...args)
+}

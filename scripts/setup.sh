@@ -8,9 +8,9 @@ DATA_COMMIT="4fb99b3749adf0d10b5977089ff4c73f4f522240"   # 29 Oct 2026 11:05 CET
 
 need() { command -v "$1" >/dev/null || { echo "missing: $1 ($2)"; exit 1; }; }
 need git "install git"
-need node "install Node.js 20 or newer"
+need node "install Node.js 22"
 need npm "comes with Node.js"
-node -e 'process.exit(+process.versions.node.split(".")[0] >= 20 ? 0 : 1)' || { echo "Node.js 20+ required, found $(node -v)"; exit 1; }
+node -e 'const [a, b] = process.versions.node.split(".").map(Number); process.exit(a > 20 || (a === 20 && b >= 12) ? 0 : 1)' || { echo "Node.js 20.12 or newer required (22 recommended), found $(node -v)"; exit 1; }
 
 if [ -d data/einstein/.git ]; then
   echo "dataset: present ($(git -C data/einstein rev-parse --short HEAD))"
