@@ -1,8 +1,28 @@
-<h1><picture><source media="(prefers-color-scheme: dark)" srcset="media/prenup-logo.svg"><img src="media/prenup-logo-black.svg" alt="Prenup" height="44"></picture></h1>
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="media/readme-hero-dark.svg">
+  <img src="media/readme-hero-light.svg" alt="Prenup: research partnerships, agreed up front. Agents find the pair, negotiate the terms, check every fact, and say no when there's no good match." width="100%">
+</picture>
+
+<br>
+
+[![Mozaik 4.2.0](https://img.shields.io/badge/Mozaik-4.2.0-0071E3?style=flat&labelColor=1D1D1F)](https://github.com/jigjoy-ai/mozaik)
+[![TypeScript strict](https://img.shields.io/badge/TypeScript-strict-3D6CF0?style=flat&logo=typescript&logoColor=white&labelColor=1D1D1F)](tsconfig.json)
+[![Node.js 22](https://img.shields.io/badge/Node.js-22-5E63F5?style=flat&logo=nodedotjs&logoColor=white&labelColor=1D1D1F)](#run-it-no-api-key-needed)
+[![Replay: no API key](https://img.shields.io/badge/replay-no%20API%20key-7D5CFF?style=flat&labelColor=1D1D1F)](#run-it-no-api-key-needed)
+[![Tests: 52 passing](https://img.shields.io/badge/tests-52%20passing-9D5CF7?style=flat&logo=vitest&logoColor=white&labelColor=1D1D1F)](test/)
+[![EINSTEIN track](https://img.shields.io/badge/EINSTEIN-track-BF5AF2?style=flat&labelColor=1D1D1F)](https://github.com/jigjoy-ai/einstein-matchmaker-data)
+
+**[Run it](#run-it-no-api-key-needed)** · **[Tour](#a-two-minute-tour-of-the-board)** · **[How it works](#how-it-works)** · **[Mozaik](#mozaik-features-used)** · **[Concurrency](#concurrency)** · **[Results](#does-it-work)**
+
+</div>
+
+<br>
 
 **Agents that find researcher-company pairs in the EINSTEIN network, pre-negotiate the terms that usually stall collaborations, and say no when there is no good match.**
 
-Built on [Mozaik](https://github.com/jigjoy-ai/mozaik) for the NTP Novi Sad x JigJoy Hackathon, EINSTEIN track.
+Built on [Mozaik](https://github.com/jigjoy-ai/mozaik) for the NTP Novi Sad × JigJoy Hackathon, EINSTEIN track.
 
 ![The live board after a run: matchmakers and the Arbiter on the left, the negotiation between company and researcher as a conversation on the right, and a timeline with one bar per model call](media/prenup-board.png)
 
@@ -20,9 +40,26 @@ Built on [Mozaik](https://github.com/jigjoy-ai/mozaik) for the NTP Novi Sad x Ji
 npm run setup && npm run demo -- --replay
 ```
 
-You need git and Node.js 22 (tested on Linux with Node 22.18; not yet on Windows or macOS). `npm run setup` needs bash; in any other shell, run `npm ci`, then `git clone https://github.com/jigjoy-ai/einstein-matchmaker-data.git data/einstein` and `git -C data/einstein checkout 4fb99b3`. The replay writes [`out/proposals/`](out/proposals/) (one page per pair), [`out/nomatch.md`](out/nomatch.md), [`out/traps.md`](out/traps.md) and [`out/trace.jsonl`](out/trace.jsonl) (every event, one JSON line each).
+You need git and Node.js 22 (tested on Linux with Node 22.18; not yet on Windows or macOS). The replay writes [`out/proposals/`](out/proposals/) (one page per pair), [`out/nomatch.md`](out/nomatch.md), [`out/traps.md`](out/traps.md) and [`out/trace.jsonl`](out/trace.jsonl) (every event, one JSON line each).
 
-**Watch it run:** `npm run board`, open http://localhost:4173 and press **Run the demo set**. The agents run again on the recorded answers, each arriving after its recorded latency (8x faster, about 35 s). **Plant false claims** runs the Critic test. Ids open the cited dataset record; the moon button switches to a dark theme.
+<details>
+<summary><b>No bash?</b> Set up in PowerShell, cmd or any other shell</summary>
+
+<br>
+
+`npm run setup` needs bash. In any other shell:
+
+```sh
+npm ci
+git clone https://github.com/jigjoy-ai/einstein-matchmaker-data.git data/einstein
+git -C data/einstein checkout 4fb99b3
+npm run demo -- --replay
+```
+
+</details>
+
+> [!TIP]
+> **Watch it run:** `npm run board`, open http://localhost:4173 and press **Run the demo set**. The agents run again on the recorded answers, each arriving after its recorded latency (8x faster, about 35 s). **Plant false claims** runs the Critic test. Ids open the cited dataset record; the moon button switches to a dark theme.
 
 **More challenges:** `npm run batch -- --replay` replays the 15-challenge run into [`out/batch/`](out/batch/). Any other challenge needs your own Anthropic key in `.env` the first time (`npm run demo -- C041-CH2`): answers not yet recorded are fetched and recorded.
 
@@ -35,13 +72,17 @@ You need git and Node.js 22 (tested on Linux with Node 22.18; not yet on Windows
 5. **Your decision.** Under the agreed terms, **Edit** changes the format, IP, publication review, exclusivity or money, and each edit goes through the Critic's term checks (try contract research for R1015: refused, it isn't in their `open_to`). Then **Approve** or **Reject**. Nothing is sent to anyone: sending isn't built.
 6. **The no and the trap.** KartografTech (`C043-CH3`) wants to raise a seed round: not a research problem. On Zlatna Njiva (`C061-CH1`), R0128 is skipped because the notes describe another person. **Plant false claims**: 20 false claims we planted, all stopped; the first credits R0881 with a paper by R0128, who has the same name.
 
-<img src="media/prenup-edit.png" alt="Editing the agreed terms before approval: the publication review changed to 30 days and marked as edited, a change to contract research refused by the Critic because it isn't in the researcher's open_to, and the Approve with 1 change button" width="560">
+<p align="center">
+  <img src="media/prenup-edit.png" alt="Editing the agreed terms before approval: the publication review changed to 30 days and marked as edited, a change to contract research refused by the Critic because it isn't in the researcher's open_to, and the Approve with 1 change button" width="560">
+  <br>
+  <sub><b>Step 5:</b> an edit the Critic allows, one it refuses, and the approval button counting the changes.</sub>
+</p>
 
-*Step 5: an edit the Critic allows, one it refuses, and the approval button counting the changes.*
-
-![The Critic test in the dark theme: 20 of 20 planted false claims stopped, by kind, with the same-name swaps first](media/prenup-planted-dark.png)
-
-*Step 6: Plant false claims, in the dark theme.*
+<p align="center">
+  <img src="media/prenup-planted-dark.png" alt="The Critic test in the dark theme: 20 of 20 planted false claims stopped, by kind, with the same-name swaps first">
+  <br>
+  <sub><b>Step 6:</b> Plant false claims, in the dark theme.</sub>
+</p>
 
 ## How it works
 
@@ -93,7 +134,17 @@ Nobody calls anybody: each participant reacts to events.
 
 ## Concurrency
 
-Every challenge, candidate, conflict and pair gets its own agent, and every model loop is fire-and-forget, so analysts, profilers, arbiters and negotiations think at the same time. The matchmakers share one board and never overwrite each other: a reservation only succeeds against the version the matchmaker read. More in [CONCURRENCY.md](CONCURRENCY.md). The race in the demo run, from `out/trace.jsonl`:
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="media/readme-race-dark.svg">
+  <img src="media/readme-race-light.svg" alt="The race for R1015 in the demo run: matchmaker-2 reserves R1015 for C032-CH1 at board version 0; matchmaker-1's write for C001-CH1 also saw version 0 and is refused. The Arbiter keeps R1015 with C032-CH1, its reasoning checked (3 of 3 citations backed), and matchmaker-1 re-matches C001-CH1 to R1008." width="100%">
+</picture>
+
+Every challenge, candidate, conflict and pair gets its own agent, and every model loop is fire-and-forget, so analysts, profilers, arbiters and negotiations think at the same time. The matchmakers share one board and never overwrite each other: a reservation only succeeds against the version the matchmaker read. More in [CONCURRENCY.md](CONCURRENCY.md).
+
+The Arbiter is never told which side holds the researcher, so who writes first can't sway it. Its reason, verbatim: *"Both challenges are nearly identical in nature and [R1015]'s fit is strong for each. The deciding factor is that taking the alternative researcher loses more search relevance for [C032-CH1] (14%) than for [C001-CH1] (8%), meaning [C001-CH1] loses less by falling back to [R1008]."* The percentages are computed by code from BM25 relevance (161.4 to 148.4 for C001-CH1, 191.6 to 164.7 for C032-CH1).
+
+<details>
+<summary><b>The race in <code>out/trace.jsonl</code></b>: the five events behind the animation</summary>
 
 ```json
 {"type":"prenup.match.proposed","producer":"matchmaker-2","payload":{"pairId":"C032-CH1__R1015", "...": "..."}}
@@ -103,9 +154,14 @@ Every challenge, candidate, conflict and pair gets its own agent, and every mode
 {"type":"prenup.match.proposed","producer":"matchmaker-1","payload":{"pairId":"C001-CH1__R1008", "...": "..."}}
 ```
 
-The Arbiter is never told which side holds the researcher, so who writes first can't sway it. Its reason, verbatim: *"Both challenges are nearly identical in nature and [R1015]'s fit is strong for each. The deciding factor is that taking the alternative researcher loses more search relevance for [C032-CH1] (14%) than for [C001-CH1] (8%), meaning [C001-CH1] loses less by falling back to [R1008]."* The percentages are computed by code from BM25 relevance (161.4 to 148.4 for C001-CH1, 191.6 to 164.7 for C032-CH1).
+</details>
 
 ## Does it work?
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="media/readme-stats-dark.svg">
+  <img src="media/readme-stats-light.svg" alt="3.9 times faster with the agents in parallel (173.9 s vs 680.6 s). 20 of 20 planted false claims stopped. 0 double-booked researchers against 104 with last-writer-wins on all 489 challenges. 4 of 15 challenges outside the demo set got a reasoned no; the other 11 got proposals." width="100%">
+</picture>
 
 All numbers are from recorded runs; raw data is in [`out/eval/`](out/eval/) and [`out/batch/`](out/batch/), and `npm run eval` reruns the offline ones.
 
@@ -119,7 +175,8 @@ All numbers are from recorded runs; raw data is in [`out/eval/`](out/eval/) and 
 | **How often the Critic stops a true sentence**: every first-pass stop in the demo run, read against the dataset | 10 of 23 were true (5 of them quotes not word for word), 7 really said more than their sources, 6 were judgement calls; 3 true sentences were dropped after the rewrite. Was 14 of 32 before the support check was eased ([`critic-false-stops.json`](out/eval/critic-false-stops.json)) |
 | **Negotiation citations** that survived the run's checks | 10, all resolve to real records; read against their statements, 7 back them and 3 in part; 6 were removed during the run ([`citations.json`](out/eval/citations.json)) |
 
-The two readings above were done by Claude, the coding agent that helped build this, not by an independent person.
+> [!NOTE]
+> The two readings above were done by Claude, the coding agent that helped build this, not by an independent person.
 
 ![72 model calls of the demo set on a timeline, up to 15 open at once](out/eval/timeline.svg)
 
@@ -127,28 +184,31 @@ The demo set replayed at its recorded latency: 72 model calls in 209 s, up to 15
 
 ## Where the Critic stepped in
 
-The code checks stop a profile claim whose quote isn't word for word, or whose number isn't in any cited field:
+The code checks stop a profile claim whose quote isn't word for word, or whose number isn't in any cited field. The support check stops a sentence that says more than its sources: here the writer added that the company's sensor hardware and firmware are available for testing; no record says so. The sentence went back with a suggested fix, and the rewrite passed.
+
+<details>
+<summary><b>The verdicts</b>, as they appear in the trace</summary>
 
 ```json
 {"type":"prenup.critic.verdict","producer":"critic","payload":{"pairId":"profile:C001-CH1__R1008","attempt":1,"claimId":"profile:C001-CH1__R1008/1","subject":"R1008","verdict":"block","check":"quote","reason":"quote not found in SYN-PUB-10477.abstract"}}
 {"type":"prenup.critic.verdict","producer":"critic","payload":{"pairId":"profile:C032-CH1__R0071","attempt":1,"claimId":"profile:C032-CH1__R0071/2","subject":"R0071","verdict":"block","check":"numbers","reason":"512 is not in any cited field"}}
-```
-
-The support check stops a sentence that says more than its sources. Here the writer added that the company's sensor hardware and firmware are available for testing; no record says so. The sentence went back with a suggested fix, and the rewrite passed:
-
-```json
 {"type":"prenup.critic.verdict","producer":"critic","payload":{"pairId":"C032-CH1__R1015","attempt":1,"claimId":"C032-CH1__R1015/companyBrings/2","subject":"C032","verdict":"rewrite","check":"support","reason":"Field mentions sensor captures traffic and sends parsed records, but does not state that sensor hardware and firmware environment are available for testing.", "...": "..."}}
 {"type":"prenup.critic.verdict","producer":"critic","payload":{"pairId":"C032-CH1__R1015","attempt":2,"claimId":"C032-CH1__R1015/companyBrings/2","subject":"C032","verdict":"pass"}}
 ```
+
+</details>
 
 Each proposal lists, under "How we got here", every claim the Critic stopped and what happened to it.
 
 ## Proposals
 
-- [C032-CH1 x R1015](out/proposals/C032-CH1__R1015.md): finding network threats on industrial control systems without labelled attack data, for SecureEdge Labs (joint project)
-- [C001-CH1 x R1008](out/proposals/C001-CH1__R1008.md): the same problem for ArmaturaSec, after the Arbiter kept R1015 with C032-CH1 (joint project)
-- [C061-CH1 x R0231](out/proposals/C061-CH1__R0231.md): why cold-pressed pumpkin seed oil goes rancid early (contract research)
-- [No match](out/nomatch.md), [traps](out/traps.md), and the [15 more challenges](out/batch/)
+| Pair | The problem | Format |
+|---|---|---|
+| [C032-CH1 × R1015](out/proposals/C032-CH1__R1015.md) | Finding network threats on industrial control systems without labelled attack data, for SecureEdge Labs | Joint project |
+| [C001-CH1 × R1008](out/proposals/C001-CH1__R1008.md) | The same problem for ArmaturaSec, after the Arbiter kept R1015 with C032-CH1 | Joint project |
+| [C061-CH1 × R0231](out/proposals/C061-CH1__R0231.md) | Why cold-pressed pumpkin seed oil goes rancid early | Contract research |
+
+Also: the [no-match report](out/nomatch.md), the [trap report](out/traps.md), and the [15 more challenges](out/batch/).
 
 ## How it plugs into the EINSTEIN network and EINSTEIN Stars
 
@@ -176,3 +236,11 @@ Each proposal lists, under "How we got here", every claim the Critic stopped and
 ## Tech
 
 TypeScript; `@mozaik-ai/core` 4.2.0 (exact pin); BM25 search in code; zod schemas as structured output; the board is one HTML page fed by Server-Sent Events from a small Node server, no framework. Models through the hackathon's Anthropic gateway: `claude-haiku-4-5` for the Analyst, the Profiler and the Critic's support check; `claude-sonnet-4-6` for the Arbiter, negotiators, citation checks and writer. `npm test` covers search, trap detection, the Critic's checks, term edits, reservations, matchmaking, the Arbiter and the runner.
+
+<br>
+
+<div align="center">
+  <img src="media/prenup-mark.svg" width="40" alt="">
+  <br>
+  <sub>Built on <a href="https://github.com/jigjoy-ai/mozaik">Mozaik</a> for the NTP Novi Sad × JigJoy Hackathon, EINSTEIN track.</sub>
+</div>
