@@ -1,11 +1,13 @@
-// npm run eval:critic [-- --replay] [-- --no-support]: plants 20 false claims of 7 kinds, built by code from real records, and sends them
+// npm run eval:critic [-- --replay] [-- --no-support] [-- --paced] [-- --trace=PATH]: plants 20 false claims of 7 kinds, built by code from real records, and sends them
 // to the Critic as one check request, the way the writer does (deterministic checks, then one cheap-model support check).
 // Reports which check caught each and which got through. Writes out/eval/critic.json. The faults go to the Critic
 // directly, not through the writer, so this measures the Critic, not whether a writer would make these mistakes.
+// With --trace (the board's "Plant false claims"), it writes a trace for the board instead of out/eval/.
 import "../src/env"
 import { mkdirSync, writeFileSync } from "node:fs"
 import { createHuman, SemanticEvent } from "@mozaik-ai/core"
 import { createCritic, type Verdict } from "../src/agents/critic"
+import { createTraceObserver } from "../src/agents/observer"
 import { RecordingRunner } from "../src/llm/runner"
 import { MODELS } from "../src/models"
 import { Board, initializeRuntime, join, on, sendEvent } from "../src/runtime"
@@ -19,6 +21,9 @@ type Fault = { kind: Kind; claim: Claim; planted: string }
 const data = Dataset.load()
 const mode = process.argv.includes("--replay") ? "replay" : "record"
 const support = !process.argv.includes("--no-support") // ablation: the deterministic checks alone
+const flag = (name: string) => process.argv.find((arg) => arg.startsWith(`--${name}`))?.split("=")[1]
+const trace = flag("trace")
+const pace = process.argv.some((arg) => arg.startsWith("--paced")) ? Number(flag("paced") ?? 1) || 1 : undefined
 const words = (text: string, from: number, n: number) => text.split(/\s+/).slice(from, from + n).join(" ")
 const authored = (rid: string): Publication[] =>
   data.researchers.get(rid)!.publications.map((id) => data.publications.get(id)!).filter((p) => p?.authors.some((a) => a.researcher_id === rid))
@@ -64,8 +69,9 @@ const faults: Fault[] = [
   { kind: "says more than its quote", planted: "real verbatim quote, sentence claims the hybrid approach was proven in the field", claim: fact(20, "R1015", "R1015 proved in field trials that hybrid detectors outperform every other approach.", p10525.id, "abstract", words(p10525.abstract, 0, 14)) },
 ]
 
-const runner = new RecordingRunner({ mode })
+const runner = new RecordingRunner({ mode, pace })
 initializeRuntime({ state: new Board(), inferenceRunnerConfig: { runner } })
+if (trace) join(createTraceObserver(trace))
 join(createCritic({ data, move: (pairId, round) => (round === 1 ? moves.get(pairId) : undefined) }, { support }))
 const reader = createHuman({
   name: "eval",
@@ -96,9 +102,11 @@ function report(verdicts: Verdict[]): void {
     byCheck,
     faults: rows,
   }
-  mkdirSync("out/eval", { recursive: true })
-  const out = support ? "out/eval/critic.json" : "out/eval/critic-no-support.json"
-  writeFileSync(out, JSON.stringify(result, null, 2) + "\n")
+  const out = trace ?? (support ? "out/eval/critic.json" : "out/eval/critic-no-support.json")
+  if (!trace) {
+    mkdirSync("out/eval", { recursive: true })
+    writeFileSync(out, JSON.stringify(result, null, 2) + "\n")
+  }
   console.log(`caught ${result.caught}/${result.planted} planted false claims`)
   for (const k of byKind) console.log(`  ${k.kind}: ${k.caught}/${k.planted}`)
   for (const r of rows.filter((r) => !r.caught)) console.log(`  MISSED (${r.kind}): ${r.claim}`)
@@ -108,4 +116,6 @@ function report(verdicts: Verdict[]): void {
   process.exit(0)
 }
 
+// What was planted and why, for the board's labels; then the claims go to the Critic like a writer's draft.
+sendEvent(SemanticEvent.create("prenup.eval.planted", reader.getId(), { pairId: "eval:faults", faults: faults.map((f) => ({ claimId: f.claim.id, kind: f.kind, planted: f.planted })) }), reader.getId())
 sendEvent(SemanticEvent.create("prenup.critic.check", reader.getId(), { pairId: "eval:faults", claims: faults.map((f) => f.claim) }), reader.getId())

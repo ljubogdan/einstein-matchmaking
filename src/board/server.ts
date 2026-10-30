@@ -2,6 +2,7 @@
 // line to the page (Server-Sent Events). "Run" starts `src/run.ts --replay --paced=N` with its own trace file, so the
 // committed out/trace.jsonl stays as it is: the agents run again on the recorded answers, each answer arriving after its
 // recorded latency divided by N. No key, no network. A run started in a terminal (out/trace.jsonl) shows up too.
+// "Plant false claims" starts the Critic test (eval/critic.ts): 20 planted claims, checked as one writer draft would be.
 import { spawn, type ChildProcess } from "node:child_process"
 import { closeSync, existsSync, openSync, readFileSync, readSync, statSync } from "node:fs"
 import { createServer, type ServerResponse } from "node:http"
@@ -19,7 +20,8 @@ let offset = 0
 let head = ""
 let rest = Buffer.alloc(0)
 const clients = new Set<ServerResponse>()
-let run: { child: ChildProcess; speed: number } | undefined
+type Scene = "demo" | "plant"
+let run: { child: ChildProcess; speed: number; scene: Scene } | undefined
 let data: Dataset | undefined
 
 function send(res: ServerResponse, event: string, payload: string): void {
@@ -81,12 +83,13 @@ function poll(): void {
 }
 
 function status(): string {
-  return JSON.stringify(run ? { running: true, speed: run.speed } : { running: false })
+  return JSON.stringify(run ? { running: true, speed: run.speed, scene: run.scene } : { running: false })
 }
 
-function startRun(speed: number): void {
-  const child = spawn("node_modules/.bin/tsx", ["src/run.ts", "--replay", `--paced=${speed}`, `--trace=${TRACES[1]}`], { stdio: ["ignore", "pipe", "pipe"] })
-  run = { child, speed }
+function startRun(scene: Scene, speed: number): void {
+  const script = scene === "demo" ? "src/run.ts" : "eval/critic.ts"
+  const child = spawn("node_modules/.bin/tsx", [script, "--replay", `--paced=${speed}`, `--trace=${TRACES[1]}`], { stdio: ["ignore", "pipe", "pipe"] })
+  run = { child, speed, scene }
   broadcast("status", status())
   const forward = (chunk: Buffer) => {
     for (const line of chunk.toString("utf8").split("\n").filter((l) => l && !l.startsWith("mozaik cloud"))) broadcast("log", JSON.stringify(line))
@@ -118,10 +121,11 @@ const server = createServer((req, res) => {
     return void req.on("close", () => clients.delete(res))
   }
 
-  if (path === "/run" && req.method === "POST") {
+  if ((path === "/run" || path === "/plant") && req.method === "POST") {
     if (run) return void res.writeHead(409).end("a run is in progress")
-    const speed = Math.min(Math.max(Number(url.searchParams.get("speed")) || 4, 1), 64)
-    startRun(speed)
+    // The planted claims run at recorded pace: one support-check call, a couple of seconds.
+    const speed = path === "/plant" ? 1 : Math.min(Math.max(Number(url.searchParams.get("speed")) || 4, 1), 64)
+    startRun(path === "/run" ? "demo" : "plant", speed)
     return void res.writeHead(202).end()
   }
 

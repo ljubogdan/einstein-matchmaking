@@ -38,19 +38,21 @@
   .brand .status i { width: 7px; height: 7px; border-radius: 50%; background: #c7c7cc; }
   .brand .status i.live { background: var(--accent); box-shadow: 0 0 0 0 rgba(0, 113, 227, .5); animation: pulse 1.6s ease-out infinite; }
   @keyframes pulse { to { box-shadow: 0 0 0 7px rgba(0, 113, 227, 0); } }
-  .stats { display: flex; gap: 24px; margin-left: auto; }
+  .stats { display: flex; gap: 20px; margin-left: auto; }
   .stat { display: flex; flex-direction: column; align-items: flex-end; min-width: 56px; }
   .stat b { font: 600 20px/1.1 var(--display); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
-  .stat span { color: var(--faint); font-size: 11.5px; }
+  .stat span { color: var(--faint); font-size: 11.5px; white-space: nowrap; }
   .stat.live b { color: var(--accent); }
   .stat.crit b { color: var(--red); }
-  .controls { display: flex; align-items: center; gap: 12px; }
+  .controls { display: flex; align-items: center; gap: 10px; white-space: nowrap; }
   .segmented { display: inline-flex; padding: 2px; border-radius: 9px; background: rgba(118, 118, 128, .12); }
   .segmented button { border: 0; background: transparent; color: var(--ink); padding: 4px 11px; border-radius: 7px; font-size: 12.5px; font-weight: 500; }
   .segmented button.on { background: var(--surface); box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 1px rgba(0, 0, 0, .04); }
   .primary { border: 0; border-radius: 980px; background: var(--accent); color: #fff; padding: 8px 18px; font-weight: 500; transition: background .2s, opacity .2s; }
   .primary:hover { background: #0077ed; }
-  .primary:disabled { opacity: .45; cursor: default; }
+  .primary:disabled, .secondary:disabled { opacity: .45; cursor: default; }
+  .secondary { border: 0; border-radius: 980px; background: var(--accent-soft); color: var(--accent); padding: 8px 16px; font-weight: 500; transition: background .2s; }
+  .secondary:hover { background: rgba(0, 113, 227, .14); }
 
   main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, .9fr); gap: 20px; padding: 20px 28px 12px; min-height: 0; }
   section { display: flex; flex-direction: column; min-height: 0; }
@@ -109,6 +111,14 @@
   .stop .then.fixed { color: var(--accent); font-weight: 500; }
   .stop .then.dropped, .stop .then.wait { color: var(--muted); }
   .muted { color: var(--muted); }
+  .fault { background: var(--surface); border-radius: 12px; box-shadow: var(--shadow); padding: 12px 14px; margin-bottom: 8px; font-size: 13px; }
+  .fault .claim { font-weight: 500; }
+  .fault .src { margin-top: 4px; color: var(--faint); font-size: 12px; }
+  .fault .stop { margin: 8px 0 0; padding: 7px 10px; }
+  .fault .checking { margin-top: 8px; color: var(--faint); font-size: 12.5px; }
+  .kinds .row { grid-template-columns: 1fr auto; }
+  .kinds .row b { font-variant-numeric: tabular-nums; }
+  .kinds .row b.crit { color: var(--red); }
 
   .log { background: var(--surface); border-radius: 14px; box-shadow: var(--shadow); padding: 4px 0; }
   .log div { padding: 7px 14px; border-top: 1px solid var(--line); font-size: 12.5px; }
@@ -128,6 +138,7 @@
   [data-enter] { animation: enter .4s ease-out both; }
   @keyframes enter { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion: reduce) { [data-enter] { animation: none; } }
+  @media (max-width: 1500px) { .brand .tagline { display: none; } header { gap: 20px; } }
   @media (max-width: 1100px) {
     body { display: block; }
     header { flex-wrap: wrap; gap: 14px; padding: 12px 16px; }
@@ -142,7 +153,7 @@
 <header>
   <div class="brand">
     <h1>Prenup</h1>
-    <p>Matches researchers to company challenges and agrees the terms up front</p>
+    <p class="tagline">Matches researchers to company challenges and agrees the terms up front</p>
     <p class="status"><i id="dot"></i><span id="note">Following the latest run</span></p>
   </div>
   <div class="stats" id="stats"></div>
@@ -150,12 +161,13 @@
     <div class="segmented" id="speed" role="radiogroup" aria-label="Replay speed">
       <button data-speed="1">1×</button><button data-speed="2">2×</button><button data-speed="4" class="on">4×</button><button data-speed="16">16×</button>
     </div>
+    <button class="secondary" id="plant" title="20 false claims built from real records, checked by the Critic">Plant false claims</button>
     <button class="primary" id="run">Run the demo set</button>
   </div>
 </header>
 <main>
-  <section><h2>Matchmakers and Arbiter</h2><p class="sub">Each challenge, from search to outcome</p><div class="scroll" id="challenges"></div></section>
-  <section><h2>Negotiation and Critic</h2><p class="sub">The focused pair's terms, moves and checked claims</p><div class="scroll" id="pair"></div></section>
+  <section><h2 id="h-left">Matchmakers and Arbiter</h2><p class="sub" id="s-left">Each challenge, from search to outcome</p><div class="scroll" id="challenges"></div></section>
+  <section><h2 id="h-mid">Negotiation and Critic</h2><p class="sub" id="s-mid">The focused pair's terms, moves and checked claims</p><div class="scroll" id="pair"></div></section>
   <section><h2>Event log</h2><p class="sub">Every agent reacting to every other, newest first</p><div class="scroll"><div class="log" id="log"></div></div></section>
 </main>
 <div id="strip"><div class="card"><div class="top"><h2>Timeline</h2><span id="span">One row per kind of participant, one bar per model call</span></div><svg id="timeline"></svg></div></div>
@@ -196,7 +208,7 @@ function group(producer) {
 // continues across redraws (negative delay) instead of restarting or being cut short.
 let S
 function reset() {
-  S = { t0: null, tLast: 0, seq: 0, born: [], challenges: new Map(), pairs: new Map(), loops: new Map(), ticks: [], log: [], stops: 0, focus: null, pinned: false, records: new Map() }
+  S = { t0: null, tLast: 0, seq: 0, born: [], challenges: new Map(), pairs: new Map(), loops: new Map(), ticks: [], log: [], stops: 0, focus: null, pinned: false, records: new Map(), faults: null }
   dirty()
 }
 const FADE_MS = 400
@@ -259,8 +271,22 @@ function apply(e) {
       tick()
       log(e, `${p.researcherId} card for ${p.challengeId}: fit ${p.fit}${p.flags.length ? `, flags: ${p.flags.map((f) => f.kind).join(", ")}` : ""}`)
       break
+    case "prenup.eval.planted":
+      S.faults = { list: p.faults.map((f) => ({ ...f, seq: next() })), claims: {}, verdicts: {} }
+      log(e, `planted ${p.faults.length} false claims, built by code from real records`)
+      break
+    case "prenup.critic.check":
+      if (S.faults && p.pairId.startsWith("eval:")) for (const c of p.claims) S.faults.claims[c.id] = c
+      break
     case "prenup.critic.verdict": {
       const stopped = p.verdict !== "pass"
+      if (p.pairId.startsWith("eval:") && S.faults) {
+        S.faults.verdicts[p.claimId] = { ...p, seq: next() }
+        if (stopped) S.stops++
+        log(e, `${p.claimId}: ${stopped ? `${p.verdict} (${p.check}) ${p.reason}` : "passed"}`, stopped ? "crit" : "")
+        if (stopped) tick(true)
+        break
+      }
       if (stopped && p.attempt === 1) S.stops++ // first-pass stops, as the README counts them
       if (p.pairId.startsWith("profile:")) {
         const c = challenge(p.pairId.slice(8).split("__")[0])
@@ -359,10 +385,23 @@ function dirty() {
   })
 }
 
+const TITLES = {
+  demo: ["Matchmakers and Arbiter", "Each challenge, from search to outcome", "Negotiation and Critic", "The focused pair's terms, moves and checked claims"],
+  plant: ["Critic test", "False claims planted on purpose, by kind", "Planted claims", "Each claim, its source, and the check that stopped it"],
+}
+
 function render() {
+  const [hl, sl, hm, sm] = TITLES[S.faults ? "plant" : "demo"]
+  $("h-left").textContent = hl
+  $("s-left").textContent = sl
+  $("h-mid").textContent = hm
+  $("s-mid").textContent = sm
   renderStats()
-  renderChallenges()
-  renderPair()
+  if (S.faults) renderFaults()
+  else {
+    renderChallenges()
+    renderPair()
+  }
   renderLog()
   renderTimeline()
   // Keep redrawing while something is still fading in.
@@ -374,6 +413,12 @@ function renderStats() {
   const running = loops.filter((l) => l.end === null).length
   const proposals = [...S.pairs.values()].filter((p) => p.ready).length
   const stat = (value, label, cls = "") => `<div class="stat ${cls}"><b>${value}</b><span>${label}</span></div>`
+  if (S.faults) {
+    const vs = Object.values(S.faults.verdicts)
+    const stopped = vs.filter((v) => v.verdict !== "pass")
+    const bySupport = stopped.filter((v) => v.check === "support").length
+    return void ($("stats").innerHTML = [stat(S.faults.list.length, "planted"), stat(stopped.length, "stopped", stopped.length ? "crit" : ""), stat(stopped.length - bySupport, "code checks"), stat(bySupport, "support check"), stat(loops.length, loops.length === 1 ? "model call" : "model calls")].join(""))
+  }
   $("stats").innerHTML = S.t0
     ? [stat(running, "calls running", running ? "live" : ""), stat(loops.length, "model calls"), stat(proposals, proposals === 1 ? "proposal" : "proposals"), stat(S.stops, "claims stopped", S.stops ? "crit" : ""), stat(`${at(S.tLast).toFixed(0)}s`, "elapsed")].join("")
     : ""
@@ -456,6 +501,36 @@ function renderPair() {
   $("pair").innerHTML = `${header}${who}${outcome ? `<p class="outcome">${outcome}</p>` : ""}${terms}${moves}${critic}${ready}`
 }
 
+// The Critic test: what was planted, and which check stopped each claim. Same-name swaps first: the demo points at one.
+const KINDS = ["same-name swap", "says more than its quote", "unavailable person", "engagement not in open_to", "invented money", "altered quote", "fake id"]
+function renderFaults() {
+  const F = S.faults
+  const verdict = (f) => F.verdicts[f.claimId]
+  const caught = (f) => verdict(f) && verdict(f).verdict !== "pass"
+  const done = Object.keys(F.verdicts).length === F.list.length
+  const n = F.list.filter(caught).length
+  const kinds = KINDS.filter((k) => F.list.some((f) => f.kind === k))
+  $("challenges").innerHTML = `<div class="card"><div class="top"><span class="who"><b>Planted false claims</b></span><span class="pill">${done ? `${n} of ${F.list.length} stopped` : "checking…"}</span></div>
+      <p class="why" style="margin:8px 0 0">Built by code from real records and sent to the Critic as one check, the way a writer's draft is: code checks first, then one cheap-model support check for what passes them. Planted on purpose.</p></div>
+    <div class="group kinds">${kinds.map((k) => {
+      const mine = F.list.filter((f) => f.kind === k)
+      const got = mine.filter(caught).length
+      return `<div class="row"><span>${esc(k[0].toUpperCase() + k.slice(1))}</span><b class="${done && got ? "crit" : ""}">${done ? `${got} / ${mine.length}` : `… / ${mine.length}`}</b></div>`
+    }).join("")}</div>`
+  $("pair").innerHTML = kinds.map((k) => `<div class="label">${esc(k)}</div>${F.list.filter((f) => f.kind === k).map((f) => {
+    const c = F.claims[f.claimId]
+    const v = verdict(f)
+    const src = c?.sources[0]
+    const quote = src ? (src.quote.length > 90 ? `${src.quote.slice(0, 90)}…` : src.quote) : ""
+    const result = !v ? `<div class="checking">Checking…</div>`
+      : v.verdict === "pass" ? `<div class="checking">Passed: not caught</div>`
+      : `<div class="stop"><span class="what">Stopped · ${esc(v.check)}</span> ${linked(v.reason)}</div>`
+    return `<div class="fault"${anim(f)}><div class="claim">${c ? linked(c.text) : esc(f.claimId)}</div>
+      ${src ? `<div class="src">Cites ${src.id.startsWith("move:") ? "the term sheet" : idLink(src.id)} · ${esc(src.field)} · “${esc(quote)}”</div>` : ""}
+      <div class="src">Planted: ${linked(f.planted)}</div>${result}</div>`
+  }).join("")}`).join("")
+}
+
 function renderLog() {
   $("log").innerHTML = S.log.length ? S.log.slice(-300).reverse().map((l) =>
     `<div class="${l.cls}"${anim(l)}><span class="t">${l.t ? `${at(l.t).toFixed(1)}s` : ""}</span>${l.producer ? `<span class="p">${esc(l.producer)}</span>` : ""}${linked(l.text)}</div>`).join("") : `<div class="empty">Events appear here as agents emit them.</div>`
@@ -514,6 +589,7 @@ document.addEventListener("click", (ev) => {
   }
 })
 $("run").addEventListener("click", () => fetch(`/run?speed=${speed}`, { method: "POST" }))
+$("plant").addEventListener("click", () => fetch("/plant", { method: "POST" }))
 window.addEventListener("resize", dirty)
 
 reset()
@@ -528,12 +604,14 @@ source.addEventListener("log", (msg) => {
 })
 source.addEventListener("status", (msg) => {
   const s = JSON.parse(msg.data)
-  $("run").disabled = s.running
-  $("run").textContent = s.running ? "Running…" : "Run the demo set"
+  $("run").disabled = $("plant").disabled = s.running
+  $("run").textContent = s.running && s.scene === "demo" ? "Running…" : "Run the demo set"
   $("dot").classList.toggle("live", s.running)
-  $("note").textContent = s.running
-    ? `Live · recorded answers at their recorded latency ÷${s.speed} · no key, no network`
-    : "Latest run · any run, here or in a terminal, appears as it happens"
+  $("note").textContent = !s.running
+    ? "Latest run · any run, here or in a terminal, appears as it happens"
+    : s.scene === "plant"
+      ? "Live · 20 planted false claims, checked like a writer's draft · recorded answers, no key"
+      : `Live · recorded answers at their recorded latency ÷${s.speed} · no key, no network`
 })
 </script>
 </body>
