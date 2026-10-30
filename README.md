@@ -140,7 +140,7 @@ And three measurements made for the question "does the design hold up?" (`npm ru
 
 The recording run on a timeline: 68 model calls in 137 s, 3.2 open on average and up to 15 at once (a call counts from its request to its answer, waiting for one of the 8 slots included). Analysts and profilers came from the local cache in that run, so they aren't on it.
 
-Not measured yet: how often the Critic stops a true claim (needs a human-checked sample).
+How often it stops a true claim: of the 46 first-pass stops in the demo run, **20 sentences were true, 17 really said more than their sources and 9 were judgement calls** ([`critic-false-stops.json`](out/eval/critic-false-stops.json) has each one). So the Critic is too strict: 9 of the 20 true sentences never came back after the rewrite. Claude, the coding agent that helped build this, did this review, not an independent person.
 
 ## Where the Critic stepped in
 
@@ -187,7 +187,7 @@ Each proposal lists, under "How we got here", every claim the Critic stopped, wh
 ## Limits and honest notes
 
 - Not built yet: the human approval step.
-- The support check is a cheap model and strict: it stopped a third of the proposal sentences on the first pass, and we haven't measured how many of those were true. We know of at least one: it stopped "physical PLC simulators" on `C001-CH1 × R1015`, which is true (`C001`'s tech stack), because the writer quoted a field that doesn't mention them. The people-praise check is a word list, and it also blocked a sentence that called a method's result "best".
+- The support check is a cheap model and strict: it stopped a third of the proposal sentences on the first pass, and about 4 in 10 of all first-pass stops were true sentences (see [Does it work?](#does-it-work)). It reads only the claim's quotes, so a true sentence with too short a quote goes back: it stopped "physical PLC simulators" on `C001-CH1 × R1015`, which is true (`C001`'s tech stack), because the writer quoted a field that doesn't mention them. The people-praise check is a word list, and it also blocked a sentence that called a method's result "best".
 - The cheap model rates most shortlisted candidates as a strong fit, so search order often decides. The Arbiter's and the Profiler's fit reasons aren't checked by the Critic yet. We checked by hand that each paper the Arbiter cites is by the researcher it's cited for, but its reasoning is weaker than that: the two challenges are nearly identical, it says `SYN-PUB-10526` is cited only for `C032-CH1` when it's on both cards, and it credits "deployment guidance" to `SYN-PUB-10525` when that's in `SYN-PUB-10523`. What the design guarantees is that nobody is double-booked, not that the model picked the better side of a close call.
 - After a no-deal the researcher stays reserved for that challenge.
 - Negotiators cite fields of their position cards in each move; the Critic doesn't check those citations yet, and some are loose. In `C001-CH1 × R1015`, round 2 cites `open_to` for university ownership, but `open_to` only lists engagement types: that stance comes from the role the negotiator is given. Rounds 1 and 3 tie ProtoSense to a late-2025 plan that names a hardware variant.
