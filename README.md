@@ -1,10 +1,10 @@
-<h1><img src="media/prenup-logo-gradient.svg" alt="Prenup" height="44"></h1>
+<h1><picture><source media="(prefers-color-scheme: dark)" srcset="media/prenup-logo.svg"><img src="media/prenup-logo-black.svg" alt="Prenup" height="44"></picture></h1>
 
 **Agents that find researcher-company pairs in the EINSTEIN network, pre-negotiate the terms that usually stall collaborations, and say no when there is no good match.**
 
 Built on [Mozaik](https://github.com/jigjoy-ai/mozaik) for the NTP Novi Sad x JigJoy Hackathon, EINSTEIN track.
 
-![The live board after a run: matchmakers and the Arbiter, the negotiated term sheet, the event log with the Critic's stops in red, and a timeline with one bar per model call](media/board.png)
+![The live board after a run: matchmakers and the Arbiter, the negotiated term sheet, the event log with the Critic's stops in red, and a timeline with one bar per model call](media/prenup-board.png)
 
 > Status 30 Oct. Everything below describes what runs today; what isn't built yet is named as such under [Limits](#limits-and-honest-notes).
 
