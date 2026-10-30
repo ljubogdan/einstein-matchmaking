@@ -12,7 +12,7 @@ export function makePair(data: Dataset, challengeId: string, researcherId: strin
   return { pairId: `${challengeId}__${researcherId}`, challenge, company, researcher }
 }
 
-/** The researcher's publications that share the most words with the challenge (search proper arrives in M2). */
+/** The researcher's publications that share the most words with the challenge: the negotiators' and writer's evidence. */
 export function topPublications(pair: Pair, data: Dataset, n: number): Publication[] {
   const words = (text: string) => new Set(normalize(text).split(/[^\p{L}\p{N}]+/u).filter((w) => w.length > 4))
   const challengeWords = words(`${pair.challenge.text} ${pair.challenge.detail}`)

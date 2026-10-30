@@ -10,4 +10,4 @@ export const MODELS = {
 export const EFFORT = { negotiate: "low", write: "medium" } as const
 
 // Output cap per job. Anthropic rejects a call without one, and Mozaik sets no default.
-export const MAX_OUTPUT = { negotiate: 4000, write: 8000 } as const
+export const MAX_OUTPUT = { analyze: 1500, profile: 2000, negotiate: 4000, write: 8000 } as const
