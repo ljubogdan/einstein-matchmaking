@@ -2,9 +2,9 @@
 
 **Agents that find researcher-company pairs in the EINSTEIN network, pre-negotiate the terms that usually stall collaborations, and say no when there is no good match.**
 
-Built on [Mozaik](https://github.com/jigjoy-ai/mozaik) for the NTP Novi Sad x JigJoy Hackathon, EINSTEIN track. Developer setup: [SETUP.md](SETUP.md).
+Built on [Mozaik](https://github.com/jigjoy-ai/mozaik) for the NTP Novi Sad x JigJoy Hackathon, EINSTEIN track.
 
-> Draft written before the code. Every `TODO` must be replaced with real output before submission (`/prenup-submit` checks this).
+> Work in progress. Every `TODO` below is replaced with measured output before submission.
 
 ## Run it in one command (no API key needed)
 
