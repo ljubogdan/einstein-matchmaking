@@ -1,9 +1,9 @@
 {
   "trace": "out/eval/trace-replay-1x.jsonl",
   "calls": 66,
-  "wallClockSeconds": 117.8,
-  "sumOfCallSeconds": 365.6,
-  "averageOpenCalls": 3.1,
+  "wallClockSeconds": 119.9,
+  "sumOfCallSeconds": 367.6,
+  "averageOpenCalls": 3.07,
   "peakOpenCalls": 15,
   "byGroup": {
     "Profilers": 14,

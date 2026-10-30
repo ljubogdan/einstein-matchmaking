@@ -19,7 +19,8 @@
     "eval:critic": "tsx eval/critic.ts",
     "eval:arbiter": "tsx eval/arbiter.ts && tsx eval/arbiter.ts --lww",
     "eval:timeline": "tsx eval/timeline.ts",
-    "eval": "npm run eval:critic -- --replay && npm run eval:arbiter && npm run eval:timeline"
+    "eval:citations": "tsx eval/citations.ts",
+    "eval": "npm run eval:critic -- --replay && npm run eval:arbiter && npm run eval:timeline && npm run eval:citations"
   },
   "dependencies": {
     "@mozaik-ai/core": "4.2.0",

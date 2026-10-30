@@ -1,0 +1,115 @@
+{
+  "what": "Field citations in the recorded negotiation moves. resolves: checked by code. review: whether the field backs the statement the citation is attached to, read by Claude, not by a person. The Critic doesn't check these during a run.",
+  "trace": "out/eval/trace-replay-1x.jsonl",
+  "citations": 17,
+  "resolve": 17,
+  "review": {
+    "yes": 9,
+    "no": 2,
+    "partly": 6
+  },
+  "rows": [
+    {
+      "citation": "C032-CH1__R1015/1/company/C032 plans",
+      "resolves": true,
+      "reason": "We want company ownership of results so we can integrate directly into EdgeWatch and our SOC service without licence friction, with a 24-month exclusivity window to protect our competitive position while we pursue EU Cyber Resilience Act certification [C032 plans]. A 60-day review period protects confidential customer data embedded in any publication [C032 tech].",
+      "review": "yes"
+    },
+    {
+      "citation": "C032-CH1__R1015/1/company/C032 tech",
+      "resolves": true,
+      "reason": "We want company ownership of results so we can integrate directly into EdgeWatch and our SOC service without licence friction, with a 24-month exclusivity window to protect our competitive position while we pursue EU Cyber Resilience Act certification [C032 plans]. A 60-day review period protects confidential customer data embedded in any publication [C032 tech].",
+      "review": "no"
+    },
+    {
+      "citation": "C061-CH1__R0231/1/company/C061 past_collaborations",
+      "resolves": true,
+      "reason": "We want contract research with company ownership of results because we need actionable process changes we can apply to our existing production line and protect as operational know-how; past collaboration gaps mean we need formal milestones and a named company contact to ensure delivery [C061 past_collaborations]. A 60-day publication review and confidential-information removal right protects our production data [C061 rd_capacity].",
+      "review": "yes"
+    },
+    {
+      "citation": "C061-CH1__R0231/1/company/C061 rd_capacity",
+      "resolves": true,
+      "reason": "We want contract research with company ownership of results because we need actionable process changes we can apply to our existing production line and protect as operational know-how; past collaboration gaps mean we need formal milestones and a named company contact to ensure delivery [C061 past_collaborations]. A 60-day publication review and confidential-information removal right protects our production data [C061 rd_capacity].",
+      "review": "no"
+    },
+    {
+      "citation": "C032-CH1__R1015/2/researcher/R1015 projects",
+      "resolves": true,
+      "reason": "We want university ownership of results with an option for the company to licence, as this is standard for joint projects and protects our publication rights built on prior work [R1015 projects]; in exchange we reduce exclusivity from 24 to 12 months, which still gives SecureEdge Labs a meaningful competitive window while aligning with the 12-month project timeline.",
+      "review": "partly"
+    },
+    {
+      "citation": "C061-CH1__R0231/2/researcher/R0231 publications",
+      "resolves": true,
+      "reason": "We accept company ownership under the company_owns_uni_academic_use model so the university retains the right to use results for research and teaching, which is essential to protect our 16-publication track record [R0231 publications]; in exchange we reduce publication review from 60 to 30 days, which is sufficient to remove genuinely confidential production data while not blocking academic dissemination of the analytical findings [R0231 publications].",
+      "review": "yes"
+    },
+    {
+      "citation": "C061-CH1__R0231/2/researcher/R0231 publications#2",
+      "resolves": true,
+      "reason": "We accept company ownership under the company_owns_uni_academic_use model so the university retains the right to use results for research and teaching, which is essential to protect our 16-publication track record [R0231 publications]; in exchange we reduce publication review from 60 to 30 days, which is sufficient to remove genuinely confidential production data while not blocking academic dissemination of the analytical findings [R0231 publications].",
+      "review": "partly"
+    },
+    {
+      "citation": "C001-CH1__R1008/1/company/C001 plans",
+      "resolves": true,
+      "reason": "We want company ownership of results to protect our ProtoSense product roadmap and the planned late-2025 hardware release [C001 plans], and 24-month exclusivity in our product field to ensure commercial advantage. We propose milestone-based checkpoints to avoid a repeat of the 2021 collaboration where there was no formal continuation mechanism [C001 past_collaborations].",
+      "review": "partly"
+    },
+    {
+      "citation": "C001-CH1__R1008/1/company/C001 past_collaborations",
+      "resolves": true,
+      "reason": "We want company ownership of results to protect our ProtoSense product roadmap and the planned late-2025 hardware release [C001 plans], and 24-month exclusivity in our product field to ensure commercial advantage. We propose milestone-based checkpoints to avoid a repeat of the 2021 collaboration where there was no formal continuation mechanism [C001 past_collaborations].",
+      "review": "yes"
+    },
+    {
+      "citation": "C061-CH1__R0231/3/company/C061 past_collaborations",
+      "resolves": true,
+      "reason": "We accept: company ownership with academic-use carve-out fully protects our ability to implement process changes as operational know-how, 30 days is sufficient for us to identify and remove genuinely confidential production data before publication, and all milestones and contact roles remain intact to address our past collaboration gaps [C061 past_collaborations].",
+      "review": "yes"
+    },
+    {
+      "citation": "C032-CH1__R1015/3/company/C032 plans",
+      "resolves": true,
+      "reason": "We accept the 12-month exclusivity as proposed in exchange for moving from option-to-licence to option-to-assign, so that we have a clear path to full ownership of the results we need to integrate into EdgeWatch and certify under the EU Cyber Resilience Act [C032 plans]; an option-to-assign still preserves the university's academic use rights until the option is exercised, which protects publication freedom.",
+      "review": "yes"
+    },
+    {
+      "citation": "C001-CH1__R1008/2/researcher/R1008 publications",
+      "resolves": true,
+      "reason": "University ownership of research results is our position; we propose uni_owns_option_to_licence so the company retains a clear path to commercialise via an exclusive licence, while we protect our right to publish the methods [R1008 publications]. We reduce exclusivity from 24 to 18 months to align with the project duration and give reasonable commercial protection without tying future research indefinitely.",
+      "review": "partly"
+    },
+    {
+      "citation": "C032-CH1__R1015/4/researcher/R1015 publications",
+      "resolves": true,
+      "reason": "University retains ownership until any option is exercised and academic use rights are preserved throughout, protecting our publication record [R1015 publications]; the 12-month exclusivity and 60-day review period are acceptable given the mutual background IP protections for our prior work [R1015 projects].",
+      "review": "yes"
+    },
+    {
+      "citation": "C032-CH1__R1015/4/researcher/R1015 projects",
+      "resolves": true,
+      "reason": "University retains ownership until any option is exercised and academic use rights are preserved throughout, protecting our publication record [R1015 publications]; the 12-month exclusivity and 60-day review period are acceptable given the mutual background IP protections for our prior work [R1015 projects].",
+      "review": "partly"
+    },
+    {
+      "citation": "C001-CH1__R1008/3/company/C001 plans",
+      "resolves": true,
+      "reason": "We accept the 18-month exclusivity as a trade and concede university ownership, but we want uni_owns_option_to_assign rather than option_to_licence so that ArmaturaSec has a credible path to full ownership of the integrated detector component needed for the planned late-2025 hardware release [C001 plans]; an option to licence leaves us dependent on ongoing licence terms for a core product feature.",
+      "review": "yes"
+    },
+    {
+      "citation": "C001-CH1__R1008/4/researcher/R1008 publications",
+      "resolves": true,
+      "reason": "The uni_owns_option_to_assign model keeps university ownership during the project, preserving our publication rights throughout [R1008 publications], and the option to assign only activates on agreed terms that must protect academic use; no hard limit is crossed and the deal supports real deployment on industrial infrastructure, which we want [R1008 notes].",
+      "review": "partly"
+    },
+    {
+      "citation": "C001-CH1__R1008/4/researcher/R1008 notes",
+      "resolves": true,
+      "reason": "The uni_owns_option_to_assign model keeps university ownership during the project, preserving our publication rights throughout [R1008 publications], and the option to assign only activates on agreed terms that must protect academic use; no hard limit is crossed and the deal supports real deployment on industrial infrastructure, which we want [R1008 notes].",
+      "review": "yes"
+    }
+  ]
+}
