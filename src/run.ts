@@ -1,5 +1,6 @@
 // One-command entry (npm run demo). M0: two participants exchange one event; the Observer writes out/trace.jsonl.
 // No LLM calls yet, so --replay changes nothing until the recording runner lands in M1.
+import "./env"
 import { createAgent, SemanticEvent } from "@mozaik-ai/core"
 import { createTraceObserver } from "./agents/observer"
 import { Board, initializeRuntime, join, on, sendEvent } from "./runtime"

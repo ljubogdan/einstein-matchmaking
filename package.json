@@ -11,7 +11,8 @@
     "setup": "bash scripts/setup.sh",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "demo": "tsx src/run.ts"
+    "demo": "tsx src/run.ts",
+    "check-key": "tsx src/check-key.ts"
   },
   "dependencies": {
     "@mozaik-ai/core": "4.2.0",

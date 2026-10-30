@@ -6,3 +6,7 @@ dist/
 data/einstein/
 out/cache/
 out/tmp/
+# editor swap/backup files (a swap of .env holds the key)
+.*.sw?
+*.sw?
+*~
