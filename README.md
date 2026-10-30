@@ -4,7 +4,7 @@
 
 Built on [Mozaik](https://github.com/jigjoy-ai/mozaik) for the NTP Novi Sad x JigJoy Hackathon, EINSTEIN track.
 
-> First submission (30 Oct). Everything below describes what runs today; what isn't built yet is named as such under [Limits](#limits-and-honest-notes).
+> Status 30 Oct. Everything below describes what runs today; what isn't built yet is named as such under [Limits](#limits-and-honest-notes).
 
 ## Run it in one command (no API key needed)
 
@@ -20,6 +20,14 @@ npm run setup && npm run demo -- --replay
 | [`out/nomatch.md`](out/nomatch.md) | challenges that got no proposal, with the reason and the nearest candidate |
 | [`out/traps.md`](out/traps.md) | the dataset's deliberate traps the code caught, with cited examples |
 | [`out/trace.jsonl`](out/trace.jsonl) | every event of the run, one JSON line each |
+
+### Watch it run: the live board
+
+```sh
+npm run board
+```
+
+Open http://localhost:4173 and press **Run the demo set**. The agents run again on the recorded answers, and each answer arrives after the latency measured when it was recorded (4x faster by default), so the board shows the shape of the live run with no key: matchmakers and the Arbiter on the left, the focused pair's negotiation and every claim the Critic stopped in the middle, the event log on the right, and one bar per model call on the timeline. Ids link to the cited dataset record. The board follows `out/trace.jsonl`, so any `npm run demo` shows up there too; `npm run demo -- --replay --paced[=N]` is the same paced run from the command line.
 
 The default run takes the demo set of four challenges. Other challenges (`npm run demo -- C012-CH3 C041-CH2`) need your own Anthropic key in `.env` the first time: `npm run demo` calls the model only for answers not yet recorded, and records them.
 
@@ -71,11 +79,15 @@ Every challenge, candidate, conflict and pair gets its own agent, and every mode
 In the demo run, C001-CH1 (ArmaturaSec) and C032-CH1 (SecureEdge Labs) post almost the same challenge and both want R1015. This is from `out/trace.jsonl`:
 
 ```json
-{"type":"prenup.reservation.conflict","producer":"matchmaker-2","payload":{"researcherId":"R1015","challengeId":"C032-CH1","holder":"C001-CH1","seenVersion":0,"version":1}}
+{"type":"prenup.match.proposed","producer":"matchmaker-2","payload":{"pairId":"C032-CH1__R1015", "...": "..."}}
+{"type":"prenup.reservation.conflict","producer":"matchmaker-1","payload":{"researcherId":"R1015","challengeId":"C001-CH1","holder":"C032-CH1","seenVersion":0,"version":1}}
+{"type":"prenup.pair.cancelled","producer":"arbiter:R1015","payload":{"pairId":"C032-CH1__R1015","reason":"the Arbiter gave R1015 to C001-CH1"}}
 {"type":"prenup.arbiter.decided","producer":"arbiter:R1015","payload":{"researcherId":"R1015","winner":"C001-CH1","loser":"C032-CH1", "...": "..."}}
 {"type":"prenup.rematch","producer":"matchmaker-2","payload":{"challengeId":"C032-CH1","from":"R1015", "...": "..."}}
 {"type":"prenup.match.proposed","producer":"matchmaker-2","payload":{"pairId":"C032-CH1__R1008", "...": "..."}}
 ```
+
+Matchmaker-2 reserved R1015 first and its negotiation had started; matchmaker-1's write then failed the version check. The Arbiter gave R1015 to C001-CH1, so the C032-CH1 negotiation was cancelled mid-way and matchmaker-2 re-matched to R1008. Who writes first depends on timing: in a plain `--replay`, where every answer arrives at once, matchmaker-1 wins the race; this trace comes from `--paced`, which keeps the recording run's timing. The Arbiter is never told which side holds the researcher, so it decides the same way both times.
 
 From the Arbiter's reason, verbatim: *"Both challenges are nearly identical and [R1015] fits both strongly, but [C032-CH1] has an equally strong alternative in [R1008] with directly relevant work [SYN-PUB-10472, SYN-PUB-10477, SYN-PUB-10239] … [C001-CH1]'s card shows more precise alignment with [R1015]'s published hybrid deployment guidance [SYN-PUB-10525]"*. We checked its citations by hand: each publication is authored by the researcher it is cited for. Nobody told matchmaker-2 to pick R1008; it reacted to the decision.
 
@@ -98,8 +110,8 @@ Not measured yet: concurrent vs sequential wall-clock, how many planted false fa
 The cheap model writes the profile cards, and it sometimes rewords a "verbatim" quote or adds a number its quote doesn't contain. The Critic's code checks block those claims before any matchmaker sees the card (`out/trace.jsonl`):
 
 ```json
-{"type":"prenup.critic.verdict","producer":"critic","payload":{"pairId":"profile:C001-CH1__R1015","claimId":"profile:C001-CH1__R1015/2","subject":"R1015","verdict":"block","check":"numbers","reason":"94 is not in any quoted source"}}
-{"type":"prenup.critic.verdict","producer":"critic","payload":{"pairId":"profile:C001-CH1__R1008","claimId":"profile:C001-CH1__R1008/1","subject":"R1008","verdict":"block","check":"quote","reason":"quote not found in SYN-PUB-10477.abstract"}}
+{"type":"prenup.critic.verdict","producer":"critic","payload":{"pairId":"profile:C001-CH1__R1015","attempt":1,"claimId":"profile:C001-CH1__R1015/2","subject":"R1015","verdict":"block","check":"numbers","reason":"94 is not in any quoted source"}}
+{"type":"prenup.critic.verdict","producer":"critic","payload":{"pairId":"profile:C001-CH1__R1008","attempt":1,"claimId":"profile:C001-CH1__R1008/1","subject":"R1008","verdict":"block","check":"quote","reason":"quote not found in SYN-PUB-10477.abstract"}}
 ```
 
 A quote can be word for word and still not say what the sentence says. The support check catches that, the claim goes back to its author with the reason and a suggested sentence, and the fix is checked again. Here the writer said the company's hardware bench includes PLC simulators; the quote doesn't say so:
@@ -137,7 +149,7 @@ Each proposal lists, under "How we got here", every claim the Critic stopped, wh
 
 ## Limits and honest notes
 
-- Not built yet: the human approval step and a live board.
+- Not built yet: the human approval step.
 - The support check is a cheap model and strict: it stopped a third of the proposal sentences on the first pass. How many planted false facts it catches is not measured yet. The people-praise check is a word list, and it also blocked a sentence that called a method's result "best".
 - The cheap model rates most shortlisted candidates as a strong fit, so search order often decides. The Arbiter's and the Profiler's fit reasons aren't checked by the Critic yet (we checked the Arbiter's citations above by hand).
 - After a no-deal the researcher stays reserved for that challenge.
@@ -145,4 +157,4 @@ Each proposal lists, under "How we got here", every claim the Critic stopped, wh
 
 ## Tech
 
-TypeScript; `@mozaik-ai/core` 4.2.0 (exact pin); BM25 search in code; zod schemas as structured output. Models through the hackathon's Anthropic gateway: `claude-haiku-4-5` for the Analyst, the Profiler and the Critic's support check, `claude-sonnet-4-6` for the Arbiter, negotiators and writer. Every model answer is recorded in `fixtures/`, so runs replay without a key. `npm test` covers search, trap detection, the Critic's checks, reservations, matchmaking, the Arbiter and the runner.
+TypeScript; `@mozaik-ai/core` 4.2.0 (exact pin); BM25 search in code; zod schemas as structured output; the board is one HTML page fed by Server-Sent Events from a small Node server, no framework. Models through the hackathon's Anthropic gateway: `claude-haiku-4-5` for the Analyst, the Profiler and the Critic's support check, `claude-sonnet-4-6` for the Arbiter, negotiators and writer. Every model answer is recorded in `fixtures/`, so runs replay without a key. `npm test` covers search, trap detection, the Critic's checks, reservations, matchmaking, the Arbiter and the runner.

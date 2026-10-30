@@ -23,6 +23,7 @@ In the demo run that is 3 matchmakers, 4 analysts, 15 profilers plus 14 profiler
 - A fresh agent per task means memory never crosses challenges, researchers or sides, and each answer maps back to its task.
 - One runner wraps every model call: at most 8 calls in flight, retries with backoff on 408/429/5xx (the hackathon gateway does answer 429 "too many requests at once"), and record/replay.
 - Cached results arrive on the next tick, like a model answer, so a cached run keeps the same concurrent shape.
+- `--paced` replays each recorded answer after the latency measured when it was recorded (waiting for a slot and retries included), so a replay keeps the live run's timing; the committed `out/trace.jsonl` and the board's timeline come from it. The recording run's own trace is `out/trace-recording.jsonl`.
 
 ## Shared state without races
 
@@ -40,11 +41,15 @@ The Arbiter's prompt lists the two challenges in id order, never as holder and r
 1. **Reservation conflict -> Arbiter -> the losing matchmaker re-matches.** Built; in the demo run (`out/trace.jsonl`):
 
    ```json
-   {"type":"prenup.reservation.conflict","producer":"matchmaker-2","payload":{"researcherId":"R1015","challengeId":"C032-CH1","holder":"C001-CH1","seenVersion":0,"version":1}}
+   {"type":"prenup.match.proposed","producer":"matchmaker-2","payload":{"pairId":"C032-CH1__R1015", "...": "..."}}
+   {"type":"prenup.reservation.conflict","producer":"matchmaker-1","payload":{"researcherId":"R1015","challengeId":"C001-CH1","holder":"C032-CH1","seenVersion":0,"version":1}}
+   {"type":"prenup.pair.cancelled","producer":"arbiter:R1015","payload":{"pairId":"C032-CH1__R1015","reason":"the Arbiter gave R1015 to C001-CH1"}}
    {"type":"prenup.arbiter.decided","producer":"arbiter:R1015","payload":{"researcherId":"R1015","winner":"C001-CH1","loser":"C032-CH1", "...": "..."}}
    {"type":"prenup.rematch","producer":"matchmaker-2","payload":{"challengeId":"C032-CH1","from":"R1015", "...": "..."}}
    {"type":"prenup.match.proposed","producer":"matchmaker-2","payload":{"pairId":"C032-CH1__R1008", "...": "..."}}
    ```
+
+   Matchmaker-2 reserved R1015 first and its negotiation had started; matchmaker-1's write then failed the version check. The Arbiter gave R1015 to C001-CH1, so the C032-CH1 negotiation was cancelled mid-way and matchmaker-2 re-matched to R1008. Who writes first depends on timing: in a plain `--replay`, where every answer arrives at once, matchmaker-1 wins the race; this trace comes from `--paced`, which keeps the recording run's timing. The Arbiter is never told which side holds the researcher, so it decides the same way both times.
 
 2. **Negotiation ends in no deal -> the challenge goes back to its matchmaker**, which tries its next card (at most 2 negotiations per challenge, then a no-match). Built; no negotiation in the demo run ended without a deal, so it is shown in `test/matchmaker.test.ts`.
 3. **The Critic stops a claim -> it goes back to its author once.** Built: the writer gets its stopped claims back in the same conversation, a stopped profile claim goes to a fresh Profiler agent, each with the reason and the Critic's suggested sentence. The fix is checked again; what still fails is dropped (`prenup.claim.dropped`) and listed on the page. In the demo run all 3 writers and 14 of 15 profile cards sent claims back once.

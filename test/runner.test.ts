@@ -1,4 +1,5 @@
-import { existsSync, readdirSync, rmSync } from "node:fs"
+import { existsSync, readdirSync, readFileSync, rmSync } from "node:fs"
+import { join } from "node:path"
 import { ModelContext, ModelMessageItem, ReasoningItem, SemanticEvent, UserMessageItem, type InferenceInput, type InferenceOutput, type InferenceRunner } from "@mozaik-ai/core"
 import { beforeEach, expect, test } from "vitest"
 import { Semaphore, withRetry } from "../src/llm/limiter"
@@ -86,4 +87,19 @@ test("an answer cut off while thinking (reasoning only) fails clearly and is not
   const recorder = new RecordingRunner({ mode: "record", dir, inner: fakeModel(async () => thinking) })
   await expect(recorder.run({ ...input("Write the proposal"), maxOutputTokens: 8000 })).rejects.toThrow("no answer within 8000 output tokens")
   expect(existsSync(dir) ? readdirSync(dir) : []).toHaveLength(0)
+})
+
+test("a recorded answer keeps its latency; a paced replay waits it out (divided by the pace), a plain replay doesn't", async () => {
+  const slowModel = fakeModel(async () => (await new Promise((resolve) => setTimeout(resolve, 120)), answer("OK")))
+  await new RecordingRunner({ mode: "record", dir, inner: slowModel }).run(input("Reply OK"))
+  const fixture = JSON.parse(readFileSync(join(dir, readdirSync(dir)[0]), "utf8")) as { ms: number }
+  expect(fixture.ms).toBeGreaterThanOrEqual(110)
+
+  const timed = async (runner: RecordingRunner) => {
+    const start = Date.now()
+    await runner.run(input("Reply OK"))
+    return Date.now() - start
+  }
+  expect(await timed(new RecordingRunner({ mode: "replay", dir }))).toBeLessThan(50)
+  expect(await timed(new RecordingRunner({ mode: "replay", dir, pace: 2 }))).toBeGreaterThanOrEqual(fixture.ms / 2 - 5)
 })

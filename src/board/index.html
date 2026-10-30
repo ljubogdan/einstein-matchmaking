@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prenup board</title>
+<style>
+  :root {
+    --ink: #1d2330; --muted: #6b7280; --line: #e3e6ec; --bg: #ffffff; --panel: #f7f8fa;
+    --accent: #2457c5; --accent-soft: #e8eefb; --red: #c62828; --red-soft: #fdecec;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--ink); background: var(--bg); }
+  header { display: flex; align-items: center; gap: 16px; padding: 10px 16px; border-bottom: 1px solid var(--line); }
+  header h1 { font-size: 16px; margin: 0; }
+  header .note { color: var(--muted); font-size: 12px; flex: 1; }
+  button, select { font: inherit; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); padding: 4px 10px; cursor: pointer; }
+  button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  button:disabled { opacity: .5; cursor: default; }
+  main { display: grid; grid-template-columns: 1fr 1.25fr .9fr; height: calc(100vh - 53px - var(--strip, 210px)); }
+  section { overflow-y: auto; padding: 12px 16px; border-right: 1px solid var(--line); }
+  section:last-child { border-right: 0; }
+  h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 0 0 10px; }
+  a.id { font-family: var(--mono); font-size: 12.5px; color: var(--accent); text-decoration: none; }
+  a.id:hover { text-decoration: underline; }
+  .mono { font-family: var(--mono); font-size: 12.5px; }
+  .card { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; margin-bottom: 10px; background: var(--bg); }
+  .card .top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .owner { color: var(--muted); font-size: 12px; }
+  .pill { font-size: 11.5px; padding: 1px 8px; border-radius: 99px; background: var(--panel); color: var(--muted); white-space: nowrap; }
+  .pill.done { background: var(--accent-soft); color: var(--accent); }
+  .steps { margin: 6px 0 0; padding: 0; list-style: none; }
+  .steps li { padding: 3px 0 3px 10px; border-left: 2px solid var(--line); font-size: 13px; }
+  .steps li.warn { border-left-color: var(--ink); font-weight: 600; }
+  .steps li.key { border-left-color: var(--accent); }
+  .why { color: var(--muted); font-size: 12.5px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+  .chip { font-family: var(--mono); font-size: 11.5px; padding: 0 6px; border-radius: 4px; border: 1px solid var(--line); color: var(--muted); }
+  .chip.ready { color: var(--ink); }
+  .chip.picked { border-color: var(--accent); color: var(--accent); }
+  .chip.out { text-decoration: line-through; }
+  .tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+  .tabs button { font-family: var(--mono); font-size: 12px; }
+  .tabs button.on { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+  .tabs button.gone { text-decoration: line-through; color: var(--muted); }
+  .follow { font-size: 12px; color: var(--muted); }
+  table.sheet { width: 100%; border-collapse: collapse; margin: 6px 0 12px; }
+  table.sheet td { padding: 4px 6px; vertical-align: top; border-bottom: 1px solid var(--line); font-size: 13px; }
+  table.sheet td:first-child { color: var(--muted); width: 110px; white-space: nowrap; }
+  table.sheet tr.changed td { background: var(--accent-soft); }
+  table.sheet tr.changed td:first-child { color: var(--accent); font-weight: 600; }
+  .move { padding: 6px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
+  .move b { font-weight: 600; }
+  .stop { padding: 6px 8px; margin: 4px 0; border-radius: 6px; font-size: 13px; background: var(--red-soft); border-left: 3px solid var(--red); }
+  .stop .what { color: var(--red); font-weight: 600; }
+  .stop .then { display: block; margin-top: 2px; }
+  .stop .then.fixed { color: var(--accent); }
+  .stop .then.dropped { color: var(--muted); }
+  .outcome { margin: 8px 0; font-weight: 600; }
+  .muted { color: var(--muted); }
+  .log { font-size: 12.5px; }
+  .log div { padding: 3px 0; border-bottom: 1px solid var(--line); }
+  .log .t { font-family: var(--mono); color: var(--muted); font-size: 11.5px; margin-right: 6px; }
+  .log .p { color: var(--muted); margin-right: 4px; }
+  .log .crit { color: var(--red); }
+  .log .run { color: var(--muted); font-style: italic; }
+  #strip { position: fixed; bottom: 0; left: 0; right: 0; height: var(--strip, 210px); border-top: 1px solid var(--line); background: var(--panel); padding: 6px 16px; }
+  #strip h2 { margin: 0 0 2px; display: flex; justify-content: space-between; }
+  #strip svg { width: 100%; display: block; }
+  .empty { color: var(--muted); font-size: 13px; }
+  @media (max-width: 900px) { main { grid-template-columns: 1fr; height: auto; } section { border-right: 0; border-bottom: 1px solid var(--line); } #strip { position: static; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Prenup</h1>
+  <span class="note" id="note">Following out/trace.jsonl</span>
+  <select id="speed" title="Replay speed: recorded latency divided by">
+    <option value="1">1×</option><option value="2">2×</option><option value="4" selected>4×</option><option value="16">16×</option>
+  </select>
+  <button class="primary" id="run">Run the demo set</button>
+</header>
+<main>
+  <section><h2>Matchmakers and Arbiter</h2><div id="challenges"><p class="empty">No run yet.</p></div></section>
+  <section><h2>Negotiation and Critic</h2><div id="pair"><p class="empty">No pair yet.</p></div></section>
+  <section><h2>Event log</h2><div class="log" id="log"></div></section>
+</main>
+<div id="strip"><h2><span>Timeline: one row per kind of participant, one bar per model call</span><span id="span"></span></h2><svg id="timeline"></svg></div>
+
+<script>
+const ENGAGEMENT = { joint_project: "Joint project", industrial_phd: "Industrial PhD", contract_research: "Contract research", consulting: "Consulting", internship: "Internship" }
+const IP = {
+  uni_owns_nonexclusive_licence: "University owns; company gets a non-exclusive licence",
+  uni_owns_option_to_licence: "University owns; company has an option to license",
+  uni_owns_option_to_assign: "University owns; company has an option to take the results over",
+  company_owns_uni_academic_use: "Company owns; university keeps research and teaching use",
+  split_by_field: "Split by field of use",
+  contract_research_company_owns: "Contract research: company owns",
+}
+const GROUPS = ["Matchmakers", "Analysts", "Profilers", "Critic", "Arbiter", "Negotiators", "Writers"]
+const ID = /\b(SYN-(?:PUB|PRJ|PAT)-\d+|C\d{3}-CH\d+|C\d{3}|R\d{4})\b/g
+
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c])
+// Pair ids (C001-CH1__R1015) read as "C001-CH1 × R1015", so both halves link.
+const linked = (s) => esc(s).replaceAll("__", " × ").replace(ID, (id) => `<a class="id" href="/record/${id}" target="_blank">${id}</a>`)
+const idLink = (id) => `<a class="id" href="/record/${esc(id)}" target="_blank">${esc(id)}</a>`
+const pairLabel = (pairId) => pairId.split("__").map(idLink).join(" × ")
+const shortClaim = (claimId) => claimId.split("/").slice(1).join("/")
+const $ = (id) => document.getElementById(id)
+
+function group(producer) {
+  if (/^matchmaker/.test(producer)) return "Matchmakers"
+  if (/^analyst/.test(producer)) return "Analysts"
+  if (/^profiler/.test(producer)) return "Profilers"
+  if (/^critic/.test(producer)) return "Critic"
+  if (/^arbiter/.test(producer)) return "Arbiter"
+  if (/negotiator$/.test(producer)) return "Negotiators"
+  if (producer === "writer") return "Writers"
+  return null
+}
+
+let S
+function reset() {
+  S = { t0: null, tLast: 0, challenges: new Map(), pairs: new Map(), loops: new Map(), ticks: [], log: [], focus: null, pinned: false, records: new Map() }
+  dirty()
+}
+
+const challenge = (id) => {
+  if (!S.challenges.has(id)) S.challenges.set(id, { id, owner: "", status: "submitted", steps: [], shortlist: [], cards: {}, picked: null, stopped: 0, fixed: 0 })
+  return S.challenges.get(id)
+}
+const pair = (pairId) => {
+  if (!S.pairs.has(pairId)) S.pairs.set(pairId, { pairId, moves: [], verdicts: [], status: "negotiating" })
+  return S.pairs.get(pairId)
+}
+const step = (challengeId, html, cls = "") => challenge(challengeId).steps.push({ html, cls })
+const focus = (pairId) => { if (!S.pinned) S.focus = pairId }
+const log = (e, text, cls = "") => S.log.push({ t: e.t, producer: e.producer, text, cls })
+const at = (t) => (t - S.t0) / 1000
+
+function apply(e) {
+  const t = Date.parse(e.t)
+  S.t0 ??= t
+  S.tLast = Math.max(S.tLast, t)
+  e.t = t
+  const p = e.payload
+  if (e.type === "inference.started") return void S.loops.set(e.loopId, { group: group(e.producer), start: t, end: null })
+  if (e.type === "inference.completed") return void (S.loops.get(e.loopId) && (S.loops.get(e.loopId).end = t))
+  if (!e.type.startsWith("prenup.") || typeof p !== "object" || p === null) return
+  const tick = (red = false) => group(e.producer) && S.ticks.push({ group: group(e.producer), t, red })
+
+  switch (e.type) {
+    case "prenup.challenge.submitted":
+      challenge(p.challengeId).owner = e.producer
+      log(e, `${p.challengeId} submitted`)
+      break
+    case "prenup.challenge.analyzed": {
+      const c = challenge(p.challengeId)
+      c.status = "searching"
+      step(p.challengeId, p.researchProblem ? `Analyst: a research problem. Search terms: <span class="why">${esc(p.searchTerms.slice(0, 5).join(", "))}…</span>` : `Analyst: not a research problem`)
+      log(e, `${p.challengeId}: ${p.researchProblem ? "research problem" : "not a research problem"}`)
+      break
+    }
+    case "prenup.shortlist.ready": {
+      const c = challenge(p.challengeId)
+      c.shortlist = p.candidates.map((x) => x.researcherId)
+      c.status = "profiling"
+      log(e, `${p.challengeId}: BM25 shortlist ${c.shortlist.join(", ")}`)
+      tick()
+      break
+    }
+    case "prenup.profile.ready":
+      challenge(p.challengeId).cards[p.researcherId] = p
+      log(e, `${p.researcherId} card for ${p.challengeId}: fit ${p.fit}${p.flags.length ? `, flags: ${p.flags.map((f) => f.kind).join(", ")}` : ""}`)
+      break
+    case "prenup.critic.verdict": {
+      const stopped = p.verdict !== "pass"
+      if (p.pairId.startsWith("profile:")) {
+        const c = challenge(p.pairId.slice(8).split("__")[0])
+        if (stopped && p.attempt === 1) c.stopped++
+        if (!stopped && p.attempt === 2) c.fixed++
+      } else pair(p.pairId).verdicts.push(p)
+      if (stopped || p.attempt === 2) log(e, `${p.claimId.replace(/^profile:/, "card ")}: ${stopped ? `${p.verdict} (${p.check}) ${p.reason}` : "passed after rewrite"}`, stopped ? "crit" : "")
+      if (stopped) tick(true)
+      break
+    }
+    case "prenup.match.proposed": {
+      const c = challenge(p.challengeId)
+      c.picked = p.researcherId
+      c.status = "negotiating"
+      for (const s of p.skipped ?? []) if (!c.steps.some((x) => x.skip === s.researcherId)) c.steps.push({ html: `Skipped ${idLink(s.researcherId)}: <span class="why">${linked(s.reason)}</span>`, skip: s.researcherId })
+      step(p.challengeId, `Reserved ${idLink(p.researcherId)} (board version ${p.reservationVersion}), fit ${esc(p.fit)}. Negotiation starts.`, "key")
+      pair(p.pairId).challengeId = p.challengeId
+      focus(p.pairId)
+      log(e, `${p.challengeId} reserved ${p.researcherId} (version ${p.reservationVersion})`)
+      tick()
+      break
+    }
+    case "prenup.reservation.conflict":
+      challenge(p.challengeId).status = "conflict"
+      step(p.challengeId, `Conflict on ${idLink(p.researcherId)}: held by ${idLink(p.holder)}. Read version ${p.seenVersion}, board now at ${p.version}. Sent to the Arbiter.`, "warn")
+      log(e, `conflict on ${p.researcherId}: ${p.challengeId} vs holder ${p.holder} (read v${p.seenVersion}, now v${p.version})`)
+      tick()
+      break
+    case "prenup.arbiter.decided":
+      for (const id of [p.winner, p.loser]) step(id, `Arbiter: ${idLink(p.researcherId)} goes to ${idLink(p.winner)}. <span class="why">${linked(p.reason)}</span>`, "warn")
+      log(e, `${p.researcherId} -> ${p.winner}; ${p.loser} re-matches`)
+      tick()
+      break
+    case "prenup.pair.cancelled":
+      pair(p.pairId).status = "cancelled"
+      pair(p.pairId).why = p.reason
+      step(p.pairId.split("__")[0], `Negotiation ${pairLabel(p.pairId)} stopped: ${esc(p.reason)}`)
+      log(e, `${p.pairId} cancelled: ${p.reason}`)
+      break
+    case "prenup.rematch":
+      challenge(p.challengeId).status = "re-matching"
+      step(p.challengeId, `Re-matches by itself, away from ${idLink(p.from)}`, "key")
+      log(e, `${p.challengeId} re-matches (away from ${p.from})`)
+      tick()
+      break
+    case "prenup.negotiation.move":
+      pair(p.pairId).moves.push(p)
+      focus(p.pairId)
+      log(e, `${p.pairId} round ${p.round}, ${p.side}: ${p.action}${p.changes.length ? ` (changed ${p.changes.join(", ")})` : ""}`)
+      break
+    case "prenup.negotiation.agreed":
+      Object.assign(pair(p.pairId), { status: "agreed", round: p.round })
+      challenge(p.pairId.split("__")[0]).status = "writing"
+      log(e, `${p.pairId}: agreed in round ${p.round}`)
+      break
+    case "prenup.negotiation.no_deal":
+      Object.assign(pair(p.pairId), { status: "no deal", why: p.reason })
+      log(e, `${p.pairId}: no deal (${p.reason})`)
+      break
+    case "prenup.writer.rewrote":
+      pair(p.pairId).rewrote = p
+      log(e, `${p.pairId}: ${p.sentBack.length} claims sent back to the writer, ${p.rewritten.length} rewritten`)
+      break
+    case "prenup.proposal.ready": {
+      Object.assign(pair(p.pairId), { status: "proposal ready", ready: p })
+      const c = challenge(p.pairId.split("__")[0])
+      c.status = "proposal"
+      step(c.id, `Proposal ready: <a href="/proposal/${esc(p.pairId)}" target="_blank">${esc(p.path)}</a>. ${p.claims} claims checked; the Critic stopped ${p.stopped}, ${p.fixed} fixed on rewrite, ${p.dropped} dropped.`, "key")
+      focus(p.pairId)
+      log(e, `proposal ready: ${p.pairId}`)
+      break
+    }
+    case "prenup.nomatch": {
+      const c = challenge(p.challengeId)
+      c.status = "no match"
+      step(p.challengeId, `No match (${esc(p.verdict)}): <span class="why">${linked(p.reason)}</span>`, "key")
+      log(e, `no match for ${p.challengeId}: ${p.verdict}`)
+      tick()
+      break
+    }
+    case "prenup.llm.failed":
+    case "prenup.proposal.failed":
+      log(e, `${e.type.slice(7)}: ${p.reason}`)
+      break
+  }
+}
+
+// --- rendering ---
+let scheduled = false
+function dirty() {
+  if (scheduled) return
+  scheduled = true
+  requestAnimationFrame(() => { scheduled = false; render() })
+}
+
+function render() {
+  renderChallenges()
+  renderPair()
+  renderLog()
+  renderTimeline()
+}
+
+function renderChallenges() {
+  if (S.challenges.size === 0) return void ($("challenges").innerHTML = `<p class="empty">No run yet. Press "Run the demo set".</p>`)
+  $("challenges").innerHTML = [...S.challenges.values()].map((c) => {
+    const chips = c.shortlist.map((r) => {
+      const card = c.cards[r]
+      const cls = ["chip", card && "ready", c.picked === r && "picked", c.steps.some((s) => s.skip === r) && "out"].filter(Boolean).join(" ")
+      return `<span class="${cls}" title="${card ? `fit ${card.fit}` : "profiling"}">${r}${card ? ` · ${card.fit}` : ""}</span>`
+    }).join("")
+    const done = ["proposal", "no match"].includes(c.status)
+    const profiles = c.shortlist.length ? `<li>Profiler cards ${Object.keys(c.cards).length}/${c.shortlist.length}${c.stopped ? `. The Critic stopped <b>${c.stopped}</b> card claims; ${c.fixed} passed after a rewrite.` : ""}<div class="chips">${chips}</div></li>` : ""
+    const steps = c.steps.map((s) => `<li class="${s.cls ?? ""}">${s.html}</li>`)
+    const [first, ...rest] = steps
+    return `<div class="card"><div class="top"><span>${idLink(c.id)} <span class="owner">${esc(c.owner)}</span></span><span class="pill ${done ? "done" : ""}">${esc(c.status)}</span></div>
+      <ul class="steps">${first ?? ""}${profiles}${rest.join("")}</ul></div>`
+  }).join("")
+}
+
+function record(id) {
+  if (!S.records.has(id)) {
+    S.records.set(id, null)
+    fetch(`/record/${id}`).then((r) => (r.ok ? r.json() : null)).then((rec) => { S.records.set(id, rec); dirty() }).catch(() => {})
+  }
+  return S.records.get(id)
+}
+
+function renderPair() {
+  const tabs = [...S.pairs.values()]
+  if (tabs.length === 0) return void ($("pair").innerHTML = `<p class="empty">No pair yet.</p>`)
+  const p = S.pairs.get(S.focus) ?? tabs.at(-1)
+  const [challengeId, researcherId] = p.pairId.split("__")
+  const company = record(challengeId.split("-")[0])
+  const researcher = record(researcherId)
+  const last = p.moves.at(-1)
+  const sheet = last?.sheet
+  const changed = new Set(last?.changes ?? [])
+  const row = (key, label, value) => `<tr class="${changed.has(key) ? "changed" : ""}"><td>${label}</td><td>${value}</td></tr>`
+  const list = (xs) => xs.length ? xs.map(linked).join("; ") : `<span class="muted">none</span>`
+
+  const header = `<div class="tabs">${tabs.map((x) => `<button class="${x === p ? "on" : ""} ${x.status === "cancelled" ? "gone" : ""}" data-pair="${esc(x.pairId)}">${esc(x.pairId.replace("__", " × "))}</button>`).join("")}
+    <span class="follow">${S.pinned ? `<button data-follow>follow live</button>` : "following live"}</span></div>`
+  const who = `<div class="card"><div class="top"><span>${pairLabel(p.pairId)}</span><span class="pill ${["agreed", "proposal ready"].includes(p.status) ? "done" : ""}">${esc(p.status)}</span></div>
+    <div class="why">${company ? `${esc(company.name)}, ${esc(company.sector)}, ${company.employees} employees` : idLink(challengeId.split("-")[0])} · ${researcher ? `${esc(researcher.title)}, ${esc(researcher.department)}` : idLink(researcherId)}</div></div>`
+
+  const terms = sheet ? `<table class="sheet">
+      ${row("engagement", "Format", esc(ENGAGEMENT[sheet.engagement] ?? sheet.engagement))}
+      ${row("ip", "IP", esc(IP[sheet.ip] ?? sheet.ip))}
+      ${row("publication", "Publication", `${sheet.publication.reviewDays}-day company review${sheet.publication.companyMayRemoveConfidential ? "; company may remove its confidential information, not results" : ""}`)}
+      ${row("exclusivity", "Exclusivity", sheet.exclusivity.months > 0 ? `${sheet.exclusivity.months} months in ${esc(sheet.exclusivity.field)}` : "none")}
+      ${row("backgroundIp", "Background IP", list(sheet.backgroundIp))}
+      ${row("contributions", "Contributions", `<b>Company:</b> ${list(sheet.contributions.company)}<br><b>University:</b> ${list(sheet.contributions.university)}`)}
+      ${row("money", "Money", esc(sheet.money))}
+      ${row("timeline", "Timeline", `${sheet.timeline.months} months${sheet.timeline.milestones.length ? `: ${list(sheet.timeline.milestones)}` : ""}`)}
+    </table>` : `<p class="empty">Waiting for the company side's opening sheet.</p>`
+
+  const moves = p.moves.map((m) => `<div class="move"><b>Round ${m.round}, ${esc(m.side)}: ${esc(m.action)}</b>${m.changes.length ? ` <span class="muted">(changed ${esc(m.changes.join(", "))})</span>` : ""}<br>${linked(m.reason)}</div>`).join("")
+  const outcome = p.status === "agreed" || p.status === "proposal ready" ? `Agreed in round ${p.round ?? last?.round}.` : p.status === "no deal" ? `No deal: ${esc(p.why)}` : p.status === "cancelled" ? `Stopped: ${esc(p.why)}` : ""
+
+  // The Critic on this pair's proposal: what it stopped on the first pass, and what the rewrite did.
+  const first = p.verdicts.filter((v) => v.attempt === 1 && v.verdict !== "pass")
+  const passed = p.verdicts.filter((v) => v.attempt === 1 && v.verdict === "pass").length
+  const second = new Map(p.verdicts.filter((v) => v.attempt === 2).map((v) => [v.claimId, v]))
+  const rewritten = new Set(p.rewrote?.rewritten ?? [])
+  const stops = first.map((v) => {
+    const again = second.get(v.claimId)
+    const then = !p.rewrote ? `<span class="then muted">sent back to the writer…</span>`
+      : again?.verdict === "pass" ? `<span class="then fixed">rewritten by the writer, then passed</span>`
+      : again ? `<span class="then dropped">rewritten, stopped again (${esc(again.check)}: ${linked(again.reason)}); dropped</span>`
+      : rewritten.has(v.claimId) ? `<span class="then muted">rewritten, checking…</span>` : `<span class="then dropped">left out by the writer; dropped</span>`
+    return `<div class="stop"><span class="what">Critic: ${esc(shortClaim(v.claimId))} ${esc(v.verdict)} (${esc(v.check)})</span> ${linked(v.reason)}${v.suggestion ? `<br><span class="muted">Suggested: ${linked(v.suggestion)}</span>` : ""}${then}</div>`
+  }).join("")
+  const critic = p.verdicts.length ? `<h2 style="margin-top:14px">Critic on the proposal</h2><p class="muted">${p.verdicts.filter((v) => v.attempt === 1).length} claims checked, ${passed} passed on the first pass.</p>${stops}` : ""
+  const ready = p.ready ? `<p class="outcome"><a href="/proposal/${esc(p.pairId)}" target="_blank">Open the proposal</a></p>` : ""
+
+  $("pair").innerHTML = `${header}${who}${terms}${outcome ? `<p class="outcome">${outcome}</p>` : ""}${moves}${critic}${ready}`
+}
+
+function renderLog() {
+  $("log").innerHTML = S.log.slice(-300).reverse().map((l) =>
+    `<div class="${l.cls}"><span class="t">${l.t ? `+${at(l.t).toFixed(1)}s` : ""}</span>${l.producer ? `<span class="p">${esc(l.producer)}</span>` : ""}${linked(l.text)}</div>`).join("")
+}
+
+function renderTimeline() {
+  const svg = $("timeline")
+  const width = svg.clientWidth || 800
+  const label = 130
+  const span = Math.max((S.tLast - (S.t0 ?? 0)) / 1000, 1)
+  const x = (t) => label + ((t - S.t0) / 1000 / span) * (width - label - 8)
+  const lanes = {}
+  const bars = []
+  for (const loop of [...S.loops.values()].filter((l) => l.group).sort((a, b) => a.start - b.start)) {
+    const ends = (lanes[loop.group] ??= [])
+    const end = loop.end ?? S.tLast
+    let lane = ends.findIndex((e) => e <= loop.start)
+    if (lane === -1) lane = ends.push(end) - 1
+    else ends[lane] = end
+    bars.push({ ...loop, end, lane })
+  }
+  let y = 14
+  const rows = {}
+  for (const g of GROUPS) {
+    const n = Math.max((lanes[g] ?? []).length, 1)
+    rows[g] = { y, h: Math.min(n, 6) * 4 + 6, n }
+    y += rows[g].h + 3
+  }
+  const lane = (b) => rows[b.group].y + 3 + (b.lane % 6) * 4
+  const parts = []
+  for (let s = 0; s <= span; s += span > 120 ? 30 : span > 40 ? 10 : 5) {
+    parts.push(`<line x1="${x(S.t0 + s * 1000)}" x2="${x(S.t0 + s * 1000)}" y1="10" y2="${y}" stroke="#e3e6ec"/><text x="${x(S.t0 + s * 1000) + 2}" y="9" font-size="9" fill="#6b7280">${s}s</text>`)
+  }
+  const calls = (g) => bars.filter((b) => b.group === g).length
+  for (const g of GROUPS) parts.push(`<text x="0" y="${rows[g].y + rows[g].h / 2 + 4}" font-size="11" fill="#1d2330">${g}${calls(g) ? ` <tspan fill="#6b7280">${calls(g)} call${calls(g) === 1 ? "" : "s"}</tspan>` : ""}</text>`)
+  for (const b of bars) parts.push(`<rect x="${x(b.start)}" y="${lane(b)}" width="${Math.max(x(b.end) - x(b.start), 1.5)}" height="3" fill="#2457c5" opacity=".75"/>`)
+  for (const t of S.ticks) if (rows[t.group]) parts.push(`<line x1="${x(t.t)}" x2="${x(t.t)}" y1="${rows[t.group].y}" y2="${rows[t.group].y + rows[t.group].h}" stroke="${t.red ? "#c62828" : "#1d2330"}" stroke-width="${t.red ? 1 : 1.2}" opacity="${t.red ? .55 : .8}"/>`)
+  svg.setAttribute("height", y)
+  svg.innerHTML = parts.join("")
+  $("span").textContent = S.t0 ? `${span.toFixed(1)} s of trace` : ""
+}
+
+// --- wiring ---
+document.addEventListener("click", (ev) => {
+  const tab = ev.target.closest("[data-pair]")
+  if (tab) { S.focus = tab.dataset.pair; S.pinned = true; dirty() }
+  if (ev.target.closest("[data-follow]")) { S.pinned = false; S.focus = [...S.pairs.keys()].at(-1); dirty() }
+})
+$("run").addEventListener("click", () => fetch(`/run?speed=${$("speed").value}`, { method: "POST" }))
+window.addEventListener("resize", dirty)
+
+reset()
+const source = new EventSource("/events")
+source.addEventListener("reset", () => reset())
+source.addEventListener("trace", (msg) => { try { apply(JSON.parse(msg.data)) } catch { /* a half-written line */ } dirty() })
+// The run's console: only the outcome and failures; everything else is already on the board as events.
+source.addEventListener("log", (msg) => {
+  const line = JSON.parse(msg.data)
+  if (/^(done|run finished|model call failed|model answer failed|proposal failed|timed out)/.test(line)) S.log.push({ t: 0, producer: "", text: `run: ${line}`, cls: "run" })
+  dirty()
+})
+source.addEventListener("status", (msg) => {
+  const s = JSON.parse(msg.data)
+  $("run").disabled = s.running
+  $("note").textContent = s.running
+    ? `Running the demo set on recorded model answers, each after its recorded latency ÷${s.speed}. No API key, no network.`
+    : "Following out/trace.jsonl: any run (npm run demo) shows up here as it happens."
+})
+</script>
+</body>
+</html>

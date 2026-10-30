@@ -27,6 +27,7 @@ export type Fixture = {
     outputTokenDetails: { reasoning_tokens: number }
   }
   providerUsage?: unknown // the provider's own usage block (cache writes vs reads), for cost measurement
+  ms?: number // request to answer in the recording run, waiting for a slot and retries included; paced replay waits this long
 }
 
 type FixtureItem =
@@ -50,11 +51,11 @@ export function fixtureKey(input: InferenceInput): string {
   return createHash("sha256").update(JSON.stringify(request)).digest("hex").slice(0, 16)
 }
 
-export function toFixture(key: string, input: InferenceInput, output: InferenceOutput): Fixture {
+export function toFixture(key: string, input: InferenceInput, output: InferenceOutput, ms?: number): Fixture {
   const lastUser = input.context.getItems().findLast((item) => item instanceof UserMessageItem)
   const providerUsage = (output.rowResponse as { usage?: unknown; usageMetadata?: unknown } | null)?.usage ?? (output.rowResponse as { usageMetadata?: unknown } | null)?.usageMetadata
   const plain = JSON.parse(JSON.stringify({ items: output.items, tokenUsage: output.tokenUsage, providerUsage }))
-  return { key, model: input.model, prompt: lastUser?.content.text.slice(0, 160) ?? "", ...plain }
+  return { key, model: input.model, prompt: lastUser?.content.text.slice(0, 160) ?? "", ...plain, ms }
 }
 
 /** Rebuilds real item instances: provider mappers check `instanceof` on items when the context is sent again. */

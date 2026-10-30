@@ -33,5 +33,6 @@
     },
     "output_tokens": 436,
     "service_tier": "standard"
-  }
+  },
+  "ms": 5025
 }

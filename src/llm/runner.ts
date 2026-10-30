@@ -19,6 +19,7 @@ export type RecordingRunnerOptions = {
   retries?: number
   retryBaseMs?: number
   timeoutMs?: number // one attempt; timeouts are not retried
+  pace?: number // replayed answers wait their recorded `ms` divided by this (1 = as recorded); unset = at once
 }
 
 type Usage = { live: number; replayed: number; inputTokens: number; outputTokens: number }
@@ -35,6 +36,7 @@ export class RecordingRunner implements InferenceRunner {
   private readonly retries: number
   private readonly retryBaseMs: number
   private readonly timeoutMs: number
+  private readonly pace: number | undefined
   private inner: InferenceRunner | undefined
 
   constructor(options: RecordingRunnerOptions) {
@@ -45,6 +47,7 @@ export class RecordingRunner implements InferenceRunner {
     this.retries = options.retries ?? 4
     this.retryBaseMs = options.retryBaseMs ?? 1000
     this.timeoutMs = options.timeoutMs ?? 300_000
+    this.pace = options.pace
   }
 
   async run(input: InferenceInput): Promise<InferenceOutput> {
@@ -52,10 +55,13 @@ export class RecordingRunner implements InferenceRunner {
     const path = join(this.dir, `${key}.json`)
     if (this.mode === "replay" && !existsSync(path)) throw new Error(`replay: no fixture ${key} for ${input.model}; run once without --replay to record it`)
     if (this.mode !== "fresh" && existsSync(path)) {
-      const output = fromFixture(JSON.parse(readFileSync(path, "utf8")) as Fixture)
+      const fixture = JSON.parse(readFileSync(path, "utf8")) as Fixture
+      if (this.pace && fixture.ms) await new Promise((resolve) => setTimeout(resolve, fixture.ms! / this.pace!))
+      const output = fromFixture(fixture)
       this.count(input.model, output, "replayed")
       return output
     }
+    const started = Date.now()
     const inner = (this.inner ??= mozaikDefaultRunner())
     const report = (error: unknown, attempt: number) =>
       console.warn(`${input.model}: attempt ${attempt} failed (${redactKeys(String(error)).slice(0, 200)}); retrying`)
@@ -66,7 +72,7 @@ export class RecordingRunner implements InferenceRunner {
     if (!output.items.some((item) => item.type === "message" || item.type === "function_call"))
       throw new Error(`${input.model}: no answer within ${input.maxOutputTokens} output tokens (reasoning only); not recorded. Raise MAX_OUTPUT or lower EFFORT`)
     mkdirSync(this.dir, { recursive: true })
-    writeFileSync(path, JSON.stringify(toFixture(key, input, output), null, 2) + "\n")
+    writeFileSync(path, JSON.stringify(toFixture(key, input, output, Date.now() - started), null, 2) + "\n")
     return output
   }
 

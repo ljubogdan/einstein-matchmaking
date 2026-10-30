@@ -2,7 +2,8 @@
 // -> reserve (version-checked; conflicts go to the Arbiter, the loser re-matches) -> negotiation from the Profiler's card -> writer
 // -> Critic (deterministic checks, then a cheap-model support check; stopped claims go back once) -> out/proposals/<pair>.md.
 // Reuses recorded answers in fixtures/ (and parsed results in out/cache/) and calls live only for new requests (saved too).
-// `-- --replay`: fixtures only, no key, no network. `-- --fresh`: every call live again.
+// `-- --replay`: fixtures only, no key, no network. `-- --fresh`: every call live again. `-- --paced[=N]`: replayed answers
+// wait their recorded latency (N times faster), for the board.
 import "./env"
 import { createHuman, SemanticEvent } from "@mozaik-ai/core"
 import { createAnalyst } from "./agents/analyst"
@@ -25,6 +26,9 @@ import { PublicationIndex } from "./tools/search"
 
 const TIMEOUT_MS = 10 * 60_000
 const mode = process.argv.includes("--replay") ? "replay" : process.argv.includes("--fresh") ? "fresh" : "record"
+// --paced[=N]: replayed answers arrive after their recorded latency (divided by N), so the trace keeps the live run's shape.
+const paced = process.argv.find((arg) => arg.startsWith("--paced"))
+const pace = paced ? Number(paced.split("=")[1] ?? 1) || 1 : undefined
 // The demo set: two companies with the same challenge (C001-CH1, C032-CH1) want the same researcher; C061-CH1 has the
 // R0128 identity-conflict profile on its shortlist; C043-CH3 (raise a seed round) is not a research problem.
 const DEMO = ["C001-CH1", "C032-CH1", "C061-CH1", "C043-CH3"]
@@ -42,7 +46,7 @@ for (const id of challengeIds.filter((id) => !data.challenges.has(id))) {
   process.exit(1)
 }
 const index = new PublicationIndex(data)
-const runner = new RecordingRunner({ mode })
+const runner = new RecordingRunner({ mode, pace })
 const board = new Board()
 initializeRuntime({ state: board, inferenceRunnerConfig: { runner } })
 

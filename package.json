@@ -13,7 +13,9 @@
     "test": "vitest run",
     "demo": "tsx src/run.ts",
     "check-key": "tsx src/check-key.ts",
-    "find-contested": "tsx eval/find-contested.ts"
+    "find-contested": "tsx eval/find-contested.ts",
+    "fixture-latency": "tsx eval/fixture-latency.ts",
+    "board": "tsx src/board/server.ts"
   },
   "dependencies": {
     "@mozaik-ai/core": "4.2.0",

@@ -4,6 +4,7 @@ import { createHuman, type Human } from "@mozaik-ai/core"
 import { redactKeys } from "../redact"
 import { anyEvent, resolveRuntime } from "../runtime"
 
+// Mozaik's own events carry whole model contexts: cut them. Our prenup.* events stay whole; the board reads them.
 const MAX_PAYLOAD_CHARS = 500
 
 /**
@@ -23,7 +24,7 @@ export function createTraceObserver(path: string): Human {
           apply: ({ event }) => {
             const producer = resolveRuntime().state.getParticipant(event.producerId)?.getManifest().name ?? event.producerId
             const loopId = (event.payload as { loopId?: string } | undefined)?.loopId
-            const line = { t: event.occurredAt.toISOString(), type: event.type, producer, loopId, payload: summarize(event.payload) }
+            const line = { t: event.occurredAt.toISOString(), type: event.type, producer, loopId, payload: summarize(event.payload, !event.type.startsWith("prenup.")) }
             appendFileSync(path, JSON.stringify(line) + "\n")
           },
         },
@@ -32,8 +33,8 @@ export function createTraceObserver(path: string): Human {
   })
 }
 
-// Short payloads stay as objects; long ones (inference context) become a truncated string.
-function summarize(payload: unknown): unknown {
+// Payloads stay objects; a long built-in one (inference context) becomes a truncated string.
+function summarize(payload: unknown, cut: boolean): unknown {
   let text: string
   try {
     text = JSON.stringify(payload) ?? ""
@@ -41,6 +42,6 @@ function summarize(payload: unknown): unknown {
     return "[unserializable]"
   }
   const safe = redactKeys(text) // the trace is committed and public
-  if (safe.length > MAX_PAYLOAD_CHARS) return safe.slice(0, MAX_PAYLOAD_CHARS) + "…"
+  if (cut && safe.length > MAX_PAYLOAD_CHARS) return safe.slice(0, MAX_PAYLOAD_CHARS) + "…"
   return safe === "" ? undefined : JSON.parse(safe)
 }
