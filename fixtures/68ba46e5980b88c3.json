@@ -1,0 +1,38 @@
+{
+  "key": "68ba46e5980b88c3",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C001-CH1: We need to detect unusual behaviour on Modbus and BACnet networks without labelled attack data — our clients have never been breached (or do",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Contrastive self-supervised learning frameworks for tabular sensor data modulate target similarity between anchor and candidate points by elapsed time, and encode observed/unobserved status as part of token embedding and time-gap information into feature representations.\",\"sources\":[{\"id\":\"SYN-PUB-08881\",\"field\":\"abstract\",\"quote\":\"target similarity between an anchor and a candidate positive is modulated by the elapsed time\"},{\"id\":\"SYN-PUB-08885\",\"field\":\"abstract\",\"quote\":\"missiveness-aware feature tokeniser that encodes observed/unobserved status as part of the token embedding, a time-gap encoding that injects elapsed-time information\"}]},{\"claim\":2,\"text\":\"Unsupervised learning methods for industrial SCADA and sensor data have been validated on multi-month production records from manufacturing facilities without requiring attack labels or supervised annotations, including six months of data from a food-processing line and eight months from a plastics extrusion facility.\",\"sources\":[{\"id\":\"SYN-PUB-08878\",\"field\":\"abstract\",\"quote\":\"six months of data from a food-processing line and eight months from a plastics extrusion facility\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2494,
+    "outputTokens": 277,
+    "totalTokens": 2771,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2494,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 277,
+    "service_tier": "standard"
+  },
+  "ms": 3681
+}

@@ -1,0 +1,38 @@
+{
+  "key": "d9167ce66b41e28c",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C001-CH1: We need to detect unusual behaviour on Modbus and BACnet networks without labelled attack data — our clients have never been breached (or do",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"When evaluated on a synthetic dataset from a real-world programmable logic controller testbed, anomalies detected by measuring reconstruction error against learned normal patterns achieved detection rates exceeding 94% across attack categories with false positive rates below 2%.\",\"sources\":[{\"id\":\"SYN-PUB-10523\",\"field\":\"abstract\",\"quote\":\"Anomalies are identified by measuring reconstruction error against learned normal patterns, without requiring labelled attack data. The framework is evaluated on a synthetic dataset generated from a real-world programmable logic controller testbed, covering scenarios such as unauthorised function code injection, coil manipulation, and replay attacks. Experimental results demonstrate detection rates exceeding 94% across all attack categories, with a false positive rate below 2%.\"}]},{\"claim\":2,\"text\":\"Hybrid architectures combining specification-based rules with neural anomaly scoring achieve the best overall balance among five detection architectures, while purely deep-learning-based systems exhibit higher sensitivity to protocol version variability.\",\"sources\":[{\"id\":\"SYN-PUB-10525\",\"field\":\"abstract\",\"quote\":\"hybrid architectures combining specification-based rules with neural anomaly scoring achieve the best overall balance, while purely deep-learning-based systems exhibit higher sensitivity to protocol version variability.\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2229,
+    "outputTokens": 288,
+    "totalTokens": 2517,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2229,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 288,
+    "service_tier": "standard"
+  },
+  "ms": 4177
+}

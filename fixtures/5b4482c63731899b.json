@@ -1,0 +1,38 @@
+{
+  "key": "5b4482c63731899b",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Research group develops unsupervised anomaly detection methods for industrial control system protocol traffic, specifically including Modbus and",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"Claim specifies inference latency as 'sub-millisecond' but sources state 0.9 ms per 10-second window, which is not sub-millisecond (less than 1 ms).\", \"rewrite\": \"Recent work evaluates lightweight autoencoder-based anomaly detection models for resource-constrained ARM gateways with 256 MB RAM, demonstrating feasibility of real-time deployment through quantisation and pruning techniques achieving 0.9 ms inference latency per 10-second window on ARM Cortex-A7 targets.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2515,
+    "outputTokens": 196,
+    "totalTokens": 2711,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2515,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 196,
+    "service_tier": "standard"
+  },
+  "ms": 2134
+}

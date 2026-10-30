@@ -49,10 +49,10 @@ export function checkClaim(claim: Claim, ctx: CriticContext): Verdict {
   const money = claim.sources.find((s) => s.field === "sheet.money")?.quote
   if (claim.kind === "term" && money && /\d|€|\$|\beur\b|\brsd\b|\bdinar/i.test(money)) return block("policy", "money must be 'to be agreed' or a funding route, never an amount")
 
-  // 5. Every number in the sentence is in a quote (ids don't count).
-  const quoted = normalize(claim.sources.map((s) => s.quote).join(" "))
+  // 5. Every number in the sentence is in a cited field (ids don't count).
+  const cited = normalize(claim.sources.map((s) => sourceText(s, ctx) ?? "").join(" "))
   for (const n of claim.text.replace(IDS, "").match(/\d+(?:[.,]\d+)*/g) ?? []) {
-    if (!quoted.includes(n)) return block("numbers", `${n} is not in any quoted source`)
+    if (!cited.includes(n)) return block("numbers", `${n} is not in any cited field`)
   }
 
   return { claimId: claim.id, subject: claim.subject, verdict: "pass" }
@@ -96,15 +96,18 @@ function belongsTo(id: string, subject: string, ctx: CriticContext): boolean {
   return false
 }
 
-const SUPPORT_INSTRUCTION = `You check whether quotes support sentences. Read only the quotes, not your own knowledge. For each numbered claim answer:
-- support: "yes" if everything the sentence states is in its quotes (the same meaning in other words is fine); "partly" if the sentence says more than its quotes (an extra detail, a stronger or broader word, a purpose or result the quotes don't give); "no" if the quotes don't back the sentence.
-- A claim of kind inference may draw a conclusion; judge only whether the facts it rests on are in its quotes.
-- reason: one short line naming what is not supported; "" for yes.
-- rewrite: for "partly", the sentence cut down to what the quotes say; otherwise "".`
+const MAX_FIELD = 3000 // long enough for any abstract or company text; a cap so one field can't crowd out the claims
 
-/** The support check's input: numbered claims with their quotes. */
-export function supportMessage(claims: Claim[]): string {
-  return claims.map((c, i) => [`Claim ${i + 1} (${c.kind}): ${c.text}`, ...c.sources.map((s) => `  ${s.id} ${s.field}: "${s.quote}"`)].join("\n")).join("\n\n")
+const SUPPORT_INSTRUCTION = `You check whether sources support sentences. Each sentence comes with what it quotes and the whole field each quote is from. Read only those, not your own knowledge: a fact anywhere in a given field counts, and a quote that is too short is not a fault. For each numbered claim answer:
+- support: "yes" if everything the sentence states is in its fields (the same meaning in other words is fine); "partly" if the sentence says more than its fields (an extra detail, a stronger or broader word, a purpose or result the fields don't give); "no" if the fields don't back the sentence.
+- A claim of kind inference may draw a conclusion; judge only whether the facts it rests on are in its fields.
+- reason: one short line naming what is not supported; "" for yes.
+- rewrite: for "partly", the sentence cut down to what the fields say; otherwise "".`
+
+/** The support check's input: numbered claims with their quotes and the whole fields they're from. */
+export function supportMessage(claims: Claim[], ctx: CriticContext): string {
+  const source = (s: Source) => [`  ${s.id} ${s.field}: "${s.quote}"`, `    Whole field: ${(sourceText(s, ctx) ?? "").slice(0, MAX_FIELD)}`]
+  return claims.map((c, i) => [`Claim ${i + 1} (${c.kind}): ${c.text}`, ...c.sources.flatMap(source)].join("\n")).join("\n\n")
 }
 
 /** Merges the support answer into the deterministic verdicts: partly -> rewrite (with a suggestion), no -> block. */
@@ -186,7 +189,7 @@ export function createCritic(ctx: CriticContext, { support = true } = {}): Human
       ],
     })
     join(agent)
-    runLoop(agent.getId(), supportMessage(asked), {
+    runLoop(agent.getId(), supportMessage(asked, ctx), {
       model: MODELS.cheap,
       maxOutputTokens: MAX_OUTPUT.support,
       context: agent.getMemory().getContext(),

@@ -1,0 +1,38 @@
+{
+  "key": "66395277c35f4f76",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Reconstruction-error autoencoders can be trained on unlabelled high-frequency telemetry streams and fine-tuned with minimal labelled data to det",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":2,\"support\":\"partly\",\"reason\":\"Field discusses concept drift and anomaly types but does not establish that sequence models 'address' drift or 'can distinguish' these anomalies—only that these topics are discussed for each method family.\",\"rewrite\":\"Sequence models such as RNNs and TCNs are discussed alongside concept drift sensitivity and a taxonomy distinguishing point, contextual, and collective anomalies in event logs.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1153,
+    "outputTokens": 120,
+    "totalTokens": 1273,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1153,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 120,
+    "service_tier": "standard"
+  },
+  "ms": 3450
+}

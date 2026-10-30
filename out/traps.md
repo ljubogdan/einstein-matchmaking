@@ -24,9 +24,9 @@ Shortlisted researchers with trap flags (1):
 
 - [R0128] on [C061-CH1]: identity_conflict, same_name
 
-Times the Critic stopped a claim (70, rewrites included; stopped claims go back to their author once), by check:
+Times the Critic stopped a claim (51, rewrites included; stopped claims go back to their author once), by check:
 
-- quote: 9 (e.g. profile:C001-CH1__R0817/2: quote not found in SYN-PUB-08881.abstract; profile:C001-CH1__R1008/1: quote not found in SYN-PUB-10477.abstract)
-- policy: 1 (e.g. profile:C001-CH1__R1015/3: ranks or praises a person)
-- numbers: 5 (e.g. profile:C001-CH1__R0634/2: 7 is not in any quoted source; profile:C001-CH1__R1015/2: 94 is not in any quoted source)
-- support: 55 (e.g. C001-CH1__R1008/companyBrings/2: quotes do not mention validation before client site deployment; C001-CH1__R1008/companyBrings/2: quote does not mention 'realistic protocol conditions' or that it is for validation)
+- quote: 11 (e.g. profile:C001-CH1__R0817/2: quote not found in SYN-PUB-08881.abstract; profile:C001-CH1__R0817/2: quote not found in SYN-PUB-08881.abstract)
+- policy: 2 (e.g. profile:C001-CH1__R1015/3: ranks or praises a person; profile:C061-CH1__R0922/2: ranks or praises a person)
+- numbers: 2 (e.g. C032-CH1__R1015/whyThisPair/1: 512 is not in any cited field; profile:C032-CH1__R0071/2: 512 is not in any cited field)
+- support: 36 (e.g. C001-CH1__R1008/companyBrings/1: Field says 'several terabytes' collected; claim adds 'largest available corpus' and 'for baseline modelling' which are not stated; C001-CH1__R1008/whyThisPair/1: Field confirms expertise in unsupervised anomaly detection for ICS protocols and mentions Modbus/TCP; it does not state BACnet/IP expertise or that the research maps 'directly onto' the specific ProtoSense implementation)

@@ -165,7 +165,7 @@
       "caught": true,
       "verdict": "block",
       "check": "numbers",
-      "reason": "50,000 is not in any quoted source"
+      "reason": "50,000 is not in any cited field"
     },
     {
       "kind": "invented money",

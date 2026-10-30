@@ -1,0 +1,38 @@
+{
+  "key": "2835d519b3f1f608",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Unsupervised anomaly detection can identify deviations from learned normal Modbus traffic patterns without requiring labelled attack data, using",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The specific performance metrics (94% detection, <2% false positives) are stated as experimental results on a synthetic dataset, not as a general capability claim about anomaly detection methods.\", \"rewrite\": \"When evaluated on a synthetic dataset from a real-world programmable logic controller testbed, anomalies detected by measuring reconstruction error against learned normal patterns achieved detection rates exceeding 94% across attack categories with false positive rates below 2%.\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"The field states hybrid architectures achieve best balance and show lower sensitivity to protocol variability, but does not support the comparison that they achieve 'better balance than purely deep-learning approaches' - it only states they achieve best balance overall and that deep learning shows higher sensitivity.\", \"rewrite\": \"Hybrid architectures combining specification-based rules with neural anomaly scoring achieve the best overall balance among five detection architectures, while purely deep-learning-based systems exhibit higher sensitivity to protocol version variability.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1445,
+    "outputTokens": 259,
+    "totalTokens": 1704,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1445,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 259,
+    "service_tier": "standard"
+  },
+  "ms": 2620
+}

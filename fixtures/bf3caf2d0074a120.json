@@ -1,0 +1,47 @@
+{
+  "key": "bf3caf2d0074a120",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Pair id: C032-CH1__R1015\n\nRecords:\n{\"id\":\"C032-CH1\",\"text\":\"We need to detect unusual behaviour on Modbus and BACnet networks without labelled attack data.\",\"de",
+  "items": [
+    {
+      "type": "reasoning",
+      "content": {
+        "text": "Let me craft the collaboration proposal JSON based on the provided records and term sheet.",
+        "type": "input_text"
+      },
+      "encryptedContent": "ErkCCnwIExABGAIqQIHDLgan5hr+bHj35R89vwq6AqER2beJ6QZ0+kE2v8cuBIDde6p3rj2BCTwGBDz1HF5Un45W2omwEHqrxaHd9H4yEWNsYXVkZS1zb25uZXQtNC02OABCCHRoaW5raW5nWgw2NjU3Njc3MDczNzKoAYy6k9cGEgwimMPWsF3mmFl+wxkaDOMQoiUR1DSdy10xcSIwlQUH5wfDY1lOCX1dXnRVS2ZepJ6B080aEj6UNeNbUNjubNd4Rw9bA+xU35GfRDDkKmsuyHGU+6H+gCoqrjvFnaAWkwmr01yDN8nYuXVVQD5gZImmuFodWTFCxlTfQQYyDwMgl3yUujtz/FlCFvFz0NEo4FuLXmSbUvq5DnnoTj2lhzzUUF/mo9NROiKFVMR6+kV13xRsEZgAEo8fBhgB",
+      "summary": []
+    },
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"title\":\"Unsupervised Anomaly Detection for OT Networks Deployable on Edge Sensors\",\"problem\":[{\"subject\":\"C032-CH1\",\"text\":\"Detecting intrusions on Modbus and BACnet networks is impractical with hand-written rules because slow, low-volume probing goes entirely undetected.\",\"sources\":[{\"id\":\"C032-CH1\",\"field\":\"detail\",\"quote\":\"catches some things but misses slow, low-volume probing entirely\"}],\"kind\":\"fact\"},{\"subject\":\"C032-CH1\",\"text\":\"Statistical baselining drifts with shift patterns and seasonal production changes, generating noise that analysts cannot keep up with.\",\"sources\":[{\"id\":\"C032-CH1\",\"field\":\"detail\",\"quote\":\"baselines drift with shift patterns and seasonal production changes, which generates noise our analysts cannot keep up with\"}],\"kind\":\"fact\"},{\"subject\":\"C032-CH1\",\"text\":\"Because real incidents are rare and attack simulations on live plant are not permitted, building detection models without labelled attack data is the only viable path.\",\"sources\":[{\"id\":\"C032-CH1\",\"field\":\"detail\",\"quote\":\"customers do not want us running attack simulations on live plant, and public datasets for OT protocols are thin\"}],\"kind\":\"inference\"}],\"researchQuestions\":[\"Can autoencoder-based models trained on unlabelled Modbus and BACnet traffic generalise across three operationally distinct customer sites?\",\"What window size and encoding granularity optimise detection sensitivity while keeping inference within 512 MB RAM on an ARM core?\",\"How should models be updated when production baselines drift due to seasonal or shift-pattern changes, without reintroducing false-positive noise?\",\"Can a federated or incremental training strategy allow models from multiple sites to improve collectively without sharing raw packet logs?\"],\"plan\":[{\"phase\":\"Phase 1 — Data preparation and baseline model (M1–M3)\",\"work\":\"Ingest and anonymise eighteen months of packet logs from three sites; define feature representations for Modbus and BACnet sessions; train an initial autoencoder on benign traffic and measure reconstruction-error thresholds.\",\"result\":\"Baseline autoencoder model with documented false-positive rate on held-out site data.\"},{\"phase\":\"Phase 2 — Edge optimisation and hardware validation (M4–M6)\",\"work\":\"Apply model compression, quantisation, and pruning techniques to fit inference within sensor constraints; deploy candidate model on EdgeWatch hardware and profile RAM and latency under realistic traffic loads.\",\"result\":\"Edge-feasible model variant validated on EdgeWatch sensor hardware.\"},{\"phase\":\"Phase 3 — BACnet extension and comparative evaluation (M7–M9)\",\"work\":\"Extend feature engineering and model architecture to cover BACnet protocol semantics; run comparative evaluation of detection architectures against documented attack scenarios on both protocols.\",\"result\":\"BACnet-capable model with comparative evaluation report covering detection accuracy and resource consumption.\"},{\"phase\":\"Phase 4 — Integration and delivery (M10–M12)\",\"work\":\"Package deployable model artefacts, write integration documentation for the EdgeWatch firmware pipeline, and conduct end-to-end testing with the SOC analyst workflow.\",\"result\":\"Deployable model package with integration documentation ready for production rollout.\"}],\"companyBrings\":[{\"subject\":\"C032\",\"text\":\"The company provides eighteen months of raw packet logs averaging around four gigabytes per day per site from three customer deployments, giving the project a large and operationally realistic training corpus.\",\"sources\":[{\"id\":\"C032-CH1\",\"field\":\"detail\",\"quote\":\"eighteen months of raw packet logs from three customer sites, averaging around four gigabytes per day per site\"}],\"kind\":\"fact\"},{\"subject\":\"C032\",\"text\":\"In-house Modbus and BACnet protocol parsers and access to EdgeWatch sensor hardware give the project a direct path from trained model to edge deployment.\",\"sources\":[{\"id\":\"C032\",\"field\":\"products\",\"quote\":\"EdgeWatch sensor — passive network tap and protocol parser for OT environments\"}],\"kind\":\"fact\"},{\"subject\":\"C032\",\"text\":\"Four security engineers with deep OT protocol knowledge can validate anomaly labels and ensure detection logic reflects real field conditions rather than synthetic benchmarks.\",\"sources\":[{\"id\":\"C032\",\"field\":\"rd_capacity\",\"quote\":\"Four security engineers.\"}],\"kind\":\"inference\"}],\"universityBrings\":[{\"subject\":\"R1015\",\"text\":\"Prior published work demonstrates that autoencoder-based neural networks trained exclusively on benign traffic can establish behavioural profiles for industrial protocols without requiring labelled attack data.\",\"sources\":[{\"id\":\"SYN-PUB-10523\",\"field\":\"abstract\",\"quote\":\"autoencoder-based neural networks trained exclusively on benign traffic to establish a baseline behavioural profile\"}],\"kind\":\"fact\"},{\"subject\":\"R1015\",\"text\":\"The research group has shown that anomaly detection frameworks for legacy industrial protocols can achieve detection rates exceeding 94% across attack categories with a false positive rate below 2%.\",\"sources\":[{\"id\":\"SYN-PUB-10523\",\"field\":\"abstract\",\"quote\":\"detection rates exceeding 94% across all attack categories, with a false positive rate below 2%\"}],\"kind\":\"fact\"},{\"subject\":\"R1015\",\"text\":\"Expertise in federated learning for edge nodes, where each edge node trains a local anomaly detection model on its own traffic, is directly applicable to multi-site model improvement without exposing raw customer logs.\",\"sources\":[{\"id\":\"SYN-PUB-10526\",\"field\":\"abstract\",\"quote\":\"each edge node trains a local anomaly detection model on its own traffic and periodically shares only model gradient updates with a central aggregation server\"}],\"kind\":\"inference\"}],\"whyThisPair\":[{\"subject\":\"C032-CH1__R1015\",\"text\":\"The researcher's published framework targets Modbus specifically and addresses resource-constrained deployment, which maps directly onto the sensor constraint of 512 MB RAM and a modest ARM core.\",\"sources\":[{\"id\":\"SYN-PUB-10523\",\"field\":\"abstract\",\"quote\":\"practical guidance for deployment in resource-constrained industrial environments\"}],\"kind\":\"inference\"},{\"subject\":\"C032-CH1__R1015\",\"text\":\"The company's eighteen months of real-site OT traffic fills the gap left by synthetic testbed datasets, enabling the research to validate models on genuinely operational Modbus and BACnet traffic.\",\"sources\":[{\"id\":\"SYN-PUB-10523\",\"field\":\"abstract\",\"quote\":\"evaluated on a synthetic dataset generated from a real-world programmable logic controller testbed\"}],\"kind\":\"inference\"},{\"subject\":\"C032-CH1__R1015\",\"text\":\"The researcher is actively seeking joint research projects with technology companies seeking expertise in operational technology security and advanced threat analysis, aligning directly with the company's OT focus.\",\"sources\":[{\"id\":\"R1015\",\"field\":\"bio\",\"quote\":\"joint research projects with technology companies seeking expertise in operational technology security and advanced threat analysis\"}],\"kind\":\"fact\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 1615,
+    "totalTokens": 1618,
+    "inputTokenDetails": {
+      "cached_tokens": 4435
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 2683,
+    "cache_read_input_tokens": 1752,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 2683,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 1615,
+    "service_tier": "standard"
+  },
+  "ms": 17666
+}

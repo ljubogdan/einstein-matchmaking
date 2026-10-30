@@ -1,0 +1,38 @@
+{
+  "key": "f75cf874cb986fb4",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Kernel density estimation on normal-operation telemetry can detect anomalies by flagging observations falling below the 1st percentile of estima",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"Claim states 14 ms overhead is 'suitable for embedded deployment on microcontrollers' but source only states it is 'acceptable for a 100 ms sampling interval'; suitability for actual deployment is not established\", \"rewrite\": \"Kernel density estimation on normal-operation telemetry can detect anomalies by flagging observations falling below the 1st percentile of estimated density, with computational overhead of 14 ms per evaluation that is acceptable for a 100 ms sampling interval on microcontrollers.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1165,
+    "outputTokens": 138,
+    "totalTokens": 1303,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1165,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 138,
+    "service_tier": "standard"
+  },
+  "ms": 2933
+}

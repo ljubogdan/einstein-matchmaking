@@ -1,0 +1,38 @@
+{
+  "key": "8610bdeb7eea2672",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Tocopherol content acts as a partial endogenous antioxidant that delays lipid oxidation, with a strong correlation between initial tocopherol le",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"The field states tocopherol acts as a partial antioxidant delaying carotenoid (not lipid) oxidation; correlation is between tocopherol and lycopene half-life, not a general correlation with preservation of oxidation-susceptible compounds.\", \"rewrite\": \"Tocopherol content acts as a partial endogenous antioxidant that delays carotenoid oxidation, with a strong correlation (0.82) between initial tocopherol levels and lycopene half-life.\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The field states nitrogen-packed dark storage achieved 91–96% retention but does not provide explicit comparative retention rates for air-exposed or light-exposed storage conditions.\", \"rewrite\": \"Nitrogen-packed dark storage significantly preserved total carotenoids across all extracts, with retention rates of 91–96% after 12 weeks.\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1671,
+    "outputTokens": 249,
+    "totalTokens": 1920,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1671,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 249,
+    "service_tier": "standard"
+  },
+  "ms": 5047
+}

@@ -1,0 +1,38 @@
+{
+  "key": "e5232c66e22a9df1",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): R1015's autoencoder detector has been deployed at several utilities.\n  SYN-PUB-10523 abstract: \"Industrial control systems increasingly rely on ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"no\", \"reason\": \"Abstract describes an autoencoder framework but does not mention deployment at utilities\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"no\", \"reason\": \"Source says 'one to two engineers part-time', not full-time\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"no\", \"reason\": \"Source states clients 'have never been breached (or don't know it)', contradicting claim of lost clients due to missed attacks\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"Source shows hybrid approaches achieve 'best overall balance' but does not state they outperform 'every other approach' uniformly across all metrics\", \"rewrite\": \"R1015 proved in field trials that hybrid detectors achieve the best overall balance compared to other approaches.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1286,
+    "outputTokens": 209,
+    "totalTokens": 1495,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1286,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 209,
+    "service_tier": "standard"
+  },
+  "ms": 2795
+}

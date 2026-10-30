@@ -1,0 +1,38 @@
+{
+  "key": "a2e5d0191803b90b",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The oil reaches peroxide values above 15 meq/kg by month four, above the acceptable threshold, while competitors achieve shelf lives of 9–12 mon",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Claim states pathway 'has never been identified' but sources only say they lack capability and that identification is a desired outcome, not that attempts have been made and failed\", \"rewrite\": \"Without in-house GC capability, the dominant oxidation pathway—whether enzymatic, photo-oxidative, or trace-metal catalysed—remains unidentified and is a priority to determine.\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2255,
+    "outputTokens": 173,
+    "totalTokens": 2428,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2255,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 173,
+    "service_tier": "standard"
+  },
+  "ms": 1954
+}

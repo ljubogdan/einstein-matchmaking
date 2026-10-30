@@ -1,0 +1,38 @@
+{
+  "key": "a680b999bb11d13a",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Sparse autoencoders can learn meaningful latent representations from low-rate industrial sensor logs without labelled examples, with representat",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":2,\"support\":\"partly\",\"reason\":\"Claim mentions 'utilities' sector validation but only food-processing and plastics extrusion facilities are named in the six- and eight-month datasets; utilities appears only in the separate TabSCL paper (SYN-PUB-08885).\",\"rewrite\":\"Unsupervised learning methods for industrial SCADA and sensor data have been validated on multi-month production records from manufacturing facilities without requiring attack labels or supervised annotations.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1441,
+    "outputTokens": 131,
+    "totalTokens": 1572,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1441,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 131,
+    "service_tier": "standard"
+  },
+  "ms": 2182
+}

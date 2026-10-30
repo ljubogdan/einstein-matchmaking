@@ -1,0 +1,38 @@
+{
+  "key": "b1cb9e99daffe6f2",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C032-CH1: We need to detect unusual behaviour on Modbus and BACnet networks without labelled attack data.\nDetail: Our EdgeWatch sensor captures all tr",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Semi-supervised anomaly detection methods can be trained on mostly unlabelled data by incorporating labelled anomalies as constraints or by assigning pseudo-labels to unlabelled samples while filtering high-uncertainty predictions to avoid corrupting the minority class in imbalanced industrial streams.\",\"sources\":[{\"id\":\"SYN-PUB-00960\",\"field\":\"abstract\",\"quote\":\"incorporates labelled anomalies as must-outside constraints during kernel optimisation\"},{\"id\":\"SYN-PUB-00962\",\"field\":\"abstract\",\"quote\":\"Self-training iteratively assigns pseudo-labels to unlabelled samples and retrains a classifier\"},{\"id\":\"SYN-PUB-00962\",\"field\":\"abstract\",\"quote\":\"only samples whose entropy falls below a calibrated threshold enter the pseudo-labelled pool\"}]},{\"claim\":2,\"text\":\"Anomaly detection models can be optimised to run inference on edge devices with strict memory budgets through quantisation and model selection, with a quantised convolutional network fitting within 200 KB and achieving 97% of its full-precision AUPRC on an ARM board.\",\"sources\":[{\"id\":\"SYN-PUB-00963\",\"field\":\"abstract\",\"quote\":\"Deploying anomaly detection at the network edge requires balancing model accuracy against strict memory budgets\"},{\"id\":\"SYN-PUB-00963\",\"field\":\"abstract\",\"quote\":\"The quantised convolutional network fits within 200 KB and achieves 97% of its full-precision AUPRC while meeting a 5 ms per-window latency budget on the ARM board\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2429,
+    "outputTokens": 373,
+    "totalTokens": 2802,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2429,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 373,
+    "service_tier": "standard"
+  },
+  "ms": 2362
+}

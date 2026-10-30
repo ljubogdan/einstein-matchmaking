@@ -165,7 +165,7 @@
       "caught": true,
       "verdict": "block",
       "check": "numbers",
-      "reason": "50,000 is not in any quoted source"
+      "reason": "50,000 is not in any cited field"
     },
     {
       "kind": "invented money",
@@ -201,7 +201,7 @@
       "caught": true,
       "verdict": "block",
       "check": "support",
-      "reason": "Quote discusses Modbus protocol deployment, not R1015's autoencoder detector deployment at utilities."
+      "reason": "Abstract describes an autoencoder framework but does not mention deployment at utilities"
     },
     {
       "kind": "says more than its quote",
@@ -210,7 +210,7 @@
       "caught": true,
       "verdict": "block",
       "check": "support",
-      "reason": "Quote says 'one to two engineers part-time', but claim says 'full-time for its whole duration'."
+      "reason": "Source says 'one to two engineers part-time', not full-time"
     },
     {
       "kind": "says more than its quote",
@@ -219,16 +219,16 @@
       "caught": true,
       "verdict": "block",
       "check": "support",
-      "reason": "Quote expresses a need for detection capability, not evidence of lost clients due to missed attacks."
+      "reason": "Source states clients 'have never been breached (or don't know it)', contradicting claim of lost clients due to missed attacks"
     },
     {
       "kind": "says more than its quote",
       "planted": "real verbatim quote, sentence claims the hybrid approach was proven in the field",
       "claim": "R1015 proved in field trials that hybrid detectors outperform every other approach.",
       "caught": true,
-      "verdict": "block",
+      "verdict": "rewrite",
       "check": "support",
-      "reason": "Quote discusses SCADA networks as critical infrastructure; it does not address R1015's field trials or comparative performance of hybrid detectors."
+      "reason": "Source shows hybrid approaches achieve 'best overall balance' but does not state they outperform 'every other approach' uniformly across all metrics"
     }
   ]
 }

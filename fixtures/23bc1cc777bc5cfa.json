@@ -1,0 +1,38 @@
+{
+  "key": "23bc1cc777bc5cfa",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Photo-oxidation causes rapid degradation of polyunsaturated oils, with peroxide value increasing sixfold faster under UV-A radiation and degrada",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"The source identifies only lutein degradation products (5,6-epoxylutein and lutein endoperoxide), not general polyunsaturated oil degradation products; the claim generalizes beyond the specific study.\", \"rewrite\": \"Photo-oxidation causes rapid degradation of polyunsaturated oils under UV-A radiation, with peroxide value increasing sixfold faster, and degradation products including lipid endoperoxides and epoxides.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"The source supports that light intensity is dominant and exceeds temperature effects, but does not explicitly state it can be quantitatively modelled using accelerated degradation kinetics—only that a model was constructed and validated.\", \"rewrite\": \"Light intensity is the dominant variable controlling shelf life of oily functional foods under retail conditions, exceeding the effect of temperature fluctuations.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1706,
+    "outputTokens": 240,
+    "totalTokens": 1946,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1706,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 240,
+    "service_tier": "standard"
+  },
+  "ms": 4820
+}

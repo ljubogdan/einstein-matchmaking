@@ -1,0 +1,38 @@
+{
+  "key": "41f9e36f215e07c5",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Sequence models including RNNs and TCNs are discussed alongside key assumptions, scalability properties, and sensitivity to concept drift in tel",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 798,
+    "outputTokens": 30,
+    "totalTokens": 828,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 798,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 30,
+    "service_tier": "standard"
+  },
+  "ms": 3385
+}

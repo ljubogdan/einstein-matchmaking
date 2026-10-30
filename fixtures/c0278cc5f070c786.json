@@ -1,0 +1,38 @@
+{
+  "key": "c0278cc5f070c786",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Reconstruction-error autoencoders can be trained on unlabelled high-frequency telemetry streams to produce anomaly scores without requiring labe",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"The claim states autoencoders can be trained without requiring labelled attack examples, but the source describes a semi-supervised approach that uses a labelled set of 6,400 sessions for fine-tuning.\", \"rewrite\": \"Reconstruction-error autoencoders can be trained on unlabelled high-frequency telemetry streams and fine-tuned with a small labelled set to produce anomaly scores.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"The claim mentions three challenges (irregular sampling rates, session length variance, and concept drift sensitivity), but the source only explicitly addresses the first two as 'specific challenges' in telemetry streams; concept drift sensitivity is discussed separately in another source as a general consideration for methods.\", \"rewrite\": \"Telemetry-based anomaly detection methods address handling of irregular sampling rates and session length variance in streaming data environments, with sensitivity to concept drift being a key consideration for method selection.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2065,
+    "outputTokens": 252,
+    "totalTokens": 2317,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2065,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 252,
+    "service_tier": "standard"
+  },
+  "ms": 2805
+}

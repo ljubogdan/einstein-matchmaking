@@ -1,0 +1,38 @@
+{
+  "key": "4a10da9f6e8477ed",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Unsupervised learning methods for industrial SCADA and sensor data have been validated on multi-month production records from manufacturing faci",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"Claim states methods have been 'validated' and adds detail about 'without requiring attack labels or supervised annotations' not in the abstract; abstract only mentions 'without any labelled examples' and focuses on sparse autoencoders specifically, not unsupervised learning methods broadly.\", \"rewrite\": \"Sparse autoencoders for industrial SCADA and sensor data have been tested on multi-month production records from manufacturing facilities without requiring labelled examples, including six months of data from a food-processing line and eight months from a plastics extrusion facility.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 837,
+    "outputTokens": 144,
+    "totalTokens": 981,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 837,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 144,
+    "service_tier": "standard"
+  },
+  "ms": 2638
+}

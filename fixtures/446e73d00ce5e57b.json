@@ -1,0 +1,38 @@
+{
+  "key": "446e73d00ce5e57b",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): One-class contrastive learning enables unsupervised anomaly detection in settings without labelled defect examples, using momentum-updated refer",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Claim mentions model quantization but the source for claim only describes early-exit and difficulty estimation mechanisms, not quantization techniques.\", \"rewrite\": \"Early-exit mechanisms and difficulty estimation allow real-time inference on edge devices while maintaining detection accuracy by partitioning execution between edge and cloud based on sample difficulty.\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1709,
+    "outputTokens": 133,
+    "totalTokens": 1842,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1709,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 133,
+    "service_tier": "standard"
+  },
+  "ms": 4880
+}

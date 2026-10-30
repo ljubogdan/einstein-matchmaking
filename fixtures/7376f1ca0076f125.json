@@ -1,0 +1,38 @@
+{
+  "key": "7376f1ca0076f125",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C001-CH1: We need to detect unusual behaviour on Modbus and BACnet networks without labelled attack data — our clients have never been breached (or do",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Reconstruction-error autoencoders can be trained on unlabelled high-frequency telemetry streams and fine-tuned with a small labelled set to produce anomaly scores.\",\"sources\":[{\"id\":\"SYN-PUB-01921\",\"field\":\"abstract\",\"quote\":\"Reconstruction-error autoencoders have been applied to anomaly detection in images and network traffic\"},{\"id\":\"SYN-PUB-01921\",\"field\":\"abstract\",\"quote\":\"trains a shallow denoising autoencoder on 2.1 million unlabelled sessions\"},{\"id\":\"SYN-PUB-01921\",\"field\":\"abstract\",\"quote\":\"fine-tunes the encoder representation using a small labelled set of 6,400 sessions\"}]},{\"claim\":2,\"text\":\"Telemetry-based anomaly detection methods address handling of irregular sampling rates and session length variance in streaming data environments, with sensitivity to concept drift being a key consideration for method selection.\",\"sources\":[{\"id\":\"SYN-PUB-01921\",\"field\":\"abstract\",\"quote\":\"variable-length behavioural telemetry streams in games raises specific challenges including irregular sampling rates\"},{\"id\":\"SYN-PUB-09226\",\"field\":\"abstract\",\"quote\":\"sensitivity to concept drift are discussed\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2534,
+    "outputTokens": 300,
+    "totalTokens": 2834,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2534,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 300,
+    "service_tier": "standard"
+  },
+  "ms": 3940
+}

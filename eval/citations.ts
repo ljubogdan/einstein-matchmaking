@@ -8,23 +8,26 @@ import { Dataset } from "../src/tools/dataset"
 
 const TRACE = "out/eval/trace-replay-1x.jsonl"
 const REVIEW: Record<string, "yes" | "partly" | "no"> = {
+  "C001-CH1__R1015/1/company/C001 plans": "partly", // the fifth hardware variant is there, ProtoSense isn't
+  "C001-CH1__R1015/1/company/C001 rd_capacity": "partly", // access under NDA, not a review window
   "C061-CH1__R0231/1/company/C061 past_collaborations": "yes",
   "C061-CH1__R0231/1/company/C061 rd_capacity": "no", // lab capacity, used for protecting production data
-  "C001-CH1__R1008/1/company/C001 plans": "partly", // the late-2025 release is there, a ProtoSense roadmap isn't
-  "C001-CH1__R1008/1/company/C001 past_collaborations": "yes",
-  "C032-CH1__R1015/1/company/C032 plans": "yes",
-  "C032-CH1__R1015/1/company/C032 tech": "no", // a tech stack, used for protecting customer data
-  "C001-CH1__R1008/2/researcher/R1008 publications": "partly", // shows a record, not a right to publish
   "C061-CH1__R0231/2/researcher/R0231 publications": "yes", // the 16 publications
   "C061-CH1__R0231/2/researcher/R0231 publications#2": "partly", // used again for not blocking dissemination
-  "C032-CH1__R1015/2/researcher/R1015 projects": "partly", // the prior project exists; rights aren't stated
+  "C001-CH1__R1008/1/company/C001 plans": "partly", // the late-2025 release is there, a ProtoSense roadmap isn't
+  "C001-CH1__R1008/1/company/C001 past_collaborations": "yes",
+  "C032-CH1__R1015/1/company/C032 products": "yes",
+  "C032-CH1__R1015/1/company/C032 plans": "yes",
+  "C032-CH1__R1015/1/company/C032 past_collaborations": "yes", // "None."
   "C061-CH1__R0231/3/company/C061 past_collaborations": "yes",
+  "C001-CH1__R1008/2/researcher/R1008 publications": "partly", // shows a record, not a right to publish
+  "C032-CH1__R1015/2/researcher/R1015 publications": "partly",
   "C001-CH1__R1008/3/company/C001 plans": "yes",
-  "C032-CH1__R1015/3/company/C032 plans": "yes",
   "C001-CH1__R1008/4/researcher/R1008 publications": "partly",
   "C001-CH1__R1008/4/researcher/R1008 notes": "yes",
-  "C032-CH1__R1015/4/researcher/R1015 publications": "yes",
-  "C032-CH1__R1015/4/researcher/R1015 projects": "partly",
+  "C032-CH1__R1015/3/company/C032 products": "yes",
+  "C032-CH1__R1015/4/researcher/R1015 publications": "partly",
+  "C032-CH1__R1015/4/researcher/R1015 projects": "partly", // the project exists; its protection isn't stated
 }
 
 const data = Dataset.load()

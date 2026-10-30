@@ -1,0 +1,38 @@
+{
+  "key": "f8fda38621789dca",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Reconstruction-error autoencoders can be trained on unlabelled high-frequency telemetry streams and fine-tuned with a small labelled set to prod",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The fields address irregular sampling rates and session length variance as challenges, and mention sensitivity to concept drift as a consideration, but do not state that sensitivity to concept drift is specifically a 'key consideration for method selection' - the source says it is 'discussed' for each method family.\", \"rewrite\": \"Telemetry-based anomaly detection methods address handling of irregular sampling rates and session length variance in streaming data environments, and sensitivity to concept drift is discussed as a characteristic of different methods.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1951,
+    "outputTokens": 149,
+    "totalTokens": 2100,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1951,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 149,
+    "service_tier": "standard"
+  },
+  "ms": 3104
+}

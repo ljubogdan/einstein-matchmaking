@@ -1,0 +1,38 @@
+{
+  "key": "773822d21883b656",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Unsupervised anomaly detection and one-class classification for industrial control system protocol traffic can exploit the statistical propertie",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":2,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":3,\"support\":\"partly\",\"reason\":\"Fields confirm lightweight online learning algorithms exist and recalibration maintains performance, but do not establish that online learning specifically enables the recalibration—the schedule is presented as a separate technical contribution.\",\"rewrite\":\"Recalibration schedules that adapt to normal traffic variation over time can maintain detection performance without human intervention, and lightweight online learning algorithms suited to constrained embedded environments exist in the research group's focus.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2263,
+    "outputTokens": 138,
+    "totalTokens": 2401,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2263,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 138,
+    "service_tier": "standard"
+  },
+  "ms": 4135
+}

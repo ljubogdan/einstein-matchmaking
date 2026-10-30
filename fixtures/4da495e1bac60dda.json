@@ -1,0 +1,38 @@
+{
+  "key": "4da495e1bac60dda",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The oil reaches peroxide values above 15 meq/kg by month four, well above the acceptable threshold, while competitors achieve shelf lives of 9–1",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"Claim states peroxide values 'well above the acceptable threshold' and specifies competitors achieve '9–12 months'; sources confirm month-four values above 15 and competitor shelf life of 9–12 months, but do not establish that 15 meq/kg is 'well above acceptable' or characterize the margin.\", \"rewrite\": \"The oil reaches peroxide values above 15 meq/kg by month four, above the acceptable threshold, while competitors achieve shelf lives of 9–12 months.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"Claim uses 'autoxidative' whereas source uses 'enzymatic'; source states pathway has not been identified but does not explicitly say this makes 'targeted intervention impossible'—that is an inference not stated in the fields.\", \"rewrite\": \"Without in-house GC capability, the dominant oxidation pathway—whether enzymatic, photo-oxidative, or trace-metal catalysed—has never been identified.\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"Source confirms traceability to field and harvest and ERP tracking exists, but does not state that data 'links production variables to oxidation outcomes across multiple batches'—that linkage is not explicitly established in the fields.\", \"rewrite\": \"The company provides oil samples traceable to specific fields and harvests, plus ERP batch tracking data.\"}, {\"claim\": 5, \"support\": \"partly\", \"reason\": \"Source confirms dark glass bottling line with nitrogen flushing exists, but does not state capability for 'in-situ headspace oxygen measurements' or 'flush protocol trials without interrupting production'—these are inferences not in the fields.\", \"rewrite\": \"The company has a dark glass bottling line with nitrogen flushing.\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 10, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 11, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 12, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 601,
+    "totalTokens": 604,
+    "inputTokenDetails": {
+      "cached_tokens": 4827
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 4827,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 4827,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 601,
+    "service_tier": "standard"
+  },
+  "ms": 4617
+}

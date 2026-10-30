@@ -2,10 +2,10 @@
   "what": "Every first-pass Critic stop in the recorded demo run, checked against the cited records and the pair's own records. true = everything the sentence states is in the dataset, so the stop was a false stop.",
   "reviewer": "Claude (the coding agent that helped build Prenup), not an independent person. One run, one reviewer.",
   "date": "2026-10-30",
-  "stops": 47,
+  "stops": 38,
   "review": {
-    "true": 21,
-    "says more than the sources": 15,
+    "true": 13,
+    "says more than the sources": 14,
     "judgement call": 11
   },
   "byCheck": {
@@ -15,18 +15,18 @@
       "judgement call": 1
     },
     "support": {
-      "true": 14,
-      "judgement call": 10,
-      "says more than the sources": 12
+      "says more than the sources": 12,
+      "true": 8,
+      "judgement call": 9
     },
     "numbers": {
-      "says more than the sources": 2,
-      "true": 2
+      "says more than the sources": 1,
+      "judgement call": 1
     }
   },
   "trueSentencesAfterRewrite": {
-    "passed": 11,
-    "dropped": 10
+    "passed": 8,
+    "dropped": 5
   },
   "items": [
     {
@@ -48,10 +48,16 @@
       "afterRewrite": "dropped"
     },
     {
-      "claimId": "profile:C001-CH1__R0817/1",
+      "claimId": "profile:C032-CH1__R1015/3",
+      "check": "support",
+      "review": "says more than the sources",
+      "afterRewrite": "passed"
+    },
+    {
+      "claimId": "profile:C032-CH1__R1008/3",
       "check": "support",
       "review": "true",
-      "afterRewrite": "dropped"
+      "afterRewrite": "passed"
     },
     {
       "claimId": "profile:C001-CH1__R0817/2",
@@ -60,37 +66,7 @@
       "afterRewrite": "dropped"
     },
     {
-      "claimId": "profile:C032-CH1__R1015/2",
-      "check": "support",
-      "review": "true",
-      "afterRewrite": "dropped"
-    },
-    {
-      "claimId": "profile:C032-CH1__R1015/3",
-      "check": "numbers",
-      "review": "says more than the sources",
-      "afterRewrite": "passed"
-    },
-    {
-      "claimId": "profile:C001-CH1__R1015/1",
-      "check": "support",
-      "review": "true",
-      "afterRewrite": "passed"
-    },
-    {
-      "claimId": "profile:C001-CH1__R1015/2",
-      "check": "numbers",
-      "review": "true",
-      "afterRewrite": "passed"
-    },
-    {
-      "claimId": "profile:C001-CH1__R1015/3",
-      "check": "support",
-      "review": "true",
-      "afterRewrite": "dropped"
-    },
-    {
-      "claimId": "profile:C001-CH1__R0634/1",
+      "claimId": "profile:C001-CH1__R0817/3",
       "check": "support",
       "review": "judgement call",
       "afterRewrite": "dropped"
@@ -102,7 +78,13 @@
       "afterRewrite": "dropped"
     },
     {
-      "claimId": "profile:C001-CH1__R0634/3",
+      "claimId": "profile:C001-CH1__R1015/2",
+      "check": "support",
+      "review": "true",
+      "afterRewrite": "passed"
+    },
+    {
+      "claimId": "profile:C001-CH1__R1015/3",
       "check": "support",
       "review": "true",
       "afterRewrite": "dropped"
@@ -114,15 +96,69 @@
       "afterRewrite": "passed"
     },
     {
-      "claimId": "profile:C001-CH1__R0856/2",
+      "claimId": "profile:C001-CH1__R0856/3",
+      "check": "support",
+      "review": "true",
+      "afterRewrite": "dropped"
+    },
+    {
+      "claimId": "profile:C032-CH1__R0856/2",
+      "check": "quote",
+      "review": "judgement call",
+      "afterRewrite": "dropped"
+    },
+    {
+      "claimId": "profile:C032-CH1__R0856/3",
       "check": "support",
       "review": "says more than the sources",
       "afterRewrite": "passed"
     },
     {
-      "claimId": "profile:C001-CH1__R0856/3",
+      "claimId": "profile:C061-CH1__R0403/2",
       "check": "support",
       "review": "true",
+      "afterRewrite": "passed"
+    },
+    {
+      "claimId": "profile:C061-CH1__R0128/2",
+      "check": "quote",
+      "review": "true",
+      "afterRewrite": "dropped"
+    },
+    {
+      "claimId": "profile:C061-CH1__R0128/3",
+      "check": "support",
+      "review": "says more than the sources",
+      "afterRewrite": "passed"
+    },
+    {
+      "claimId": "profile:C061-CH1__R0550/1",
+      "check": "support",
+      "review": "says more than the sources",
+      "afterRewrite": "dropped"
+    },
+    {
+      "claimId": "profile:C061-CH1__R0550/3",
+      "check": "support",
+      "review": "judgement call",
+      "afterRewrite": "passed"
+    },
+    {
+      "claimId": "profile:C032-CH1__R0548/2",
+      "check": "support",
+      "review": "judgement call",
+      "afterRewrite": "dropped"
+    },
+    {
+      "claimId": "profile:C061-CH1__R0922/1",
+      "check": "support",
+      "review": "says more than the sources",
+      "afterRewrite": "passed"
+    },
+    {
+      "claimId": "profile:C061-CH1__R0922/2",
+      "check": "support",
+      "review": "judgement call",
       "afterRewrite": "dropped"
     },
     {
@@ -138,118 +174,10 @@
       "afterRewrite": "passed"
     },
     {
-      "claimId": "profile:C032-CH1__R0071/3",
+      "claimId": "C061-CH1__R0231/problem/1",
       "check": "support",
       "review": "judgement call",
       "afterRewrite": "passed"
-    },
-    {
-      "claimId": "profile:C032-CH1__R0856/2",
-      "check": "quote",
-      "review": "judgement call",
-      "afterRewrite": "dropped"
-    },
-    {
-      "claimId": "profile:C032-CH1__R0856/3",
-      "check": "support",
-      "review": "says more than the sources",
-      "afterRewrite": "passed"
-    },
-    {
-      "claimId": "profile:C032-CH1__R0548/1",
-      "check": "support",
-      "review": "true",
-      "afterRewrite": "passed"
-    },
-    {
-      "claimId": "profile:C032-CH1__R0548/2",
-      "check": "support",
-      "review": "judgement call",
-      "afterRewrite": "dropped"
-    },
-    {
-      "claimId": "profile:C032-CH1__R0548/3",
-      "check": "numbers",
-      "review": "true",
-      "afterRewrite": "passed"
-    },
-    {
-      "claimId": "profile:C032-CH1__R1008/3",
-      "check": "support",
-      "review": "true",
-      "afterRewrite": "dropped"
-    },
-    {
-      "claimId": "profile:C061-CH1__R0128/2",
-      "check": "quote",
-      "review": "true",
-      "afterRewrite": "dropped"
-    },
-    {
-      "claimId": "profile:C061-CH1__R0128/3",
-      "check": "support",
-      "review": "says more than the sources",
-      "afterRewrite": "dropped"
-    },
-    {
-      "claimId": "profile:C061-CH1__R0550/1",
-      "check": "support",
-      "review": "says more than the sources",
-      "afterRewrite": "dropped"
-    },
-    {
-      "claimId": "profile:C061-CH1__R0550/3",
-      "check": "support",
-      "review": "judgement call",
-      "afterRewrite": "passed"
-    },
-    {
-      "claimId": "profile:C061-CH1__R0403/1",
-      "check": "support",
-      "review": "says more than the sources",
-      "afterRewrite": "dropped"
-    },
-    {
-      "claimId": "profile:C061-CH1__R0403/2",
-      "check": "support",
-      "review": "true",
-      "afterRewrite": "passed"
-    },
-    {
-      "claimId": "profile:C061-CH1__R0922/1",
-      "check": "support",
-      "review": "says more than the sources",
-      "afterRewrite": "passed"
-    },
-    {
-      "claimId": "profile:C061-CH1__R0922/2",
-      "check": "support",
-      "review": "judgement call",
-      "afterRewrite": "dropped"
-    },
-    {
-      "claimId": "profile:C061-CH1__R0922/3",
-      "check": "support",
-      "review": "says more than the sources",
-      "afterRewrite": "dropped"
-    },
-    {
-      "claimId": "C032-CH1__R1015/problem/1",
-      "check": "support",
-      "review": "true",
-      "afterRewrite": "dropped"
-    },
-    {
-      "claimId": "C032-CH1__R1015/problem/2",
-      "check": "support",
-      "review": "true",
-      "afterRewrite": "passed"
-    },
-    {
-      "claimId": "C032-CH1__R1015/companyBrings/2",
-      "check": "support",
-      "review": "judgement call",
-      "afterRewrite": "dropped"
     },
     {
       "claimId": "C061-CH1__R0231/problem/3",
@@ -270,46 +198,64 @@
       "afterRewrite": "passed"
     },
     {
-      "claimId": "C061-CH1__R0231/universityBrings/1",
-      "check": "support",
-      "review": "judgement call",
-      "afterRewrite": "passed"
-    },
-    {
-      "claimId": "C061-CH1__R0231/universityBrings/2",
-      "check": "support",
-      "review": "judgement call",
-      "afterRewrite": "passed"
-    },
-    {
-      "claimId": "C061-CH1__R0231/whyThisPair/1",
+      "claimId": "C032-CH1__R1015/problem/3",
       "check": "support",
       "review": "says more than the sources",
       "afterRewrite": "passed"
     },
     {
-      "claimId": "C061-CH1__R0231/whyThisPair/3",
+      "claimId": "C032-CH1__R1015/companyBrings/1",
       "check": "support",
       "review": "judgement call",
       "afterRewrite": "passed"
     },
     {
-      "claimId": "C001-CH1__R1008/problem/3",
+      "claimId": "C032-CH1__R1015/companyBrings/2",
+      "check": "support",
+      "review": "judgement call",
+      "afterRewrite": "passed"
+    },
+    {
+      "claimId": "C032-CH1__R1015/companyBrings/3",
+      "check": "support",
+      "review": "says more than the sources",
+      "afterRewrite": "dropped"
+    },
+    {
+      "claimId": "C032-CH1__R1015/universityBrings/2",
       "check": "support",
       "review": "true",
       "afterRewrite": "passed"
     },
     {
-      "claimId": "C001-CH1__R1008/companyBrings/2",
-      "check": "support",
-      "review": "says more than the sources",
-      "afterRewrite": "dropped"
+      "claimId": "C032-CH1__R1015/whyThisPair/1",
+      "check": "numbers",
+      "review": "judgement call",
+      "afterRewrite": "passed"
     },
     {
-      "claimId": "C001-CH1__R1008/universityBrings/3",
+      "claimId": "C032-CH1__R1015/whyThisPair/2",
+      "check": "support",
+      "review": "judgement call",
+      "afterRewrite": "passed"
+    },
+    {
+      "claimId": "C001-CH1__R1008/companyBrings/1",
+      "check": "support",
+      "review": "says more than the sources",
+      "afterRewrite": "passed"
+    },
+    {
+      "claimId": "C001-CH1__R1008/whyThisPair/1",
       "check": "support",
       "review": "judgement call",
       "afterRewrite": "dropped"
+    },
+    {
+      "claimId": "C001-CH1__R1008/whyThisPair/3",
+      "check": "support",
+      "review": "says more than the sources",
+      "afterRewrite": "passed"
     }
   ]
 }

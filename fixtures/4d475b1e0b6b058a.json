@@ -1,0 +1,38 @@
+{
+  "key": "4d475b1e0b6b058a",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Peroxide formation in cold-pressed pumpkin seed oil follows predictable pseudo-first-order kinetics at different storage temperatures, with rate",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2086,
+    "outputTokens": 74,
+    "totalTokens": 2160,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2086,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 74,
+    "service_tier": "standard"
+  },
+  "ms": 3233
+}

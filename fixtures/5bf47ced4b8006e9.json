@@ -1,0 +1,38 @@
+{
+  "key": "5bf47ced4b8006e9",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): None of the clients has ever provided a packet capture that contains a confirmed attack, leaving the ProtoSense module with no labelled maliciou",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"Field says 'several terabytes' collected; claim adds 'largest available corpus' and 'for baseline modelling' which are not stated\", \"rewrite\": \"The company has collected several terabytes of captures from consenting clients over the past three years.\"}, {\"claim\": 5, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 10, \"support\": \"partly\", \"reason\": \"Field confirms expertise in unsupervised anomaly detection for ICS protocols and mentions Modbus/TCP; it does not state BACnet/IP expertise or that the research maps 'directly onto' the specific ProtoSense implementation\", \"rewrite\": \"The research group has expertise in unsupervised anomaly detection and one-class classification for industrial control system protocol traffic including Modbus/TCP.\"}, {\"claim\": 11, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 12, \"support\": \"partly\", \"reason\": \"Field says company collects Modbus and BACnet traffic; field does not confirm these are proprietary or undocumented protocols that match the researcher's stated gap\", \"rewrite\": \"The company has collected operational traffic archives from real client networks.\"}, {\"claim\": 13, \"support\": \"no\", \"reason\": \"No claim 13 provided\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 483,
+    "totalTokens": 486,
+    "inputTokenDetails": {
+      "cached_tokens": 4502
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 4502,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 4502,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 483,
+    "service_tier": "standard"
+  },
+  "ms": 3266
+}

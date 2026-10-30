@@ -1,0 +1,38 @@
+{
+  "key": "1899c49ef7bc4466",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Detecting intrusions on Modbus and BACnet networks is impractical with hand-written rules because slow, low-volume probing goes entirely undetec",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"Inference concludes only path is unlabelled models, but field only states barriers exist and that unlabelled approach is needed; does not establish exclusivity of this path\", \"rewrite\": \"Because real incidents are rare, customers prohibit attack simulations, and public datasets are thin, the company needs to build detection models from unlabelled traffic.\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"Field states data volume but does not characterize it as 'operationally realistic training corpus' or claim it enables large-scale training\", \"rewrite\": \"The company has eighteen months of raw packet logs from three customer sites, averaging around four gigabytes per day per site.\"}, {\"claim\": 5, \"support\": \"partly\", \"reason\": \"Field confirms EdgeWatch has protocol parsing and sensor hardware, but does not state these give a 'direct path' to deployment or establish parsers are in-house\", \"rewrite\": \"EdgeWatch includes a passive network tap and protocol parser for OT environments that could support model deployment.\"}, {\"claim\": 6, \"support\": \"no\", \"reason\": \"Field states only that four security engineers exist; does not describe their knowledge depth, role in validation, or ability to ensure detection logic reflects field conditions\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"partly\", \"reason\": \"Results are from synthetic dataset on a testbed, not operational networks; claim generalizes to 'legacy industrial protocols' beyond what was tested\", \"rewrite\": \"In evaluation on a synthetic Modbus testbed dataset, an autoencoder framework achieved detection rates exceeding 94% across attack categories with false positive rate below 2%.\"}, {\"claim\": 9, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 10, \"support\": \"partly\", \"reason\": \"Field states published work used synthetic testbed data; claim that company's real traffic 'fills the gap' and enables validation is an inference not explicit in the field, and overstates what the field establishes about validation\", \"rewrite\": \"The company's eighteen months of real-site OT traffic provides an alternative to the synthetic testbed datasets used in published research.\"}, {\"claim\": 11, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3551,
+    "outputTokens": 594,
+    "totalTokens": 4145,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3551,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 594,
+    "service_tier": "standard"
+  },
+  "ms": 5408
+}

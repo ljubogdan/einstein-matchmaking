@@ -1,0 +1,38 @@
+{
+  "key": "9c7911a1e6c6f252",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Cold-pressed pumpkin seed oil composition has been characterized using gas chromatography and HPLC methods to profile fatty acids and tocopherol",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Correlation is only moderate (r=0.61); claim overstates the relationship. Roasting affects tocopherols only at 160°C, not generally.\", \"rewrite\": \"Tocopherol content shows moderate correlation with oxidative stability as measured by induction period testing, and heavy roasting at 160°C can reduce tocopherol content and increase free fatty acid formation.\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2268,
+    "outputTokens": 155,
+    "totalTokens": 2423,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2268,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 155,
+    "service_tier": "standard"
+  },
+  "ms": 3913
+}
