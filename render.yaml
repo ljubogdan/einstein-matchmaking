@@ -1,0 +1,17 @@
+# The live board on Render (render.com -> New -> Blueprint -> this repo). Replay only: no API key, no model calls.
+services:
+  - type: web
+    name: prenup-board
+    runtime: node
+    plan: free
+    buildCommand: npm ci --include=dev && rm -rf data/einstein && git clone https://github.com/jigjoy-ai/einstein-matchmaker-data.git data/einstein && git -C data/einstein checkout 4fb99b3
+    startCommand: node --import tsx src/board/server.ts
+    healthCheckPath: /
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: NODE_VERSION
+        value: 22.18.0
+      # The free plan has 512 MB: the board and one replay fit with the heap capped (about 460 MB together, measured).
+      - key: NODE_OPTIONS
+        value: --max-old-space-size=192

@@ -118,8 +118,8 @@ function status(): string {
 
 function startRun(scene: Scene, speed: number): void {
   const script = scene === "demo" ? "src/run.ts" : "eval/critic.ts"
-  // Node with tsx's own entry file: the node_modules/.bin/tsx shim can't be spawned directly on Windows.
-  const child = spawn(process.execPath, ["node_modules/tsx/dist/cli.mjs", script, "--replay", `--paced=${speed}`, `--trace=${TRACES[1]}`], { stdio: ["ignore", "pipe", "pipe"] })
+  // Node itself with tsx as a loader: no shim (can't be spawned on Windows) and no extra process (the hosted board has 512 MB).
+  const child = spawn(process.execPath, ["--import", "tsx", script, "--replay", `--paced=${speed}`, `--trace=${TRACES[1]}`], { stdio: ["ignore", "pipe", "pipe"] })
   run = { child, speed, scene }
   broadcast("status", status())
   const finished = (how: string) => {
@@ -234,5 +234,5 @@ const server = createServer((req, res) => {
 
 setInterval(poll, 150)
 poll()
-// Localhost only: the Run button starts a process, and the board is for the presenter's screen.
-server.listen(PORT, "127.0.0.1", () => console.log(`board: http://localhost:${PORT} (follows the newest of ${TRACES.join(", ")}; Run replays the demo set at recorded latency)`))
+// Localhost unless HOST says otherwise (the hosted board sets 0.0.0.0): Run only starts the offline replay, one at a time.
+server.listen(PORT, process.env.HOST ?? "127.0.0.1", () => console.log(`board: http://localhost:${PORT} (follows the newest of ${TRACES.join(", ")}; Run replays the demo set at recorded latency)`))
