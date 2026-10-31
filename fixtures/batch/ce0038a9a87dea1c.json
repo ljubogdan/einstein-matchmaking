@@ -1,0 +1,38 @@
+{
+  "key": "ce0038a9a87dea1c",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The ultrafiltration step runs at only 55% of nominal throughput because membranes foul within 36 hours, forcing two cleaning cycles per batch in",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"No evidence the company provides access to its production UF skid; only that it has two years of logged pressure/flow data and uses spiral-wound PES membranes\", \"rewrite\": \"The company possesses logged pressure and flow data from two years of production batches, operates a production UF skid using spiral-wound polyethersulfone membranes.\"}, {\"claim\": 5, \"support\": \"partly\", \"reason\": \"No evidence she will serve as on-site liaison for the project; only that she splits time between troubleshooting and trials\", \"rewrite\": \"A process development technologist, Ana Vuković, splits her time between ongoing production troubleshooting and small-scale fermentation trials.\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"partly\", \"reason\": \"The resistance-in-series framework is mentioned as a diagnostic tool for flux decline, but no evidence it is specifically applied to the same PES membrane type as the company uses or that it characterises foulant deposits on PES specifically\", \"rewrite\": \"The group characterises fouling mechanisms in protein-rich bioprocess streams using resistance-in-series diagnostic frameworks and has developed CIP endpoint methods for cross-flow ultrafiltration systems processing protein-containing streams.\"}, {\"claim\": 8, \"support\": \"partly\", \"reason\": \"The research cited uses 10 kDa PES membranes on whey protein concentrate, not on fermentation broth from the company's Bacillus cultivation; no evidence the research group applies AFM and these models to the same stream or that this comparison is established\", \"rewrite\": \"The company has no membrane characterisation tools beyond visual inspection and water-flux recovery testing, while research on 10 kDa PES membranes has applied cake filtration and intermediate blocking models to foulant deposits in similar ultrafiltration systems.\"}, {\"claim\": 9, \"support\": \"partly\", \"reason\": \"The division of labor (university leads characterisation and CIP, company runs validation) and the specific role arrangement are inferred conclusions not stated in the source fields\", \"rewrite\": \"The research group investigates fouling mechanism characterisation in protein-rich bioprocess streams and cleaning-in-place protocol development, and the company produces fermentation broth from Bacillus cultivations with two years of batch data available.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 624,
+    "totalTokens": 627,
+    "inputTokenDetails": {
+      "cached_tokens": 4587
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 4587,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 4587,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 624,
+    "service_tier": "standard"
+  },
+  "ms": 6674
+}

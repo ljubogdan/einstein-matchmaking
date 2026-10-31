@@ -1,0 +1,38 @@
+{
+  "key": "18acfaa62b7e32a8",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We accept company ownership of the results as appropriate for embedded production process know-how, provided the university retains academic use",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words only list a count and date of publications; they say nothing about academic use rights or publishing rights retained by the university.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 470,
+    "outputTokens": 45,
+    "totalTokens": 515,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 470,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 45,
+    "service_tier": "standard"
+  },
+  "ms": 1280
+}

@@ -1,0 +1,38 @@
+{
+  "key": "0de8ff5ef301f904",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The company possesses logged pressure and flow data from two years of production batches and operates a production UF skid using spiral-wound po",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"The group's research includes developing CIP methods but the fields state they describe a method for determining endpoint of CIP cycles in cross-flow ultrafiltration systems processing protein-containing streams (SYN-PAT-026), not that the group has already developed such endpoint methods.\", \"rewrite\": \"The group investigates fouling mechanism characterisation in protein-rich bioprocess streams and cleaning-in-place protocol development, and a method has been described for determining CIP endpoints in cross-flow ultrafiltration systems processing protein-containing streams.\"}, {\"claim\": 4, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 5, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3080,
+    "outputTokens": 228,
+    "totalTokens": 3308,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3080,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 228,
+    "service_tier": "standard"
+  },
+  "ms": 2335
+}

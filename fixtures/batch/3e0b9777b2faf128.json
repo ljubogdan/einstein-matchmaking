@@ -1,0 +1,38 @@
+{
+  "key": "3e0b9777b2faf128",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: Contract research fits a bounded industrial troubleshooting problem with a clear target outcome [C144-CH2]. We want company ownership of results",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words describe the suspected cause of fouling (residual cells bypassing pre-filtration), not that contract research fits a bounded industrial troubleshooting problem with a clear target outcome.\"},{\"item\":2,\"backed\":true,\"reason\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 668,
+    "outputTokens": 70,
+    "totalTokens": 738,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 668,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 70,
+    "service_tier": "standard"
+  },
+  "ms": 1566
+}

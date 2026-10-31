@@ -11,10 +11,10 @@
   "negotiationsWithoutDeal": 0,
   "critic": {
     "claimsChecked": 375,
-    "stoppedFirstPass": 101,
-    "dropped": 7
+    "stoppedFirstPass": 105,
+    "dropped": 6
   },
-  "modelCalls": 285,
+  "modelCalls": 353,
   "perChallenge": [
     {
       "challengeId": "C012-CH3",
@@ -117,8 +117,8 @@
       "outcome": "proposal",
       "pair": "C144-CH2__R0269",
       "claims": 19,
-      "stopped": 2,
-      "dropped": 1
+      "stopped": 5,
+      "dropped": 0
     },
     {
       "challengeId": "C145-CH1",
