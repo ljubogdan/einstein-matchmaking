@@ -26,7 +26,7 @@ Built on [Mozaik](https://github.com/jigjoy-ai/mozaik) for the NTP Novi Sad × J
 
 **Try the board online: [prenup-board.onrender.com](https://prenup-board.onrender.com)**. It replays the recorded run, with no key and no model calls. It's on a free plan, so the first visit after a quiet spell takes about a minute, and every visitor shares one board.
 
-![The live board after a run: matchmakers and the Arbiter on the left, the negotiation between company and researcher as a conversation on the right, and a timeline with one bar per model call. Screenshot from the earlier 4-challenge build](media/prenup-board.png)
+![The live board after a run: matchmakers and the Arbiter on the left, the negotiation between company and researcher as a conversation on the right, and a timeline with one bar per model call.](media/prenup-board.png)
 
 ## In short
 
@@ -79,7 +79,7 @@ npm run demo -- --replay
 <p align="center">
   <img src="media/prenup-edit.png" alt="Editing the agreed terms before approval: the publication review changed to 30 days and marked as edited, a change to contract research refused by the Critic because it isn't in the researcher's open_to, and the Approve with 1 change button" width="560">
   <br>
-  <sub><b>Step 6</b> (screenshot from the earlier build): an edit the Critic allows, one it refuses, and the approval button counting the changes.</sub>
+  <sub><b>Step 6:</b> an edit the Critic allows, one it refuses, and the approval button counting the changes.</sub>
 </p>
 
 <p align="center">
@@ -248,7 +248,7 @@ Also: the [no-match report](out/nomatch.md), the [trap report](out/traps.md), an
 - Negotiations are two agents working from records, not the people themselves. No recorded negotiation has walked away yet; the no-deal path is covered by tests.
 - After a no-deal, the researcher stays reserved for that challenge.
 - A model call that still fails after 4 retries stops a live run. It happened once, at 8 calls in flight on 15 challenges; `npm run batch` runs with 4.
-- The board screenshots and the parallel-vs-sequential numbers are from the earlier 4-challenge build, marked where they appear.
+- The parallel-vs-sequential numbers are from the earlier 4-challenge build, marked where they appear.
 
 ## Tech
 
