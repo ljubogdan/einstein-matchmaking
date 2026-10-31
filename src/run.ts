@@ -16,7 +16,7 @@ import { createTraceObserver } from "./agents/observer"
 import { createProfiler } from "./agents/profiler"
 import { createReporter } from "./agents/reporter"
 import { createWriter } from "./agents/writer"
-import { ResultCache } from "./llm/cache"
+import { CACHE_DIR, ResultCache } from "./llm/cache"
 import { RecordingRunner } from "./llm/runner"
 import { redactKeys } from "./redact"
 import { Board, initializeRuntime, join, on, sendEvent } from "./runtime"
@@ -131,7 +131,8 @@ const matchmakers = Array.from({ length: Math.min(MATCHMAKERS, challengeIds.leng
   createMatchmaker({ name: `matchmaker-${i + 1}`, challengeIds: challengeIds.filter((_, j) => j % MATCHMAKERS === i), data, index, board, onPair, reviewFit: true }),
 )
 
-const cache = new ResultCache(mode !== "fresh")
+// One cache per fixtures dir: a challenge recorded in two dirs (C144-CH2 is in the demo and the batch) has different answers.
+const cache = new ResultCache(mode !== "fresh", fixtureDir ? `${CACHE_DIR}/${fixtureDir.replace(/[\\/]/g, "_")}` : CACHE_DIR)
 const reporter = createReporter(data)
 join(createTraceObserver(TRACE))
 join(createCritic({ data, move: (pairId, round) => board.move(pairId, round) }))

@@ -83,8 +83,10 @@ function renderTraps(data: Dataset, cards: ProfileCard[], blocked: Verdict[]): s
   })
   dataset.push(`| Profiles with Cyrillic text, transliterated before search and quote checks | ${cyrillic.length} | ${cyrillic.slice(0, 2).map((r) => `[${r.id}]`).join(", ")} |`)
 
-  const skipped = cards.filter((c) => exclusion(c)).map((c) => `- [${c.researcherId}] on [${c.challengeId}]: ${exclusion(c)}`)
-  const flaggedInRun = cards.filter((c) => c.flags.length > 0).map((c) => `- [${c.researcherId}] on [${c.challengeId}]: ${c.flags.map((f) => f.kind).join(", ")}`)
+  // Sorted by challenge, then researcher: cards arrive in timing order, and the report must not change between replays.
+  const ordered = [...cards].sort((a, b) => a.challengeId.localeCompare(b.challengeId) || a.researcherId.localeCompare(b.researcherId))
+  const skipped = ordered.filter((c) => exclusion(c)).map((c) => `- [${c.researcherId}] on [${c.challengeId}]: ${exclusion(c)}`)
+  const flaggedInRun = ordered.filter((c) => c.flags.length > 0).map((c) => `- [${c.researcherId}] on [${c.challengeId}]: ${c.flags.map((f) => f.kind).join(", ")}`)
   // Sorted by check, then claim id: events arrive in timing order, and the report must not change between replays.
   const byCheck = new Map<string, Verdict[]>(CHECK_ORDER.map((check) => [check, []]))
   for (const v of [...blocked].sort((a, b) => a.claimId.localeCompare(b.claimId))) byCheck.set(v.check ?? "other", [...(byCheck.get(v.check ?? "other") ?? []), v])
