@@ -29,9 +29,9 @@ Built on [Mozaik](https://github.com/jigjoy-ai/mozaik) for the NTP Novi Sad × J
 ## In short
 
 - **It agrees the terms before anyone meets.** For each pair, a company-side and a researcher-side agent with opposing positions built from the data negotiate the organizers' "Agreed up front" section: format, IP, publication review, exclusivity. A person can edit those terms and approve or reject each proposal on the board.
-- **It checks who can really do the work.** Search finds shared words; a fit review reads each candidate's whole record, notes included, and turned down 38 of the 87 candidates it read. A plan review then reads each proposal as a sceptical company lead and professor would, and sent 28 problems back to the writers.
+- **It checks who can really do the work.** Search finds shared words; a fit review reads each candidate's whole record, notes included, and turned down 40 of the 87 candidates it read. A plan review then reads each proposal as a sceptical company lead and professor would, and sent 28 problems back to the writers.
 - **It says no.** On 15 sampled challenges it wrote 11 proposals and 4 reasoned no-matches (all four are business tasks, not research problems: registering as an auditor, entering the EU market, a loan application, hiring).
-- **The concurrency is real and measured.** Matchmakers race for researchers on a shared board with version-checked writes, and an Arbiter settles conflicts: 0 double-booked researchers on all 489 challenges, against 104 with last-writer-wins. The demo run has two real conflicts. The first writer keeps the researcher in both, though the Arbiter is never told who wrote first: when different timing let `C088-CH2` write first for R0269, the Arbiter still gave R0269 to `C144-CH2`. Parallel agents ran 3.9x faster than one call at a time on the earlier 4-challenge demo.
+- **The concurrency is real and measured.** Matchmakers race for researchers on a shared board with version-checked writes, and an Arbiter settles conflicts: 0 double-booked researchers on all 489 challenges, against 104 with last-writer-wins. The demo run has two real conflicts, and the Arbiter is never told who wrote first. Parallel agents ran 3.9x faster than one call at a time (measured on the earlier 4-challenge demo).
 - **Every fact has a source, and a Critic checks it.** 20 of 20 planted false claims stopped. In the demo run 64 of 68 proposal sentences made it in, 18 of them after a rewrite. What no record supports is listed on the page as "To confirm at the meeting".
 - **No key needed.** Every model answer is recorded, so `npm run demo -- --replay` reruns everything offline in about 25 s.
 
@@ -41,7 +41,7 @@ Built on [Mozaik](https://github.com/jigjoy-ai/mozaik) for the NTP Novi Sad × J
 npm run setup && npm run demo -- --replay
 ```
 
-You need git and Node.js 22 (built on Linux with Node 22.18; the replay and tests also pass on Windows 10 and 11 with Node 24; not yet tried on macOS; on a slow machine two tests that load the whole dataset can pass the 5 s limit, so use `npx vitest run --testTimeout=60000`). The replay writes [`out/proposals/`](out/proposals/) (one page per pair), [`out/nomatch.md`](out/nomatch.md), [`out/traps.md`](out/traps.md) and [`out/trace.jsonl`](out/trace.jsonl) (every event, one JSON line each).
+You need git and Node.js 22 or newer. Tested on Linux (Node 22.18) and Windows 10 and 11 (Node 24), not yet on macOS. The replay writes [`out/proposals/`](out/proposals/) (one page per pair), [`out/nomatch.md`](out/nomatch.md), [`out/traps.md`](out/traps.md) and [`out/trace.jsonl`](out/trace.jsonl) (every event, one JSON line each). `npm test` runs the unit tests; on a slow machine the two that load the whole dataset can pass vitest's 5 s limit, so use `npx vitest run --testTimeout=60000`.
 
 <details>
 <summary><b>No bash?</b> Set up in PowerShell, cmd or any other shell</summary>
@@ -149,7 +149,7 @@ Nobody calls anybody: each participant reacts to events.
 
 Every challenge, candidate, conflict and pair gets its own agent, and every model loop is fire-and-forget, so analysts, profilers, arbiters and negotiations think at the same time. The matchmakers share one board and never overwrite each other: a reservation only succeeds against the version the matchmaker read. More in [CONCURRENCY.md](CONCURRENCY.md).
 
-The Arbiter is never told which side holds the researcher, so who writes first can't sway it: its brief is the same whichever side wrote first, and when timing let `C088-CH2` write first for R0269 it still chose `C144-CH2`. Its reason ends, verbatim: *"so [R1008] goes to [C001-CH1]."* R1008 is a strong fit and R1015 a partial one on both challenges, so the fit review doesn't separate them; the reason follows the prompt's close-call rule, using percentages computed by code from BM25 relevance (R1015 scores 11% lower than R1008 on C001-CH1 and 5% lower on C032-CH1).
+The Arbiter is never told which side holds the researcher, so writing first can't sway it: its brief is the same either way, and in a run where timing let `C088-CH2` write first for R0269, it still chose `C144-CH2`. In the demo's R1008 conflict, R1008 is a strong fit and R1015 a partial one on both challenges, so the fit review doesn't separate them. The Arbiter then follows its close-call rule, with percentages computed by code from BM25 relevance (R1015 scores 11% lower than R1008 on `C001-CH1` and 5% lower on `C032-CH1`), and its reason ends, verbatim: *"so [R1008] goes to [C001-CH1]."*
 
 <details>
 <summary><b>The race in <code>out/trace.jsonl</code></b>: the events behind the animation</summary>
@@ -238,16 +238,15 @@ Also: the [no-match report](out/nomatch.md), the [trap report](out/traps.md), an
 ## Limits and honest notes
 
 - The human gate is one person on one machine: decisions and edits are saved in `out/tmp/decisions.json` and cleared by a new run. Sending and staff accounts aren't built.
-- The support check is a cheap model and still sometimes stops true sentences (10 of 23 first-pass stops). A quote that isn't word for word is always stopped, even in a true sentence, because that rule is what catches altered quotes.
+- The support check is a cheap model and still sometimes stops true sentences (10 of 23 first-pass stops). A quote that isn't word for word is always stopped, even in a true sentence, because that rule is what catches altered quotes. The plan review's "To confirm" list can also flag something a record does name.
 - The fit review is one model's reading. It can be wrong in either direction, and the Arbiter's close calls still lean on keyword-based search relevance: the design guarantees nobody is double-booked, not that the model picked the better side of a close call.
 - The Arbiter's close calls aren't stable: adding one sentence on wording to its prompt moved R1008 from `C032-CH1` to `C001-CH1`. Its citations also vary between runs: 2 of 3 and 6 of 8 were backed in the two demo conflicts, against 2 of 5 in both on an earlier recording. The check lists the rest and doesn't stop the decision, and the reason's wording around search relevance is sometimes clumsy.
 - Industrial PhDs are rare: 1 of the 18 recorded proposals came out as one (`C001-CH1` × R1008; the others are 9 contract research, 6 joint projects, 2 consulting), and R1008's pair with `C032-CH1` was contract research in an earlier recording, so the format can change between runs. Nearly every challenge in these sets has a near deadline or a bounded question.
 - Pages run about 750 to 1,000 words, longer than the organizers' example, and the models don't always keep the word limits in the prompts. The Critic's drops can also leave a section with one bullet.
-- The support check can still stop true sentences, and the plan review's "To confirm" list can flag something a record does name.
 - Negotiations are two agents working from records, not the people themselves. No recorded negotiation has walked away yet; the no-deal path is covered by tests.
 - After a no-deal, the researcher stays reserved for that challenge.
 - A model call that still fails after 4 retries stops a live run. It happened once, at 8 calls in flight on 15 challenges; `npm run batch` runs with 4.
-- Run on Linux with Node 22 and Windows 10 and 11 with Node 24 only. The board screenshots and the parallel-vs-sequential numbers are from the earlier 4-challenge build, marked where they appear.
+- The board screenshots and the parallel-vs-sequential numbers are from the earlier 4-challenge build, marked where they appear.
 
 ## Tech
 
