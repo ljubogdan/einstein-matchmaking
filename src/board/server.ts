@@ -9,6 +9,7 @@ import { createServer, type ServerResponse } from "node:http"
 import type { TermSheet } from "../schema/termsheet"
 import { Dataset, hasDataset } from "../tools/dataset"
 import { checkEdit, editLine, type Edit, type Editable } from "./amend"
+import { proposalPage } from "./proposal-page"
 
 const PORT = Number(process.env.PORT ?? 4173)
 const TRACES = ["out/trace.jsonl", "out/tmp/trace.board.jsonl"] // a terminal run, the board's Run
@@ -219,14 +220,16 @@ const server = createServer((req, res) => {
 
   const proposal = /^\/proposal\/([A-Za-z0-9_-]+)$/.exec(path)
   if (proposal && existsSync(`out/proposals/${proposal[1]}.md`)) {
-    res.writeHead(200, { "content-type": "text/plain; charset=utf-8" })
+    // ?md gives the file as written; the page renders it in the board's look.
+    res.writeHead(200, { "content-type": url.searchParams.has("md") ? "text/plain; charset=utf-8" : "text/html; charset=utf-8" })
     // The reviewer's changes sit under the draft, not inside it: the draft stays what the agents wrote and checked.
     const review = decisions[proposal[1]]
     const edits = Object.entries(review?.edits ?? {}) as [Editable, Edit][]
     const note = review?.decision || edits.length
       ? ["", "---", "", "### Reviewed on the board", "", ...edits.map(([term, edit]) => `- Changed by the reviewer: ${editLine(term, edit)} (passed the Critic's term checks)`), `- Decision: ${review?.decision ?? "not yet"}. Sending isn't built, so nobody was contacted.`, ""].join("\n")
       : ""
-    return void res.end(readFileSync(`out/proposals/${proposal[1]}.md`, "utf8") + note)
+    const md = readFileSync(`out/proposals/${proposal[1]}.md`, "utf8") + note
+    return void res.end(url.searchParams.has("md") ? md : proposalPage(proposal[1], md))
   }
 
   res.writeHead(404, { "content-type": "text/plain" }).end("not found")
