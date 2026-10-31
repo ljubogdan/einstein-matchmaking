@@ -1,0 +1,38 @@
+{
+  "key": "ff2dad18420a073e",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Quantised convolutional networks can run inference on ARM edge hardware while achieving 97% of full-precision AUPRC and meeting a 5 ms per-windo",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The sentence claims ADWIN-based adaptive windowing can detect concept drift where baselines shift due to seasonal variation and operational changes, but the field only states that industrial processes evolve due to these factors causing statistical shifts; it does not explicitly state that ADWIN-based adaptive windowing detects drift caused by these specific factors—only that it detects artificial and naturally occurring drifts in general.\", \"rewrite\": \"ADWIN-based adaptive windowing with rotating ensemble methods can detect concept drift in industrial streams where statistical properties shift due to wear, seasonal variation, and operational changes.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1244,
+    "outputTokens": 169,
+    "totalTokens": 1413,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1244,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 169,
+    "service_tier": "standard"
+  },
+  "ms": 14905
+}

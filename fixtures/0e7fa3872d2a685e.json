@@ -7,15 +7,15 @@
       "type": "message",
       "role": "assistant",
       "content": {
-        "text": "{\"expertise\":[{\"text\":\"Research applies long short-term memory networks and particle filter methods to predict remaining useful life from time-series degradation data, with published guidance on training data requirements and cross-condition generalization.\",\"sources\":[{\"id\":\"SYN-PUB-00593\",\"field\":\"abstract\",\"quote\":\"Recurrent neural networks with long short-term memory (LSTM) cells have been proposed for RUL prediction\"},{\"id\":\"SYN-PUB-08928\",\"field\":\"abstract\",\"quote\":\"particle filter framework for estimating the remaining useful life (RUL) of gearbox output-shaft bearings\"}]},{\"text\":\"Work quantifies and propagates measurement uncertainty through predictive models to generate confidence intervals rather than point estimates, addressing practical deployment challenges.\",\"sources\":[{\"id\":\"SYN-PUB-08933\",\"field\":\"abstract\",\"quote\":\"RUL predictions are often presented as point estimates without propagating the uncertainty arising from sensor noise\"}]},{\"text\":\"Research group operates test infrastructure for multivariate condition monitoring using synchronized thermal and time-series data with statistical process control methods for fault prognosis.\",\"sources\":[{\"id\":\"R0822\",\"field\":\"bio\",\"quote\":\"multivariate statistical process control, and data-driven fault prognosis including remaining useful life estimation\"},{\"id\":\"R0822\",\"field\":\"bio\",\"quote\":\"synchronized acquisition of vibration and thermal data\"}]}],\"fit\":\"partial\",\"fitReason\":\"The researcher has strong expertise in remaining useful life prediction and time-series degradation modeling [SYN-PUB-00593, SYN-PUB-08928], but published work focuses on rotating machinery (bearings, gearboxes) rather than oil-filled transformers; dissolved gas analysis is a different measurement modality requiring domain adaptation, though uncertainty quantification methods [SYN-PUB-08933] and practical model deployment considerations are directly relevant.\"}",
+        "text": "{\"expertise\":[{\"text\":\"Research group develops multivariate statistical process control and data-driven fault prognosis methods for condition monitoring of machinery using synchronized acquisition of multiple sensor modalities.\",\"sources\":[{\"id\":\"R0822\",\"field\":\"bio\",\"quote\":\"multivariate statistical process control, and data-driven fault prognosis including remaining useful life estimation\"}]},{\"text\":\"Remaining useful life prediction using recurrent neural networks with long short-term memory achieves 14.3% mean absolute percentage error on bearing run-to-failure sequences and demonstrates practical guidance for cross-condition generalization with simple linear scaling.\",\"sources\":[{\"id\":\"SYN-PUB-00593\",\"field\":\"abstract\",\"quote\":\"With 20 or more training sequences, mean absolute percentage error in RUL prediction stabilised near 14.3%\"}]},{\"text\":\"Particle filter frameworks for remaining useful life estimation construct state-space degradation models from experimental data and propagate measurement uncertainty through health indicators to produce confidence intervals rather than point estimates.\",\"sources\":[{\"id\":\"SYN-PUB-08928\",\"field\":\"abstract\",\"quote\":\"particle filter framework for estimating the remaining useful life (RUL) of gearbox output-shaft bearings\"},{\"id\":\"SYN-PUB-08933\",\"field\":\"abstract\",\"quote\":\"propagating the uncertainty arising from sensor noise, mounting variability, and feature computation choices\"}]}],\"fit\":\"strong\",\"fitReason\":\"The researcher's group specializes in data-driven fault prognosis and remaining useful life estimation from multivariate sensor data [R0822], with published work on LSTM-based RUL prediction from time-series sequences [SYN-PUB-00593], particle filter degradation modeling [SYN-PUB-08928], and uncertainty quantification in prognostic estimates [SYN-PUB-08933]—all directly applicable to building a transformer failure scoring module from dissolved gas analysis and SCADA load data.\"}",
         "type": "output_text"
       }
     }
   ],
   "tokenUsage": {
     "inputTokens": 2221,
-    "outputTokens": 428,
-    "totalTokens": 2649,
+    "outputTokens": 445,
+    "totalTokens": 2666,
     "inputTokenDetails": {
       "cached_tokens": 0
     },
@@ -31,8 +31,8 @@
       "ephemeral_5m_input_tokens": 0,
       "ephemeral_1h_input_tokens": 0
     },
-    "output_tokens": 428,
+    "output_tokens": 445,
     "service_tier": "standard"
   },
-  "ms": 27025
+  "ms": 23088
 }

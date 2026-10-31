@@ -1,0 +1,38 @@
+{
+  "key": "db510d210305dd41",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We accept the university's background IP listing and the 60-day review period as offered; we want uni_owns_option_to_assign rather than option t",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words only state a goal to certify under CRA; they do not mention ownership assignment, option to assign, or CRA certification requiring full ownership of a deployed model.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 481,
+    "outputTokens": 55,
+    "totalTokens": 536,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 481,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 55,
+    "service_tier": "standard"
+  },
+  "ms": 2098
+}

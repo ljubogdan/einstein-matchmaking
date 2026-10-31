@@ -1,0 +1,38 @@
+{
+  "key": "5ac482c04101c8c1",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We need results within about ten months to feed into our 2027 module release [C047 plans], so the joint_project format fits this bounded deliver",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":true,\"reason\":\"\"},{\"item\":2,\"backed\":false,\"reason\":\"Words describe engineering staff, not a dataset of transformers with failure records.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 607,
+    "outputTokens": 47,
+    "totalTokens": 654,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 607,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 47,
+    "service_tier": "standard"
+  },
+  "ms": 2417
+}

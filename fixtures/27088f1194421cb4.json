@@ -1,0 +1,38 @@
+{
+  "key": "27088f1194421cb4",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Four security engineers contribute part-time to integration and evaluation, and the company offers EdgeWatch sensor, a passive network tap and p",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"The fields state four security engineers exist and EdgeWatch is a passive network tap and protocol parser for OT environments, but they do not specify that the engineers contribute part-time to integration and evaluation.\", \"rewrite\": \"Four security engineers contribute to integration and evaluation, and the company offers EdgeWatch sensor, a passive network tap and protocol parser for OT environments.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 762,
+    "outputTokens": 99,
+    "totalTokens": 861,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 762,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 99,
+    "service_tier": "standard"
+  },
+  "ms": 2344
+}

@@ -1,0 +1,38 @@
+{
+  "key": "544e26cee288b790",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (inference): Edge deployment and ARM-constrained model compression are needed because the model has to run inference on the edge sensor with 512 MB of R",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"The sentence states that 'the company's EdgeWatch sensor hardware and firmware team carry the edge optimisation and integration work', but the fields provided do not identify or name any specific team responsible for this work.\", \"rewrite\": \"Edge deployment and ARM-constrained model compression are needed because the model has to run inference on the edge sensor with 512 MB of RAM and a modest ARM core.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1071,
+    "outputTokens": 107,
+    "totalTokens": 1178,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1071,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 107,
+    "service_tier": "standard"
+  },
+  "ms": 1709
+}

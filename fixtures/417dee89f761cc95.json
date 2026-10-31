@@ -1,0 +1,38 @@
+{
+  "key": "417dee89f761cc95",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Cold-pressed pumpkin seed oil fatty acid profiles and minor lipid components including tocopherols can be characterized using HPLC-MS and GC-MS ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"GC-MS is mentioned only for volatile marker monitoring (alkylpyrazines), not for fatty acid profiles or tocopherols; fatty acid composition itself is not directly profiled in the abstract\", \"rewrite\": \"Cold-pressed pumpkin seed oil minor lipid components including tocopherols can be characterized using HPLC-MS techniques, and GC-MS can be used to monitor volatile markers, to identify compositional factors affecting oxidative degradation.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2856,
+    "outputTokens": 170,
+    "totalTokens": 3026,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2856,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 170,
+    "service_tier": "standard"
+  },
+  "ms": 33902
+}

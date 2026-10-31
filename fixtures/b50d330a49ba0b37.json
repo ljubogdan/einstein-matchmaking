@@ -1,0 +1,38 @@
+{
+  "key": "b50d330a49ba0b37",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The ProtoSense module cannot flag unusual Modbus and BACnet behaviour because no client has ever supplied a packet capture containing a confirme",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"The sentence claims the module cannot flag unusual behaviour because no packet capture with confirmed attack was supplied, but the field states the problem is lack of labelled malicious data and that a supervised classifier approach failed; inability to flag is not explicitly stated as a consequence of the missing packet capture alone.\", \"rewrite\": \"The ProtoSense module has not been able to detect attacks in real deployments using supervised learning because no client has supplied a packet capture containing a confirmed attack.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 5, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 10, \"support\": \"partly\", \"reason\": \"The inference claims the fit review notes the researcher has no documented record of building unsupervised baseline methods for unlabelled traffic, but no such fit review note is provided in the fields.\", \"rewrite\": \"The company's several terabytes of normal captures cover the need for unlabelled traffic data to train unsupervised baseline methods.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3530,
+    "outputTokens": 386,
+    "totalTokens": 3916,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3530,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 386,
+    "service_tier": "standard"
+  },
+  "ms": 5315
+}

@@ -1,112 +1,93 @@
 {
   "what": "Citations in the recorded negotiation moves, with the exact words behind each. resolves: checked by code. review: whether the quote backs the statement the citation is attached to, read by Claude, not by a person.",
   "trace": "out/eval/trace-replay-1x.jsonl",
-  "citations": 11,
+  "citations": 9,
   "removedDuringRun": [
-    "C001 rd_capacity",
-    "SYN-PUB-02918",
-    "C032 plans",
     "C032 rd_capacity",
-    "C001 rd_capacity",
-    "C022-CH3",
-    "C022 plans",
-    "C088-CH2",
-    "C047-CH1",
-    "C144-CH2",
-    "R0745 publications",
-    "R0269 patents",
-    "SYN-PUB-10523",
+    "C144 plans",
+    "C022 past_collaborations",
+    "C061-CH1",
+    "C061 past_collaborations",
+    "C088 past_collaborations",
+    "C032 plans",
+    "C047 rd_capacity",
     "R1008 open_to",
-    "R0662 publications",
-    "C022 plans",
-    "C022 rd_capacity",
-    "R0662 publications",
-    "R0745 publications",
     "SYN-PUB-10523",
-    "C001 rd_capacity"
+    "R0689 publications",
+    "R0231 projects",
+    "R0231 publications",
+    "C061-CH1",
+    "R0689 publications",
+    "SYN-PUB-07490"
   ],
-  "resolve": 11,
+  "resolve": 9,
   "review": {
-    "partly": 5,
-    "yes": 6
+    "yes": 5,
+    "partly": 4
   },
   "rows": [
-    {
-      "citation": "C001-CH1__R1008/1/company/C001 plans",
-      "resolves": true,
-      "quote": "ArmaturaSec intends to release a fifth hardware variant in late 2025 with a dedicated security processor to support on-device anomaly detection without affecting packet forwarding latency.",
-      "reason": "We need results we can embed directly in ProtoSense and the planned fifth hardware variant with a dedicated security processor [C001 plans], so we want company ownership with the university retaining academic use rights. Our traffic archives and hardware bench are the core in-kind contribution, and a milestone sign-off role for our engineer addresses the lack of formal continuity from our 2021 collaboration [C001 past_collaborations].",
-      "review": "partly"
-    },
     {
       "citation": "C001-CH1__R1008/1/company/C001 past_collaborations",
       "resolves": true,
       "quote": "We ran a one-semester student project with a technical faculty in Novi Sad in 2021 that produced a prototype BACnet fuzzer; the code was useful but the collaboration was not continued formally.",
-      "reason": "We need results we can embed directly in ProtoSense and the planned fifth hardware variant with a dedicated security processor [C001 plans], so we want company ownership with the university retaining academic use rights. Our traffic archives and hardware bench are the core in-kind contribution, and a milestone sign-off role for our engineer addresses the lack of formal continuity from our 2021 collaboration [C001 past_collaborations].",
+      "reason": "We need a method that works with no attack examples and that we can explain to a plant manager in plain language, and an industrial PhD gives us the three-year runway to embed and field-test it properly. We want company ownership of results so the anomaly detection core can ship in ProtoSense without licensing friction, with the university retaining academic use rights. Our past collaboration produced useful code but ended without formal continuation [C001 past_collaborations], so we want named contact roles and milestone deliverables to keep the work on track.",
+      "review": "yes"
+    },
+    {
+      "citation": "C032-CH1__R1015/2/researcher/R1015 publications",
+      "resolves": true,
+      "quote": "9 authored publications, latest 2024",
+      "reason": "We want university ownership of results with an option to licence, which is our standard position for joint projects; in return we accept 60-day publication review and narrow the exclusivity to 12 months, matching the project duration. Our researcher has 9 authored publications including work on ICS anomaly detection [R1015 publications], so preserving the right to publish is essential.",
+      "review": "partly"
+    },
+    {
+      "citation": "C022-CH3__R0662/1/company/C022 plans",
+      "resolves": true,
+      "quote": "Njivomer Agro intends to extend NjivaManager coverage to farms in southern Bačka and the Srem region by the end of 2026, and to offer the water-balance irrigation module as a standard feature of the platform once it is validated.",
+      "reason": "We need a calculation engine we can own and maintain directly inside NjivaManager, which we intend to offer as a standard platform feature [C022 plans]. A 60-day review period protects our proprietary soil data and know-how contributed to the project, and milestone checkpoints address the absence of prior university collaboration by ensuring tangible deliverables at each stage.",
+      "review": "yes"
+    },
+    {
+      "citation": "C061-CH1__R0231/1/company/SYN-PUB-02921",
+      "resolves": true,
+      "quote": "headspace oxygen residual levels above 2% identified as a maximum threshold for small-scale operations",
+      "reason": "Contract research is the right format for this bounded, answer-focused problem. We want company ownership of results so findings can be applied directly to our process without licensing risk, and we want a 60-day review period to allow removal of any confidential process data before publication. Headspace oxygen residuals above 2% have been identified as a threshold problem for small-scale operations [SYN-PUB-02921], so we need a milestone that confirms the bottling line issue early. Past collaborations have been informal and ended without structured deliverables, so we want a named contact role on both sides and milestone-tied deliverables.",
       "review": "yes"
     },
     {
       "citation": "C047-CH1__R0689/1/company/C047 plans",
       "resolves": true,
       "quote": "A predictive maintenance module in 2027.",
-      "reason": "We need a deployable module in time for our 2027 release, so results within ten months are essential [C047 plans]. Our dataset is proprietary operator data we must protect, and we want to own the resulting model to embed it directly in GridSense Assets; we offer academic-use rights to the university in return.",
+      "reason": "We need results within about ten months to feed into our 2027 module release [C047 plans], so the joint_project format fits this bounded deliverable. We want company ownership of the resulting module to protect our product roadmap, with the university retaining academic use rights; our dataset of ~400 transformers with failure records is a key in-kind contribution.",
       "review": "partly"
     },
     {
-      "citation": "C001-CH1__R1015/1/company/C001 plans",
+      "citation": "C001-CH1__R1008/2/researcher/R1008 publications",
       "resolves": true,
-      "quote": "ArmaturaSec intends to release a fifth hardware variant in late 2025 with a dedicated security processor to support on-device anomaly detection without affecting packet forwarding latency.",
-      "reason": "We need results we can embed in our ProtoSense module and the forthcoming fifth hardware variant with dedicated security processor [C001 plans], so we want to own the foreground IP with the university retaining academic use rights. We also want 60-day publication review so we can remove confidential client traffic details before any paper is released, protecting our clients' data shared under NDA.",
+      "quote": "20 authored publications, latest 2026",
+      "reason": "We want university ownership of results with an option to assign, which gives the company a clear path to full ownership on exercise while protecting the university's position during the PhD. We also want a 30-day review period, which is standard for active publishing groups; 20 authored publications through 2026 mean timely publication is essential [R1008 publications].",
+      "review": "yes"
+    },
+    {
+      "citation": "C088-CH2__R0745/2/researcher/R0745 publications",
+      "resolves": true,
+      "quote": "9 authored publications, latest 2024",
+      "reason": "We want university ownership with an option for the company to licence results, as joint research generating new knowledge should vest in the university. We accept narrowing exclusivity to the dairy MBR service field and reducing it to 12 months, and in return we reduce publication review to 30 days to support timely academic dissemination given our active publication record [R0745 publications].",
       "review": "partly"
     },
     {
-      "citation": "C088-CH2__R0745/1/company/R0745 open_to",
+      "citation": "C001-CH1__R1008/3/company/C001 rd_capacity",
       "resolves": true,
-      "quote": "industrial PhD supervision; joint projects",
-      "reason": "Our MBR fouling problem is a bounded applied question suited to a joint project, and the researcher is open to joint projects [R0745 open_to]. We want company ownership of results because any validated protocol improvement will be embedded directly in our MBR units and service contracts [C088 products]; academic use rights protect the university's publication interest. We want 60-day review to allow removal of confidential operational data from dairy plant sites before publication.",
-      "review": "yes"
-    },
-    {
-      "citation": "C088-CH2__R0745/1/company/C088 products",
-      "resolves": true,
-      "quote": "ReVita MBR units — custom-sized membrane bioreactor systems for industrial wastewater; Annual and multi-year service contracts covering maintenance, membrane replacement, and remote monitoring",
-      "reason": "Our MBR fouling problem is a bounded applied question suited to a joint project, and the researcher is open to joint projects [R0745 open_to]. We want company ownership of results because any validated protocol improvement will be embedded directly in our MBR units and service contracts [C088 products]; academic use rights protect the university's publication interest. We want 60-day review to allow removal of confidential operational data from dairy plant sites before publication.",
-      "review": "yes"
-    },
-    {
-      "citation": "C088-CH2__R0745/3/company/C088 products",
-      "resolves": true,
-      "quote": "ReVita MBR units — custom-sized membrane bioreactor systems for industrial wastewater; Annual and multi-year service contracts covering maintenance, membrane replacement, and remote monitoring",
-      "reason": "We accept 30-day review as offered, which is workable for protecting our operational data. We want an option to assign rather than an option to licence because any validated fouling-control protocol will be embedded directly in our MBR units and service contracts [C088 products], and a small firm of our size needs full ownership certainty to invest in scaling a solution toward our pharma-grade line by 2028 [C088 plans].",
-      "review": "yes"
-    },
-    {
-      "citation": "C088-CH2__R0745/3/company/C088 plans",
-      "resolves": true,
-      "quote": "Pharma-grade line by 2028.",
-      "reason": "We accept 30-day review as offered, which is workable for protecting our operational data. We want an option to assign rather than an option to licence because any validated fouling-control protocol will be embedded directly in our MBR units and service contracts [C088 products], and a small firm of our size needs full ownership certainty to invest in scaling a solution toward our pharma-grade line by 2028 [C088 plans].",
-      "review": "yes"
-    },
-    {
-      "citation": "C032-CH1__R1008/3/company/C032 plans",
-      "resolves": true,
-      "quote": "Certify under the EU Cyber Resilience Act.",
-      "reason": "The option to licence over EdgeWatch-compatible products for 12 months gives us a clear path to deploy the model in our sensor and SOC service, meeting our need for a usable result within the timeline. The milestones, 60-day review window, and confidential-information removal right protect our customer data and support EU Cyber Resilience Act certification [C032 plans].",
-      "review": "yes"
-    },
-    {
-      "citation": "C001-CH1__R1015/3/company/C001 plans",
-      "resolves": true,
-      "quote": "ArmaturaSec intends to release a fifth hardware variant in late 2025 with a dedicated security processor to support on-device anomaly detection without affecting packet forwarding latency.",
-      "reason": "We accept 30-day review in trade for moving to uni_owns_option_to_assign, which gives us a path to take over the IP outright and embed it in our ProtoSense module and the forthcoming dedicated-security-processor hardware variant [C001 plans]. A mere licence option would leave us dependent on the university's willingness to licence terms in future negotiations, whereas an assignment option secures the results we are funding.",
+      "quote": "access to our traffic archives, our hardware bench, and our existing firmware codebase under NDA",
+      "reason": "We accept uni_owns_option_to_assign as a workable path to ownership of the anomaly detection core we need for ProtoSense. We want 60-day review because our traffic archives are collected from consenting clients under NDA [C001 rd_capacity], and papers may contain derived features that need careful confidential-data screening before publication.",
       "review": "partly"
     },
     {
-      "citation": "C001-CH1__R1015/5/company/C001 plans",
+      "citation": "C022-CH3__R0662/3/company/C022 plans",
       "resolves": true,
-      "quote": "ArmaturaSec intends to release a fifth hardware variant in late 2025 with a dedicated security processor to support on-device anomaly detection without affecting packet forwarding latency.",
-      "reason": "An exclusive licence option in the field of passive protocol inspection appliances for OT networks for 18 months gives us the commercial protection we need to embed the results in ProtoSense and our forthcoming hardware variant [C001 plans], and the 30-day review with confidential-removal rights protects our clients' traffic data shared under NDA. The milestones and engineering lead contact role address what went wrong in our previous informal collaboration.",
-      "review": "partly"
+      "quote": "to offer the water-balance irrigation module as a standard feature of the platform once it is validated",
+      "reason": "We accept 30-day publication review in exchange for moving to uni_owns_option_to_assign: we intend to offer the water-balance module as a standard platform feature [C022 plans], which requires our developers to own and maintain the engine long-term without ongoing licence dependency. An option to assign gives the university initial ownership while preserving our path to full ownership needed to integrate and maintain the engine inside NjivaManager.",
+      "review": "yes"
     }
   ]
 }

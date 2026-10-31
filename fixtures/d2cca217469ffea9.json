@@ -1,0 +1,38 @@
+{
+  "key": "d2cca217469ffea9",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Transmembrane pressure control strategies using feedback mechanisms that reduce TMP when flux decline exceeds thresholds reduce irreversible fou",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1505,
+    "outputTokens": 30,
+    "totalTokens": 1535,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1505,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 30,
+    "service_tier": "standard"
+  },
+  "ms": 14066
+}

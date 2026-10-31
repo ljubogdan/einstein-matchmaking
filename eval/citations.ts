@@ -8,17 +8,15 @@ import { Dataset } from "../src/tools/dataset"
 
 const TRACE = "out/eval/trace-replay-1x.jsonl"
 const REVIEW: Record<string, "yes" | "partly" | "no"> = {
-  "C001-CH1__R1008/1/company/C001 plans": "partly", // the fifth hardware variant is there, ProtoSense isn't
   "C001-CH1__R1008/1/company/C001 past_collaborations": "yes",
+  "C001-CH1__R1008/2/researcher/R1008 publications": "yes",
+  "C001-CH1__R1008/3/company/C001 rd_capacity": "partly", // access under NDA is there, "collected from consenting clients" isn't in the quote
+  "C032-CH1__R1015/2/researcher/R1015 publications": "partly", // the count is there, ICS anomaly detection isn't
+  "C022-CH3__R0662/1/company/C022 plans": "yes",
+  "C022-CH3__R0662/3/company/C022 plans": "yes",
+  "C061-CH1__R0231/1/company/SYN-PUB-02921": "yes",
   "C047-CH1__R0689/1/company/C047 plans": "partly", // the 2027 module is there, "within ten months" comes from the challenge
-  "C001-CH1__R1015/1/company/C001 plans": "partly", // same as C001-CH1__R1008, round 1
-  "C088-CH2__R0745/1/company/R0745 open_to": "yes",
-  "C088-CH2__R0745/1/company/C088 products": "yes",
-  "C088-CH2__R0745/3/company/C088 products": "yes",
-  "C088-CH2__R0745/3/company/C088 plans": "yes",
-  "C032-CH1__R1008/3/company/C032 plans": "yes",
-  "C001-CH1__R1015/3/company/C001 plans": "partly", // same
-  "C001-CH1__R1015/5/company/C001 plans": "partly", // same
+  "C088-CH2__R0745/2/researcher/R0745 publications": "partly", // nine papers, latest 2024: "active" is a reading
 }
 
 const data = Dataset.load()

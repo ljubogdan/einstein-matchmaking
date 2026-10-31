@@ -1,0 +1,38 @@
+{
+  "key": "edba2fd30202358a",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The company needs to detect unusual sequences on Modbus and BACnet networks without labelled attack data, because real incidents are rare and cu",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 5, \"support\": \"partly\", \"reason\": \"Operates in-house Modbus and BACnet protocol parsers and EdgeWatch sensor firmware not stated; only that EdgeWatch sensor is a passive network tap and protocol parser product offered.\", \"rewrite\": \"Four security engineers contribute part-time to integration and evaluation, and the company offers EdgeWatch sensor, a passive network tap and protocol parser for OT environments.\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"partly\", \"reason\": \"The researcher's notes mention interest in proprietary protocols, but do not explicitly state that the testbed alone cannot replicate eighteen months of real customer field data, nor that the research group performs all model development and compression work the company's engineers do not cover.\", \"rewrite\": \"The research group develops and tests algorithms on a testbed and has noted interest in partners with proprietary field data; the company supplies eighteen months of real customer logs, and the research group's published work demonstrates model development and compression techniques for constrained embedded environments.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 381,
+    "totalTokens": 384,
+    "inputTokenDetails": {
+      "cached_tokens": 4591
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 4591,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 4591,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 381,
+    "service_tier": "standard"
+  },
+  "ms": 3827
+}

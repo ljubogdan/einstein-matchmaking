@@ -1,0 +1,38 @@
+{
+  "key": "c183a4e32971a9f6",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C001-CH1: We need to detect unusual behaviour on Modbus and BACnet networks without labelled attack data — our clients have never been breached (or do",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Multivariate time-series analysis with kernel-based change-point detection and adaptive control-chart thresholds for non-stationary signals can identify sudden shifts in sensor patterns.\",\"sources\":[{\"id\":\"R0773\",\"field\":\"bio\",\"quote\":\"multivariate time-series analysis with machine learning methods such as kernel-based change-point detection, online anomaly scoring, and adaptive control-chart thresholds for non-stationary signals\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2287,
+    "outputTokens": 113,
+    "totalTokens": 2400,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2287,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 113,
+    "service_tier": "standard"
+  },
+  "ms": 18735
+}

@@ -1,0 +1,38 @@
+{
+  "key": "355b180e6c304021",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C047-CH1: Operators want to know which distribution transformers will fail next year; they have dissolved gas analysis results and load data, but no m",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Statistical modelling correlates measurable chemical markers from transformer oil with remaining transformer life, yielding revised ageing rate constants that account for real-world thermal cycling.\",\"sources\":[{\"id\":\"SYN-PUB-10413\",\"field\":\"abstract\",\"quote\":\"Statistical modelling is applied to correlate measurable chemical markers with remaining transformer life, yielding revised ageing rate constants that account for real-world thermal cycling\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2076,
+    "outputTokens": 106,
+    "totalTokens": 2182,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2076,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 106,
+    "service_tier": "standard"
+  },
+  "ms": 17122
+}

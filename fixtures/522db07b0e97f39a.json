@@ -1,0 +1,38 @@
+{
+  "key": "522db07b0e97f39a",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Semi-supervised detection methods can identify rare fault events in industrial sensor streams without requiring labelled attack examples.\n  R007",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The field does not state that adaptive ensemble methods can handle non-stationary streams; it only demonstrates that ADWIN with ensemble voting detects drift faster than baselines, not that it handles the drift itself.\", \"rewrite\": \"ADWIN-based adaptive windowing with rotating ensemble methods can detect concept drift in industrial streams where baselines shift due to seasonal variation and operational changes.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1132,
+    "outputTokens": 126,
+    "totalTokens": 1258,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1132,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 126,
+    "service_tier": "standard"
+  },
+  "ms": 29120
+}

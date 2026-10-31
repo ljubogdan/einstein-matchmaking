@@ -1,0 +1,38 @@
+{
+  "key": "08baf22a6fdb5650",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: University retains ownership until the option is exercised, preserving our right to publish [SYN-PUB-10523], and the 30-day review period protec",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Citation is about anomaly detection with autoencoders; says nothing about university ownership or publication rights.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 488,
+    "outputTokens": 41,
+    "totalTokens": 529,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 488,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 41,
+    "service_tier": "standard"
+  },
+  "ms": 5285
+}

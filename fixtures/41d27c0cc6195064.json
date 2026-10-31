@@ -1,0 +1,38 @@
+{
+  "key": "41d27c0cc6195064",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Substrate accessibility and cellulose digestibility can be characterised using Simons' staining technique, which correlates with enzymatic diges",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The claim states ceramic membranes show higher flux recovery 'compared to polymeric alternatives' but the field does not explicitly compare ceramic and polymeric PWFR values directly; it only states ceramic >98% and polymeric values (97.4% and 93.1%) separately without a direct comparison statement.\", \"rewrite\": \"Alkaline cleaning protocols for ultrafiltration membranes must balance flux recovery against membrane material degradation, with ceramic membranes showing pure water flux recovery greater than 98% across all protocols.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1296,
+    "outputTokens": 160,
+    "totalTokens": 1456,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1296,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 160,
+    "service_tier": "standard"
+  },
+  "ms": 14196
+}

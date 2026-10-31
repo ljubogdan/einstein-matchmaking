@@ -1,0 +1,38 @@
+{
+  "key": "1828e0460bb0eb8d",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C032-CH1: We need to detect unusual behaviour on Modbus and BACnet networks without labelled attack data.\nDetail: Our EdgeWatch sensor captures all tr",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Inference models can run on resource-limited edge devices through early-exit mechanisms that resolve high-confidence samples locally while routing ambiguous samples to cloud servers.\",\"sources\":[{\"id\":\"SYN-PUB-06397\",\"field\":\"abstract\",\"quote\":\"An early-exit mechanism on the edge node resolves easy, high-confidence samples locally while routing ambiguous samples to the cloud\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2077,
+    "outputTokens": 99,
+    "totalTokens": 2176,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2077,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 99,
+    "service_tier": "standard"
+  },
+  "ms": 26107
+}

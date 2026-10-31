@@ -1,0 +1,38 @@
+{
+  "key": "16f191c3c9e62e47",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Cross-flow ultrafiltration systems using spiral-wound polyethersulfone membranes foul rapidly due to concentration polarisation and irreversible",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"The claim states fouling occurs 'within hours' but the sources only document specific timepoints: 18% flux loss after 8 h (PUB-07419) and 65-80% decline within 30 min (PUB-07415); 'within hours' is an unsupported generalization.\", \"rewrite\": \"Cross-flow ultrafiltration systems using spiral-wound polyethersulfone membranes foul due to concentration polarisation and irreversible fouling, with flux loss of 18% after 8 hours of operation or rapid declines of 65-80% within the first 30 minutes depending on membrane type and conditions.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"The claim states that resistance-in-series analysis enables 'optimisation of operating pressure and cross-flow velocity to approach critical flux conditions', but the sources only state that the critical flux concept 'was applied to map stable operating windows'; the optimization capability itself is not explicitly supported.\", \"rewrite\": \"Resistance-in-series analysis distinguishes reversible concentration polarisation from irreversible fouling, enabling identification of dominant fouling mechanisms, and the critical flux concept can be applied to map stable operating windows for membrane operation.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2827,
+    "outputTokens": 321,
+    "totalTokens": 3148,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2827,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 321,
+    "service_tier": "standard"
+  },
+  "ms": 38112
+}

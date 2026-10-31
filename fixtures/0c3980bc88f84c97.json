@@ -1,0 +1,38 @@
+{
+  "key": "0c3980bc88f84c97",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: Both challenges have strong fit for [R1008] and the same alternative [R1015] at partial fit. The cards are closely matched, so the deciding fact",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":true,\"reason\":\"\"},{\"item\":2,\"backed\":true,\"reason\":\"\"},{\"item\":3,\"backed\":false,\"reason\":\"The words describe R1015's background/limitations, not that it is a partial fit alternative for both challenges.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 754,
+    "outputTokens": 67,
+    "totalTokens": 821,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 754,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 67,
+    "service_tier": "standard"
+  },
+  "ms": 1299
+}

@@ -1,0 +1,38 @@
+{
+  "key": "07261b33cd2e33b9",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The ultrafiltration step runs at only 55% of nominal throughput because membranes foul within 36 hours, forcing two CIP cycles per batch instead",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 5, \"support\": \"partly\", \"reason\": \"No mention in the source of providing direct access to the UF skid, data access, or authentic process stream samples; only that Ana Vuković splits time between production troubleshooting and bench fermentation trials.\", \"rewrite\": \"The company provides one process development technologist, Ana Vuković, who splits her time between ongoing production troubleshooting and small-scale (5-litre bench) fermentation trials.\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"partly\", \"reason\": \"Source specifies contract research for two regional dairy processing companies, not generic 'regional industrial ultrafiltration lines'; source says 'a fermentation start-up' not multiple companies on membrane selection.\", \"rewrite\": \"The group has conducted contract research for two regional dairy processing companies on CIP protocol optimisation for installed ultrafiltration lines, and provided technical consulting to a fermentation start-up regarding membrane selection for broth clarification at pre-pilot scale.\"}, {\"claim\": 8, \"support\": \"partly\", \"reason\": \"Source gives no evidence that the university group conducts 'blocking model analysis'; SYN-PUB-02395 is cited but is not shown to be from this group's work.\", \"rewrite\": \"The company has no membrane characterisation tools beyond visual inspection and water-flux recovery testing, while the university group specialises in fouling mechanism characterisation in bioprocess streams using AFM and other advanced techniques.\"}, {\"claim\": 9, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 10, \"support\": \"partly\", \"reason\": \"Source provides no evidence that the company cannot do foulant characterisation or CIP protocol development in-house, or that the university's bench rigs 'cannot replicate' pilot-scale validation.\", \"rewrite\": \"The university team carries out foulant characterisation and CIP protocol development, while the company operates a full-scale UF skid running at 55% nominal throughput with documented fouling issues.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 573,
+    "totalTokens": 576,
+    "inputTokenDetails": {
+      "cached_tokens": 4097
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 4097,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 4097,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 573,
+    "service_tier": "standard"
+  },
+  "ms": 9378
+}

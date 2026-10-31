@@ -1,0 +1,38 @@
+{
+  "key": "7945ee2d02846eed",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Membrane fouling in protein-rich bioprocess streams can be characterised using resistance-in-series frameworks and atomic force microscopy to id",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"The 31% reduction in irreversible fouling resistance is supported, but the claim that this specifically 'extends membrane service intervals' is not stated in the field; the field only supports that it is 'a practical approach to extending membrane service intervals', not that it demonstrably does so.\", \"rewrite\": \"Transmembrane pressure control strategies using feedback mechanisms that reduce TMP when flux decline exceeds thresholds reduce irreversible fouling resistance by 31 percent and represent a practical approach to extending membrane service intervals.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2387,
+    "outputTokens": 181,
+    "totalTokens": 2568,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2387,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 181,
+    "service_tier": "standard"
+  },
+  "ms": 41871
+}

@@ -1,0 +1,38 @@
+{
+  "key": "98c2c746f38c17e3",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Two in-house developers and one GIS analyst are available to dedicate partial time to a research collaboration on the project.\n  C022 rd_capacit",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The division of labor (university does ET modelling and validation, company does API and database integration) is not stated in the fields.\", \"rewrite\": \"The researcher's prior work used a smartphone application that retrieves daily meteorological data from a national weather service API and calculates crop-specific water demand using locally calibrated Penman-Monteith equations; Njivomer maintains REST API integration with Serbian state cadaster web services and an Android-based NjivaManager platform.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1416,
+    "outputTokens": 149,
+    "totalTokens": 1565,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1416,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 149,
+    "service_tier": "standard"
+  },
+  "ms": 1825
+}

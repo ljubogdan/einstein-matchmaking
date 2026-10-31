@@ -1,0 +1,38 @@
+{
+  "key": "ed1c8fb394e52276",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Reference evapotranspiration is estimated using the FAO Penman-Monteith method, with demonstrated application to Pannonian lowland conditions an",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":2,\"support\":\"partly\",\"reason\":\"Daily weather data coupling with soil water-holding properties not explicitly stated in fields\",\"rewrite\":\"Soil water balance modelling at parcel level is conducted using field measurements from FDR soil moisture probes and lysimeter stations to validate calculations.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1999,
+    "outputTokens": 86,
+    "totalTokens": 2085,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1999,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 86,
+    "service_tier": "standard"
+  },
+  "ms": 32277
+}

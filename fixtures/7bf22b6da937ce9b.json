@@ -1,0 +1,38 @@
+{
+  "key": "7bf22b6da937ce9b",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C144-CH2: Downstream purification — specifically the ultrafiltration step — runs at only 55% of nominal throughput because the membranes foul with res",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Membrane fouling in protein-rich bioprocess streams has been characterized using resistance-in-series framework as a diagnostic tool, and Hermia blocking models fitted to flux–time data to diagnose mechanisms and inform cleaning protocol effectiveness.\",\"sources\":[{\"id\":\"SYN-PUB-03384\",\"field\":\"abstract\",\"quote\":\"resistance-in-series framework as a diagnostic and modelling tool\"},{\"id\":\"SYN-PUB-02395\",\"field\":\"abstract\",\"quote\":\"Hermia's blocking models (complete, intermediate, standard blocking and cake filtration) were fitted to flux–time data\"}]},{\"claim\":2,\"text\":\"Industrial ultrafiltration systems use 10 and 30 kDa polyethersulphone membranes at TMP values of 0.5–3.0 bar for bioprocess clarification, and backwash at 0.5 bar for 30 s every 15 min restored 70–85% of initial flux.\",\"sources\":[{\"id\":\"SYN-PUB-02395\",\"field\":\"abstract\",\"quote\":\"10 and 30 kDa polyethersulphone membranes at TMP values of 0.5–3.0 bar\"},{\"id\":\"SYN-PUB-02395\",\"field\":\"abstract\",\"quote\":\"Backwash at 0.5 bar for 30 s every 15 min restored 70–85% of initial flux\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2560,
+    "outputTokens": 342,
+    "totalTokens": 2902,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2560,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 342,
+    "service_tier": "standard"
+  },
+  "ms": 18741
+}

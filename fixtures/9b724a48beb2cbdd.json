@@ -1,0 +1,38 @@
+{
+  "key": "9b724a48beb2cbdd",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Protocol-agnostic byte-level feature extraction from raw application payloads can detect anomalies in Modbus and other ICS traffic with one-clas",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Statistical baseline modelling approaches being suitable for embedded deployment is stated as a capability in the research group's focus, but the specific connection between statistical baseline modelling and addressing all three evaluation challenges (scarcity of labelled datasets, difficulty of representative attack injection, and trade-off between false alarm rate and response latency) is not explicitly made in the fields; the evaluation challenges are discussed separately from the suitability for embedded deployment.\", \"rewrite\": \"Statistical baseline modelling approaches are discussed in the context of evaluation challenges including scarcity of labelled datasets and the trade-off between false alarm rate and response latency, and lightweight online learning algorithms are suited to constrained embedded environments.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1788,
+    "outputTokens": 188,
+    "totalTokens": 1976,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1788,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 188,
+    "service_tier": "standard"
+  },
+  "ms": 40132
+}

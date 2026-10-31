@@ -1,0 +1,38 @@
+{
+  "key": "f5022e1b65fc560d",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C047-CH1: Operators want to know which distribution transformers will fail next year; they have dissolved gas analysis results and load data, but no m",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\": [{\"claim\": 1, \"text\": \"Remaining useful life prediction using recurrent neural networks with long short-term memory achieves 14.3% mean absolute percentage error on bearing run-to-failure sequences at the 50% consumed-life mark with 20 or more training sequences, and simple linear scaling of the health index by rated load and speed partially recovers cross-condition accuracy from 22-28% to 17.1%.\", \"sources\": [{\"id\": \"SYN-PUB-00593\", \"field\": \"abstract\", \"quote\": \"With 20 or more training sequences, mean absolute percentage error in RUL prediction stabilised near 14.3% at the 50% consumed-life mark.\"}, {\"id\": \"SYN-PUB-00593\", \"field\": \"abstract\", \"quote\": \"Cross-condition generalisation degraded performance to 22–28% MAPE when the training and test operating conditions differed, but a simple linear scaling of the health index by rated load and speed partially recovered accuracy to 17.1%.\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2356,
+    "outputTokens": 247,
+    "totalTokens": 2603,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2356,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 247,
+    "service_tier": "standard"
+  },
+  "ms": 16527
+}

@@ -1,0 +1,38 @@
+{
+  "key": "97789653342bd76c",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Unsupervised anomaly detection using autoencoders can learn normal Modbus traffic patterns from benign data alone and flag deviations without re",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Adaptability to concept drift is mentioned as a metric ('Performance is measured in terms of detection accuracy, latency, resource consumption, and adaptability to concept drift') but no results on concept drift adaptation are provided in the abstract.\", \"rewrite\": \"Anomaly detection architectures for industrial control systems can maintain low false-positive rates in continuous operation.\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1506,
+    "outputTokens": 142,
+    "totalTokens": 1648,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1506,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 142,
+    "service_tier": "standard"
+  },
+  "ms": 37405
+}

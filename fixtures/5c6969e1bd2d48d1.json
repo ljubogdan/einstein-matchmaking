@@ -1,0 +1,38 @@
+{
+  "key": "5c6969e1bd2d48d1",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Finite automaton models can be inferred from normal network traffic and used as baselines to detect anomalies by flagging messages causing trans",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"Approach is evaluated for suitability but not demonstrated as achieving anomaly detection in encrypted environments\", \"rewrite\": \"Automaton models of device communication can be learned from observable metadata features like packet sizes and inter-arrival times when message content is encrypted or unavailable.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1489,
+    "outputTokens": 125,
+    "totalTokens": 1614,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1489,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 125,
+    "service_tier": "standard"
+  },
+  "ms": 36607
+}

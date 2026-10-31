@@ -1,0 +1,38 @@
+{
+  "key": "719f3c6088e834a9",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Tocopherol content acts as an endogenous antioxidant in lipid-rich extracts, with higher initial tocopherol levels correlating strongly with ext",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"Claim states tocopherol acts as an endogenous antioxidant in 'lipid-rich extracts' generally with correlation to 'extended stability under storage,' but the source specifies it acts as a 'partial' antioxidant specifically for 'carotenoid oxidation' with correlation to 'lycopene half-life' under defined conditions.\", \"rewrite\": \"Tocopherol content acts as a partial endogenous antioxidant in carotenoid-rich extracts, with higher initial tocopherol levels correlating strongly with extended lycopene stability (Pearson r=0.82).\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"Claim specifies 'pumpkin seed oil' but the source only states 'press cake streams' from a 'regional cold-press oil producer' without specifying the crop type.\", \"rewrite\": \"The researcher has direct industry experience characterising tocopherol content in cold-pressed oil press cake streams from a regional producer.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1545,
+    "outputTokens": 278,
+    "totalTokens": 1823,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1545,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 278,
+    "service_tier": "standard"
+  },
+  "ms": 32915
+}

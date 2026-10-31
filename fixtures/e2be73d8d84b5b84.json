@@ -1,0 +1,38 @@
+{
+  "key": "e2be73d8d84b5b84",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Spent broth analysis using LC-MS extraction protocols can reveal organism-specific metabolic signatures that correlate with production quality d",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"Fields show organism-specific metabolic signatures and correlation with fermentation cycles, but do not show correlation with production quality specifically.\", \"rewrite\": \"Spent broth analysis using LC-MS extraction protocols can reveal organism-specific metabolic signatures during repeated fermentation cycles.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1780,
+    "outputTokens": 102,
+    "totalTokens": 1882,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1780,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 102,
+    "service_tier": "standard"
+  },
+  "ms": 14337
+}

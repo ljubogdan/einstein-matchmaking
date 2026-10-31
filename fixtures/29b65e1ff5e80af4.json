@@ -1,0 +1,38 @@
+{
+  "key": "29b65e1ff5e80af4",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Membrane bioreactors can be operated continuously with enzyme recycling through ultrafiltration to maintain high enzymatic activity while managi",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The claim states the technique quantifies 'the effect of pre-treatment conditions on enzymatic degradation rates', but the field only shows correlation with digestibility, not that pre-treatment conditions' effects on degradation rates are quantified by the staining technique itself.\", \"rewrite\": \"Substrate accessibility and cellulose digestibility can be characterised using Simons' staining technique, which correlates with enzymatic digestibility.\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"The claim states ceramic membranes show 'superior fouling resistance compared to polymeric alternatives', but the field only shows higher PWFR values; it does not establish that ceramic membranes have superior fouling resistance (resistance to fouling occurring), only better recovery after fouling.\", \"rewrite\": \"Alkaline cleaning protocols for ultrafiltration membranes must balance flux recovery against membrane material degradation, with ceramic membranes showing higher pure water flux recovery compared to polymeric alternatives.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1602,
+    "outputTokens": 260,
+    "totalTokens": 1862,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1602,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 260,
+    "service_tier": "standard"
+  },
+  "ms": 46456
+}

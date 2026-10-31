@@ -1,0 +1,47 @@
+{
+  "key": "2ab75297743e83dd",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Pair id: C032-CH1__R1008\n\nFit review: strong. Build and deploy an unsupervised anomaly detection model for Modbus and BACnet network traffic sequences that trai",
+  "items": [
+    {
+      "type": "reasoning",
+      "content": {
+        "text": "Let me draft the JSON response.",
+        "type": "input_text"
+      },
+      "encryptedContent": "Ev4BCnwIExABGAIqQBMoPQshy2deWShaBbEQ2q8nah72dUa+/B8CnO5/HvCljbEpdhRL+oKVWbmIdqjiyLyA9Cu0iLCjQeXVwrJfD6wyEWNsYXVkZS1zb25uZXQtNC02OABCCHRoaW5raW5nWgw2NjU3Njc3MDczNzKoAZeFl9cGEgypGrbvY8xPPJnMDLYaDEstUo5DmiZL8fz9USIwjfD+6Yroy49KowpUyCszKI8JwvVBWwiUOGeAP65ir97gVBNC8jKLzYcCxF+pMM/6KjBC2+Lxu//8MFKrOt6QuMbqLwH9WuKj2/ga3cgDgMtHxzKwXbJJec8d+GZvnN3AlvUYAQ==",
+      "summary": []
+    },
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"title\":\"Catching unusual OT network behaviour without labelled attack data\",\"candidate\":\"a master's graduate in computer engineering, employed by the company for the three years\",\"problem\":[{\"subject\":\"C032-CH1\",\"text\":\"The company needs to detect unusual sequences on Modbus and BACnet networks without labelled attack data, because real incidents are rare and customers do not allow attack simulations on live plant.\",\"sources\":[{\"id\":\"C032-CH1\",\"field\":\"text\",\"quote\":\"detect unusual behaviour on Modbus and BACnet networks without labelled attack data\"},{\"id\":\"C032-CH1\",\"field\":\"detail\",\"quote\":\"customers do not want us running attack simulations on live plant\"}],\"kind\":\"fact\"},{\"subject\":\"C032-CH1\",\"text\":\"Hand-written rules miss slow, low-volume probing, and statistical baselines drift with shift patterns and seasonal production changes, generating noise analysts cannot keep up with.\",\"sources\":[{\"id\":\"C032-CH1\",\"field\":\"detail\",\"quote\":\"misses slow, low-volume probing entirely\"},{\"id\":\"C032-CH1\",\"field\":\"detail\",\"quote\":\"baselines drift with shift patterns and seasonal production changes, which generates noise our analysts cannot keep up with\"}],\"kind\":\"fact\"},{\"subject\":\"C032-CH1\",\"text\":\"Any detection model must run inference on an edge sensor with 512 MB of RAM and a modest ARM core, and must be deployable within twelve months.\",\"sources\":[{\"id\":\"C032-CH1\",\"field\":\"detail\",\"quote\":\"model has to run inference on the edge sensor, which has 512 MB of RAM and a modest ARM core\"},{\"id\":\"C032-CH1\",\"field\":\"detail\",\"quote\":\"We need something we can deploy within twelve months\"}],\"kind\":\"fact\"}],\"researchQuestions\":[\"Can an unsupervised incremental model trained solely on unlabelled customer traffic logs flag anomalous Modbus and BACnet sequences, measured against scripted fault injections on the research group's ICS testbed?\",\"Does an 8-bit quantised and pruned autoencoder maintain AUROC within 0.05 of its full-precision counterpart when running on the EdgeWatch ARM sensor within 512 MB RAM, measured against the full-precision model on the same test captures?\",\"How quickly does an incremental drift-adaptation mechanism stabilise after a planned production baseline shift, measured in minutes to false-alarm rate returning to pre-shift level on testbed replays of customer log segments?\",\"Does the integrated prototype on the EdgeWatch sensor achieve lower false-alarm rate than the current hand-written rule set, measured against three security engineers' consensus labels on 500 flagged events from field evaluation?\"],\"plan\":[{\"phase\":\"Year 1 — Data preparation and baseline model\",\"work\":\"PhD candidate and research group parse and anonymise 18 months of customer traffic logs; research group trains incremental unsupervised models on Modbus and BACnet feature vectors extracted from those logs; drift handling validated on testbed replays.\",\"result\":\"Baseline unsupervised model trained on customer logs, drift-handling validation report, and annotated dataset of scripted testbed faults used as evaluation reference — delivered by month 9.\"},{\"phase\":\"Year 2 — Model compression and ARM deployment\",\"work\":\"Research group applies 8-bit quantisation and structured pruning to the best-performing model architecture; PhD candidate ports compressed model to EdgeWatch firmware in Rust with company security engineers; inference constraint test run on sensor hardware.\",\"result\":\"Quantised ARM-deployable model passing 512 MB and latency constraints, firmware integration branch, and conference paper on compression results — delivered by month 18.\"},{\"phase\":\"Year 3 — Field prototype, evaluation, and thesis\",\"work\":\"PhD candidate and company field technicians deploy integrated prototype on one customer site; company security engineers compare alert output against current rule set; research group analyses results and PhD candidate writes thesis.\",\"result\":\"Integrated prototype running on EdgeWatch sensor at a customer site, field evaluation report with false-alarm comparison, deployment-ready firmware, and submitted doctoral thesis — delivered by month 36.\"}],\"companyBrings\":[{\"subject\":\"C032\",\"text\":\"The company holds about eighteen months of raw packet logs from three customer sites, averaging around four gigabytes per day per site, available in anonymised form for model training.\",\"sources\":[{\"id\":\"C032-CH1\",\"field\":\"detail\",\"quote\":\"about eighteen months of raw packet logs from three customer sites, averaging around four gigabytes per day per site\"}],\"kind\":\"fact\"},{\"subject\":\"C032\",\"text\":\"Four security engineers contribute part-time to integration and evaluation, and the company operates in-house Modbus and BACnet protocol parsers and the EdgeWatch sensor firmware.\",\"sources\":[{\"id\":\"C032\",\"field\":\"rd_capacity\",\"quote\":\"Four security engineers.\"},{\"id\":\"C032\",\"field\":\"products\",\"quote\":\"EdgeWatch sensor — passive network tap and protocol parser for OT environments\"}],\"kind\":\"fact\"}],\"universityBrings\":[{\"subject\":\"R1008\",\"text\":\"The research group operates a dedicated ICS testbed with Modbus/TCP and DNP3 traffic generators and packet capture infrastructure for long-term dataset collection, available to industrial partners.\",\"sources\":[{\"id\":\"R1008\",\"field\":\"bio\",\"quote\":\"dedicated ICS testbed equipped with Siemens-compatible PLCs, Modbus/TCP and DNP3 traffic generators, and packet capture infrastructure for long-term dataset collection\"}],\"kind\":\"fact\"},{\"subject\":\"R1008\",\"text\":\"Published work from the group demonstrates incremental Gaussian mixture models and quantised autoencoders that run on ARM processors within tight memory and latency budgets.\",\"sources\":[{\"id\":\"SYN-PUB-00492\",\"field\":\"abstract\",\"quote\":\"incremental variant of Gaussian mixture modelling (iGMM) for online anomaly detection in ICS traffic without the need for periodic full retraining\"},{\"id\":\"SYN-PUB-10239\",\"field\":\"abstract\",\"quote\":\"A combined 8-bit quantised, 25%-pruned model achieved inference at 0.9 ms per 10-second window on an ARM Cortex-A7 target\"}],\"kind\":\"fact\"}],\"whyThisPair\":[{\"subject\":\"C032-CH1__R1008\",\"text\":\"The challenge states the company has no labelled attack examples and needs models built from unlabelled traffic, which aligns with the research group's focus on unsupervised anomaly detection and one-class classification for industrial control system protocol traffic.\",\"sources\":[{\"id\":\"C032-CH1\",\"field\":\"text\",\"quote\":\"detect unusual behaviour on Modbus and BACnet networks without labelled attack data\"},{\"id\":\"R1008\",\"field\":\"bio\",\"quote\":\"unsupervised anomaly detection and one-class classification for industrial control system protocol traffic\"}],\"kind\":\"inference\"},{\"subject\":\"C032-CH1__R1008\",\"text\":\"The research group develops and tests algorithms on a testbed but has noted interest in partners with proprietary field data; the company supplies eighteen months of real customer logs that the testbed alone cannot replicate, and the research group performs the model development and compression work the company's four security engineers do not cover.\",\"sources\":[{\"id\":\"R1008\",\"field\":\"notes\",\"quote\":\"particularly interested in partners dealing with proprietary or undocumented ICS protocols\"},{\"id\":\"C032-CH1\",\"field\":\"detail\",\"quote\":\"about eighteen months of raw packet logs from three customer sites\"}],\"kind\":\"inference\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 1719,
+    "totalTokens": 1722,
+    "inputTokenDetails": {
+      "cached_tokens": 5790
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 3334,
+    "cache_read_input_tokens": 2456,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 3334,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 1719,
+    "service_tier": "standard"
+  },
+  "ms": 32428
+}

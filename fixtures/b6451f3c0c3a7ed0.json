@@ -1,0 +1,38 @@
+{
+  "key": "b6451f3c0c3a7ed0",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: The sheet meets our core needs: university ownership with an option to assign preserves academic-use rights and publication rights, 60-day revie",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"The cited words discuss unsupervised anomaly detection on Modbus traffic; they do not address ownership, assignment, publication rights, review periods, exclusivity terms, or scope alignment with expertise.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 518,
+    "outputTokens": 61,
+    "totalTokens": 579,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 518,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 61,
+    "service_tier": "standard"
+  },
+  "ms": 1129
+}

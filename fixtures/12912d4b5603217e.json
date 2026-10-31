@@ -1,0 +1,38 @@
+{
+  "key": "12912d4b5603217e",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Metabolomic profiling can distinguish between strain-based and process-based causes of performance decline in bacterial fermentation by tracking",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Fields do not establish that metabolic signatures correlate with cellular morphology changes during repeated cycles, only that one morphology metric (conidiophore shortening) correlates with one metabolite (gluconic acid) in one organism over 12 batches\", \"rewrite\": \"Spent broth analysis using LC-MS extraction protocols can reveal organism-specific metabolic signatures that correlate with production quality during repeated fermentation cycles.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1507,
+    "outputTokens": 137,
+    "totalTokens": 1644,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1507,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 137,
+    "service_tier": "standard"
+  },
+  "ms": 38061
+}

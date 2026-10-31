@@ -16,7 +16,7 @@ const IDS = /\b(?:SYN-(?:PUB|PRJ|PAT)-\d+|C\d{3}-CH\d+|C\d{3}|R\d{4})\b/g
 
 const INSTRUCTION = `Two company challenges want the same university researcher, who can take on only one. Decide which challenge gets the researcher.
 Decide by: how well the researcher's work fits each challenge (the cards), the researcher's stated preferences (open_to, notes), and whether the other challenge has a good alternative researcher.
-Never decide by the size, prestige or worth of a company or a person. Answer with JSON:
+Never decide by the size, prestige or worth of a company or a person. Name the researcher only by id, with no personal pronouns, and judge fit to this work only: never call anyone unique, the best or personally suited. Answer with JSON:
 - winner: one of the two challenge ids.
 - reason: two or three sentences that cite ids in brackets, e.g. [C001-CH1], [R0001], [SYN-PUB-00001]. State only what the cards say, and cite a paper only for what its card line says. Compare both cards before saying something appears on only one. If the cards don't separate the two, say it's a close call and give the researcher to the challenge that loses more search relevance by taking its alternative, stating both percentages.
 - citations: those ids.

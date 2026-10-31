@@ -1,0 +1,38 @@
+{
+  "key": "df2bcdf78a25b01d",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Cold-pressed hemp seed oil showed photodegradation rate constants of 0.049 h⁻¹, compared to 0.012 h⁻¹ for medium-chain triglyceride oil, with li",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The field does not state that tocopherol content analysis should be prioritized for understanding oxidation pathways; it only shows that tocopherol supplementation improved stability.\", \"rewrite\": \"Addition of 0.05% tocopherol to the oil phase extended UV-A half-life to 19.1 h and suppressed malondialdehyde formation by 34%, indicating that antioxidant supplementation provides meaningful protection against lutein degradation.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1422,
+    "outputTokens": 148,
+    "totalTokens": 1570,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1422,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 148,
+    "service_tier": "standard"
+  },
+  "ms": 13193
+}

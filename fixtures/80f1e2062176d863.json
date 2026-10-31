@@ -1,0 +1,38 @@
+{
+  "key": "80f1e2062176d863",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C144-CH2: Downstream purification — specifically the ultrafiltration step — runs at only 55% of nominal throughput because the membranes foul with res",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\": [{\"claim\": 1, \"text\": \"Polyethersulphone ultrafiltration membranes fouled with biological process streams can recover up to 97.4% pure water flux through alkaline hypochlorite cleaning, though this protocol reduces membrane lifetime by approximately 18% after 30 cleaning cycles.\", \"sources\": [{\"id\": \"SYN-PUB-03378\", \"field\": \"abstract\", \"quote\": \"Protocol B achieved the highest PWFR of 97.4% for polyethersulphone membranes but reduced membrane lifetime by approximately 18% after 30 cleaning cycles\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2477,
+    "outputTokens": 146,
+    "totalTokens": 2623,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2477,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 146,
+    "service_tier": "standard"
+  },
+  "ms": 17517
+}

@@ -1,0 +1,38 @@
+{
+  "key": "7a6f3542a51e5331",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Membrane bioreactors with ultrafiltration can be operated continuously with enzyme recycling, achieving protein retention of 87–92% over extende",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The claim states alkaline cleaning achieves 93–97% recovery, but the field shows Protocol B (alkaline + hypochlorite) achieved 97.4% while Protocol C (alkaline with detergent) achieved 93.1%; pure alkaline (Protocol A) is not given a PWFR value.\", \"rewrite\": \"Polyethersulphone ultrafiltration membranes fouled with biological process streams can recover 93–97% of pure water flux through alkaline cleaning with additives, though aggressive hypochlorite cleaning reduces membrane lifetime by approximately 18% after 30 cycles.\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1598,
+    "outputTokens": 203,
+    "totalTokens": 1801,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1598,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 203,
+    "service_tier": "standard"
+  },
+  "ms": 35813
+}

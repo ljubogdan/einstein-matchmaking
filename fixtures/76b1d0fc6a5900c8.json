@@ -1,0 +1,38 @@
+{
+  "key": "76b1d0fc6a5900c8",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We need a method that works with no attack examples and that we can explain to a plant manager in plain language, and an industrial PhD gives us",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":true,\"reason\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 554,
+    "outputTokens": 20,
+    "totalTokens": 574,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 554,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 20,
+    "service_tier": "standard"
+  },
+  "ms": 2416
+}

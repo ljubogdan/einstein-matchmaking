@@ -1,0 +1,38 @@
+{
+  "key": "acd797bcbf115530",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Polyethersulphone ultrafiltration membranes fouled with biological process streams can recover up to 97.4% pure water flux through alkaline hypo",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"Claim specifies 'alkaline hypochlorite cleaning' as the protocol, but the source identifies Protocol B as the cleaning method without naming it as specifically 'alkaline hypochlorite'; the source only states Protocol B used '200 ppm NaOCl followed by 0.5% NaOH' without the term 'alkaline hypochlorite'. Additionally, the claim states membranes were 'fouled with biological process streams' but the source specifies they were 'fouled with skim milk and cottage cheese whey streams' - different naming.\", \"rewrite\": \"Polyethersulphone ultrafiltration membranes fouled with skim milk and cottage cheese whey streams can recover 97.4% pure water flux through cleaning with 200 ppm NaOCl followed by 0.5% NaOH, though this protocol reduces membrane lifetime by approximately 18% after 30 cleaning cycles.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 974,
+    "outputTokens": 235,
+    "totalTokens": 1209,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 974,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 235,
+    "service_tier": "standard"
+  },
+  "ms": 15358
+}

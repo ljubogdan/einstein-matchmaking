@@ -1,0 +1,38 @@
+{
+  "key": "fecb6000239c5826",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: Both challenges fit [R1008] strongly and both suggest the same alternative [R1015] at partial fit. The differentiator is the alternative's relat",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":true,\"reason\":\"\"},{\"item\":2,\"backed\":true,\"reason\":\"\"},{\"item\":3,\"backed\":true,\"reason\":\"\"},{\"item\":4,\"backed\":false,\"reason\":\"Words describe R1015's lack of edge/ARM work, not that R1015 fits both challenges at partial fit or suggests the same alternative.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 87,
+    "totalTokens": 90,
+    "inputTokenDetails": {
+      "cached_tokens": 1384
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 1384,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 1384,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 87,
+    "service_tier": "standard"
+  },
+  "ms": 8633
+}

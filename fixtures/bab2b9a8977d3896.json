@@ -1,0 +1,38 @@
+{
+  "key": "bab2b9a8977d3896",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Cold-pressed pumpkin seed oil minor lipid components including tocopherols can be characterized using HPLC-MS techniques, and GC-MS can be used ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"The claim states GC-MS can be used to monitor volatile markers, but the source specifies SPME-GC-MS (solid-phase microextraction GC-MS), not just GC-MS. Additionally, the claim that these techniques are used to 'identify compositional factors affecting oxidative degradation' goes beyond what the source shows—the source demonstrates correlation between roasting conditions and oxidative changes, not that the techniques specifically identify factors affecting degradation.\", \"rewrite\": \"Cold-pressed pumpkin seed oil minor lipid components including tocopherols can be characterized using HPLC-MS techniques, and SPME-GC-MS can be used to monitor volatile markers such as Maillard-derived alkylpyrazines.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1732,
+    "outputTokens": 190,
+    "totalTokens": 1922,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1732,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 190,
+    "service_tier": "standard"
+  },
+  "ms": 14177
+}

@@ -1,0 +1,38 @@
+{
+  "key": "df688c73259be75c",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Research group develops multivariate statistical process control and data-driven fault prognosis methods for condition monitoring of machinery u",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Cross-condition generalization achieved 17.1% MAPE after linear scaling, not a demonstration that simple linear scaling 'works' in the sense of achieving practical guidance without caveats; fields show degradation to 22-28% before scaling.\", \"rewrite\": \"Remaining useful life prediction using recurrent neural networks with long short-term memory achieves 14.3% mean absolute percentage error on bearing run-to-failure sequences at the 50% consumed-life mark with 20 or more training sequences, and simple linear scaling of the health index by rated load and speed partially recovers cross-condition accuracy from 22-28% to 17.1%.\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1832,
+    "outputTokens": 214,
+    "totalTokens": 2046,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1832,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 214,
+    "service_tier": "standard"
+  },
+  "ms": 38637
+}

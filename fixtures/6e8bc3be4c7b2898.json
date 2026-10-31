@@ -1,0 +1,38 @@
+{
+  "key": "6e8bc3be4c7b2898",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Salt balance modelling has been implemented using the FAO-56 evapotranspiration method coupled with soil hydraulic parameters and validated agai",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"The field mentions 'suction-cup lysimeter network' but the claim states 'lysimeter networks' (plural) without specifying that only one network is documented.\", \"rewrite\": \"Experimental infrastructure exists for long-term monitoring of soil water and salt dynamics including time-domain reflectometry arrays and a suction-cup lysimeter network on a reference plot near Bečej in the region.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1672,
+    "outputTokens": 155,
+    "totalTokens": 1827,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1672,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 155,
+    "service_tier": "standard"
+  },
+  "ms": 33250
+}

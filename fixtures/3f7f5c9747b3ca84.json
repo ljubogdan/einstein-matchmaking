@@ -1,0 +1,38 @@
+{
+  "key": "3f7f5c9747b3ca84",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We accept 12-month exclusivity matching the project duration in exchange for moving to uni_owns_option_to_assign, which gives us a concrete path",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"The words only mention certifying under the EU Cyber Resilience Act with no reference to C032 plans, EdgeWatch, IP ownership, or the option-to-assign rationale.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 492,
+    "outputTokens": 60,
+    "totalTokens": 552,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 492,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 60,
+    "service_tier": "standard"
+  },
+  "ms": 1364
+}

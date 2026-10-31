@@ -1,0 +1,38 @@
+{
+  "key": "c032996727bb6f83",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The ProtoSense module needs to flag traffic that looks wrong, but no client has ever provided a packet capture containing a confirmed attack.\n  ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"availability under NDA not stated in the field\", \"rewrite\": \"The company has collected several terabytes of captures from consenting clients over the past three years.\"}, {\"claim\": 5, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"partly\", \"reason\": \"PhD candidate not mentioned in fields; Yocto build environment not mentioned\", \"rewrite\": \"The unsupervised baseline modelling and algorithm design is led by the research group; firmware integration and on-device testing is carried out by the company engineer using the hardware bench and existing firmware codebase.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3726,
+    "outputTokens": 295,
+    "totalTokens": 4021,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3726,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 295,
+    "service_tier": "standard"
+  },
+  "ms": 5633
+}

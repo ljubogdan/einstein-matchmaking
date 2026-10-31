@@ -1,0 +1,38 @@
+{
+  "key": "fff09845f00a7d10",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The company provides one process development technologist who splits her time between ongoing production troubleshooting and small-scale (5-litr",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"The company's UF skid runs at 55% of nominal throughput, but the fields state membranes foul within 36 hours and two cleaning cycles are done per batch instead of one; the 55% throughput figure is stated separately and does not explicitly result from or explain the 36-hour fouling window.\", \"rewrite\": \"The university team carries out foulant characterisation and CIP protocol development, while the company operates a full-scale UF skid with documented fouling within 36 hours, requiring two cleaning cycles per batch instead of one.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2049,
+    "outputTokens": 214,
+    "totalTokens": 2263,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2049,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 214,
+    "service_tier": "standard"
+  },
+  "ms": 10521
+}

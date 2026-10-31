@@ -1,0 +1,38 @@
+{
+  "key": "ac54d5d7f2588e72",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The company does not have the tools or know-how to characterise the foulant properly.\n  C088-CH2 detail: \"We do not have the tools or know-how t",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"The field discusses vegetable oil processing, not characterisation by the research group of gel-layer foulants in general; the claim states the research group 'has characterised' but the field only shows they studied one specific case.\", \"rewrite\": \"Emulsified oil droplets constitute the primary foulant in vegetable oil processing membranes, forming a compressible gel layer.\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"The claim combines facts about the company providing three years of service records with a claim that the research group 'has characterised fouling layers using' specific methods; the research group's use of those methods appears in a different study (SYN-PUB-08238) which does not establish they characterised the company's fouling layers.\", \"rewrite\": \"The company provides three years of service records showing seasonal fouling patterns, and the research group has characterised fouling layers using scanning electron microscopy, ATR-FTIR spectroscopy, and hydraulic resistance analysis in dairy wastewater studies.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2007,
+    "outputTokens": 298,
+    "totalTokens": 2305,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2007,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 298,
+    "service_tier": "standard"
+  },
+  "ms": 5561
+}

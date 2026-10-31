@@ -1,0 +1,38 @@
+{
+  "key": "b6034d07aa5a9360",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Regression-based fault indicators and time-series anomaly detection methods have been applied to SCADA telemetry from distributed energy assets ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Detection window is 48 hours, not weeks before failure\", \"rewrite\": \"Statistical feature extraction from SCADA records combined with machine learning classification has demonstrated ability to identify incipient faults 48 hours before failure across multiple sites with acceptable cross-site generalisation.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1261,
+    "outputTokens": 105,
+    "totalTokens": 1366,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1261,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 105,
+    "service_tier": "standard"
+  },
+  "ms": 34247
+}

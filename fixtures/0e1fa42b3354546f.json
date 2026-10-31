@@ -1,0 +1,38 @@
+{
+  "key": "0e1fa42b3354546f",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Operators at two dairy plant sites are forced to run a full CIP every five to seven days, against a scheduled interval of two weeks.\n  C088-CH2 ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"The fields state the company lacks tools to characterise the foulant, but do not state they lack know-how to identify whether specific changes would extend intervals to twelve days.\", \"rewrite\": \"The company does not have the tools or know-how to characterise the foulant properly.\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"The field lists personnel roles but does not specify they are part-time, nor does it mention access to two dairy plant sites for sampling and pilot work.\", \"rewrite\": \"The company provides a process engineer and a lab technician.\"}, {\"claim\": 5, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 6, \"support\": \"partly\", \"reason\": \"The field shows the research group has characterised gel-layer foulants in vegetable oil processing, not food-industry membranes in general, and does not state the group has characterised such foulants in dairy specifically.\", \"rewrite\": \"The research group has characterised gel-layer foulants in vegetable oil processing membranes, finding that emulsified oil droplets constitute the primary foulant, forming a compressible gel layer.\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"partly\", \"reason\": \"The fields show the company provides service records and the research group has analytical equipment, but do not state that the university team leads hands-on fouling characterisation and intervention design, nor that the company provides CIP data for field trials.\", \"rewrite\": \"The company provides three years of service records showing seasonal fouling patterns, while the research group has characterised fouling layers using scanning electron microscopy, ATR-FTIR spectroscopy, and hydraulic resistance analysis.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 491,
+    "totalTokens": 494,
+    "inputTokenDetails": {
+      "cached_tokens": 4159
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 4159,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 4159,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 491,
+    "service_tier": "standard"
+  },
+  "ms": 12353
+}

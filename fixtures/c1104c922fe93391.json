@@ -1,0 +1,38 @@
+{
+  "key": "c1104c922fe93391",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Statistical process control methods detect anomalies in sensor streams by learning normal operational patterns without requiring labelled attack",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"The sources describe kernel-based change-point detection and adaptive thresholds for non-stationary signals, but do not specifically state that these methods address 'the need to flag deviations from site-specific baselines in heterogeneous network environments' or that they identify shifts in 'traffic or sensor patterns' in network contexts.\", \"rewrite\": \"Multivariate time-series analysis with kernel-based change-point detection and adaptive control-chart thresholds for non-stationary signals identifies sudden shifts in sensor patterns using machine learning methods.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2166,
+    "outputTokens": 185,
+    "totalTokens": 2351,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2166,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 185,
+    "service_tier": "standard"
+  },
+  "ms": 36319
+}

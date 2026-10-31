@@ -1,0 +1,38 @@
+{
+  "key": "d9a6588acaf8b39b",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Unsupervised anomaly detection methods such as one-class classification and kernel methods can identify unusual traffic patterns in industrial c",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"seasonal variations in traffic baselines not mentioned in sources\", \"rewrite\": \"Incremental online learning algorithms can adapt to concept drift in traffic baselines while maintaining low computational cost on embedded devices.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1729,
+    "outputTokens": 88,
+    "totalTokens": 1817,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1729,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 88,
+    "service_tier": "standard"
+  },
+  "ms": 31082
+}

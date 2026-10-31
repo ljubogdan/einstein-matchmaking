@@ -1,0 +1,38 @@
+{
+  "key": "6adf668391cda085",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The ProtoSense module has not been able to detect attacks in real deployments using supervised learning because no client has supplied a packet ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Fields state they have several terabytes of normal traffic but do not confirm this covers the need for training unsupervised baseline methods or that it is sufficient for that purpose.\", \"rewrite\": \"The company has collected several terabytes of normal captures from consenting clients over the past three years.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1482,
+    "outputTokens": 109,
+    "totalTokens": 1591,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1482,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 109,
+    "service_tier": "standard"
+  },
+  "ms": 1420
+}

@@ -1,0 +1,38 @@
+{
+  "key": "be85a5bd28a9ea6c",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We accept the 18-month exclusivity in the agreed field as a trade, but we need university ownership with an option to licence so results remain ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words are about autoencoder anomaly detection on Modbus traffic, not university ownership or publishability.\"},{\"item\":2,\"backed\":false,\"reason\":\"Words are a study title about SCADA intrusion detection, not about 30-day review periods or publication rights.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 659,
+    "outputTokens": 79,
+    "totalTokens": 738,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 659,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 79,
+    "service_tier": "standard"
+  },
+  "ms": 5448
+}

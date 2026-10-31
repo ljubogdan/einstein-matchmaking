@@ -1,0 +1,38 @@
+{
+  "key": "4d5780e41cca3097",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Membrane fouling can be characterised using blocking models and rheological analysis to distinguish between cake formation, intermediate blockin",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":2,\"support\":\"partly\",\"reason\":\"biomass morphology assessment not mentioned; study tracked stabilization time and COD removal but not morphological changes\",\"rewrite\":\"Activated sludge systems can be acclimated to treat complex organic substrates, with respirometric measurement used to track adaptation over weeks to months and predict steady-state biodegradation performance.\"},{\"claim\":3,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1633,
+    "outputTokens": 122,
+    "totalTokens": 1755,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1633,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 122,
+    "service_tier": "standard"
+  },
+  "ms": 37583
+}

@@ -1,0 +1,38 @@
+{
+  "key": "0f39563733d32fec",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C001-CH1: We need to detect unusual behaviour on Modbus and BACnet networks without labelled attack data — our clients have never been breached (or do",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Topology discovery in heterogeneous networks can be accomplished through a hybrid framework combining passive traffic observation with selective active probing, while generating minimal overhead traffic and outperforming existing tools on stealth metrics.\",\"sources\":[{\"id\":\"SYN-PUB-06542\",\"field\":\"abstract\",\"quote\":\"combines passive traffic observation with selective active probing to reconstruct network topology maps in heterogeneous enterprise environments\"},{\"id\":\"SYN-PUB-06542\",\"field\":\"abstract\",\"quote\":\"generating less than 1.2% overhead traffic\"},{\"id\":\"SYN-PUB-06542\",\"field\":\"abstract\",\"quote\":\"outperformed three existing tools on both accuracy and stealth metrics\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2159,
+    "outputTokens": 169,
+    "totalTokens": 2328,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2159,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 169,
+    "service_tier": "standard"
+  },
+  "ms": 19334
+}

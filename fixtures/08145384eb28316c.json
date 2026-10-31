@@ -1,0 +1,38 @@
+{
+  "key": "08145384eb28316c",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We need results we can embed directly into ProtoSense and the planned fifth hardware variant [C001 plans], so we want company ownership with the",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":true,\"reason\":\"\"},{\"item\":2,\"backed\":true,\"reason\":\"\"},{\"item\":3,\"backed\":false,\"reason\":\"Words say the collaboration was not continued formally, but do not mention lacking a formal handoff point.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 972,
+    "outputTokens": 64,
+    "totalTokens": 1036,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 972,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 64,
+    "service_tier": "standard"
+  },
+  "ms": 2190
+}

@@ -1,0 +1,47 @@
+{
+  "key": "a07c94dc802b0ca6",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Pair id: C001-CH1__R1015\n\nFit review: partial. Build an unsupervised anomaly detection method that learns a normal-traffic baseline from unlabelled Modbus/BACne",
+  "items": [
+    {
+      "type": "reasoning",
+      "content": {
+        "text": "Let me draft the JSON for this collaboration proposal.",
+        "type": "input_text"
+      },
+      "encryptedContent": "EpUCCnwIExABGAIqQL8bWdd950ITZrkPAR58cR67sJypyT42FhP6/YPM4HaNPVTa0BFrOMFODAkcMwWlMIye+HpR6mSxKzm9/cdzkiwyEWNsYXVkZS1zb25uZXQtNC02OABCCHRoaW5raW5nWgw2NjU3Njc3MDczNzKoAZyFl9cGEgzjrW46QYO1B+M81ZYaDC+VkaTew3EfUHcdMCIwrIO0zYGf1E2kRFasQcb7Pvoa70T9SjNDJw2fgJoqlhF9JlvJjtlQZvLO/kW3r+4BKke5P5MraCCcfv4RyII6RPgVGYl97OHLyMwgQlJbxhk3pOexLkqz5fVukIqspNjuJBwGlRFSpELZgor13OA2V5uW9438ARPeExgB",
+      "summary": []
+    },
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"title\":\"Spotting abnormal traffic on industrial networks without needing attack examples\",\"candidate\":\"\",\"problem\":[{\"subject\":\"C001-CH1\",\"text\":\"The ProtoSense module cannot flag unusual Modbus and BACnet behaviour because no client has ever supplied a packet capture containing a confirmed attack.\",\"sources\":[{\"id\":\"C001-CH1\",\"field\":\"detail\",\"quote\":\"none of our clients has ever given us a packet capture that contains a confirmed attack\"}],\"kind\":\"fact\"},{\"subject\":\"C001-CH1\",\"text\":\"A supervised classifier trained on public ICS datasets produced so many false positives in real deployments that clients started switching alerts off.\",\"sources\":[{\"id\":\"C001-CH1\",\"field\":\"detail\",\"quote\":\"flagged so many false positives in real deployments that clients started switching the alerts off\"}],\"kind\":\"fact\"},{\"subject\":\"C001-CH1\",\"text\":\"The company has collected several terabytes of normal traffic over three years but has nothing labelled as malicious to train from.\",\"sources\":[{\"id\":\"C001-CH1\",\"field\":\"detail\",\"quote\":\"collected several terabytes of captures from consenting clients over the past three years — but we have nothing labelled as malicious\"}],\"kind\":\"fact\"}],\"researchQuestions\":[\"Can an autoencoder trained only on site-specific Modbus TCP and BACnet/IP traffic detect deviations, measured against scripted faults injected on the company's hardware-in-the-loop bench?\",\"Does a hybrid architecture combining specification-based rules with neural anomaly scoring reduce false-positive rates compared to a standalone autoencoder, measured against technician consensus labels on archive captures?\",\"How does traffic window size affect detection latency and accuracy on the embedded hardware target, measured against throughput and reconstruction-error thresholds logged during bench tests?\"],\"plan\":[{\"phase\":\"Phase 1 — Baseline study (months 1–4)\",\"work\":\"University designs feature extraction and autoencoder architecture; company provides archive captures under NDA and one engineer to label representative normal windows.\",\"result\":\"A baseline model architecture validated on archive data, with a report of reconstruction-error distributions across Modbus TCP and BACnet/IP traffic types.\"},{\"phase\":\"Phase 2 — Prototype integration (months 5–9)\",\"work\":\"Company engineers integrate the model into the ProtoSense firmware on the hardware bench; university tunes the anomaly threshold and encoding granularity.\",\"result\":\"A prototype running on the hardware bench that flags deviations in real time, with a log of detection events and resource consumption figures.\"},{\"phase\":\"Phase 3 — Hardware-in-the-loop validation (months 10–14)\",\"work\":\"Company scripting team injects faults on the physical PLC simulators to create labelled anomaly events; university evaluates detection rate and false-positive rate against those events.\",\"result\":\"A validation dataset of scripted fault captures with ground-truth labels and a report confirming whether the false-positive rate meets the agreed threshold.\"},{\"phase\":\"Phase 4 — Finalisation (months 15–18)\",\"work\":\"University documents the method and any hybrid rule extensions; company verifies firmware integration readiness and prepares internal deployment guidelines.\",\"result\":\"A final method specification, a peer-reviewed paper submitted for publication, and a firmware-ready software package delivered to the company.\"}],\"companyBrings\":[{\"subject\":\"C001\",\"text\":\"The company can dedicate one to two engineers part-time with access to its traffic archives, hardware bench, and existing firmware codebase under NDA.\",\"sources\":[{\"id\":\"C001\",\"field\":\"rd_capacity\",\"quote\":\"dedicate one to two engineers part-time to a collaborative project, with access to our traffic archives, our hardware bench, and our existing firmware codebase under NDA\"}],\"kind\":\"fact\"},{\"subject\":\"C001\",\"text\":\"The company operates a hardware-in-the-loop bench with physical PLC simulators for testing firmware components.\",\"sources\":[{\"id\":\"C001\",\"field\":\"tech\",\"quote\":\"Hardware-in-the-loop bench testing with physical PLC simulators\"}],\"kind\":\"fact\"}],\"universityBrings\":[{\"subject\":\"R1015\",\"text\":\"The researcher has built an unsupervised anomaly detection framework that uses autoencoder-based neural networks trained exclusively on benign traffic to establish a baseline behavioural profile.\",\"sources\":[{\"id\":\"SYN-PUB-10523\",\"field\":\"abstract\",\"quote\":\"leverages autoencoder-based neural networks trained exclusively on benign traffic to establish a baseline behavioural profile\"}],\"kind\":\"fact\"},{\"subject\":\"R1015\",\"text\":\"The researcher has evaluated hybrid architectures combining specification-based rules with neural anomaly scoring for detecting protocol-level attacks in SCADA environments.\",\"sources\":[{\"id\":\"SYN-PUB-10525\",\"field\":\"abstract\",\"quote\":\"hybrid architectures combining specification-based rules with neural anomaly scoring achieve the best overall balance\"}],\"kind\":\"fact\"}],\"whyThisPair\":[{\"subject\":\"C001-CH1__R1015\",\"text\":\"The challenge requires a method that learns what normal looks like on a specific site without attack examples, which is the exact problem the researcher's autoencoder framework addresses.\",\"sources\":[{\"id\":\"C001-CH1\",\"field\":\"detail\",\"quote\":\"learns what normal looks like on a specific site and raises a flag when behaviour drifts from that baseline\"},{\"id\":\"SYN-PUB-10523\",\"field\":\"abstract\",\"quote\":\"without requiring labelled attack data\"}],\"kind\":\"inference\"},{\"subject\":\"C001-CH1__R1015\",\"text\":\"The researcher designs and validates anomaly detection algorithms while the company supplies the Modbus TCP and BACnet/IP traffic archives and the hardware bench needed to test them at the protocol level.\",\"sources\":[{\"id\":\"C001\",\"field\":\"rd_capacity\",\"quote\":\"access to our traffic archives, our hardware bench\"},{\"id\":\"C001\",\"field\":\"tech\",\"quote\":\"Modbus TCP and BACnet/IP protocol parsing\"}],\"kind\":\"inference\"},{\"subject\":\"C001-CH1__R1015\",\"text\":\"The fit review notes the researcher has no documented record of building unsupervised baseline methods for unlabelled traffic specifically; the company's several terabytes of normal captures cover that missing data need.\",\"sources\":[{\"id\":\"C001-CH1\",\"field\":\"detail\",\"quote\":\"several terabytes of captures from consenting clients over the past three years\"}],\"kind\":\"inference\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 1491,
+    "totalTokens": 1494,
+    "inputTokenDetails": {
+      "cached_tokens": 5317
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 2861,
+    "cache_read_input_tokens": 2456,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 2861,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 1491,
+    "service_tier": "standard"
+  },
+  "ms": 30986
+}

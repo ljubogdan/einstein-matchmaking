@@ -1,0 +1,38 @@
+{
+  "key": "7be1aff179ecb00d",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Attack-surface modelling methods designed for IT networks require substantial adaptations when applied to operational technology environments, b",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The field describes accuracy metrics (94.3% node-coverage, 91.7% edge-accuracy) but does not state that 'high accuracy' was achieved or compare it to other methods' accuracy in general terms; it only compares overhead and stealth. The claim's assertion of 'high accuracy' as an achievement is not directly supported by the field's framing.\", \"rewrite\": \"Topology discovery in heterogeneous networks can be accomplished through a hybrid framework combining passive traffic observation with selective active probing, while generating minimal overhead traffic and outperforming existing tools on stealth metrics.\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1437,
+    "outputTokens": 196,
+    "totalTokens": 1633,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1437,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 196,
+    "service_tier": "standard"
+  },
+  "ms": 38157
+}

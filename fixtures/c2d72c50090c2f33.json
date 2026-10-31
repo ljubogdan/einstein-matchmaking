@@ -1,0 +1,38 @@
+{
+  "key": "c2d72c50090c2f33",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Lipid oxidation in seed oils proceeds through both primary oxidation (peroxide formation) and secondary oxidation (TBARS), and water activity an",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"No mention of TBARS (secondary oxidation marker) or pH as a critical driver of oxidation pathways; only peroxide values (primary oxidation) are reported.\", \"rewrite\": \"Lipid oxidation in seed oils proceeds through primary oxidation (peroxide formation), and water activity and pH are environmental factors affecting oxidation.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 996,
+    "outputTokens": 96,
+    "totalTokens": 1092,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 996,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 96,
+    "service_tier": "standard"
+  },
+  "ms": 33279
+}

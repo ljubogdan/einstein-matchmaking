@@ -7,15 +7,15 @@
       "type": "message",
       "role": "assistant",
       "content": {
-        "text": "{\"researchProblem\": true, \"reason\": \"The company faces a fundamental scientific challenge in understanding and controlling lipid oxidation pathways in cold-pressed pumpkin seed oil, which requires research-level knowledge of oxidation mechanisms, antioxidant efficacy, and storage conditions rather than routine operational troubleshooting.\", \"researchQuestions\": [\"What are the dominant oxidation pathways (autoxidation, photo-oxidation, enzymatic lipoxidase activity, or pro-oxidant trace metals) in cold-pressed pumpkin seed oil and how do they contribute to peroxide value accumulation under dark glass packaging with nitrogen flushing?\", \"How do seed provenance, moisture content, storage temperature, and residual dissolved oxygen in headspace interact to modulate the shelf-life stability of unrefined seed oils, and which factors are most critical for pumpkin seed oil?\", \"What is the efficacy of natural antioxidants such as rosemary extract, tocopherols, and other phenolic compounds at inhibiting specific oxidation pathways in cold-pressed pumpkin seed oil, and how does their effectiveness depend on oil composition and storage conditions?\"], \"searchTerms\": [\"lipid oxidation\", \"peroxide value kinetics\", \"cold-pressed seed oil\", \"pumpkin seed oil stability\", \"autoxidation mechanism\", \"photo-oxidation\", \"lipoxygenase activity\", \"natural antioxidants\", \"tocopherol\", \"headspace oxygen\", \"fatty acid composition\", \"shelf-life prediction\"]}",
+        "text": "{\"researchProblem\": true, \"reason\": \"The company faces a specific technical problem requiring investigation of oxidation mechanisms in cold-pressed oils and optimization of storage conditions—questions that academic research can address through analytical chemistry and food science methodology.\", \"researchQuestions\": [\"What are the dominant lipid oxidation pathways (enzymatic, photochemical, or metal-catalysed) in cold-pressed pumpkin seed oil under standard retail storage conditions, and how do their relative contributions vary with headspace oxygen concentration?\", \"How do residual oxygen levels in nitrogen-flushed glass bottles correlate with peroxide value development kinetics, and what is the minimum headspace oxygen concentration required to maintain acceptable oxidative stability in cold-pressed seed oils?\", \"What is the impact of minor lipophilic compounds (tocopherols, phenolic compounds, trace metals, phospholipids) on oxidation pathway selection and antioxidant efficacy in cold-pressed pumpkin seed oil?\"], \"searchTerms\": [\"lipid oxidation pathways\", \"cold-pressed oils\", \"peroxide value\", \"headspace oxygen\", \"natural antioxidants seed oils\", \"enzymatic oxidation\", \"photochemical oxidation\", \"trace metal catalysis\", \"tocopherol content\", \"nitrogen flushing\", \"shelf-life prediction\", \"oil rancidity\"]}",
         "type": "output_text"
       }
     }
   ],
   "tokenUsage": {
     "inputTokens": 1242,
-    "outputTokens": 342,
-    "totalTokens": 1584,
+    "outputTokens": 302,
+    "totalTokens": 1544,
     "inputTokenDetails": {
       "cached_tokens": 0
     },
@@ -31,7 +31,8 @@
       "ephemeral_5m_input_tokens": 0,
       "ephemeral_1h_input_tokens": 0
     },
-    "output_tokens": 342,
+    "output_tokens": 302,
     "service_tier": "standard"
-  }
+  },
+  "ms": 6594
 }

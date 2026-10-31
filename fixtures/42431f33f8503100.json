@@ -1,0 +1,38 @@
+{
+  "key": "42431f33f8503100",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C061-CH1: Our cold-pressed pumpkin seed oil goes rancid within 4 months on shelf, but competitors manage 9–12 months; we lose about 15% of each batch ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Cold-pressed hemp seed oil showed photodegradation rate constants of 0.049 h⁻¹, compared to 0.012 h⁻¹ for medium-chain triglyceride oil, with lipid oxidation directly correlated to carotenoid loss.\",\"sources\":[{\"id\":\"SYN-PUB-06409\",\"field\":\"abstract\",\"quote\":\"β-Carotene photodegradation rate constants were 0.031, 0.012, and 0.049 h⁻¹ for sunflower, MCT, and hemp seed oil emulsions, respectively. The markedly higher rate in hemp seed emulsions correlated with faster peroxide value increases\"}]},{\"claim\":2,\"text\":\"Addition of 0.05% tocopherol to the oil phase extended UV-A half-life to 19.1 h and suppressed malondialdehyde formation by 34%, indicating that tocopherol content analysis should be prioritized for understanding oxidation pathways.\",\"sources\":[{\"id\":\"SYN-PUB-06406\",\"field\":\"abstract\",\"quote\":\"Addition of 0.05 % tocopherol to the oil phase extended UV-A half-life to 19.1 h and suppressed malondialdehyde formation by 34 %.\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2664,
+    "outputTokens": 322,
+    "totalTokens": 2986,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2664,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 322,
+    "service_tier": "standard"
+  },
+  "ms": 17615
+}

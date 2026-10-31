@@ -1,0 +1,38 @@
+{
+  "key": "03a2474b32fb6938",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We accept 30-day review — that is sufficient to remove confidential process data and meets the researcher's publishing needs. We want company ow",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"The words express a desire for implementable process changes without new equipment, not that recommendations are specific to the bottling line and production conditions.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 514,
+    "outputTokens": 48,
+    "totalTokens": 562,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 514,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 48,
+    "service_tier": "standard"
+  },
+  "ms": 10308
+}

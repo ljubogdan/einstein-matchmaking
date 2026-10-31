@@ -1,0 +1,38 @@
+{
+  "key": "83833ef4db9713ab",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We need results we can apply directly to our MBR units and service contracts, so we want company ownership with the university retaining academi",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words describe a 2019 sampling campaign, not service records showing a seasonal fouling pattern.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 496,
+    "outputTokens": 40,
+    "totalTokens": 536,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 496,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 40,
+    "service_tier": "standard"
+  },
+  "ms": 7103
+}

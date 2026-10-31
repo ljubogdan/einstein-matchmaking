@@ -1,0 +1,38 @@
+{
+  "key": "f29ad46c7a4d5adc",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C001-CH1: We need to detect unusual behaviour on Modbus and BACnet networks without labelled attack data — our clients have never been breached (or do",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Finite automaton models of IoT device communication behaviour can be inferred from metadata features alone, with inferred automata reproducing 79–93% of transitions present in models derived from unencrypted reference captures.\",\"sources\":[{\"id\":\"SYN-PUB-05001\",\"field\":\"abstract\",\"quote\":\"finite automaton models of IoT device communication behaviour can be inferred from such metadata alone\"},{\"id\":\"SYN-PUB-05001\",\"field\":\"abstract\",\"quote\":\"The inferred automata reproduce 79–93% of transitions present in models derived from unencrypted reference captures\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2086,
+    "outputTokens": 150,
+    "totalTokens": 2236,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2086,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 150,
+    "service_tier": "standard"
+  },
+  "ms": 18440
+}

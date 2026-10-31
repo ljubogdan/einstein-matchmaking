@@ -1,0 +1,38 @@
+{
+  "key": "4c438ee9d6221d64",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The company has collected several terabytes of captures from consenting clients over the past three years.\n  C001-CH1 detail: \"several terabytes",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"No field states that the research group leads baseline modelling and algorithm design\", \"rewrite\": \"Unsupervised baseline modelling and algorithm design draws on the research group's expertise; firmware integration and on-device testing is carried out by the company engineer using the hardware bench and existing firmware codebase.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1642,
+    "outputTokens": 133,
+    "totalTokens": 1775,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1642,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 133,
+    "service_tier": "standard"
+  },
+  "ms": 1438
+}

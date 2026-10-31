@@ -1,0 +1,38 @@
+{
+  "key": "15f214607d182d6f",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Njivomer lacks the in-house knowledge to implement FAO Penman-Monteith evapotranspiration correctly or to connect soil water-holding capacity an",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"Field says 'two in-house developers' not 'one part-time developer'; also says 'one GIS analyst' not 'one part-time GIS analyst' (partial time is mentioned for the collaboration generally, not specified per role)\", \"rewrite\": \"Two in-house developers and one GIS analyst are available for partial time dedication to a research collaboration on the project.\"}, {\"claim\": 5, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"partly\", \"reason\": \"The claim states the researcher's application uses an API for weather data and matches NjivaManager's platform, but the fields do not confirm that NjivaManager specifically uses or can use the same API or that its Android platform is compatible with the smartphone application described\", \"rewrite\": \"The researcher's prior work used a smartphone application that retrieves daily meteorological data from a national weather service API; Njivomer has existing daily weather feeds and an Android-based NjivaManager platform; the university could do ET modelling and validation while the company does API and database integration work.\"}, {\"claim\": 9, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 400,
+    "totalTokens": 403,
+    "inputTokenDetails": {
+      "cached_tokens": 5700
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 5700,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 5700,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 400,
+    "service_tier": "standard"
+  },
+  "ms": 6550
+}

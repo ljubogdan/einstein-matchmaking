@@ -1,0 +1,38 @@
+{
+  "key": "6d8a624df9ca1bb3",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Emulsified oil droplets in vegetable oil wastewater form compressible gel layers that dominate hydraulic resistance, and pre-screening through a",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"The field does not specify that research gaps exist in long-term pilot studies under real industrial conditions; it only identifies this as a critical research gap but does not establish it as part of why fouling management is the predominant barrier.\", \"rewrite\": \"Fouling management through advanced cleaning protocols and anti-fouling surface modification is identified as the predominant technical barrier in agro-industrial membrane separation.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1678,
+    "outputTokens": 152,
+    "totalTokens": 1830,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1678,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 152,
+    "service_tier": "standard"
+  },
+  "ms": 29134
+}

@@ -1,0 +1,38 @@
+{
+  "key": "481faba1c5458d09",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C144-CH2: Downstream purification — specifically the ultrafiltration step — runs at only 55% of nominal throughput because the membranes foul with res",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Spent broth analysis using LC-MS extraction protocols can reveal organism-specific metabolic signatures that correlate with production quality during repeated fermentation cycles.\",\"sources\":[{\"id\":\"SYN-PUB-10451\",\"field\":\"abstract\",\"quote\":\"Extraction efficiency for intracellular and extracellular metabolomics was compared across five protocols\"},{\"id\":\"SYN-PUB-06266\",\"field\":\"abstract\",\"quote\":\"Spore morphology by light microscopy showed progressive conidiophore shortening correlating with gluconic acid concentration\"}]},{\"claim\":2,\"text\":\"Multi-batch process monitoring can identify principal component monitoring for trajectory deviation that precedes observable performance problems in production organism cultures.\",\"sources\":[{\"id\":\"SYN-PUB-10453\",\"field\":\"abstract\",\"quote\":\"principal component monitoring for trajectory deviation, and targeted hypothesis testing\"},{\"id\":\"SYN-PUB-06266\",\"field\":\"abstract\",\"quote\":\"Protease activity in the harvest broth fell from 342 U/mL in batch 1 to 198 U/mL in batch 12\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2568,
+    "outputTokens": 263,
+    "totalTokens": 2831,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2568,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 263,
+    "service_tier": "standard"
+  },
+  "ms": 18429
+}

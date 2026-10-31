@@ -1,0 +1,38 @@
+{
+  "key": "2427d693fa0f42f6",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C047-CH1: Operators want to know which distribution transformers will fail next year; they have dissolved gas analysis results and load data, but no m",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Gradient-boosted survival models have been fitted to SCADA telemetry and condition monitoring signals to generate ranked maintenance schedules, which were evaluated in retrospective simulation showing an estimated 22% reduction in unscheduled downtime hours.\",\"sources\":[{\"id\":\"SYN-PUB-02957\",\"field\":\"abstract\",\"quote\":\"fits gradient-boosted survival models—specifically, a discrete-time hazard model and a random survival forest—to a combined dataset of SCADA telemetry and tower-mounted accelerometer readings\"}]},{\"claim\":2,\"text\":\"Statistical feature extraction from SCADA records combined with machine learning classification has demonstrated ability to identify incipient faults 48 hours before failure across multiple sites with acceptable cross-site generalisation.\",\"sources\":[{\"id\":\"SYN-PUB-08182\",\"field\":\"abstract\",\"quote\":\"a detection window of 48 hours before the logged fault event was used\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2335,
+    "outputTokens": 222,
+    "totalTokens": 2557,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2335,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 222,
+    "service_tier": "standard"
+  },
+  "ms": 16887
+}

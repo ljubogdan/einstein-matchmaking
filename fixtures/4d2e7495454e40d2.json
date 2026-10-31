@@ -1,0 +1,38 @@
+{
+  "key": "4d2e7495454e40d2",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: [R0269]'s notes state she is 'particularly interested in connecting with companies processing plant-based proteins or operating fermentation dow",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words describe open_to formats, not fermentation downstream or dairy wastewater topics.\"},{\"item\":2,\"backed\":true,\"reason\":\"\"},{\"item\":3,\"backed\":true,\"reason\":\"\"},{\"item\":4,\"backed\":true,\"reason\":\"\"},{\"item\":5,\"backed\":true,\"reason\":\"\"},{\"item\":6,\"backed\":true,\"reason\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 98,
+    "totalTokens": 101,
+    "inputTokenDetails": {
+      "cached_tokens": 1875
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 1875,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 1875,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 98,
+    "service_tier": "standard"
+  },
+  "ms": 7395
+}

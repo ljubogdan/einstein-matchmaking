@@ -1,0 +1,38 @@
+{
+  "key": "c5f8090abd8beba1",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: [R0269] fits both challenges strongly, but [C144-CH2] involves fermentation downstream processing and bioprocess UF troubleshooting on PES membr",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words only give a job title, nothing about fitting challenges strongly.\"},{\"item\":2,\"backed\":true,\"reason\":\"\"},{\"item\":3,\"backed\":true,\"reason\":\"\"},{\"item\":4,\"backed\":true,\"reason\":\"\"},{\"item\":5,\"backed\":true,\"reason\":\"\"},{\"item\":6,\"backed\":true,\"reason\":\"\"},{\"item\":7,\"backed\":true,\"reason\":\"\"},{\"item\":8,\"backed\":false,\"reason\":\"Words describe R0745's focus area but do not state fit ratings for C088-CH2 or C144-CH2.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 145,
+    "totalTokens": 148,
+    "inputTokenDetails": {
+      "cached_tokens": 1941
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 1941,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 1941,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 145,
+    "service_tier": "standard"
+  },
+  "ms": 2025
+}

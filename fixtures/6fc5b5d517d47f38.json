@@ -1,0 +1,38 @@
+{
+  "key": "6fc5b5d517d47f38",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Emulsified oil droplets constitute the primary foulant in vegetable oil processing membranes, forming a compressible gel layer.\n  SYN-PUB-08240 ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The research group's characterisation methods are from a different study (SYN-PUB-08238) on dairy wastewater, not stated to be connected to the company's service records from C088-CH2.\", \"rewrite\": \"The company provides three years of service records showing seasonal fouling patterns. Research on dairy wastewater fouling has characterised fouling layers using scanning electron microscopy, ATR-FTIR spectroscopy, and hydraulic resistance analysis.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1603,
+    "outputTokens": 150,
+    "totalTokens": 1753,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1603,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 150,
+    "service_tier": "standard"
+  },
+  "ms": 2820
+}

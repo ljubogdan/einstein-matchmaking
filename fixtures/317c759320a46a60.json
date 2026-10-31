@@ -1,0 +1,38 @@
+{
+  "key": "317c759320a46a60",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We need inference running on our EdgeWatch sensor within twelve months, so we want company ownership of results with academic-use rights retaine",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words only state team size, not that EdgeWatch sensor and parsers are core commercial assets to protect as background IP.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 481,
+    "outputTokens": 44,
+    "totalTokens": 525,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 481,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 44,
+    "service_tier": "standard"
+  },
+  "ms": 1117
+}

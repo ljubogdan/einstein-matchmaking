@@ -1,0 +1,38 @@
+{
+  "key": "b0e68f344b9d9f61",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Pre-screening of feed streams through mesh and tangential flow microfiltration pre-treatment can reduce fouling in downstream membrane separatio",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"Tangential flow microfiltration pre-treatment is mentioned only in the lactic acid study (SYN-PUB-08244), not in the vegetable oil study (SYN-PUB-08240) which documents the 34% fouling reduction. The claim combines two different pre-treatment methods from two different studies.\", \"rewrite\": \"Pre-screening of feed streams through mesh can reduce fouling in downstream membrane separation, with pre-screening reducing total fouling resistance by 34%. Tangential flow microfiltration pre-treatment has been shown to mitigate fouling in membrane systems.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1967,
+    "outputTokens": 181,
+    "totalTokens": 2148,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1967,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 181,
+    "service_tier": "standard"
+  },
+  "ms": 14854
+}

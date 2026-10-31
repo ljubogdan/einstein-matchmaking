@@ -1,0 +1,38 @@
+{
+  "key": "b50bbd6273457f4d",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Maintenance teams currently rely on age and visual inspection, sometimes replacing transformers that still had years left while missing ones tha",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"Data held 'inside the GridSense Assets environment' not stated; only that they 'have cleaned and structured data' for these transformers\", \"rewrite\": \"The project will use cleaned and structured data for roughly four hundred transformers across two operators, including failure event records.\"}, {\"claim\": 5, \"support\": \"partly\", \"reason\": \"No field states one engineer is part-time or supports data preparation; only 'Five engineers, one with a PhD' is given\", \"rewrite\": \"The team includes one engineer with a PhD and four other engineers.\"}, {\"claim\": 6, \"support\": \"partly\", \"reason\": \"Field shows work on DGA and thermal modelling validated against 38 transformers, not 'combining DGA and load data' or 'failure prediction' as stated\", \"rewrite\": \"The research group has published work on dissolved gas analysis and thermal modelling of transformers validated against field data from a regional operator.\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 10, \"support\": \"partly\", \"reason\": \"No field states the company engineer will 'integrate the result into GridSense Assets' or that university team will 'design the interpretable planner output'; only that output must be readable and GridSense DataBridge exists\", \"rewrite\": \"The company has ETL connectors to pull data into a unified store and requires output readable by maintenance planners with no data science background.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 462,
+    "totalTokens": 465,
+    "inputTokenDetails": {
+      "cached_tokens": 5043
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 5043,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 5043,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 462,
+    "service_tier": "standard"
+  },
+  "ms": 4239
+}

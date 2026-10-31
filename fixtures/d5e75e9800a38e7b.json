@@ -1,0 +1,38 @@
+{
+  "key": "d5e75e9800a38e7b",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Soil water balance modelling at parcel level is conducted using field measurements from FDR soil moisture probes and lysimeter stations to valid",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"Lysimeter stations are not mentioned in the provided fields; only FDR probes are documented\", \"rewrite\": \"Soil water balance modelling at parcel level is conducted using field measurements from FDR soil moisture probes to validate calculations.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1222,
+    "outputTokens": 80,
+    "totalTokens": 1302,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1222,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 80,
+    "service_tier": "standard"
+  },
+  "ms": 13247
+}

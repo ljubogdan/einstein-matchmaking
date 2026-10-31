@@ -1,0 +1,38 @@
+{
+  "key": "3a5fa1dbfd81e891",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: A bounded contract research engagement fits this challenge because we need a specific, actionable solution within our two-year expansion window ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words only state expansion plans exist; they say nothing about a two-year window requiring a bounded contract research engagement, company ownership, or publication review terms.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 481,
+    "outputTokens": 51,
+    "totalTokens": 532,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 481,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 51,
+    "service_tier": "standard"
+  },
+  "ms": 5153
+}

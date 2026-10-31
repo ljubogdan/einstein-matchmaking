@@ -1,0 +1,38 @@
+{
+  "key": "0b34b61ba7a2ac89",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Cross-flow ultrafiltration systems using spiral-wound polyethersulfone membranes experience irreversible fouling after 8 hours, with permeate fl",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"The claim combines data from two different membrane types and studies: spiral-wound polyethersulfone (which showed 18% flux loss after 8 hours) and α-alumina tubular membranes (which showed 65-80% flux decline in first 30 minutes). The claim presents these as characteristics of the same system type, but they are from different studies with different membrane materials.\", \"rewrite\": \"Spiral-wound polyethersulfone membranes experience irreversible fouling after 8 hours with 18% permeate flux loss, while α-alumina tubular membranes show permeate flux declining by 65–80% within the first 30 minutes of operation depending on operating conditions.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2042,
+    "outputTokens": 205,
+    "totalTokens": 2247,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2042,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 205,
+    "service_tier": "standard"
+  },
+  "ms": 14417
+}

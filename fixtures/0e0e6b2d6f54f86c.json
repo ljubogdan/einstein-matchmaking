@@ -1,0 +1,38 @@
+{
+  "key": "0e0e6b2d6f54f86c",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Research focuses on photocatalytic degradation of micropollutants in pharmaceutical and municipal wastewater using advanced oxidation processes ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Assessment of fouling management through backwashing not detailed in the field; only states fouling was manageable through backwashing without discussing systematic assessment or evaluation methodology\", \"rewrite\": \"Develops and evaluates immobilised TiO2 photocatalytic membrane systems for continuous-flow water treatment with manageable fouling through backwashing.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1247,
+    "outputTokens": 121,
+    "totalTokens": 1368,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1247,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 121,
+    "service_tier": "standard"
+  },
+  "ms": 38290
+}

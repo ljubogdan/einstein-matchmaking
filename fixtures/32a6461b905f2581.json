@@ -1,0 +1,38 @@
+{
+  "key": "32a6461b905f2581",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We want university ownership with an option to licence, which protects the company's product roadmap while keeping results publishable and prese",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words only identify the project names/titles; they say nothing about background know-how staying with the university.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 540,
+    "outputTokens": 42,
+    "totalTokens": 582,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 540,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 42,
+    "service_tier": "standard"
+  },
+  "ms": 2296
+}

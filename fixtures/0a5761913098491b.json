@@ -1,0 +1,38 @@
+{
+  "key": "0a5761913098491b",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Summer evapotranspiration has been computed by the Penman–Monteith equation to estimate groundwater recharge in a Vojvodina agricultural catchme",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"The claim states a daily soil water balance model has been used to assess future recharge, but the source only shows it was used to assess future recharge for specific periods (2041–2060 and 2071–2090), not across all of Vojvodina in a general sense. More specifically, the sentence combines facts from two different studies (SYN-PUB-03044 about computing evapotranspiration and SYN-PUB-03051 about the soil water balance model), but the first study does not mention using a soil water balance model to assess future recharge—it only used evapotranspiration in a correlation analysis.\", \"rewrite\": \"Summer evapotranspiration has been computed by the Penman–Monteith equation to estimate groundwater recharge in a Vojvodina agricultural catchment.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1619,
+    "outputTokens": 234,
+    "totalTokens": 1853,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1619,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 234,
+    "service_tier": "standard"
+  },
+  "ms": 14984
+}

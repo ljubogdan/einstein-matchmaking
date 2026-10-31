@@ -1,0 +1,38 @@
+{
+  "key": "87b34f54ba93a0c5",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We want university ownership with an option to licence so the researcher's analytical know-how and prior publications remain with the institutio",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words list two project titles only; nothing about university ownership, licensing, or analytical know-how remaining with the institution.\"},{\"item\":2,\"backed\":false,\"reason\":\"Words state publication count and date only; nothing about a 30-day review period or protecting an active publishing record.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 681,
+    "outputTokens": 80,
+    "totalTokens": 761,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 681,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 80,
+    "service_tier": "standard"
+  },
+  "ms": 3886
+}

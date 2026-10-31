@@ -1,0 +1,38 @@
+{
+  "key": "7fb797c4e1fe463d",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: Our side requires university ownership of results to protect the right to publish and to build on this work in future research [R0689 publicatio",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words list publication counts/dates; they say nothing about university ownership of IP or the right to publish.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 485,
+    "outputTokens": 41,
+    "totalTokens": 526,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 485,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 41,
+    "service_tier": "standard"
+  },
+  "ms": 2618
+}

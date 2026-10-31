@@ -1,0 +1,38 @@
+{
+  "key": "d774285f1d749d39",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Four security engineers support integration, testing, and ARM-target profiling throughout the project.\n  C032 rd_capacity: \"Four security engine",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":2,\"support\":\"partly\",\"reason\":\"No evidence that edge deployment and ARM-constrained model compression are not covered by researcher's published work; the sentence assumes this but the fields don't address the researcher's publications or what they cover.\",\"rewrite\":\"Edge deployment and ARM-constrained model compression are needed because the model has to run inference on the edge sensor with 512 MB of RAM and a modest ARM core, so the company's EdgeWatch sensor hardware and firmware team carry the edge optimisation and integration work.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1106,
+    "outputTokens": 135,
+    "totalTokens": 1241,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1106,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 135,
+    "service_tier": "standard"
+  },
+  "ms": 1564
+}

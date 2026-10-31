@@ -1,0 +1,38 @@
+{
+  "key": "0600acfd5cb4b33f",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Cold-pressed pumpkin seed oil hits a peroxide value above the acceptable threshold between three and five months after bottling, while competito",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"No mention of providing samples from multiple batches across time points or access to the bottling line for headspace oxygen measurement in the field; only that the company has the bottling line equipment.\", \"rewrite\": \"The company has a dark glass bottling line with nitrogen flushing.\"}, {\"claim\": 5, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"partly\", \"reason\": \"The fields show the company has production equipment and batches vary, but do not state that the company provides multi-batch samples, documented bottling parameters, or access to the bottling line for the research group.\", \"rewrite\": \"Production batches vary in their oxidation profile, and the company operates a cold-press production line with nitrogen flushing.\"}, {\"claim\": 10, \"support\": \"partly\", \"reason\": \"The published paper proposes a 2% threshold for hemp seed oil in PET bottles over 60 days; the company's uncertainty is about pumpkin seed oil in glass bottles over months, and the paper does not directly state that residual oxygen above 2% accelerates oxidation in this specific context or that this matches the company's single-nozzle performance.\", \"rewrite\": \"Research on headspace oxygen in cold-pressed seed oils suggests that nitrogen flushing significantly reduces peroxide value and that residual oxygen availability accelerates oxidation.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 462,
+    "totalTokens": 465,
+    "inputTokenDetails": {
+      "cached_tokens": 4744
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 4744,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 4744,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 462,
+    "service_tier": "standard"
+  },
+  "ms": 7662
+}

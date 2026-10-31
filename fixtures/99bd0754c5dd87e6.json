@@ -1,0 +1,38 @@
+{
+  "key": "99bd0754c5dd87e6",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We want university ownership of results with an option to licence, which is our standard position for joint projects; in return we accept 60-day",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":true,\"reason\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 485,
+    "outputTokens": 20,
+    "totalTokens": 505,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 485,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 20,
+    "service_tier": "standard"
+  },
+  "ms": 951
+}

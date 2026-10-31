@@ -1,0 +1,38 @@
+{
+  "key": "d5acd5dff18b931e",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Enzymatic pre-treatment upstream of ultrafiltration can reduce membrane fouling by hydrolyzing protein aggregates and cell debris, with studies ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The claim states that backwash frequency directly influences flux recovery, but the source only demonstrates one specific backwash frequency (every 15 min) and its result; it does not show variation in backwash frequency or how different frequencies affect flux recovery.\", \"rewrite\": \"Industrial ultrafiltration systems use polyethersulphone membranes with varying cut-offs for bioprocess clarification, and operational parameters including transmembrane pressure influence fouling deposit compressibility, while backwash can restore 70–85% of initial flux.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1606,
+    "outputTokens": 162,
+    "totalTokens": 1768,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1606,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 162,
+    "service_tier": "standard"
+  },
+  "ms": 37366
+}

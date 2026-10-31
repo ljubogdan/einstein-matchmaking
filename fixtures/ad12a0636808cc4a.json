@@ -7,15 +7,15 @@
       "type": "message",
       "role": "assistant",
       "content": {
-        "text": "{\"expertise\":[{\"text\":\"Research group develops hierarchical Bayesian models that estimate heterogeneous failure rates across machine populations using irregular inspection data, enabling ranking of units by residual life for maintenance prioritization.\",\"sources\":[{\"id\":\"SYN-PUB-03297\",\"field\":\"abstract\",\"quote\":\"hierarchical Bayesian Poisson–Gamma model for failure counts observed over irregular inspection intervals\"},{\"id\":\"SYN-PUB-03297\",\"field\":\"abstract\",\"quote\":\"Predictive posterior distributions for time to next failure were used to rank units by expected residual life\"}]},{\"text\":\"Sequential Bayesian updating method adapts remaining useful life models to concept drift in operating conditions and load profiles, reducing prediction error by re-weighting observations with tunable time decay.\",\"sources\":[{\"id\":\"SYN-PUB-03304\",\"field\":\"abstract\",\"quote\":\"Sequential Bayesian updating scheme in which the posterior over RUL model parameters is revised each time a failure or censoring event is recorded\"},{\"id\":\"SYN-PUB-03304\",\"field\":\"abstract\",\"quote\":\"operating conditions and load profiles drift over months or years, causing predictive accuracy to degrade\"}]},{\"text\":\"Research covers systematic feature extraction from multivariate sensor streams for predictive maintenance, with published benchmarks comparing statistical and wavelet-based approaches for classification.\",\"sources\":[{\"id\":\"SYN-PUB-03296\",\"field\":\"abstract\",\"quote\":\"systematic comparison of 22 feature extraction approaches is presented for multivariate time-series data from rotating machinery\"},{\"id\":\"SYN-PUB-03296\",\"field\":\"keywords\",\"quote\":\"feature extraction, predictive maintenance, multivariate time series\"}]}],\"fit\":\"strong\",\"fitReason\":\"The researcher's work directly addresses the core challenge: hierarchical Bayesian models rank machines by failure risk using heterogeneous inspection data [SYN-PUB-03297], sequential updating adapts to changing load conditions [SYN-PUB-03304], and feature extraction methods handle multivariate sensor streams like dissolved gas analysis [SYN-PUB-03296], all with demonstrated field validation and maintainable outputs suitable for non-expert planners.\"}",
+        "text": "{\"expertise\":[{\"text\":\"Remaining useful life models can be updated sequentially using Bayesian methods when operating conditions drift, reducing prediction error on equipment monitored over months or years.\",\"sources\":[{\"id\":\"SYN-PUB-03304\",\"field\":\"abstract\",\"quote\":\"remaining useful life (RUL) models for rotating equipment are typically trained once and then applied statically, but operating conditions and load profiles drift over months or years\"}]},{\"text\":\"Hierarchical Bayesian models can estimate heterogeneous failure rates across machine populations from irregular inspection intervals and rank units by expected residual life to reduce unplanned outages.\",\"sources\":[{\"id\":\"SYN-PUB-03297\",\"field\":\"abstract\",\"quote\":\"hierarchical Bayesian Poisson–Gamma model for failure counts observed over irregular inspection intervals, allowing partial pooling of information\"}]},{\"text\":\"Multivariate time-series features extracted from sensor data can be systematically evaluated and reduced in dimensionality while retaining predictive power for downstream failure classification.\",\"sources\":[{\"id\":\"SYN-PUB-03296\",\"field\":\"abstract\",\"quote\":\"systematic comparison of 22 feature extraction approaches is presented for multivariate time-series data from rotating machinery\"}]}],\"fit\":\"strong\",\"fitReason\":\"The researcher's publications directly address predictive maintenance ranking using Bayesian methods on heterogeneous equipment populations [SYN-PUB-03297], sequential model updating under changing conditions [SYN-PUB-03304], and feature extraction from time-series sensor data [SYN-PUB-03296], which are the core technical requirements for converting dissolved gas analysis and load data into transformer failure scores.\"}",
         "type": "output_text"
       }
     }
   ],
   "tokenUsage": {
     "inputTokens": 2154,
-    "outputTokens": 498,
-    "totalTokens": 2652,
+    "outputTokens": 383,
+    "totalTokens": 2537,
     "inputTokenDetails": {
       "cached_tokens": 0
     },
@@ -31,8 +31,8 @@
       "ephemeral_5m_input_tokens": 0,
       "ephemeral_1h_input_tokens": 0
     },
-    "output_tokens": 498,
+    "output_tokens": 383,
     "service_tier": "standard"
   },
-  "ms": 27673
+  "ms": 22988
 }

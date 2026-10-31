@@ -1,0 +1,38 @@
+{
+  "key": "cdb3e415130fa538",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C032-CH1: We need to detect unusual behaviour on Modbus and BACnet networks without labelled attack data.\nDetail: Our EdgeWatch sensor captures all tr",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Quantised convolutional networks can run inference on ARM edge hardware while achieving 97% of full-precision AUPRC and meeting a 5 ms per-window latency budget.\",\"sources\":[{\"id\":\"SYN-PUB-00963\",\"field\":\"abstract\",\"quote\":\"quantised convolutional network fits within 200 KB and achieves 97% of its full-precision AUPRC while meeting a 5 ms per-window latency budget on the ARM board\"}]},{\"claim\":2,\"text\":\"ADWIN-based adaptive windowing with rotating ensemble methods can detect concept drift in industrial streams where baselines shift due to seasonal variation and operational changes.\",\"sources\":[{\"id\":\"SYN-PUB-00961\",\"field\":\"abstract\",\"quote\":\"Industrial processes evolve over time due to wear, seasonal variation, and deliberate operational changes, causing the statistical properties of sensor streams to shift\"}]},{\"claim\":3,\"text\":\"Isolation forest and feature-hashed random forest are deployable on microcontroller-class edge devices with tight RAM budgets, with the latter achieving better AUPRC performance.\",\"sources\":[{\"id\":\"SYN-PUB-00963\",\"field\":\"abstract\",\"quote\":\"On the microcontroller, only isolation forest and feature-hashed random forest are deployable; the latter achieves the better AUPRC\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2335,
+    "outputTokens": 321,
+    "totalTokens": 2656,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2335,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 321,
+    "service_tier": "standard"
+  },
+  "ms": 33247
+}

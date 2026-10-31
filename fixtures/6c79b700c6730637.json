@@ -1,0 +1,38 @@
+{
+  "key": "6c79b700c6730637",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C061-CH1: Our cold-pressed pumpkin seed oil goes rancid within 4 months on shelf, but competitors manage 9–12 months; we lose about 15% of each batch ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Tocopherol content acts as a partial endogenous antioxidant in carotenoid-rich extracts, with higher initial tocopherol levels correlating with extended lycopene stability, with Pearson correlation between initial tocopherol content and lycopene half-life of 0.82.\",\"sources\":[{\"id\":\"SYN-PUB-09783\",\"field\":\"abstract\",\"quote\":\"Tocopherol content in the same extracts acted as a partial endogenous antioxidant, delaying carotenoid oxidation: Pearson correlation between initial tocopherol content and lycopene half-life was 0.82.\"}]},{\"claim\":2,\"text\":\"Work has characterized tocopherol content in press cake streams from a regional cold-press oil producer.\",\"sources\":[{\"id\":\"R0922\",\"field\":\"industry_experience\",\"quote\":\"She participated in an industry contract with a regional cold-press oil producer to characterise tocopherol content in press cake streams.\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2853,
+    "outputTokens": 244,
+    "totalTokens": 3097,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2853,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 244,
+    "service_tier": "standard"
+  },
+  "ms": 16177
+}

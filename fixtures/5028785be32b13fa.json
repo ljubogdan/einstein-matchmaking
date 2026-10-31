@@ -1,0 +1,38 @@
+{
+  "key": "5028785be32b13fa",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: The university retains initial ownership with the company holding an option to assign, publication review is 30 days, and our background IP is e",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words describe evapotranspiration research; say nothing about IP ownership, publication review periods, or background IP protection.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 506,
+    "outputTokens": 45,
+    "totalTokens": 551,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 506,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 45,
+    "service_tier": "standard"
+  },
+  "ms": 10497
+}
