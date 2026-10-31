@@ -24,6 +24,8 @@
 
 Built on [Mozaik](https://github.com/jigjoy-ai/mozaik) for the NTP Novi Sad × JigJoy Hackathon, EINSTEIN track.
 
+**Try the board online: [prenup-board.onrender.com](https://prenup-board.onrender.com)**. It replays the recorded run, with no key and no model calls. It's on a free plan, so the first visit after a quiet spell takes about a minute, and every visitor shares one board.
+
 ![The live board after a run: matchmakers and the Arbiter on the left, the negotiation between company and researcher as a conversation on the right, and a timeline with one bar per model call. Screenshot from the earlier 4-challenge build](media/prenup-board.png)
 
 ## In short
