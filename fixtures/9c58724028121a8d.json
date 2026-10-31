@@ -1,0 +1,38 @@
+{
+  "key": "9c58724028121a8d",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The ProtoSense module must flag abnormal Modbus and BACnet behaviour, but no client has ever provided a packet capture containing a confirmed at",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 5, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"partly\", \"reason\": \"claim asserts company provides 'physical PLC simulators' but field only says 'Hardware-in-the-loop bench testing with physical PLC simulators' without confirming they are company-provided rather than part of the testing capability\", \"rewrite\": \"The researcher's method requires a real industrial testbed and large normal-traffic captures to validate site-specific baselines; the company provides hardware-in-the-loop bench testing and multi-terabyte archives that university labs do not hold.\"}, {\"claim\": 10, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3942,
+    "outputTokens": 329,
+    "totalTokens": 4271,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3942,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 329,
+    "service_tier": "standard"
+  },
+  "ms": 3692
+}

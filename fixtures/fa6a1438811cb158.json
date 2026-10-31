@@ -1,0 +1,38 @@
+{
+  "key": "fa6a1438811cb158",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Predictive maintenance pipelines using SCADA telemetry and time-series anomaly detection have been developed and applied to distributed energy a",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The field does not state that isolation forest 'often outperforms' deep learning models overall—only that it outperformed foundation models on three of five datasets. The field also reports latency and footprint as relevant for edge deployment but does not conclude that classical methods are 'suitable for edge deployment.'\", \"rewrite\": \"Benchmarking studies have shown that isolation forest outperforms deep learning foundation models on some SCADA datasets with non-stationary seasonality, and inference latency and memory footprint are relevant constraints for edge deployment in substation hardware.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1193,
+    "outputTokens": 166,
+    "totalTokens": 1359,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1193,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 166,
+    "service_tier": "standard"
+  },
+  "ms": 13542
+}

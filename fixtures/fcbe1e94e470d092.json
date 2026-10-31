@@ -1,0 +1,38 @@
+{
+  "key": "fcbe1e94e470d092",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C057-CH2: Ground truth for soil moisture costs too much: probes are expensive and we can't place them on every parcel.\nDetail: Soil moisture is probab",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Soil moisture data from capacitance sensors can be processed using hidden Markov models to classify moisture regimes. A fully connected three-state hidden Markov model topology achieved mean classification accuracy of 78.4% against expert labels when fitted to hourly capacitance sensor readings from 18 instrumented maize fields, and the approach requires no manual threshold setting and adapts across soil texture classes.\",\"sources\":[{\"id\":\"SYN-PUB-02776\",\"field\":\"abstract\",\"quote\":\"Hidden Markov models with Gaussian emission distributions were fitted to hourly capacitance sensor readings from 18 instrumented maize fields\"},{\"id\":\"SYN-PUB-02776\",\"field\":\"abstract\",\"quote\":\"fully connected model achieved mean classification accuracy of 78.4% against the expert labels\"},{\"id\":\"SYN-PUB-02776\",\"field\":\"abstract\",\"quote\":\"The approach requires no manual threshold setting and adapts across soil texture classes\"}]},{\"claim\":2,\"text\":\"Temporal misalignment between satellite revisit cycles of 5–16 days and hourly ground observations can be addressed through fusion pipelines that interpolate ground measurements to satellite overpass times, enabling crop water stress index estimates that track reference values with greater accuracy than satellite data alone.\",\"sources\":[{\"id\":\"SYN-PUB-02782\",\"field\":\"abstract\",\"quote\":\"satellite revisit cycles of 5–16 days versus hourly ground observations. This study developed a temporal alignment and fusion pipeline\"},{\"id\":\"SYN-PUB-02782\",\"field\":\"abstract\",\"quote\":\"Gaussian process regression with a time-warping kernel was used to interpolate ground measurements to satellite overpass times\"},{\"id\":\"SYN-PUB-02782\",\"field\":\"abstract\",\"quote\":\"Fusion-derived CWSI tracked the flux-tower reference with Pearson r = 0.83 and RMSE of 0.07 index units, compared to r = 0.61 when satellite data alone was used\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2526,
+    "outputTokens": 463,
+    "totalTokens": 2989,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2526,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 463,
+    "service_tier": "standard"
+  },
+  "ms": 12159
+}

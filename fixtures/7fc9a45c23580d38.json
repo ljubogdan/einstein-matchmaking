@@ -1,0 +1,38 @@
+{
+  "key": "7fc9a45c23580d38",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Round 4 of 6. The company side proposes (We accept 12 months exclusivity in the researcher's field of use as a fair trade, since this still gives us a head star",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"action\":\"accept\",\"sheet\":{\"engagement\":\"joint_project\",\"scope\":\"Develop and validate a satellite-derived soil moisture proxy fusing Sentinel-1 and Sentinel-2 data at field scale for integration into AgroLens platform.\",\"ip\":\"uni_owns_option_to_assign\",\"exclusivity\":{\"field\":\"Farm management and crop advisory software platforms\",\"months\":12},\"publication\":{\"reviewDays\":60,\"companyMayRemoveConfidential\":true},\"backgroundIp\":[\"AgroLens: Field platform, health map pipeline, Sentinel Hub API integration\",\"University: AGROSAT and SOILSCAN project know-how, prior SAR fusion algorithms\"],\"contributions\":{\"company\":[\"Two data scientists (part-time throughout project)\",\"Access to Sentinel Hub API and PostGIS infrastructure\",\"Field validation data from existing probe network (Kikinda farm)\"],\"university\":[\"Research Professor leading SAR signal decomposition (part-time)\",\"Access to validated Pannonian field dataset and retrieval model\"]},\"money\":\"Company funds project costs; university contribution in kind; to be agreed\",\"timeline\":{\"months\":18,\"milestones\":[\"M3: Baseline SAR fusion model adapted to AgroLens parcels\",\"M9: Field-scale validation against in-situ probes, RMSE target 0.04 m³/m³\",\"M15: Optimised low-cost probe placement strategy delivered\",\"M18: Integrated soil moisture layer in AgroLens platform, final report\"]},\"contact\":{\"company\":\"AgroLens Chief Technology Officer\",\"university\":\"Research Professor, Remote Sensing and GIS Group\"}},\"reason\":\"University retains ownership unless it exercises the assignment option, publication rights are protected with a reasonable 60-day review, background IP from AGROSAT and SOILSCAN is ring-fenced [R0765 projects], and 12-month exclusivity is narrow and time-limited. This meets our core needs.\",\"citations\":[\"R0765 projects\"],\"evidence\":[{\"citation\":\"R0765 projects\",\"quote\":\"SYN-PRJ-0001 \\\"AGROSAT: satellite monitoring of field crops in Vojvodina\\\"; SYN-PRJ-0002 \\\"SOILSCAN: soil health indicators from space\\\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 520,
+    "totalTokens": 523,
+    "inputTokenDetails": {
+      "cached_tokens": 4678
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 1000,
+    "cache_read_input_tokens": 3678,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 1000,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 520,
+    "service_tier": "standard"
+  },
+  "ms": 3366
+}

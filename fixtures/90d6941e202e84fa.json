@@ -1,0 +1,38 @@
+{
+  "key": "90d6941e202e84fa",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The company needs a method that learns what normal looks like on a specific site and raises a flag when behaviour drifts from that baseline.\n  C",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"The field mentions 'traffic archives' and 'hardware bench' but does not state that the methodology requires extending to BACnet or that on-device deployment is needed; those are interpretations not explicitly in the field.\", \"rewrite\": \"The research methodology uses the company's traffic archives and hardware bench.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1479,
+    "outputTokens": 155,
+    "totalTokens": 1634,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1479,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 155,
+    "service_tier": "standard"
+  },
+  "ms": 1533
+}

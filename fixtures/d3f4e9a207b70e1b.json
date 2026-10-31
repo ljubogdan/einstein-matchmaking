@@ -1,0 +1,38 @@
+{
+  "key": "d3f4e9a207b70e1b",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (inference): The research group has evaluated a Penman-Monteith-based evapotranspiration model and calibrated crop coefficients on Vojvodina soils, whic",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1311,
+    "outputTokens": 30,
+    "totalTokens": 1341,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1311,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 30,
+    "service_tier": "standard"
+  },
+  "ms": 2265
+}

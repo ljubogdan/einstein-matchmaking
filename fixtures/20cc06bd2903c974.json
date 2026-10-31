@@ -1,0 +1,38 @@
+{
+  "key": "20cc06bd2903c974",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The cold-pressed pumpkin seed oil goes rancid within 4 months on shelf while competitors achieve 9–12 months, and the company loses about 15% of",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"No evidence that bottling line provides production-line access for headspace oxygen measurement; the company states the nitrogen flush equipment is basic and they are unsure how much residual oxygen they are leaving in headspace.\", \"rewrite\": \"The company can trace every batch back to a specific field and harvest, and has a dark glass bottling line with nitrogen flushing.\"}, {\"claim\": 5, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"partly\", \"reason\": \"Fields show the researcher's work proposes filling-line specifications and the company has traceable supply and bottling access, but do not confirm that the researcher's specification work is designed specifically for production settings or that the company's access provides the measurement site the analysis requires.\", \"rewrite\": \"The researcher has published work on filling-line specifications for small-scale cold-press operations, and the company traces every batch back to a specific field and harvest with on-site bottling.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 370,
+    "totalTokens": 373,
+    "inputTokenDetails": {
+      "cached_tokens": 4566
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 4566,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 4566,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 370,
+    "service_tier": "standard"
+  },
+  "ms": 6302
+}

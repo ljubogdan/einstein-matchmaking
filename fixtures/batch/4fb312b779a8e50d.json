@@ -1,0 +1,38 @@
+{
+  "key": "4fb312b779a8e50d",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Research group has operational experience with stirred-tank bioreactor systems at pilot scales from 2 to 150 litres.\n  R0863 bio: \"The group ope",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 885,
+    "outputTokens": 30,
+    "totalTokens": 915,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 885,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 30,
+    "service_tier": "standard"
+  },
+  "ms": 9703
+}

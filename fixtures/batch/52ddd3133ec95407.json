@@ -1,0 +1,38 @@
+{
+  "key": "52ddd3133ec95407",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (inference): The researcher works on dense retrieval and question answering using transformer-based embedding models, which are methods that could be ap",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"The fields show dense retrieval and question answering work, and embedding-based methods, but do not mention or support the specific application to 'embed episode transcripts and match them to ad intent signals'\", \"rewrite\": \"The researcher works on dense retrieval and question answering using transformer-based embedding models.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1117,
+    "outputTokens": 93,
+    "totalTokens": 1210,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1117,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 93,
+    "service_tier": "standard"
+  },
+  "ms": 4316
+}

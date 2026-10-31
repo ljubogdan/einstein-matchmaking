@@ -1,0 +1,38 @@
+{
+  "key": "e386b419dce1bffb",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: Both challenges show strong fit for [R0269], but the alternative researcher [R0745] is rated strong fit for [C088-CH2] and only partial fit for ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words show R0269's interests include both bioprocess and dairy contexts, not that she aligns more closely with bioprocess/fermentation than dairy.\"},{\"item\":2,\"backed\":true,\"reason\":\"\"},{\"item\":3,\"backed\":true,\"reason\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1002,
+    "outputTokens": 75,
+    "totalTokens": 1077,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1002,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 75,
+    "service_tier": "standard"
+  },
+  "ms": 1646
+}

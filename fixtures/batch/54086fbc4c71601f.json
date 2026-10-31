@@ -1,0 +1,38 @@
+{
+  "key": "54086fbc4c71601f",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The studio uses Adobe Illustrator, Esko ArtPro, and related production tools, which are the production environments the tool must integrate with",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"No field states that the studio's production dieline set provides real production data to the research group, only that Papp is interested in access to real production data generally.\", \"rewrite\": \"The research group works on artwork-to-substrate registration algorithms and parametric dieline construction, the geometric parsing and placement methods the challenge requires.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1209,
+    "outputTokens": 116,
+    "totalTokens": 1325,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1209,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 116,
+    "service_tier": "standard"
+  },
+  "ms": 5555
+}

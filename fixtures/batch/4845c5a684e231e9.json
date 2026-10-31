@@ -1,0 +1,38 @@
+{
+  "key": "4845c5a684e231e9",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We want university ownership with an option to licence, so that results from this project remain separable from our background IP including SYN-",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":true,\"reason\":\"\"},{\"item\":2,\"backed\":true,\"reason\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 670,
+    "outputTokens": 32,
+    "totalTokens": 702,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 670,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 32,
+    "service_tier": "standard"
+  },
+  "ms": 8160
+}

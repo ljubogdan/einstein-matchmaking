@@ -1,0 +1,38 @@
+{
+  "key": "b7413a5dbc321242",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Cold-pressed pumpkin seed oil hits a peroxide value above the acceptable threshold somewhere between three and five months after bottling, while",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"Competitors achieving 9–12 months is stated in a different field (text) than the primary claim detail; the claim combines facts from two separate fields.\", \"rewrite\": \"Cold-pressed pumpkin seed oil hits a peroxide value above the acceptable threshold somewhere between three and five months after bottling.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 5, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"partly\", \"reason\": \"Published work on peroxide formation kinetics and headspace oxygen specifications is mentioned in one publication abstract but the broader claim about publishing on both topics together is not explicitly stated as a single body of published work.\", \"rewrite\": \"The group has carried out contract studies for domestic cold-press oil producers covering quality benchmarking and shelf-life claims, and has published on headspace oxygen specifications for small-scale cold-press operations.\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"partly\", \"reason\": \"Prior work is on Cucurbita pepo (pumpkin) at elevated temperatures (25–60 °C) and in air; the company's issue is at ambient temperature (~20 °C) with nitrogen flushing, which is not the same condition as examined in the published study.\", \"rewrite\": \"The research group's prior work on headspace oxygen effects in bottling directly matches one unknown the company faces; the company's production batches, bottling line access, and internal peroxide records provide the applied material the research group requires to translate findings into process changes.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 466,
+    "totalTokens": 469,
+    "inputTokenDetails": {
+      "cached_tokens": 4256
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 4256,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 4256,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 466,
+    "service_tier": "standard"
+  },
+  "ms": 12330
+}

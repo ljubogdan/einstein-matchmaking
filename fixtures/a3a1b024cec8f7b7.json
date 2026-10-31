@@ -1,0 +1,38 @@
+{
+  "key": "a3a1b024cec8f7b7",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Membrane fouling was characterised by trans-membrane pressure increase during continuous operation with enzyme-laden suspensions, and a daily ba",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Claim states sodium hydroxide and hypochlorite treatments achieved high flux recovery, but source shows Protocol B (with hypochlorite and NaOH) affected membrane lifetime negatively while Protocol C (NaOH only) preserved membrane integrity better. The claim overstates the treatments' success by not distinguishing their different effects.\", \"rewrite\": \"Cleaning protocols for ultrafiltration membranes fouled with dairy process streams were evaluated, showing that sodium hydroxide and hypochlorite treatments achieved high flux recovery but with varied effects on membrane lifetime, while protocols with sodium hydroxide alone preserved membrane integrity better.\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1626,
+    "outputTokens": 200,
+    "totalTokens": 1826,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1626,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 200,
+    "service_tier": "standard"
+  },
+  "ms": 14396
+}

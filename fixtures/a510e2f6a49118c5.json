@@ -1,0 +1,47 @@
+{
+  "key": "a510e2f6a49118c5",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Round 1 of 6. Open with the term sheet you would prefer. action must be \"propose\".",
+  "items": [
+    {
+      "type": "reasoning",
+      "content": {
+        "text": "Let me craft an opening proposal for Zlatna Njiva.",
+        "type": "input_text"
+      },
+      "encryptedContent": "EpECCnwIExABGAIqQHX63Ei84sK+AMY5bg41VxKZLGnwDp94nm4ySjiBtmtPOtkGL9rZkVTNBpr3TkBC22BoxwihZDtq0dONj8AwYX8yEWNsYXVkZS1zb25uZXQtNC02OABCCHRoaW5raW5nWgw2NjU3Njc3MDczNzKoAZzglNcGEgz6FT1oVjv4O/Qn8F8aDMH/E8lHZlu+WnI8OyIw0sZ4VMXbIBsP0842fj9yO10YDmxrIR4e++GxPd9X4fTf5CtQUD1OVJP1//B2J2hkKkPrR65yKhBs5mu+nZcLOljws3NJdBp4yAs+NNuUGRKhYQxa8i0yLCE5n80RjFCzLM6Nvh0ehWaljai/jwG5YBgFJJOyGAE=",
+      "summary": []
+    },
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"action\":\"propose\",\"sheet\":{\"engagement\":\"contract_research\",\"scope\":\"Identify dominant oxidation pathway in cold-pressed pumpkin seed oil and deliver implementable process changes to extend shelf life to 9–12 months.\",\"ip\":\"contract_research_company_owns\",\"exclusivity\":{\"field\":\"cold-pressed pumpkin seed oil production and bottling\",\"months\":12},\"publication\":{\"reviewDays\":60,\"companyMayRemoveConfidential\":true},\"backgroundIp\":[\"Company: existing bottling line specs, nitrogen flush setup, internal peroxide value data\",\"University: prior lipid oxidation methods and analytical protocols\"],\"contributions\":{\"company\":[\"Lab technician (part-time) for sample preparation and routine titration support\",\"Oil samples and batch records across production runs\",\"Access to bottling line for headspace oxygen measurement\"],\"university\":[\"GC-FID, HPLC-FLD, Rancimat, UV/Vis analysis\",\"Expert interpretation of oxidation pathway and tocopherol profile\",\"Written process improvement recommendations\"]},\"money\":\"Company pays research costs and analytical fees; amount to be agreed\",\"timeline\":{\"months\":12,\"milestones\":[\"M3: Fatty acid profile, tocopherol content, and initial oxidation marker baseline delivered\",\"M6: Dominant oxidation pathway identified; headspace oxygen audit completed\",\"M9: Antioxidant and process intervention trials completed\",\"M12: Final report with prioritised, equipment-compatible process recommendations\"]},\"contact\":{\"company\":\"Quality/production manager as day-to-day liaison and milestone sign-off\",\"university\":\"Principal investigator responsible for analytical programme and reporting\"}},\"reason\":\"Contract research fits because we need a bounded answer within one year and the researcher has prior contract experience with cold-press producers on exactly this problem [SYN-PUB-02918]. We want company ownership of results because the findings will feed directly into our production process and organic line expansion, and we want a 60-day review period to protect our confidential process data before any publication.\",\"citations\":[\"SYN-PUB-02918\"],\"evidence\":[{\"citation\":\"SYN-PUB-02918\",\"quote\":\"Peroxide formation in cold-pressed pumpkin seed oil follows predictable pseudo-first-order kinetics at different storage temperatures, with rate constants ranging from 0.018 to 0.091 meq O₂/(kg·day) depending on conditions and activation energy of 48.3 kJ/mol indicating autoxidation of polyunsaturated fatty acids rather than photosensitised oxidation.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 612,
+    "totalTokens": 615,
+    "inputTokenDetails": {
+      "cached_tokens": 3786
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 3786,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 26,
+      "ephemeral_1h_input_tokens": 3760
+    },
+    "output_tokens": 612,
+    "service_tier": "standard"
+  },
+  "ms": 22824
+}

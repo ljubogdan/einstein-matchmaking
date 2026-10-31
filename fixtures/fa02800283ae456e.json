@@ -1,0 +1,38 @@
+{
+  "key": "fa02800283ae456e",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Research applies long short-term memory networks and particle filter methods to predict remaining useful life from time-series degradation data,",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"Particle filter methods are mentioned but no published guidance on training data requirements or cross-condition generalization is shown for particle filters; only LSTM guidance is documented in the fields.\", \"rewrite\": \"Research applies long short-term memory networks and particle filter methods to predict remaining useful life from time-series degradation data, with published guidance on LSTM training data requirements and cross-condition generalization.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2048,
+    "outputTokens": 151,
+    "totalTokens": 2199,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2048,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 151,
+    "service_tier": "standard"
+  },
+  "ms": 13205
+}

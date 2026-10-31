@@ -1,0 +1,38 @@
+{
+  "key": "0d9b76312d587b40",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: Company ownership of outputs meets our core need to deploy and reuse the pipeline for migration and document-management services [C124 products]",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":true,\"reason\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 457,
+    "outputTokens": 20,
+    "totalTokens": 477,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 457,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 20,
+    "service_tier": "standard"
+  },
+  "ms": 10473
+}

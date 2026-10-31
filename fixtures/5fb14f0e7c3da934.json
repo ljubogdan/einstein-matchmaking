@@ -1,0 +1,38 @@
+{
+  "key": "5fb14f0e7c3da934",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The company has almost no labelled examples of actual attacks on Modbus and BACnet networks, making supervised detection approaches unusable.\n  ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"sentence adds the specific fact that logs are 'available in anonymised form for model training and evaluation', but the field only states 'We can share anonymised versions' without specifying purpose\", \"rewrite\": \"The company provides eighteen months of raw packet logs from three customer sites, averaging around four gigabytes per day per site, available in anonymised form.\"}, {\"claim\": 5, \"support\": \"partly\", \"reason\": \"sentence specifies 'two security engineers contribute part-time' but field only states 'Four security engineers' without specifying part-time status, number per company, or role\", \"rewrite\": \"Two of the four security engineers contribute to integration and evaluation, and the company provides the edge hardware and deployment environment for field trials.\"}, {\"claim\": 6, \"support\": \"partly\", \"reason\": \"sentence adds 'scripted-fault dataset generation' as a capability, but the field describes only 'long-term dataset collection', not scripted fault injection\", \"rewrite\": \"The research group operates a dedicated ICS testbed with Modbus/TCP and DNP3 traffic generators and packet capture infrastructure for long-term dataset collection.\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"partly\", \"reason\": \"sentence characterizes the university researcher as leading 'core technical work' and company engineers as carrying out 'integration and evaluation', but the fields do not specify who leads what or whether one side does more technical work than the other\", \"rewrite\": \"The university researcher contributes model design and embedded optimisation while company engineers carry out integration into the EdgeWatch firmware and field evaluation on live sensor hardware.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 486,
+    "totalTokens": 489,
+    "inputTokenDetails": {
+      "cached_tokens": 4910
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 4910,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 4910,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 486,
+    "service_tier": "standard"
+  },
+  "ms": 3862
+}

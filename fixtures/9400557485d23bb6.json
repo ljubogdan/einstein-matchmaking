@@ -1,0 +1,38 @@
+{
+  "key": "9400557485d23bb6",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We need a deployable result within twelve months and our data and know-how must stay protected. Because no labelled attack data exists, we need ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":true,\"reason\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 542,
+    "outputTokens": 20,
+    "totalTokens": 562,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 542,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 20,
+    "service_tier": "standard"
+  },
+  "ms": 805
+}

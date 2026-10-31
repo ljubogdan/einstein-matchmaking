@@ -1,0 +1,38 @@
+{
+  "key": "6810c14242d3f2e8",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: Contract research fits because we need a bounded answer within one year and the researcher has prior contract experience with cold-press produce",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"The words describe kinetics of peroxide formation in cold-pressed pumpkin seed oil; they say nothing about a researcher's prior contract experience with cold-press producers.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 575,
+    "outputTokens": 55,
+    "totalTokens": 630,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 575,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 55,
+    "service_tier": "standard"
+  },
+  "ms": 7335
+}

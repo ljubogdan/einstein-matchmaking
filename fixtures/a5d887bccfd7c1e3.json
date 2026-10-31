@@ -1,0 +1,38 @@
+{
+  "key": "a5d887bccfd7c1e3",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The company can share anonymised packet logs from three customer sites averaging around four gigabytes per day per site covering eighteen months",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"DNP3 is mentioned in keywords and testbed, not explicitly in the research focus description\", \"rewrite\": \"The research group works on unsupervised anomaly detection and one-class classification for industrial control system protocol traffic using lightweight online learning algorithms suited to constrained embedded environments, covering Modbus.\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"The paper shows quantisation and ARM deployment work but does not identify it as research group expertise; the inference expertise comes from a publication, not stated as group capability\", \"rewrite\": \"The research group has published on quantisation and ARM deployment needed to fit within constrained memory and compute budgets, while the company can supply eighteen months of real OT traffic for model development and validation.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3248,
+    "outputTokens": 230,
+    "totalTokens": 3478,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3248,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 230,
+    "service_tier": "standard"
+  },
+  "ms": 3801
+}

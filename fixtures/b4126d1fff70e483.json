@@ -1,0 +1,38 @@
+{
+  "key": "b4126d1fff70e483",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We want university ownership with an option to licence rather than to assign, because assignment would extinguish the university's ownership and",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"The words describe an unsupervised anomaly detection technique; they say nothing about assignment, licensing, publication rights, or university ownership.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 550,
+    "outputTokens": 48,
+    "totalTokens": 598,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 550,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 48,
+    "service_tier": "standard"
+  },
+  "ms": 5824
+}

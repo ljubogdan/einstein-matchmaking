@@ -1,0 +1,38 @@
+{
+  "key": "1626d81be4212a0c",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: Contract research is the right format given the bounded six-month scope and the company's need for a deployable result [C115-CH1]. We want compa",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"The words only state they have a budget for a six-month project and resources to share anonymized data; they do not address contract research as the right format or a deployable result.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 522,
+    "outputTokens": 58,
+    "totalTokens": 580,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 522,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 58,
+    "service_tier": "standard"
+  },
+  "ms": 18061
+}

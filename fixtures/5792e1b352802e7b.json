@@ -1,0 +1,38 @@
+{
+  "key": "5792e1b352802e7b",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Researchers have characterised industrial sludge and wastewater over seasonal cycles using multiple analytical techniques including XRD, FTIR, S",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Claim specifies 'organic contaminants' but sources show treatment of dye solution and municipal wastewater effluent (measured as COD), not explicitly named organic contaminants\", \"rewrite\": \"Coagulation and flocculation chemistry has been applied to treat wastewater including synthetic dye solution and municipal effluent, achieving colour and organic carbon (COD) reduction through controlled addition of aluminium-based coagulants.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1854,
+    "outputTokens": 144,
+    "totalTokens": 1998,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1854,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 144,
+    "service_tier": "standard"
+  },
+  "ms": 14835
+}

@@ -1,0 +1,38 @@
+{
+  "key": "1d970d85b5a62379",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Pair id: C036-CH2__R0274\n\nFit review: strong. Develop or identify a compostable lidding film formulation (EN 13432 certified) that heat-seals to rPET punnets at",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"issues\":[{\"where\":\"Phase 3 — Compostability screening\",\"problem\":\"FreshPak's records describe only 'basic compostability screening against EN 13432 parameters', which is insufficient to confirm they can run the full disintegration and ecotoxicity tests required to produce a valid EN 13432 screening result.\",\"fix\":\"Specify in Phase 3 which EN 13432 sub-tests FreshPak can perform in-house and assign any ecotoxicity or respiration tests they cannot run to the university or a named external lab.\"}],\"unconfirmed\":[\"PLA-based multilayer film development and characterisation\",\"EN 13432 compliance data generation\"]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 160,
+    "totalTokens": 163,
+    "inputTokenDetails": {
+      "cached_tokens": 4055
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 4055,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 4055,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 160,
+    "service_tier": "standard"
+  },
+  "ms": 6811
+}

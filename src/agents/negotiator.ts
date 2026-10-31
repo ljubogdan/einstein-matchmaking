@@ -12,25 +12,27 @@ import { normalize } from "../tools/normalize"
 import { allowedEngagements } from "../tools/profile"
 import { verifyCitations, type Evidence } from "./citations"
 
-export const MAX_ROUNDS = 4
+export const MAX_ROUNDS = 6
 type Side = "company" | "researcher"
 
 const RULES = `Each turn, answer with JSON: action (propose | accept | walk_away), sheet, reason, citations, evidence.
-- propose: change at most two fields of the last sheet, and trade: give on one field to get another. accept: the other side's sheet as it is. walk_away: only if a hard limit would be crossed.
+- propose: change at most two fields of the last sheet, and trade: give on one field to get another. accept: the other side's sheet as it is; accept as soon as it meets what your side really needs, there is no reward for using every round. walk_away: if a hard limit would be crossed, or if what is left isn't worth doing for your side; say what stopped it.
+- engagement: what this problem needs, among what the researcher is open to. Start from the fit review's suggested format if your card gives one, and change it only for a reason your card states. industrial_phd: an open research question that takes years, on a topic the company will still care about in three years, at a company able to employ a candidate for 36 months (months 36, three-year milestones, company contribution includes the candidate's employment). joint_project: research both sides work on, up to 24 months. contract_research: a bounded question with an answer the company needs within a year. consulting: advice on what the company then does itself.
+- scope: one sentence, at most 30 words. contributions: at most 3 items per side. backgroundIp: at most 2 short items per side. timeline: at most 4 short milestones.
 - reason: one or two sentences. A citation goes in brackets right after a fact that exact line of your position card states, e.g. [C001 rd_capacity] or [SYN-PUB-00001], one per bracket. What you want is your side's position, not a fact: ownership, review days, exclusivity, rights and protections are positions. Write "we want" or "our position is" with no citation, and call it a requirement only if your card does. Don't join facts your card keeps apart (a product and a plan, say). Keep facts and positions in separate sentences: state the fact and cite it, then say what you want with no citation. Never put a citation after a reason, a trade or a benefit, and don't cite a paper or a tech list for a contract term.
 - evidence: one entry per citation: citation (the text inside the brackets) and quote (words copied exactly from that line of your card, stating the fact you cite it for). If no words on that line state the fact, leave the citation out. Code removes any citation whose quote isn't on its line. citations: the same ids.
 - ip, one of these Lambert Toolkit models:
 ${IP_MODELS.map((ip) => `  ${ip}: ${IP_LABELS[ip]}`).join("\n")}
 - publication: reviewDays is 0, 30, 60 or 90 (how long the company may review a paper before it goes out); companyMayRemoveConfidential: the company may remove its confidential information, never results.
-- exclusivity: a field of use and months; months 0 means none, 24 is the most either side may ask for, and if the other side lengthens it, say whether you accept and why.
+- exclusivity: a field of use and months; months 0 means none, 24 is the most either side may ask for, and if the other side lengthens it, say whether you accept and why. Consulting has none. Keep it as narrow as the company's own product, and never so wide that it would stop a thesis or the researcher's other work.
 - backgroundIp: what each side keeps, with ids (patents, earlier projects, products). contributions: in kind, from the position cards; give people as roles with their time (part-time unless your card says otherwise), never a whole team.
-- money is "to be agreed" or a named funding route. Never an amount.
+- money says who pays for what, and "to be agreed" for how much, or names a funding route. Never an amount.
 - timeline milestones are deliverables. Never say IP is transferred: the ip field says who owns what, and an option is exercised later, if at all.
 - contact: roles, never a person's name, and no student unless the engagement is an industrial PhD. Use only facts from your position card.`
 
 const INTERESTS: Record<Side, string> = {
   company: "Your interests: results you can use in your products, confidentiality of your data and know-how, a usable result within the timeline. Turn what went wrong in past collaborations into a term (milestones, a contact role).",
-  researcher: "Your interests: stay inside your hard limits, keep the right to publish (see Publishing), university ownership of results, protect background IP, your own preferences in notes.",
+  researcher: "Your interests: stay inside your hard limits, keep the right to publish (see Publishing), university ownership of results, protect background IP, your own preferences in notes. Don't take on work your records don't show or your notes rule out: narrow the scope, or say which side covers it.",
 }
 
 /**

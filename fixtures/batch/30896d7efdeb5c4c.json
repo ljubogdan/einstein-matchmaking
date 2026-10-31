@@ -1,0 +1,38 @@
+{
+  "key": "30896d7efdeb5c4c",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The company's quality lab can screen candidate films against EN 13432 parameters and run seal-strength, permeability and anti-fog tests in-house",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":2,\"support\":\"partly\",\"reason\":\"No evidence that seal-strength tests are run on materials being developed; the field only states the capability exists, not its application to development work.\",\"rewrite\":\"The company's quality lab with three technologists can run seal-strength tests in-house.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1271,
+    "outputTokens": 88,
+    "totalTokens": 1359,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1271,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 88,
+    "service_tier": "standard"
+  },
+  "ms": 1466
+}

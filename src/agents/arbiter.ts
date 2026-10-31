@@ -9,6 +9,7 @@ import type { Dataset } from "../tools/dataset"
 import { normalize } from "../tools/normalize"
 import type { Candidate } from "../tools/search"
 import { verifyCitations, type Evidence } from "./citations"
+import { applyFitReview, type FitDone } from "./fit-review"
 import { pairable } from "./matchmaker"
 
 const IDS = /\b(?:SYN-(?:PUB|PRJ|PAT)-\d+|C\d{3}-CH\d+|C\d{3}|R\d{4})\b/g
@@ -55,6 +56,16 @@ export function createArbiter(data: Dataset, board: Board): Human {
         processor: { apply: ({ event }) => void cards.set((event.payload as ProfileCard).challengeId, [...(cards.get((event.payload as ProfileCard).challengeId) ?? []), event.payload as ProfileCard]) },
       },
       {
+        // Joined before the matchmakers, so a conflict always reads the reviewed cards of both challenges.
+        specification: on("prenup.fit.done"),
+        processor: {
+          apply: ({ event }) => {
+            const done = event.payload as FitDone
+            cards.set(done.challengeId, (cards.get(done.challengeId) ?? []).map((card) => applyFitReview(card, done)))
+          },
+        },
+      },
+      {
         specification: on("prenup.reservation.conflict"),
         processor: {
           apply: ({ event }) => {
@@ -76,7 +87,8 @@ export function createArbiter(data: Dataset, board: Board): Human {
       const alternative = pairable(cards.get(challengeId) ?? []).find((c) => c.researcherId !== researcherId)
       const score = (id?: string) => relevance.get(challengeId)?.find((c) => c.researcherId === id)?.score
       const [mine, other] = [score(researcherId), score(alternative?.researcherId)]
-      const loss = mine && other ? `  Search relevance: [${researcherId}] ${mine.toFixed(1)}, [${alternative!.researcherId}] ${other.toFixed(1)}. Taking the alternative loses ${(((mine - other) / mine) * 100).toFixed(0)}%.` : ""
+      const change = mine && other ? ((mine - other) / mine) * 100 : 0
+      const loss = mine && other ? `  Search relevance: [${researcherId}] ${mine.toFixed(1)}, [${alternative!.researcherId}] ${other.toFixed(1)}. Taking the alternative ${change < 0 ? "gains" : "loses"} ${Math.abs(change).toFixed(0)}%.` : ""
       return [
         `Challenge [${challengeId}] (company [${company.id}], ${company.sector}): ${challenge.text}`,
         `  Card for [${researcherId}] on this challenge: fit ${own?.fit ?? "unknown"}. ${own?.fitReason ?? ""}`,

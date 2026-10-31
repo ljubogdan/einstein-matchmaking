@@ -1,7 +1,7 @@
 {
   "arm": "last-writer-wins",
   "what": "real matchmaker code on every challenge; stand-ins for the Analyst (one-line text as the query), Profiler (fit strong, real availability and trap flags) and Arbiter (holder keeps); no model",
-  "date": "2026-10-30",
+  "date": "2026-10-31",
   "seed": 42,
   "challenges": 489,
   "paired": 489,
@@ -57,5 +57,5 @@
       ]
     }
   ],
-  "seconds": 12.726
+  "seconds": 7.689
 }

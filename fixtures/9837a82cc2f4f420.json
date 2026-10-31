@@ -1,0 +1,38 @@
+{
+  "key": "9837a82cc2f4f420",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The company provides eighteen months of raw packet logs from three customer sites, averaging around four gigabytes per day per site, available i",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"No information in fields about two of four engineers contributing to integration/evaluation, or company providing edge hardware and deployment environment\", \"rewrite\": \"The company has four security engineers.\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 5, \"support\": \"partly\", \"reason\": \"Fields do not specify that the university researcher contributes model design/embedded optimisation or that company engineers carry out integration into EdgeWatch firmware and field evaluation\", \"rewrite\": \"The EdgeWatch sensor must run inference with 512 MB of RAM and modest ARM core, and published work demonstrates model optimisation techniques (8-bit quantisation and 25%-pruning) for embedded deployment.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2696,
+    "outputTokens": 224,
+    "totalTokens": 2920,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2696,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 224,
+    "service_tier": "standard"
+  },
+  "ms": 2568
+}

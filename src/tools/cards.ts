@@ -36,7 +36,7 @@ const line = (label: string, ref: string, value: string | string[]) =>
 /** What the Profiler found, as both sides may read it: fit for this challenge, claims that passed the Critic, the search hits. */
 function findings(profile: ProfileCard, data: Dataset): string[] {
   return [
-    `Fit for this challenge (Profiler): ${profile.fit}. ${profile.fitReason}`,
+    `Fit for this challenge (fit review): ${profile.fit}. ${profile.fitReason}`,
     ...profile.expertise.map((c) => `Expertise [${[...new Set(c.sources.map((s) => s.id))].join(", ")}]: ${c.text}`),
     ...profileHits(profile, data).map((p) => `Publication [${p.id}]: ${p.title} (${p.year})`),
   ]
@@ -112,6 +112,7 @@ export function evidencePack(pair: Pair, profile: ProfileCard, data: Dataset): s
       notes: r.notes,
     },
     ...profileHits(profile, data).map((p) => ({ id: p.id, title: p.title, year: p.year, venue: p.venue, keywords: p.keywords, abstract: p.abstract })),
+    ...r.projects.flatMap((id) => data.projects.get(id) ?? []).map((p) => ({ id: p.id, title: p.title })),
     ...r.patents.flatMap((id) => data.patents.get(id) ?? []),
   ]
   return records.map((record) => JSON.stringify(record)).join("\n")

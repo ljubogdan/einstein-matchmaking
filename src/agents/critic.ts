@@ -15,8 +15,9 @@ export type Verdict = { claimId: string; subject: string; verdict: "pass" | "blo
 export type CriticContext = { data: Dataset; move: (pairId: string, round: number) => NegotiationMove | undefined }
 
 const IDS = /\b(?:SYN-(?:PUB|PRJ|PAT)-\d+|C\d{3}-CH\d+|C\d{3}|R\d{4})\b/g
-const WORTH = /\b(?:best|leading|world-class|renowned|outstanding|brilliant|eminent|top (?:researcher|scientist|expert)s?|most (?:talented|qualified|respected))\b/i
-const PERSONAL = /\b(?:\d+ years old|gender|married|religio\w*|nationality|ethnic\w*)\b/i
+// "leading" only as praise ("a leading expert"), not as a role in the work ("leading pipeline design").
+const WORTH = /\b(?:best|leading (?:\w+ )?(?:expert|researcher|scientist|authority|specialist|professor|group|lab\w*)s?|world-class|renowned|outstanding|brilliant|eminent|top (?:researcher|scientist|expert)s?|most (?:talented|qualified|respected))\b/i
+export const PERSONAL = /\b(?:\d+ years old|gender|married|religio\w*|nationality|ethnic\w*|maternity|paternity|pregnan\w*|sick leave)\b/i
 
 /** The deterministic checks, cheapest first. The first failure blocks the claim. No LLM. */
 export function checkClaim(claim: Claim, ctx: CriticContext): Verdict {

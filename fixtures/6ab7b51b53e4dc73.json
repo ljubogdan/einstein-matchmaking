@@ -1,0 +1,38 @@
+{
+  "key": "6ab7b51b53e4dc73",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: The option to licence over EdgeWatch-compatible products for 12 months gives us a clear path to deploy the model in our sensor and SOC service, ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":true,\"reason\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 490,
+    "outputTokens": 20,
+    "totalTokens": 510,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 490,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 20,
+    "service_tier": "standard"
+  },
+  "ms": 3511
+}

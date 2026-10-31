@@ -5,7 +5,7 @@ import { on } from "../runtime"
 import type { ProfileCard } from "../schema/profile"
 import type { Dataset } from "../tools/dataset"
 import { trapFlags, type TrapFlag, type TrapKind } from "../tools/profile"
-import type { Verdict } from "./critic"
+import { PERSONAL, type Verdict } from "./critic"
 import { exclusion, type NomatchVerdict } from "./matchmaker"
 
 type Nomatch = { challengeId: string; verdict: NomatchVerdict; reason: string; nearest?: { researcherId: string; why?: string } }
@@ -118,7 +118,8 @@ function renderTraps(data: Dataset, cards: ProfileCard[], blocked: Verdict[]): s
   ].join("\n")
 }
 
-function oneLine(text: string, max = 140): string {
+export function oneLine(text: string, max = 140): string {
   const line = text.replace(/\s+/g, " ").trim()
+  if (PERSONAL.test(line)) return "(not shown: the challenge's text mentions someone's personal situation)"
   return line.length > max ? `${line.slice(0, max - 1)}…` : line
 }

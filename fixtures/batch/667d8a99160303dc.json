@@ -1,0 +1,47 @@
+{
+  "key": "667d8a99160303dc",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Round 1 of 6. Open with the term sheet you would prefer. action must be \"propose\".",
+  "items": [
+    {
+      "type": "reasoning",
+      "content": {
+        "text": "Let me propose an opening term sheet for this contract research collaboration.",
+        "type": "input_text"
+      },
+      "encryptedContent": "Eq0CCnwIExABGAIqQJbMxKA99hizS48dOf+nDWc6ehlwoXAK46VB1IsTjRwBGOWAqCGJ5wZbFUSDUftJPUzTDGn+3roleoq3dzvhRb8yEWNsYXVkZS1zb25uZXQtNC02OABCCHRoaW5raW5nWgw2NjU3Njc3MDczNzKoAZHjlNcGEgxpyjiiiaE4b9KdT1MaDNhaRA6LndD6dSbDGCIwgazOBWG0dDT7e+dCDPRAmJratiLOP0CmYR9nB6jABqumSOp8QONyQGXt+iPNEMUjKl8dMCHRO8MwFCyfDyLsqCyilZxDtNp7TR01S9jU5xpcQIHQ+lAAo6YUAjPaeLh+TIBNgojWdzmYaicl2teyj5VmTi9HkWMFg7nPMmUrv66GlTXdP3ctpKUWGMUk07qOKRgB",
+      "summary": []
+    },
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"action\":\"propose\",\"sheet\":{\"engagement\":\"contract_research\",\"scope\":\"Diagnose UF membrane fouling causes and develop improved pre-filtration and CIP protocols to achieve 72-hour runs at nominal flux.\",\"ip\":\"contract_research_company_owns\",\"exclusivity\":{\"field\":\"contract production of industrial-grade bacterial proteases and thermostable amylases\",\"months\":12},\"publication\":{\"reviewDays\":60,\"companyMayRemoveConfidential\":true},\"backgroundIp\":[\"Ferment-Pro: existing UF/CIP protocols, two-year batch pressure/flow dataset\",\"Researcher: prior membrane characterisation methods and published fouling models\"],\"contributions\":{\"company\":[\"Process development technologist (Ana Vuković, part-time) for bench trials and data access\",\"Access to production-scale pressure/flow logs and membrane samples\",\"UF skid and CIP consumables on-site\"],\"university\":[\"Membrane fouling characterisation using AFM and bench-scale CIP test station\",\"Expertise in TMP management and CIP protocol optimisation\",\"Bench-scale crossflow UF rig for controlled fouling trials\"]},\"money\":\"Company funds contract research; amount to be agreed\",\"timeline\":{\"months\":12,\"milestones\":[\"M3: Fouling characterisation complete, root-cause report delivered\",\"M6: Improved pre-filtration configuration and CIP protocol prototype tested at bench scale\",\"M9: Protocol validated on Ferment-Pro production skid, flux data reviewed\",\"M12: Final report with optimised operating procedure and cost-reduction assessment\"]},\"contact\":{\"company\":\"Process Development Technologist\",\"university\":\"Principal Investigator, Department of Chemical Engineering\"}},\"reason\":\"Contract research fits a bounded technical problem with a clear answer needed within a year [SYN-PUB-03384]. We want company ownership of results so improvements can be embedded directly in our production process without licensing barriers, and a 60-day review period to protect confidential batch data and know-how before any publication.\",\"citations\":[\"SYN-PUB-03384\"],\"evidence\":[{\"citation\":\"SYN-PUB-03384\",\"quote\":\"Ultrafiltration membranes in bioprocess clarification: fouling, cleaning and lifetime considerations\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 539,
+    "totalTokens": 542,
+    "inputTokenDetails": {
+      "cached_tokens": 3619
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 3619,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 26,
+      "ephemeral_1h_input_tokens": 3593
+    },
+    "output_tokens": 539,
+    "service_tier": "standard"
+  },
+  "ms": 13451
+}

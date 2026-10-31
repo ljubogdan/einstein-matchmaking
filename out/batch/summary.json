@@ -10,11 +10,11 @@
   "arbiterDecisions": 0,
   "negotiationsWithoutDeal": 0,
   "critic": {
-    "claimsChecked": 399,
-    "stoppedFirstPass": 90,
-    "dropped": 8
+    "claimsChecked": 375,
+    "stoppedFirstPass": 101,
+    "dropped": 7
   },
-  "modelCalls": 258,
+  "modelCalls": 285,
   "perChallenge": [
     {
       "challengeId": "C012-CH3",
@@ -26,25 +26,25 @@
       "challengeId": "C017-CH3",
       "outcome": "proposal",
       "pair": "C017-CH3__R0013",
-      "claims": 22,
-      "stopped": 2,
+      "claims": 19,
+      "stopped": 4,
       "dropped": 0
     },
     {
       "challengeId": "C036-CH2",
       "outcome": "proposal",
       "pair": "C036-CH2__R0274",
-      "claims": 21,
-      "stopped": 1,
+      "claims": 19,
+      "stopped": 2,
       "dropped": 0
     },
     {
       "challengeId": "C075-CH3",
       "outcome": "proposal",
       "pair": "C075-CH3__R1023",
-      "claims": 22,
-      "stopped": 3,
-      "dropped": 1
+      "claims": 20,
+      "stopped": 4,
+      "dropped": 0
     },
     {
       "challengeId": "C080-CH3",
@@ -62,16 +62,16 @@
       "challengeId": "C115-CH1",
       "outcome": "proposal",
       "pair": "C115-CH1__R0856",
-      "claims": 22,
+      "claims": 19,
       "stopped": 2,
       "dropped": 1
     },
     {
       "challengeId": "C119-CH1",
       "outcome": "proposal",
-      "pair": "C119-CH1__R0519",
-      "claims": 21,
-      "stopped": 0,
+      "pair": "C119-CH1__R0626",
+      "claims": 20,
+      "stopped": 2,
       "dropped": 0
     },
     {
@@ -84,49 +84,49 @@
       "challengeId": "C124-CH2",
       "outcome": "proposal",
       "pair": "C124-CH2__R0181",
-      "claims": 22,
-      "stopped": 2,
+      "claims": 20,
+      "stopped": 4,
       "dropped": 1
     },
     {
       "challengeId": "C126-CH1",
       "outcome": "proposal",
       "pair": "C126-CH1__R0965",
-      "claims": 20,
+      "claims": 19,
       "stopped": 3,
-      "dropped": 2
+      "dropped": 0
     },
     {
       "challengeId": "C138-CH1",
       "outcome": "proposal",
       "pair": "C138-CH1__R0753",
-      "claims": 22,
-      "stopped": 1,
+      "claims": 19,
+      "stopped": 4,
       "dropped": 0
     },
     {
       "challengeId": "C143-CH2",
       "outcome": "proposal",
       "pair": "C143-CH2__R0385",
-      "claims": 21,
+      "claims": 20,
       "stopped": 3,
-      "dropped": 1
+      "dropped": 2
     },
     {
       "challengeId": "C144-CH2",
       "outcome": "proposal",
       "pair": "C144-CH2__R0269",
-      "claims": 22,
+      "claims": 19,
       "stopped": 2,
       "dropped": 1
     },
     {
       "challengeId": "C145-CH1",
       "outcome": "proposal",
-      "pair": "C145-CH1__R0820",
-      "claims": 22,
-      "stopped": 2,
-      "dropped": 1
+      "pair": "C145-CH1__R0925",
+      "claims": 19,
+      "stopped": 3,
+      "dropped": 2
     }
   ]
 }

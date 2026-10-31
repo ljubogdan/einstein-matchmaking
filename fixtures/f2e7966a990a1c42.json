@@ -1,0 +1,38 @@
+{
+  "key": "f2e7966a990a1c42",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We want university ownership with an option for the company to licence the foreground IP, preserving academic publication rights tied to 9 autho",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"The words describe a technical method for anomaly detection; they say nothing about publication rights, university ownership, or the number of authored publications.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 551,
+    "outputTokens": 48,
+    "totalTokens": 599,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 551,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 48,
+    "service_tier": "standard"
+  },
+  "ms": 8752
+}

@@ -1,0 +1,38 @@
+{
+  "key": "438f387bafd771f2",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We accept contract_research format and 60-day review. We want company_owns_uni_academic_use so the university retains the right to use results f",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words only list 9 authored publications dated to 2026; they say nothing about publishing obligations, dataset diversity goals, or university rights to use results for research and teaching.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 500,
+    "outputTokens": 56,
+    "totalTokens": 556,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 500,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 56,
+    "service_tier": "standard"
+  },
+  "ms": 8455
+}

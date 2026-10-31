@@ -1,0 +1,38 @@
+{
+  "key": "1a714ed0a8bf5c1b",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): A fixed-price migration contract has reached 340 hours against a 200-hour quote with roughly three years of data still to clean.\n  C124-CH2 deta",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"The sentence says 'part-time' but the field specifies only the duration, not that it is part-time\", \"rewrite\": \"The company can dedicate one junior developer to a project for up to three months, provided the topic connects directly to an active client problem.\"}, {\"claim\": 5, \"support\": \"partly\", \"reason\": \"No source mentions 'anonymised legacy export samples' or 'format documentation' as project inputs\", \"rewrite\": \"The project will use the fifteen Python migration scripts the company has already written.\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"partly\", \"reason\": \"No source specifies that the work will be carried out 'by the junior developer' or describe 'advisory sessions' or the specific structure of their collaboration\", \"rewrite\": \"The core work involves automated schema matching and ETL transformation over legacy exports, with involvement from the senior researcher on pipeline design and normalisation rules.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 358,
+    "totalTokens": 361,
+    "inputTokenDetails": {
+      "cached_tokens": 4774
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 4774,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 4774,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 358,
+    "service_tier": "standard"
+  },
+  "ms": 20897
+}

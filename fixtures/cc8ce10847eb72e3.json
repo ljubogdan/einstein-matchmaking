@@ -1,0 +1,38 @@
+{
+  "key": "cc8ce10847eb72e3",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We need a deployable result within twelve months and own the IP to embed it in EdgeWatch and our SOC service [C032 plans]. Our eighteen months o",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words only say 'Certify under the EU Cyber Resilience Act' — no mention of deployable timeline, IP ownership, or embedding in EdgeWatch/SOC service.\"},{\"item\":2,\"backed\":false,\"reason\":\"Words mention four security engineers but say nothing about eighteen months of raw packet logs, so only part of the cited claim is backed.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 628,
+    "outputTokens": 97,
+    "totalTokens": 725,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 628,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 97,
+    "service_tier": "standard"
+  },
+  "ms": 7447
+}

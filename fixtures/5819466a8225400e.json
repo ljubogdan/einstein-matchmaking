@@ -1,0 +1,38 @@
+{
+  "key": "5819466a8225400e",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C057-CH2: Ground truth for soil moisture costs too much: probes are expensive and we can't place them on every parcel.\nDetail: Soil moisture is probab",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Dual-polarisation SAR classification can distinguish vegetation water content and surface conditions that confound single-polarisation backscatter, with the VH/VV ratio proving effective for separating flooded woody vegetation from open water in wetland environments.\",\"sources\":[{\"id\":\"SYN-PUB-05103\",\"field\":\"abstract\",\"quote\":\"The VH/VV ratio proved the most important feature for separating flooded woody vegetation from open water\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2445,
+    "outputTokens": 115,
+    "totalTokens": 2560,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2445,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 115,
+    "service_tier": "standard"
+  },
+  "ms": 6058
+}

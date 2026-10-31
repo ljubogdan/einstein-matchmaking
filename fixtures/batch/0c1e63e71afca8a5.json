@@ -1,0 +1,38 @@
+{
+  "key": "0c1e63e71afca8a5",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We want university ownership of results with an option for the company to licence them, as university IP ownership is our standard position for ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"The words only state a count and date of publications, not that there is an active publication record needing protection via a 30-day review period.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 503,
+    "outputTokens": 51,
+    "totalTokens": 554,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 503,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 51,
+    "service_tier": "standard"
+  },
+  "ms": 17233
+}

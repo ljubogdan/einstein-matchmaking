@@ -1,0 +1,47 @@
+{
+  "key": "a3d4b1dbcc6594cc",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Pair id: C124-CH2__R0181\n\nFit review: strong. Build or redesign a pipeline that automatically detects and handles format variations across heterogeneous legacy ",
+  "items": [
+    {
+      "type": "reasoning",
+      "content": {
+        "text": "Let me compose the JSON response.",
+        "type": "input_text"
+      },
+      "encryptedContent": "EoACCnwIExABGAIqQMmfWEQuG4oBHjYylfOAgKBpT+uKvscOQvGxj6VAMHUyHdBET8C2a/CBVSEQe4WxNo3cG+UDJ7CP8kNZUlZFjZcyEWNsYXVkZS1zb25uZXQtNC02OABCCHRoaW5raW5nWgw2NjU3Njc3MDczNzKoAZXjlNcGEgzGS1MYjqCVDSt1JBQaDKstMF5LxZBBu0RNYiIwo+xJzA9RnNfjNme9DrlfRhVaczOhbLnAwgp76OKi84prQ1zgis/RVYZ/23/V7gQPKjKrPFWRaT7K0pycS6OZH/L/TzBt4/s9Nk398UZm2WMgqCOp2bDIoyEBNTo/IqY6vy5h7hgB",
+      "summary": []
+    },
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"title\":\"Cleaning twelve years of legacy accounting exports without manual rework\",\"candidate\":\"\",\"problem\":[{\"subject\":\"C124-CH2\",\"text\":\"A fixed-price migration contract has reached 340 hours against a 200-hour quote with roughly three years of data still to clean.\",\"sources\":[{\"id\":\"C124-CH2\",\"field\":\"detail\",\"quote\":\"We are now at 340 hours against a 200-hour quote and still have roughly three years of data left to clean\"}],\"kind\":\"fact\"},{\"subject\":\"C124-CH2\",\"text\":\"Every annual backup from 2008 to 2016 uses a slightly different field structure, and two years were exported from an intermediate system that added its own non-standard columns.\",\"sources\":[{\"id\":\"C124-CH2\",\"field\":\"detail\",\"quote\":\"every annual backup from 2008 to 2016 uses a slightly different field structure\"},{\"id\":\"C124-CH2\",\"field\":\"detail\",\"quote\":\"two years of data were exported from an intermediate system that added its own non-standard columns\"}],\"kind\":\"fact\"},{\"subject\":\"C124-CH2\",\"text\":\"The company has written about fifteen Python scripts for specific quirks, but each new batch of files tends to introduce at least one more, and no extra staff can be assigned.\",\"sources\":[{\"id\":\"C124-CH2\",\"field\":\"detail\",\"quote\":\"We have written about fifteen Python scripts to handle specific quirks, but each new batch of files tends to introduce at least one more\"},{\"id\":\"C124-CH2\",\"field\":\"detail\",\"quote\":\"We have no extra staff to assign\"}],\"kind\":\"fact\"}],\"researchQuestions\":[\"Which schema variation patterns in the 2008–2016 exports can be detected and classified automatically, measured against a complete manual catalogue produced in month one?\",\"Can a constraint-propagation matching pipeline resolve format variations across all twelve export years without per-batch manual edits, measured against technician review of 500 records per year?\",\"Do pre-matching normalisation rules derived from the export catalogue raise automated matcher precision to the level achieved on ERP exports in prior benchmark studies, measured against those published precision figures?\"],\"plan\":[{\"phase\":\"Month 1 — Audit and catalogue\",\"work\":\"Senior researcher reviews existing Python scripts and all available export samples with the junior developer; together they produce a structured catalogue of format variation types.\",\"result\":\"A format variation catalogue covering all identified schema patterns across the twelve export years, delivered as a shared document.\"},{\"phase\":\"Month 2 — Pipeline prototype\",\"work\":\"Senior researcher designs the schema-matching and ETL pipeline architecture; junior developer implements it in Python against the catalogued variation types, using the researcher's benchmark datasets for calibration.\",\"result\":\"A runnable prototype pipeline that processes a representative subset of export years and a written design specification owned by the company.\"},{\"phase\":\"Month 3 — Validation and integration\",\"work\":\"Junior developer runs the prototype over the remaining export years; senior researcher advises on failure cases; pipeline is integrated into the live migration workflow.\",\"result\":\"A validated pipeline integrated into the migration workflow, a test report comparing automated and manual resolution rates on 500 records per year, and a decision on production readiness.\"}],\"companyBrings\":[{\"subject\":\"C124\",\"text\":\"The company can dedicate one junior developer part-time for up to three months to a project that connects directly to an active client problem.\",\"sources\":[{\"id\":\"C124\",\"field\":\"rd_capacity\",\"quote\":\"dedicate one junior developer to a research or pilot project for up to three months per year, provided the topic connects directly to one of our active client problems\"}],\"kind\":\"fact\"},{\"subject\":\"C124\",\"text\":\"The project will use anonymised legacy export samples, format documentation, and the fifteen Python migration scripts the company has already written.\",\"sources\":[{\"id\":\"C124-CH2\",\"field\":\"detail\",\"quote\":\"We have written about fifteen Python scripts to handle specific quirks\"},{\"id\":\"C124\",\"field\":\"tech\",\"quote\":\"Python scripts for legacy data parsing and migration\"}],\"kind\":\"fact\"}],\"universityBrings\":[{\"subject\":\"R0181\",\"text\":\"The research group develops methods for ontology-driven data integration and data quality assessment over tabular and semi-structured data, and maintains a benchmark repository of heterogeneous administrative datasets.\",\"sources\":[{\"id\":\"R0181\",\"field\":\"bio\",\"quote\":\"Her group develops methods for ontology-driven data integration, probabilistic record linkage, and data quality assessment over tabular and semi-structured data\"},{\"id\":\"R0181\",\"field\":\"bio\",\"quote\":\"maintains a locally curated benchmark repository of heterogeneous administrative datasets\"}],\"kind\":\"fact\"},{\"subject\":\"R0181\",\"text\":\"Prior work on ERP export schema patterns introduced a taxonomy of 12 recurring patterns and showed that pre-matching normalisation rules raise average matcher precision by 0.12 across three systems.\",\"sources\":[{\"id\":\"SYN-PUB-02347\",\"field\":\"abstract\",\"quote\":\"A taxonomy of 12 recurring schema patterns is introduced, covering code-column concatenation, multi-valued delimited cells, silent null conventions\"},{\"id\":\"SYN-PUB-02347\",\"field\":\"abstract\",\"quote\":\"application raises average matcher precision by 0.12 across all three systems\"}],\"kind\":\"fact\"}],\"whyThisPair\":[{\"subject\":\"C124-CH2__R0181\",\"text\":\"The company needs a smarter way to detect and handle format variations automatically, a capability its existing Python scripts do not yet provide, while the research group works directly on schema matching over heterogeneous tabular sources including ERP exports.\",\"sources\":[{\"id\":\"C124-CH2\",\"field\":\"detail\",\"quote\":\"a smarter way to detect and handle format variations automatically\"},{\"id\":\"SYN-PUB-02347\",\"field\":\"abstract\",\"quote\":\"Schema matching for Tabular Data Exports from ERP Systems\"},{\"id\":\"R0181\",\"field\":\"bio\",\"quote\":\"Her group develops methods for ontology-driven data integration, probabilistic record linkage, and data quality assessment over tabular and semi-structured data\"}],\"kind\":\"inference\"},{\"subject\":\"C124-CH2__R0181\",\"text\":\"The research group requires a concrete dataset of real legacy exports to apply and test its methods, and the company holds twelve years of such exports together with existing migration scripts that make the dataset immediately usable.\",\"sources\":[{\"id\":\"R0181\",\"field\":\"notes\",\"quote\":\"Prefers projects where there is a concrete dataset to work with rather than purely theoretical engagements\"},{\"id\":\"C124-CH2\",\"field\":\"detail\",\"quote\":\"every annual backup from 2008 to 2016 uses a slightly different field structure\"},{\"id\":\"C124-CH2\",\"field\":\"detail\",\"quote\":\"We have written about fifteen Python scripts to handle specific quirks\"}],\"kind\":\"inference\"},{\"subject\":\"C124-CH2__R0181\",\"text\":\"The core work is automated schema matching and ETL transformation over the legacy exports, carried out by the junior developer under advisory sessions from the senior researcher on pipeline design and normalisation rules.\",\"sources\":[{\"id\":\"R0181\",\"field\":\"industry_experience\",\"quote\":\"consultancy to a regional logistics company during 2020–2021 on the integration of legacy warehouse management system exports with a new ERP platform\"},{\"id\":\"C124\",\"field\":\"rd_capacity\",\"quote\":\"dedicate one junior developer to a research or pilot project for up to three months per year\"}],\"kind\":\"inference\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 1697,
+    "totalTokens": 1700,
+    "inputTokenDetails": {
+      "cached_tokens": 5666
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 3210,
+    "cache_read_input_tokens": 2456,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 3210,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 1697,
+    "service_tier": "standard"
+  },
+  "ms": 22587
+}

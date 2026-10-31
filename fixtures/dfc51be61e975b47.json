@@ -1,0 +1,38 @@
+{
+  "key": "dfc51be61e975b47",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: Contract research is the right format because we need a bounded answer — a workable protocol — within a year, not open-ended research [C144-CH2]",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"The cited words describe a desired experimental outcome, not anything about contract research format or bounded timelines.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 502,
+    "outputTokens": 40,
+    "totalTokens": 542,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 502,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 40,
+    "service_tier": "standard"
+  },
+  "ms": 7291
+}

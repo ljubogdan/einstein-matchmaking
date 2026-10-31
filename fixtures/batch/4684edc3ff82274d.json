@@ -1,0 +1,38 @@
+{
+  "key": "4684edc3ff82274d",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The current recommendation uses a pH reading and a table from an older Vojvodina handbook, without accounting for buffer capacity differences be",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"PostGIS database is not mentioned in the field\", \"rewrite\": \"Multi-year per-parcel measurement data are available for model validation.\"}, {\"claim\": 5, \"support\": \"partly\", \"reason\": \"Methods were compared and calibrated, but the field does not state they were calibrated 'locally'—it says regional recalibration is necessary before adoption\", \"rewrite\": \"Buffer pH methods have been compared and calibrated with regression equations developed for chernozem texture classes to predict lime requirements in northern Vojvodina municipalities.\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"partly\", \"reason\": \"The field does not state that SMP calibration and pedological modelling will be delivered as the core work of this project, nor that the researcher needs the validation data specifically\", \"rewrite\": \"The researcher's expertise in soil buffering capacity modelling aligns with TloCare's need for improved lime recommendations, and TloCare holds multi-year field data that could validate models.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3922,
+    "outputTokens": 353,
+    "totalTokens": 4275,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3922,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 353,
+    "service_tier": "standard"
+  },
+  "ms": 9234
+}

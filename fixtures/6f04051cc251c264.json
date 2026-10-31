@@ -1,0 +1,38 @@
+{
+  "key": "6f04051cc251c264",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Cleaning protocols for ultrafiltration membranes fouled with dairy process streams were evaluated, showing that sodium hydroxide achieved flux r",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"The claim attributes the 93.1% flux recovery to sodium hydroxide alone, but the source shows this was achieved by Protocol C which used sodium hydroxide WITH sodium dodecyl sulphate (0.3% NaOH with 0.1% sodium dodecyl sulphate), not sodium hydroxide alone.\", \"rewrite\": \"Cleaning protocols for ultrafiltration membranes fouled with dairy process streams were evaluated, showing that sodium hydroxide with sodium dodecyl sulphate achieved flux recovery of 93.1% while sodium hydroxide with hypochlorite achieved 97.4% but reduced membrane lifetime by approximately 18% after 30 cleaning cycles.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1586,
+    "outputTokens": 172,
+    "totalTokens": 1758,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1586,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 172,
+    "service_tier": "standard"
+  },
+  "ms": 13317
+}

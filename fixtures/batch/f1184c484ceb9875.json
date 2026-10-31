@@ -1,0 +1,38 @@
+{
+  "key": "f1184c484ceb9875",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The studio produces roughly 600 packaging variants a year and the bottleneck is fitting finished artwork into structural dielines for each SKU.\n",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":2,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":3,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":4,\"support\":\"partly\",\"reason\":\"Claim mentions existing dieline scripts as production environment and background IP, but fields only confirm Illustrator, InDesign, and Esko ArtPro are used; no mention of existing scripts in the provided fields.\",\"rewrite\":\"The studio uses Adobe Illustrator, Esko ArtPro, and related production tools, which are the production environments the tool must integrate with.\"},{\"claim\":5,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":6,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":7,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":8,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":9,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 231,
+    "totalTokens": 234,
+    "inputTokenDetails": {
+      "cached_tokens": 4160
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 4160,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 4160,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 231,
+    "service_tier": "standard"
+  },
+  "ms": 9243
+}

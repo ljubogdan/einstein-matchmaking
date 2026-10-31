@@ -1,0 +1,38 @@
+{
+  "key": "d2f1c992901d77fe",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Distribution operator customers carry out dissolved gas analysis on their oil-filled transformers every one to two years and have load data from",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The fields state the data includes DGA results and SCADA load readings, but do not explicitly say the data is derived from those sources or confirm the specific derivation.\", \"rewrite\": \"The company provides cleaned and structured data for roughly four hundred transformers across two operators, including failure event records.\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"The fields do not specify who leads ML model design or validation, nor do they detail the division of work between researcher and company engineering team.\", \"rewrite\": \"An ML framework combining DGA and load data can predict transformer failures, and the results support integration into distribution management systems.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2654,
+    "outputTokens": 205,
+    "totalTokens": 2859,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2654,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 205,
+    "service_tier": "standard"
+  },
+  "ms": 2336
+}

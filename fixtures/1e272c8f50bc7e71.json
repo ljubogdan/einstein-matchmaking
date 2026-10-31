@@ -1,0 +1,38 @@
+{
+  "key": "1e272c8f50bc7e71",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C144-CH2: Downstream purification — specifically the ultrafiltration step — runs at only 55% of nominal throughput because the membranes foul with res",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Mathematical modelling of fouling dynamics in membranes treating particulate-rich food-industry effluents, with sensitivity analysis identifying initial particle concentration and membrane surface charge as the most influential parameters governing fouling rate.\",\"sources\":[{\"id\":\"SYN-PUB-08239\",\"field\":\"abstract\",\"quote\":\"A sensitivity analysis identified initial particle concentration and membrane surface charge as the most influential parameters governing fouling rate.\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2131,
+    "outputTokens": 106,
+    "totalTokens": 2237,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2131,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 106,
+    "service_tier": "standard"
+  },
+  "ms": 12220
+}

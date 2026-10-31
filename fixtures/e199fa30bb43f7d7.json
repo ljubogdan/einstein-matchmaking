@@ -1,0 +1,38 @@
+{
+  "key": "e199fa30bb43f7d7",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The company provides cleaned and structured data for roughly four hundred transformers across two operators, including failure event records.\n  ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The sentence claims results support integration into distribution management systems, but C047-CH1 only states they want to build a module; SYN-PUB-07733 describes a research framework and methodology, not deployed results.\", \"rewrite\": \"An ML framework combining DGA and load data can predict transformer failures up to six months in advance, and the methodology supports potential integration into distribution management systems.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1451,
+    "outputTokens": 132,
+    "totalTokens": 1583,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1451,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 132,
+    "service_tier": "standard"
+  },
+  "ms": 2384
+}

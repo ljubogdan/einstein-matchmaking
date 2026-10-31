@@ -1,0 +1,38 @@
+{
+  "key": "f2b1ccd2891cb4d5",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The company has a dark glass bottling line with nitrogen flushing and can measure peroxide value by iodometric titration.\n  C061 tech: \"Dark gla",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Peroxide kinetics study was on pumpkin seed oil (Cucurbita pepo), but headspace oxygen experiments were on hemp seed oil (Cannabis sativa), not pumpkin seed oil.\", \"rewrite\": \"The research group has published kinetic models of peroxide formation in cold-pressed pumpkin seed oil and has proposed practical filling-line specifications for small-scale cold-press operations including a maximum residual oxygen threshold of 2% in the headspace based on work with cold-pressed hemp seed oil.\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2401,
+    "outputTokens": 180,
+    "totalTokens": 2581,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2401,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 180,
+    "service_tier": "standard"
+  },
+  "ms": 1863
+}

@@ -1,0 +1,38 @@
+{
+  "key": "2bac5fe856fec7a9",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Geostatistical kriging can integrate satellite-derived soil moisture as external drift to improve spatial prediction from sparse sampling, reduc",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":2,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":3,\"support\":\"partly\",\"reason\":\"No mention of assessing interpolation performance under different covariate and model choices; only mentions variogram model choice sensitivity in passing in a different paper\",\"rewrite\":\"Variogram-informed sample design and cross-validation workflows can optimize minimum sample sizes needed for spatial surveys.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1664,
+    "outputTokens": 108,
+    "totalTokens": 1772,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1664,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 108,
+    "service_tier": "standard"
+  },
+  "ms": 14536
+}

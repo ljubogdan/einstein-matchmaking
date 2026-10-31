@@ -1,0 +1,38 @@
+{
+  "key": "aebcae7dd846b12d",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We accept 18 months exclusivity in the agreed product field as a trade. We want university ownership with an option to licence rather than assig",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words only confirm SYN-PAT-002 exists as a pending patent; they do not state that university ownership with an option to licence protects it or that an assign option would risk transferring related rights.\"},{\"item\":2,\"backed\":false,\"reason\":\"Words only confirm a count of authored publications; they say nothing about future publication rights or research programme constraints.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 632,
+    "outputTokens": 98,
+    "totalTokens": 730,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 632,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 98,
+    "service_tier": "standard"
+  },
+  "ms": 21290
+}

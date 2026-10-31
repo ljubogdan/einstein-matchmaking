@@ -1,0 +1,38 @@
+{
+  "key": "238ab7dee3d86ad7",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We accept 18 months of exclusivity in the audio ad insertion and targeting field as a trade, but we want university ownership of the results wit",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"The words only give a project title; they say nothing about exclusivity, ownership, publication rights, or background IP.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 497,
+    "outputTokens": 44,
+    "totalTokens": 541,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 497,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 44,
+    "service_tier": "standard"
+  },
+  "ms": 6841
+}

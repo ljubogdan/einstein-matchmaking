@@ -1,0 +1,38 @@
+{
+  "key": "136a137a54d779b7",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The company processes roughly 180,000 transactions a day and must resolve the latency problem before reaching 500,000 transactions because it ca",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"partly\",\"reason\":\"The claim states the company 'must resolve the latency problem before reaching 500,000 transactions because it cannot violate the SLA with clients who have just signed contracts,' but the field only says they 'cannot violate the SLA' (ne možemo da kršimo SLA) without specifying that these are recently signed contracts (upravo potpisali ugovore actually appears in the field, so this is supported). However, the claim adds that the reason for urgency is 'because it cannot violate the SLA with clients who have just signed contracts' - the connection between the urgency and recently-signed contracts is stated in the source, so this is supported. Re-reading: the field states 'ne možemo da kršimo SLA pred klijentima koji su upravo potpisali ugovore' (we cannot violate the SLA with clients who have just signed contracts) - this directly supports the claim.\",\"rewrite\":\"\"},{\"claim\":2,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1377,
+    "outputTokens": 242,
+    "totalTokens": 1619,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1377,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 242,
+    "service_tier": "standard"
+  },
+  "ms": 9490
+}

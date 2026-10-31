@@ -1,0 +1,38 @@
+{
+  "key": "6fddac359c1bf3b9",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: The fit review recommends consulting as the right format for this bounded, urgent problem [R0181 open_to]. We need a usable pipeline result befo",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":true,\"reason\":\"\"},{\"item\":2,\"backed\":false,\"reason\":\"Words mention Python scripts but do not identify them as background IP to retain.\"},{\"item\":3,\"backed\":false,\"reason\":\"Words describe a service offering, not company ownership of outputs or intent to deploy/reuse them.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 810,
+    "outputTokens": 79,
+    "totalTokens": 889,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 810,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 79,
+    "service_tier": "standard"
+  },
+  "ms": 17731
+}

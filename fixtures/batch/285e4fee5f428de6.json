@@ -1,0 +1,38 @@
+{
+  "key": "285e4fee5f428de6",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C144-CH2: Downstream purification — specifically the ultrafiltration step — runs at only 55% of nominal throughput because the membranes foul with res",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Pre-treatment of fermentation broth with commercial serine protease prior to 30 kDa polyethersulphone ultrafiltration was evaluated as a fouling mitigation strategy. At controlled hydrolysis degree, limiting flux increased by 38% compared with untreated broth, and total fouling resistance measured at 2 bar TMP was reduced by 47%.\",\"sources\":[{\"id\":\"SYN-PUB-03380\",\"field\":\"abstract\",\"quote\":\"Pre-treatment of a model fermentation broth with a commercial serine protease was evaluated as a fouling mitigation strategy prior to 30 kDa polyethersulphone ultrafiltration\"},{\"id\":\"SYN-PUB-03380\",\"field\":\"abstract\",\"quote\":\"At a hydrolysis degree of 16%, the limiting flux increased by 38% compared with untreated broth, and the total fouling resistance measured at 2 bar TMP was reduced by 47%\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2322,
+    "outputTokens": 233,
+    "totalTokens": 2555,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2322,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 233,
+    "service_tier": "standard"
+  },
+  "ms": 24633
+}

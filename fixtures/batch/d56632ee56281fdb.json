@@ -1,0 +1,38 @@
+{
+  "key": "d56632ee56281fdb",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The Rotermat DC-420 produces burrs and uneven creases on E-flute material when hall humidity exceeds 65%, and box compression strength drops bet",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 5, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 6, \"support\": \"partly\", \"reason\": \"The inference that the researcher's work 'directly addresses' the gap is not supported; the fields show the company lacks sensors and humidity control, and show the researcher's methodology exists, but do not establish that this specific methodology was designed for or directly targets this company's gap.\", \"rewrite\": \"The company has no humidity sensors distributed across the hall and no system to control moisture. The researcher has developed a multi-point logging methodology and humidity-BCT correlation work that could potentially address such gaps.\"}, {\"claim\": 7, \"support\": \"partly\", \"reason\": \"The fields show shoulder asymmetry increases above 68% RH and the researcher prefers access to production-scale equipment, but do not state that the researcher 'requires' such access for this work or that this specific methodology was designed to locate thresholds inside a particular company's hall.\", \"rewrite\": \"Shoulder asymmetry on rotary die-cutters increases markedly when relative humidity exceeds 68%. The researcher has published plant monitoring work that could locate where humidity thresholds are crossed, and prefers collaborations involving access to production-scale equipment, which this company could supply.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3031,
+    "outputTokens": 380,
+    "totalTokens": 3411,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3031,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 380,
+    "service_tier": "standard"
+  },
+  "ms": 9304
+}

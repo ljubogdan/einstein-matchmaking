@@ -1,0 +1,38 @@
+{
+  "key": "6b066cb7ba3eb2cb",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The oil hits a peroxide value above the acceptable threshold somewhere between three and five months after bottling, while competitors achieve 9",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":2,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":3,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":4,\"support\":\"partly\",\"reason\":\"No field states the company provides oil samples across multiple batches and storage time points or grants access to the bottling line for headspace oxygen measurements.\",\"rewrite\":\"The company has a dark glass bottling line with nitrogen flushing and can measure peroxide value by iodometric titration.\"},{\"claim\":5,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":6,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":7,\"support\":\"partly\",\"reason\":\"The pumpkin seed oil kinetics study is cited, but the practical filling-line specifications including the 2% headspace oxygen threshold come from a hemp seed oil study, not pumpkin seed oil.\",\"rewrite\":\"The research group has published kinetic models of peroxide formation in cold-pressed pumpkin seed oil and has proposed practical filling-line specifications for small-scale cold-press operations including a maximum residual oxygen threshold of 2% in the headspace based on work with cold-pressed oils.\"},{\"claim\":8,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":9,\"support\":\"partly\",\"reason\":\"The headspace oxygen study cited is on hemp seed oil, not pumpkin seed oil, and there is no stated evidence that the company has committed to providing samples across multiple batches and storage time points.\",\"rewrite\":\"The research group has carried out peroxide kinetics studies in cold-pressed pumpkin seed oil and headspace oxygen experiments in bottled cold-pressed oils, and the company operates a bottling line and maintains batch records.\"},{\"claim\":10,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 417,
+    "totalTokens": 420,
+    "inputTokenDetails": {
+      "cached_tokens": 5543
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 5543,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 5543,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 417,
+    "service_tier": "standard"
+  },
+  "ms": 3313
+}

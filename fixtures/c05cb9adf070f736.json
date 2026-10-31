@@ -1,0 +1,38 @@
+{
+  "key": "c05cb9adf070f736",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Two developers and one GIS analyst can dedicate partial time to the project, together with access to the NjivaManager parcel database and existi",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The fields show the research evaluated a Penman-Monteith ET model and calibrated crop coefficients on Vojvodina soils, but they do not state that the company's parcel data and weather stations supply the local inputs for field validation—only that an on-site automatic weather station was used for the study.\", \"rewrite\": \"The research group has evaluated a Penman-Monteith-based evapotranspiration model and calibrated crop coefficients on Vojvodina soils, which is the core field-validation work the challenge requires.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1464,
+    "outputTokens": 170,
+    "totalTokens": 1634,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1464,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 170,
+    "service_tier": "standard"
+  },
+  "ms": 5479
+}

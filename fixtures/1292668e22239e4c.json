@@ -1,0 +1,38 @@
+{
+  "key": "1292668e22239e4c",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: Both challenges show strong fit for [R0269], and both involve her core expertise in UF fouling and CIP. However, [R0269 notes] states she is 'pa",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":true,\"reason\":\"\"},{\"item\":2,\"backed\":true,\"reason\":\"\"},{\"item\":3,\"backed\":false,\"reason\":\"Words say '-52%' but don't specify it's for C088-CH2.\"},{\"item\":4,\"backed\":false,\"reason\":\"Words say '-2%' but don't specify it's for C144-CH2.\"},{\"item\":5,\"backed\":true,\"reason\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 106,
+    "totalTokens": 109,
+    "inputTokenDetails": {
+      "cached_tokens": 1708
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 1708,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 1708,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 106,
+    "service_tier": "standard"
+  },
+  "ms": 1602
+}

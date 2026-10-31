@@ -1,0 +1,38 @@
+{
+  "key": "0c4d2a11c1d1ef38",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We need results we can embed directly in ProtoSense and the planned fifth hardware variant with a dedicated security processor [C001 plans], so ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":true,\"reason\":\"\"},{\"item\":2,\"backed\":false,\"reason\":\"Words mention traffic archives and hardware bench among several contributions, but also include engineers and firmware codebase; they don't single out archives and bench as 'the core' in-kind contribution.\"},{\"item\":3,\"backed\":true,\"reason\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 858,
+    "outputTokens": 84,
+    "totalTokens": 942,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 858,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 84,
+    "service_tier": "standard"
+  },
+  "ms": 1803
+}

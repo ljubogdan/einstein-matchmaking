@@ -1,0 +1,38 @@
+{
+  "key": "7980c8a29472cdc0",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The research group works on unsupervised anomaly detection and one-class classification for industrial control system protocol traffic using lig",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The company supplies traffic for model development, but the claim states they can supply it 'for model development and validation' while the source says they need detection models from unlabelled traffic and can share anonymised versions, without explicitly stating validation use.\", \"rewrite\": \"The research group has published on quantisation and ARM deployment needed to fit within constrained memory and compute budgets, while the company can supply eighteen months of real OT traffic for model development.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2016,
+    "outputTokens": 141,
+    "totalTokens": 2157,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2016,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 141,
+    "service_tier": "standard"
+  },
+  "ms": 9246
+}

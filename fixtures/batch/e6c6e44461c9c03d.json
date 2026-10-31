@@ -1,0 +1,38 @@
+{
+  "key": "e6c6e44461c9c03d",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Ultrafiltration membranes with molecular weight cut-offs of 1, 3, and 10 kDa were evaluated in cross-flow filtration of biopolymer hydrolysates ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The field shows the study used wheat bran enzymatic hydrolysates, not generic biorefinery streams\", \"rewrite\": \"Diafiltration following ultrafiltration achieved 81% recovery of DP 3–6 fraction in 3 kDa permeate.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1506,
+    "outputTokens": 110,
+    "totalTokens": 1616,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1506,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 110,
+    "service_tier": "standard"
+  },
+  "ms": 6101
+}

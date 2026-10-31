@@ -1,0 +1,38 @@
+{
+  "key": "98b5d0a235d00ddf",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C047-CH1: Operators want to know which distribution transformers will fail next year; they have dissolved gas analysis results and load data, but no m",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Research applies long short-term memory networks and particle filter methods to predict remaining useful life from time-series degradation data, with published guidance on LSTM training data requirements and cross-condition generalization.\",\"sources\":[{\"id\":\"SYN-PUB-00593\",\"field\":\"abstract\",\"quote\":\"Recurrent neural networks with long short-term memory (LSTM) cells have been proposed for RUL prediction\"},{\"id\":\"SYN-PUB-00593\",\"field\":\"abstract\",\"quote\":\"how well a model trained at one operating condition generalises to others\"},{\"id\":\"SYN-PUB-08928\",\"field\":\"abstract\",\"quote\":\"particle filter framework for estimating the remaining useful life (RUL) of gearbox output-shaft bearings\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2323,
+    "outputTokens": 185,
+    "totalTokens": 2508,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2323,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 185,
+    "service_tier": "standard"
+  },
+  "ms": 7114
+}

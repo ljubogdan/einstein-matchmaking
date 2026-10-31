@@ -6,16 +6,17 @@ The rules ask for this explicitly, and "the weight is on genuine use of concurre
 
 | Participant | Instances | Reacts to | Emits |
 |---|---|---|---|
-| Matchmaker | 3, each owning a slice of the challenges | `challenge.analyzed`, `profile.ready`, `arbiter.decided`, `negotiation.no_deal` | `challenge.submitted`, `shortlist.ready`, `reservation.conflict`, `match.proposed`, `rematch`, `nomatch` |
+| Matchmaker | 3, each owning a slice of the challenges | `challenge.analyzed`, `profile.ready`, `fit.done`, `arbiter.decided`, `negotiation.no_deal` | `challenge.submitted`, `shortlist.ready`, `fit.check`, `reservation.conflict`, `match.proposed`, `rematch`, `nomatch` |
 | Industry Analyst | one agent per challenge (cheap model) | `challenge.submitted` | `challenge.analyzed` |
 | Profiler | one agent per shortlisted researcher per challenge, plus one per rewrite (cheap model) | `shortlist.ready`, `critic.done` | `critic.check`, `profile.ready` |
-| Arbiter | one agent per conflict, plus one citation check of its reasoning (strong model) | `reservation.conflict`, `profile.ready` | `pair.cancelled`, `arbiter.decided` |
+| Fit reviewer | one agent per challenge (strong model) | `fit.check` | `fit.done` |
+| Arbiter | one agent per conflict, plus one citation check of its reasoning (strong model) | `reservation.conflict`, `profile.ready`, `fit.done` | `pair.cancelled`, `arbiter.decided` |
 | Negotiator | 2 per pair: company side, researcher side, plus one citation check per move (strong model) | `match.proposed`, `negotiation.move` | `negotiation.move`, `negotiation.agreed`, `negotiation.no_deal` |
-| Proposal Writer | one per pair (strong model) | `negotiation.agreed`, `critic.done`, `pair.cancelled` | `critic.check`, `writer.rewrote`, `claim.dropped`, `proposal.ready` |
+| Proposal Writer | one per pair, plus one plan reviewer (strong model) | `negotiation.agreed`, `critic.done`, `pair.cancelled` | `plan.reviewed`, `critic.check`, `writer.rewrote`, `claim.dropped`, `proposal.ready` |
 | Critic | 1 (code checks), plus one support-check agent per check request (cheap model) | `critic.check` | `critic.verdict` per claim, `critic.done` |
 | Observer, Reporter | 1 each | everything | `out/trace.jsonl`, `out/nomatch.md`, `out/traps.md` |
 
-In the demo run from a fresh clone (91 model calls) that is 3 matchmakers, 4 analysts, 15 profilers plus 12 profiler rewrites, 30 support checks, 1 arbiter plus its reasoning check, 12 negotiation moves plus 11 citation checks, and 3 writers plus 2 rewrites.
+The demo run makes 197 model calls across 8 challenges: 3 matchmakers, 8 analysts, 35 profilers plus their rewrites, 7 fit reviews, 2 arbiters plus their reasoning checks, the negotiation moves plus their citation checks (including those of the 2 pairs the Arbiter cancelled), 7 writers with 7 plan reviews and their rewrites, and the support checks.
 
 ## What actually runs at the same time
 
@@ -23,7 +24,7 @@ In the demo run from a fresh clone (91 model calls) that is 3 matchmakers, 4 ana
 - A fresh agent per task means memory never crosses challenges, researchers or sides, and each answer maps back to its task.
 - One runner wraps every model call: at most 8 calls in flight, retries with backoff on 408/429/5xx (the hackathon gateway does answer 429 "too many requests at once"), and record/replay.
 - Cached results arrive on the next tick, like a model answer, so a cached run keeps the same concurrent shape.
-- `--paced` replays each recorded answer after the latency measured when it was recorded (waiting for a slot and retries included), so a replay keeps the live run's timing; the committed `out/trace.jsonl` and the board's timeline come from it. The recording run's own trace is `out/trace-recording.jsonl`.
+- `--paced` replays each recorded answer after the latency measured when it was recorded (waiting for a slot and retries included), so a replay keeps the live run's timing; the committed `out/trace.jsonl` and the board's timeline come from it. Who wins a race can't change the outcome, since the Arbiter's brief doesn't depend on it, but how far a doomed negotiation gets before the ruling can, so those moves are recorded too.
 
 ## Shared state without races
 
@@ -41,18 +42,20 @@ The Arbiter's prompt lists the two challenges in id order, never as holder and r
 1. **Reservation conflict -> Arbiter -> the losing matchmaker re-matches.** Built; in the demo run (`out/trace.jsonl`):
 
    ```json
-   {"type":"prenup.match.proposed","producer":"matchmaker-2","payload":{"pairId":"C032-CH1__R1015", "...": "..."}}
-   {"type":"prenup.reservation.conflict","producer":"matchmaker-1","payload":{"researcherId":"R1015","challengeId":"C001-CH1","holder":"C032-CH1","seenVersion":0,"version":1}}
-   {"type":"prenup.arbiter.decided","producer":"arbiter:R1015","payload":{"researcherId":"R1015","winner":"C032-CH1","loser":"C001-CH1","check":{"cited":3,"backed":3,"notBacked":[],"numbersNotInBrief":[]}, "...": "..."}}
-   {"type":"prenup.rematch","producer":"matchmaker-1","payload":{"challengeId":"C001-CH1","from":"R1015", "...": "..."}}
    {"type":"prenup.match.proposed","producer":"matchmaker-1","payload":{"pairId":"C001-CH1__R1008", "...": "..."}}
+   {"type":"prenup.reservation.conflict","producer":"matchmaker-2","payload":{"researcherId":"R1008","challengeId":"C032-CH1","holder":"C001-CH1","seenVersion":0,"version":1}}
+   {"type":"prenup.pair.cancelled","producer":"arbiter:R1008","payload":{"pairId":"C001-CH1__R1008","reason":"the Arbiter gave R1008 to C032-CH1"}}
+   {"type":"prenup.arbiter.decided","producer":"arbiter:R1008","payload":{"researcherId":"R1008","winner":"C032-CH1","loser":"C001-CH1","version":2,"check":{"cited":5,"backed":2,"notBacked":["SYN-PUB-10239","C032-CH1","C001-CH1"],"numbersNotInBrief":[]}, "...": "..."}}
+   {"type":"prenup.rematch","producer":"matchmaker-1","payload":{"challengeId":"C001-CH1","from":"R1008", "...": "..."}}
+   {"type":"prenup.match.proposed","producer":"matchmaker-1","payload":{"pairId":"C001-CH1__R1015", "...": "..."}}
    ```
 
-   Matchmaker-2 reserved R1015 first; matchmaker-1's write then failed the version check. The Arbiter kept R1015 with C032-CH1, its reasoning checked first (3 of 3 citations backed), and matchmaker-1 re-matched to R1008 by itself. When the Arbiter gives the researcher to the requester instead, code cancels the holder's negotiation mid-way (`prenup.pair.cancelled`); earlier recordings show that path. The Arbiter is never told which side holds the researcher, so who writes first can't affect its decision.
+   Matchmaker-1 reserved R1008 first; matchmaker-2's write then failed the version check. The Arbiter moved R1008 to C032-CH1, code cancelled the holder's negotiation mid-way, and matchmaker-1 re-matched to R1015 by itself. The check found 2 of the 5 citations in its reasoning backed and lists the other three. The Arbiter is never told which side holds the researcher, so who writes first can't affect its decision.
 
 2. **Negotiation ends in no deal -> the challenge goes back to its matchmaker**, which tries its next card (at most 2 negotiations per challenge, then a no-match). Built; no negotiation in the demo run ended without a deal, so it is shown in `test/matchmaker.test.ts`.
-3. **The Critic stops a claim -> it goes back to its author once.** Built: the writer gets its stopped claims back in the same conversation, a stopped profile claim goes to a fresh Profiler agent, each with the reason and the Critic's suggested sentence. The fix is checked again; what still fails is dropped (`prenup.claim.dropped`) and listed on the page. In the demo run 2 of 3 writers and 12 of 15 profile cards sent claims back once.
-4. **A profile is retired or consulting-only -> negotiators can only offer what's allowed.** Built: the researcher side's allowed engagement types come from code (`open_to` and availability), and a move outside them becomes a walk-away.
+3. **The Critic stops a claim -> it goes back to its author once.** Built: the writer gets its stopped claims back in the same conversation, a stopped profile claim goes to a fresh Profiler agent, each with the reason and the Critic's suggested sentence. The fix is checked again; for a proposal, the check's own shorter sentence gets one last try, and what still fails is dropped (`prenup.claim.dropped`) and listed on the page. In the demo run all 7 writers sent claims back.
+4. **The plan reviewer finds a problem -> it goes back to the writer once.** Built: a fresh agent reads the research questions and plan, which state no facts and so never reach the Critic. In the demo run it sent back 15 problems across 7 proposals.
+5. **A profile is retired or consulting-only -> negotiators can only offer what's allowed.** Built: the researcher side's allowed engagement types come from code (`open_to` and availability), and a move outside them becomes a walk-away.
 
 ## Concurrency, awareness, adaptivity (Mozaik's three pillars)
 
@@ -66,8 +69,8 @@ The Arbiter's prompt lists the two challenges in id order, never as holder and r
 
 ## Measured
 
-Parallel vs one call at a time, on 30 Oct (evening, current code): the demo set (4 challenges) run twice live with `--fresh`, same code and models, up to 8 model calls at once vs `--in-flight=1`. **173.9 s vs 680.6 s, 3.9x faster**, 94 vs 95 model calls, $1.11 vs $1.36. The parallel run hit the gateway's rate limit 6 times and retried. The answers were fresh, so the runs took slightly different paths. Raw data: [`out/eval/concurrency.json`](out/eval/concurrency.json), with both runs' logs and traces next to it. (An earlier measurement on older prompts gave 170.7 s vs 380.3 s; the writers now write more, which costs the one-at-a-time run most.)
+Parallel vs one call at a time, on 30 Oct, on the earlier build before the fit and plan reviews, not repeated since: the demo set of that build (4 challenges) run twice live with `--fresh`, same code and models, up to 8 model calls at once vs `--in-flight=1`. **173.9 s vs 680.6 s, 3.9x faster**, 94 vs 95 model calls, $1.11 vs $1.36. The parallel run hit the gateway's rate limit 6 times and retried. The answers were fresh, so the runs took slightly different paths. Raw data: [`out/eval/concurrency.json`](out/eval/concurrency.json), with both runs' logs and traces next to it. (An earlier measurement on older prompts gave 170.7 s vs 380.3 s; the writers now write more, which costs the one-at-a-time run most.)
 
-The demo set replayed at recorded latency, drawn: [`out/eval/timeline.svg`](out/eval/timeline.svg) (72 calls in 209 s, up to 15 open at once).
+The demo set replayed at recorded latency, drawn: [`out/eval/timeline.svg`](out/eval/timeline.svg) (197 calls in 210 s, up to 35 open at once).
 
 Without the version check, the same matchmaker code would double-book 104 researchers across 264 of the 489 challenges; with it, none ([`out/eval/arbiter-*.json`](out/eval/), a code-only simulation with stand-ins for the model agents).

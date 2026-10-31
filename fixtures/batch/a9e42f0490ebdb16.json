@@ -1,0 +1,38 @@
+{
+  "key": "a9e42f0490ebdb16",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Cross-flow ultrafiltration fouling in oil processing occurs primarily through concentration polarization and irreversible deposit accumulation, ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The field does not state that pretreatment and filter-aid characterization are 'fundamental to minimizing downstream fouling' or that they minimize fouling; it only describes that filter aids are part of filtration theory and mentions filter-aid alternatives.\", \"rewrite\": \"Filter-aid characterization and solid-liquid separation staging are discussed in edible oil processing, with industrial practice involving various filter types and maintenance considerations.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1636,
+    "outputTokens": 135,
+    "totalTokens": 1771,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1636,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 135,
+    "service_tier": "standard"
+  },
+  "ms": 26140
+}

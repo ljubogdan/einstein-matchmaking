@@ -1,0 +1,38 @@
+{
+  "key": "58c366ea7d06a012",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The company runs a local processing cluster with twelve workstations and uses LAStools and PDAL for point-cloud processing steps.\n  C126-CH1 det",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The research group has built a GPU pipeline, but no field states that this pipeline or research group has been involved with or benchmarked by the company.\", \"rewrite\": \"The company needs either a faster automated pipeline or a cost model for burst cloud compute.\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"The research group requires large-scale industry datasets is not stated in any field; only that they use test datasets over Vojvodina municipalities and open-source libraries.\", \"rewrite\": \"The research group works on test datasets acquired over Vojvodina municipalities; the company supplies urban LiDAR datasets up to 120 GB, and the company's developer has one day per week of capacity for pipeline improvements.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2351,
+    "outputTokens": 203,
+    "totalTokens": 2554,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2351,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 203,
+    "service_tier": "standard"
+  },
+  "ms": 9280
+}

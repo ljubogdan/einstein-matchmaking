@@ -1,0 +1,38 @@
+{
+  "key": "173f3143bdc2ff4a",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: Voltmreža has no dedicated research staff and cannot lead scientific work independently, so contract research fits our capacity [C075 rd_capacit",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":true,\"reason\":\"\"},{\"item\":2,\"backed\":false,\"reason\":\"The words describe a Monte Carlo dropout method achieving 88.4% coverage at 90% confidence, not a claim about needing a system that gives site engineers a confidence interval on position.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 687,
+    "outputTokens": 71,
+    "totalTokens": 758,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 687,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 71,
+    "service_tier": "standard"
+  },
+  "ms": 14417
+}

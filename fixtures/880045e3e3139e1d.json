@@ -1,0 +1,38 @@
+{
+  "key": "880045e3e3139e1d",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Maintenance teams currently rely on age and visual inspection, which means they sometimes replace transformers that still had years left and mis",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"Field mentions DGA results and SCADA load readings separately but does not explicitly state both are included in the cleaned and structured data provided\", \"rewrite\": \"The company provides cleaned and structured data for roughly four hundred transformers across two operators, including failure event records, derived from DGA measurements and SCADA load readings.\"}, {\"claim\": 4, \"support\": \"no\", \"reason\": \"Field lists Azure services and tools but provides no information about engineer allocation, part-time involvement, or specific responsibilities for data pipeline integration and deployment\", \"rewrite\": \"\"}, {\"claim\": 5, \"support\": \"partly\", \"reason\": \"Field states 'up to six months before confirmed failure' but does not say the researcher published this or has demonstrated it beyond the validation dataset\", \"rewrite\": \"A published machine-learning framework combines dissolved gas analysis measurements with historical load profiles to predict distribution transformer failures, achieving a fault-prediction horizon of up to six months before confirmed failure.\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"partly\", \"reason\": \"Field for company shows only total engineer count with no detail on specific roles or pipeline responsibilities; field for researcher shows expertise in data-driven failure prediction but does not confirm role division covering deployment into GridSense Assets\", \"rewrite\": \"The researcher leads ML model design and validation for DGA and load data prediction, and the company's engineering team handles system integration into GridSense Assets.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3322,
+    "outputTokens": 436,
+    "totalTokens": 3758,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3322,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 436,
+    "service_tier": "standard"
+  },
+  "ms": 9865
+}

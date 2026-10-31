@@ -1,0 +1,38 @@
+{
+  "key": "8d2a6aef3f4dc516",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We accept contract research format and the nine-month timeline. We want company_owns_uni_academic_use so the university retains the right to use",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"The words only state a publication count and date; they do not say 30 days is standard for contract research or that the group has an active publication record supporting that claim.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 508,
+    "outputTokens": 56,
+    "totalTokens": 564,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 508,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 56,
+    "service_tier": "standard"
+  },
+  "ms": 4840
+}

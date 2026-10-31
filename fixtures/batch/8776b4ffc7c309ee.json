@@ -1,0 +1,38 @@
+{
+  "key": "8776b4ffc7c309ee",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: An option to licence in our product field, combined with 18 months exclusivity and 60-day review, gives FreshPak sufficient certainty to commerc",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"The cited words describe a commercial deadline pressure, not the option to licence, exclusivity period, or 60-day review giving FreshPak certainty to commercialise.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 509,
+    "outputTokens": 57,
+    "totalTokens": 566,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 509,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 57,
+    "service_tier": "standard"
+  },
+  "ms": 12331
+}

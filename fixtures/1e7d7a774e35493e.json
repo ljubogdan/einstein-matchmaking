@@ -1,0 +1,38 @@
+{
+  "key": "1e7d7a774e35493e",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We want university ownership of results with an option to licence to ArmaturaSec, which protects our publication record built on 9 authored work",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words describe autoencoder-based anomaly detection methods; they do not state this is one of 9 authored works or identify it as an unsupervised ICS detection publication in a publication record.\"},{\"item\":2,\"backed\":true,\"reason\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 710,
+    "outputTokens": 75,
+    "totalTokens": 785,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 710,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 75,
+    "service_tier": "standard"
+  },
+  "ms": 1538
+}

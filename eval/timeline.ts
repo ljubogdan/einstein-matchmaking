@@ -9,6 +9,7 @@ const name = process.argv[3] ?? "timeline"
 const GROUPS: [string, RegExp][] = [
   ["Analysts", /^analyst/],
   ["Profilers", /^profiler/],
+  ["Fit and plan reviewers", /^(?:fit|plan)-reviewer/],
   ["Critic support check", /^critic/],
   ["Arbiter", /^arbiter/],
   ["Negotiators", /negotiator(-check)?$/],

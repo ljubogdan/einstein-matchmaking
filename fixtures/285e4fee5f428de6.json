@@ -1,0 +1,38 @@
+{
+  "key": "285e4fee5f428de6",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C144-CH2: Downstream purification — specifically the ultrafiltration step — runs at only 55% of nominal throughput because the membranes foul with res",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Controlled proteolytic pre-treatment can serve as a feasible upstream option for bioreactor clarification steps, with studies showing that at a hydrolysis degree of 16%, the limiting flux increased by 38% compared with untreated broth, and the total fouling resistance measured at 2 bar TMP was reduced by 47%.\",\"sources\":[{\"id\":\"SYN-PUB-03380\",\"field\":\"abstract\",\"quote\":\"controlled proteolytic pre-treatment can serve as a feasible upstream option for bioreactor clarification steps\"},{\"id\":\"SYN-PUB-03380\",\"field\":\"abstract\",\"quote\":\"At a hydrolysis degree of 16%, the limiting flux increased by 38% compared with untreated broth, and the total fouling resistance measured at 2 bar TMP was reduced by 47%\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2322,
+    "outputTokens": 204,
+    "totalTokens": 2526,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2322,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 204,
+    "service_tier": "standard"
+  },
+  "ms": 11993
+}

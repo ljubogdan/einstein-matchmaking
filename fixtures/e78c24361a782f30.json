@@ -1,0 +1,38 @@
+{
+  "key": "e78c24361a782f30",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: Both challenges match [R1008]'s core expertise in unsupervised ICS anomaly detection, but [C032-CH1] adds a hard constraint of 512 MB ARM edge d",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":true,\"reason\":\"\"},{\"item\":2,\"backed\":true,\"reason\":\"\"},{\"item\":3,\"backed\":true,\"reason\":\"\"},{\"item\":4,\"backed\":false,\"reason\":\"No citation [SYN-PUB-10239] appears in the reason text; it is not cited anywhere in the statement.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 85,
+    "totalTokens": 88,
+    "inputTokenDetails": {
+      "cached_tokens": 1330
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 1330,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 1330,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 85,
+    "service_tier": "standard"
+  },
+  "ms": 1838
+}

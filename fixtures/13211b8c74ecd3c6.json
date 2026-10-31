@@ -1,0 +1,38 @@
+{
+  "key": "13211b8c74ecd3c6",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: Contract research is the right fit because we need a bounded answer within a year [C061 plans] and our in-house capacity is limited to routine c",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words state a two-year plan to add a cold-press line, not a need for a bounded answer within a year.\"},{\"item\":2,\"backed\":true,\"reason\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 629,
+    "outputTokens": 58,
+    "totalTokens": 687,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 629,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 58,
+    "service_tier": "standard"
+  },
+  "ms": 1296
+}

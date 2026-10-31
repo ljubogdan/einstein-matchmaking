@@ -1,0 +1,38 @@
+{
+  "key": "b9df2c6738bbc5ac",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Cold-pressed pumpkin seed oil hits a peroxide value above the acceptable threshold somewhere between three and five months after bottling.\n  C06",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Published work covers hemp seed oil, not pumpkin seed oil; published on headspace oxygen for cold-press operations but no evidence of publishing on headspace oxygen specifications specifically\", \"rewrite\": \"The group has carried out contract studies for domestic cold-press oil producers covering quality benchmarking and shelf-life claims, and has published on headspace oxygen and oxidation in small-scale cold-press operations.\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"Published work is on hemp seed oil (different oil type), not pumpkin seed oil; no evidence in fields that company has provided or will provide access to production batches, bottling line, or internal peroxide records to the research group\", \"rewrite\": \"The research group's prior work on headspace oxygen effects in bottling addresses a challenge the company faces; if the company provides access to its production batches and peroxide records, findings could inform process changes.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2105,
+    "outputTokens": 246,
+    "totalTokens": 2351,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2105,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 246,
+    "service_tier": "standard"
+  },
+  "ms": 9645
+}

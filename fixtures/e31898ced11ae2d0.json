@@ -1,0 +1,38 @@
+{
+  "key": "e31898ced11ae2d0",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We need a usable soil moisture product ready before our 2027 yield-forecast launch [C057 plans], so company ownership of results is our preferre",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":true,\"reason\":\"\"},{\"item\":2,\"backed\":false,\"reason\":\"Words confirm 0.034 m³/m³ RMSE but say nothing about Pannonian fields or the researcher's group specifically.\"},{\"item\":3,\"backed\":false,\"reason\":\"Words say no prior collaboration with the university, so there is no Kikinda trial to reference.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 909,
+    "outputTokens": 95,
+    "totalTokens": 1004,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 909,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 95,
+    "service_tier": "standard"
+  },
+  "ms": 1745
+}

@@ -1,0 +1,38 @@
+{
+  "key": "02bb0f9d6e5c9630",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We need a working prototype deliverable within six months with a budget of roughly €18,000 [C145-CH1]. We want company ownership of the results ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":true,\"reason\":\"\"},{\"item\":2,\"backed\":false,\"reason\":\"The words describe a past collaboration but say nothing about lessons learned regarding M4 milestones or named technical contacts.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 678,
+    "outputTokens": 56,
+    "totalTokens": 734,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 678,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 56,
+    "service_tier": "standard"
+  },
+  "ms": 13711
+}

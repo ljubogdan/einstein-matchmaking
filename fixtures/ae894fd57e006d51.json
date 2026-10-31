@@ -1,0 +1,38 @@
+{
+  "key": "ae894fd57e006d51",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): SecureEdge Labs needs to detect unusual behaviour on Modbus and BACnet networks without labelled attack data, because real incidents are rare an",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"Four security engineers stated in rd_capacity, not two part-time\", \"rewrite\": \"Four security engineers and the EdgeWatch edge hardware and deployment environment will be contributed for integration and field evaluation work.\"}, {\"claim\": 5, \"support\": \"partly\", \"reason\": \"BACnet not mentioned in research group's expertise; only Modbus and DNP3\", \"rewrite\": \"The research group brings unsupervised anomaly detection and online learning methods for Modbus and DNP3 protocol traffic suited to constrained embedded environments.\"}, {\"claim\": 6, \"support\": \"partly\", \"reason\": \"Testbed described for dataset collection, not explicitly stated as available for benchmarking embedded model performance\", \"rewrite\": \"The group's ICS testbed, equipped with Modbus/TCP and DNP3 traffic generators and packet capture infrastructure, supports long-term dataset collection.\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"partly\", \"reason\": \"Paper targets 256 MB devices but does not explicitly state researcher's prior ARM embedded optimisation work or demonstrated results on 256 MB devices; only one paper result is provided\", \"rewrite\": \"A combined 8-bit quantised, 25%-pruned model achieved inference at 0.9 ms per 10-second window on an ARM Cortex-A7 target, while SecureEdge Labs supplies the operational site logs and EdgeWatch deployment environment that research needs for field validation.\"}, {\"claim\": 9, \"support\": \"partly\", \"reason\": \"BACnet not in research group's published protocol work, but claim states researcher leads model design while company engineers handle integration; sources do not confirm task division\", \"rewrite\": \"BACnet is not covered in the research group's prior published protocol work, and SecureEdge Labs' in-house BACnet parsers and site logs provide the data needed to extend detection methods to that protocol.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 531,
+    "totalTokens": 534,
+    "inputTokenDetails": {
+      "cached_tokens": 4803
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 4803,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 4803,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 531,
+    "service_tier": "standard"
+  },
+  "ms": 6090
+}

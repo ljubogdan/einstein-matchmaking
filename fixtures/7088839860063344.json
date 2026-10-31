@@ -1,0 +1,38 @@
+{
+  "key": "7088839860063344",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The company needs to detect unusual behaviour on Modbus and BACnet networks without labelled attack data, and hand-written rules miss slow, low-",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"Fields state logs are available to share as 'anonymised versions' but do not confirm they are actually provided or that the project has access to them\", \"rewrite\": \"The company can share anonymised packet logs from three customer sites averaging around four gigabytes per day per site covering eighteen months.\"}, {\"claim\": 5, \"support\": \"no\", \"reason\": \"Fields mention four security engineers total but provide no information about how many contribute part-time to this project, and do not state the project has access to EdgeWatch hardware or deployment environment\", \"rewrite\": \"\"}, {\"claim\": 6, \"support\": \"partly\", \"reason\": \"Fields cover unsupervised anomaly detection and one-class classification for ICS protocol traffic with lightweight algorithms for constrained environments, and mention Modbus and DNP3, but do not mention BACnet\", \"rewrite\": \"The research group works on unsupervised anomaly detection and one-class classification for industrial control system protocol traffic using lightweight online learning algorithms suited to constrained embedded environments, covering Modbus and DNP3.\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"partly\", \"reason\": \"The research group's methods cover Modbus and DNP3 but the fields do not confirm coverage of BACnet, which is explicitly mentioned in the challenge\", \"rewrite\": \"The challenge requires building detection models from unlabelled traffic and notes the company has no labelled attack examples, while the research group's methods cover unsupervised learning for Modbus and DNP3, without requiring labelled data.\"}, {\"claim\": 9, \"support\": \"partly\", \"reason\": \"Fields show ARM deployment expertise and eighteen months of OT traffic availability, but do not confirm the company actually supplies the data or EdgeWatch hardware to the research group for deployment validation\", \"rewrite\": \"The research group provides quantisation and ARM deployment expertise needed to fit within constrained memory and compute budgets, while the company can supply eighteen months of real OT traffic for model development and validation.\"}, {\"claim\": 10, \"support\": \"no\", \"reason\": \"Fields show BACnet appears in company products and keywords mention only Modbus and DNP3, but do not confirm whether the company's in-house BACnet parser capability, the specific division of work between parties, or that this constitutes a gap in current published work\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 628,
+    "totalTokens": 631,
+    "inputTokenDetails": {
+      "cached_tokens": 5356
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 5356,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 5356,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 628,
+    "service_tier": "standard"
+  },
+  "ms": 8603
+}

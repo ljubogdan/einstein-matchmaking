@@ -1,0 +1,38 @@
+{
+  "key": "9f51f6720f280746",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We accept 12 months exclusivity in farm management software irrigation scheduling as a trade, since it still covers our 2026 product launch [C02",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words describe a plan to offer the module as a standard feature, not specifically a 2026 product launch.\"},{\"item\":2,\"backed\":false,\"reason\":\"Words describe budget/R&D constraints, not team size or difficulty of ongoing licence negotiations for integration.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 663,
+    "outputTokens": 76,
+    "totalTokens": 739,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 663,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 76,
+    "service_tier": "standard"
+  },
+  "ms": 7249
+}

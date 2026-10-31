@@ -1,0 +1,38 @@
+{
+  "key": "09e9633e5e5a3ff9",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The oil hits a peroxide value above the acceptable threshold somewhere between three and five months after bottling, while competitors achieve 9",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"No evidence that company provides access to bottling line for headspace oxygen measurements or supplies samples across multiple time points.\", \"rewrite\": \"The company operates a dark glass bottling line with nitrogen flushing and measures peroxide value by iodometric titration.\"}, {\"claim\": 5, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 6, \"support\": \"no\", \"reason\": \"The fields state the laboratory operates GC-FID, HPLC, and rancimat, but do not specify these are needed for pathway analysis or used for the company's problem.\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"partly\", \"reason\": \"The publication addresses headspace oxygen effects in seed oils and filling-line specifications, but the field does not confirm the research group published on peroxide formation kinetics in cold-pressed seed oils or that they authored this specific paper.\", \"rewrite\": \"A published study on hemp seed oil proposes practical filling-line specifications for small-scale cold-press operations, including a maximum residual oxygen threshold of 2% in the headspace.\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"partly\", \"reason\": \"The field states the researcher carried out contract studies for domestic cold-press producers on quality benchmarking and labelling, but does not confirm these covered peroxide kinetics, headspace oxygen effects, or tocopherol profiling in pumpkin seed oil specifically.\", \"rewrite\": \"The researcher has carried out contract studies for domestic cold-press oil producers, covering quality benchmarking and labelling support for shelf-life claims.\"}, {\"claim\": 10, \"support\": \"partly\", \"reason\": \"No evidence in the fields that either side lacks capability alone or that the company has committed to providing a multi-batch sample archive or bottling line access.\", \"rewrite\": \"The company produces cold-pressed pumpkin seed oil with documented oxidation issues over multiple batches, while the research group operates analytical instruments including GC-FID, HPLC, and rancimat for lipid oxidation analysis.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 569,
+    "totalTokens": 572,
+    "inputTokenDetails": {
+      "cached_tokens": 4186
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 4186,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 4186,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 569,
+    "service_tier": "standard"
+  },
+  "ms": 6242
+}

@@ -1,0 +1,38 @@
+{
+  "key": "0e9b154305aa7e6c",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): SoundSlot targets listeners using age bracket, city and device type, and average pre-roll click-through sits at 0.9 percent across the network.\n",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":2,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":3,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":4,\"support\":\"partly\",\"reason\":\"Fields state they have transcripts and logs; claim adds specific purpose of model training and evaluation not stated in source\",\"rewrite\":\"The company provides access to four years of episode transcripts and campaign performance logs.\"},{\"claim\":5,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":6,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":7,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":8,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":9,\"support\":\"partly\",\"reason\":\"Source does not state that the university side leads NLP modelling while company side integrates results; this role division is not in the fields\",\"rewrite\":\"The researcher works on dense retrieval and semantic classification using transformer-based embedding models for Serbian, which are the methods needed to embed episode transcripts and match them to ad intent signals.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 255,
+    "totalTokens": 258,
+    "inputTokenDetails": {
+      "cached_tokens": 4597
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 4597,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 4597,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 255,
+    "service_tier": "standard"
+  },
+  "ms": 9473
+}

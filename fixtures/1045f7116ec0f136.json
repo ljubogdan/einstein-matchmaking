@@ -1,0 +1,38 @@
+{
+  "key": "1045f7116ec0f136",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Research on polymeric membrane fouling in food-industry wastewater, including flux decline under varied crossflow velocities and transmembrane p",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"Particle concentration identified as primary parameter, but membrane surface charge is equally identified as most influential; claim states particle concentration as primary.\", \"rewrite\": \"Mathematical modelling of fouling dynamics in membranes treating particulate-rich food-industry effluents, with sensitivity analysis identifying particle concentration and membrane surface charge as the most influential parameters governing fouling rate.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1674,
+    "outputTokens": 143,
+    "totalTokens": 1817,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1674,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 143,
+    "service_tier": "standard"
+  },
+  "ms": 17493
+}

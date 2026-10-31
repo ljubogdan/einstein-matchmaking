@@ -1,0 +1,38 @@
+{
+  "key": "7ab3339c4acf8a68",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Satellite-derived soil moisture indices from Sentinel-1 SAR can serve as external drift variables in spatial kriging models to improve predictio",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The field states the pipeline uses Gaussian process regression to interpolate ground measurements to satellite overpass times, but does not claim this resolves temporal misalignment in the sense of enabling efficient estimation across large areas with limited sensor networks—rather, it enables comparison against reference values. The claim also states 'limited sensor networks' but the study uses 19 ground stations, which is not characterized as limited.\", \"rewrite\": \"Temporal misalignment between satellite revisit cycles and ground sensors can be addressed through fusion pipelines that interpolate sparse ground measurements to satellite overpass times using methods like Gaussian process regression, enabling more accurate estimation of crop water stress indices when compared to satellite data alone.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1298,
+    "outputTokens": 190,
+    "totalTokens": 1488,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1298,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 190,
+    "service_tier": "standard"
+  },
+  "ms": 16203
+}

@@ -1,0 +1,38 @@
+{
+  "key": "ca2c2cd0d5768d06",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Several large German and Dutch retail chains will not accept conventional plastic lidding films from 2028 onward, creating a commercial deadline",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":2,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":3,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":4,\"support\":\"partly\",\"reason\":\"No field states the lab runs seal, permeability and anti-fog tests every day\",\"rewrite\":\"The company's quality lab can screen candidate films against EN 13432 parameters and run seal-strength, permeability and anti-fog tests in-house.\"},{\"claim\":5,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":6,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":7,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":8,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":9,\"support\":\"partly\",\"reason\":\"No field states that seal testing against rPET substrate at production temperatures is required or that the lab provides that capacity\",\"rewrite\":\"The company's quality lab with three technologists can run seal-strength tests in-house against materials that are being developed.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 252,
+    "totalTokens": 255,
+    "inputTokenDetails": {
+      "cached_tokens": 5332
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 5332,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 5332,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 252,
+    "service_tier": "standard"
+  },
+  "ms": 2043
+}

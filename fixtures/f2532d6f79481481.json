@@ -1,0 +1,38 @@
+{
+  "key": "f2532d6f79481481",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Research on evapotranspiration-based irrigation scheduling using the Penman-Monteith method has been conducted for sugar beet on chernozem soils",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"Claim states frameworks were 'systematically reviewed for applicability' and that review 'identifies' key requirements; the source shows frameworks were reviewed and barriers were identified, but does not state that a systematic review for applicability to Pannonian Plain conditions was the primary aim or that key requirements for adoption were systematically identified through such a process—the gap analysis identifies barriers, not requirements.\", \"rewrite\": \"Decision support frameworks for precision irrigation have been evaluated for applicability to Pannonian Plain conditions, with a gap analysis identifying limited availability of locally validated crop coefficient databases and absence of standardised sensor calibration protocols for Vojvodina's diverse soil types as key barriers to adoption.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2374,
+    "outputTokens": 210,
+    "totalTokens": 2584,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2374,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 210,
+    "service_tier": "standard"
+  },
+  "ms": 12561
+}

@@ -9,6 +9,7 @@ import { createHuman, SemanticEvent } from "@mozaik-ai/core"
 import { createAnalyst } from "./agents/analyst"
 import { createArbiter } from "./agents/arbiter"
 import { createCritic } from "./agents/critic"
+import { createFitReviewer } from "./agents/fit-review"
 import { createMatchmaker } from "./agents/matchmaker"
 import { createNegotiator } from "./agents/negotiator"
 import { createTraceObserver } from "./agents/observer"
@@ -38,9 +39,11 @@ const TIMEOUT_MS = (Number(flag("timeout")) || 10) * 60_000 // --timeout=MINUTES
 // --out=DIR: proposals, reports and the trace go there instead of out/ (runs beyond the demo set keep it intact).
 const OUT = flag("out") ?? "out"
 const TRACE = flag("trace") ?? `${OUT}/trace.jsonl` // the board's Run writes its own, so the committed trace stays put
-// The demo set: two companies with the same challenge (C001-CH1, C032-CH1) want the same researcher; C061-CH1 has the
-// R0128 identity-conflict profile on its shortlist; C043-CH3 (raise a seed round) is not a research problem.
-const DEMO = ["C001-CH1", "C032-CH1", "C061-CH1", "C043-CH3"]
+// The demo set: two companies with the same challenge (C001-CH1, C032-CH1), told apart by the fit review; C061-CH1 has the
+// R0128 identity-conflict profile on its shortlist; C043-CH3 (raise a seed round) is not a research problem; C022-CH3 has a
+// deadline and a researcher who takes only joint projects or PhDs; C047-CH1 is an open problem with no deadline, a PhD
+// candidate; C088-CH2 and C144-CH2 (membrane fouling) both need the same specialist.
+const DEMO = ["C001-CH1", "C032-CH1", "C061-CH1", "C043-CH3", "C022-CH3", "C047-CH1", "C088-CH2", "C144-CH2"]
 const MATCHMAKERS = 3
 const args = process.argv.slice(2).filter((arg) => !arg.startsWith("--"))
 const challengeIds = args.length > 0 ? args : DEMO
@@ -119,13 +122,13 @@ const outcome = createHuman({
 })
 
 const onPair = (pair: Pair, profile: ProfileCard) => {
-  console.log(`pair: ${pair.pairId} (picked by search)`)
+  console.log(`pair: ${pair.pairId} (fit review: ${profile.fit})`)
   join(createNegotiator("company", pair, board, data, profile))
   join(createNegotiator("researcher", pair, board, data, profile))
   join(createWriter(pair, board, data, profile, `${OUT}/proposals`))
 }
 const matchmakers = Array.from({ length: Math.min(MATCHMAKERS, challengeIds.length) }, (_, i) =>
-  createMatchmaker({ name: `matchmaker-${i + 1}`, challengeIds: challengeIds.filter((_, j) => j % MATCHMAKERS === i), data, index, board, onPair }),
+  createMatchmaker({ name: `matchmaker-${i + 1}`, challengeIds: challengeIds.filter((_, j) => j % MATCHMAKERS === i), data, index, board, onPair, reviewFit: true }),
 )
 
 const cache = new ResultCache(mode !== "fresh")
@@ -134,6 +137,7 @@ join(createTraceObserver(TRACE))
 join(createCritic({ data, move: (pairId, round) => board.move(pairId, round) }))
 join(createAnalyst(data, cache))
 join(createProfiler(data, cache))
+join(createFitReviewer(data))
 join(createArbiter(data, board))
 for (const matchmaker of matchmakers) join(matchmaker)
 join(reporter.participant)

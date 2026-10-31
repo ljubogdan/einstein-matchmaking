@@ -1,0 +1,38 @@
+{
+  "key": "fee5c9d7ddd1d984",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C057-CH2: Ground truth for soil moisture costs too much: probes are expensive and we can't place them on every parcel.\nDetail: Soil moisture is probab",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Cloud-native satellite processing architectures can deliver daily latency soil moisture products at ten-metre resolution suitable for near-real-time agricultural advisory services.\",\"sources\":[{\"id\":\"SYN-PUB-08411\",\"field\":\"abstract\",\"quote\":\"Operational daily latency of the processing chain was demonstrated using cloud-based infrastructure, making the product suitable for near-real-time agricultural advisory services\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2210,
+    "outputTokens": 102,
+    "totalTokens": 2312,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2210,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 102,
+    "service_tier": "standard"
+  },
+  "ms": 10288
+}

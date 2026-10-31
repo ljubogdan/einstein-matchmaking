@@ -1,0 +1,38 @@
+{
+  "key": "9f5ad5291ea0e140",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We accept company ownership of the delivered pipeline to meet the company's deployment need, but we want the university to retain the right to u",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"The words describe contract research on point cloud classification pipelines, not work the university already does independently that would be blocked by a broad exclusivity clause.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 507,
+    "outputTokens": 50,
+    "totalTokens": 557,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 507,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 50,
+    "service_tier": "standard"
+  },
+  "ms": 10311
+}

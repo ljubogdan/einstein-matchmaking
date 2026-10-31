@@ -1,0 +1,38 @@
+{
+  "key": "479228de5d10a781",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We accept the 60-day review period, which gives the company adequate time to remove confidential customer data before publication. We want unive",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"The words only identify the subject area of the contract research; they do not state that university ownership is the standard position for contract research outcomes.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 514,
+    "outputTokens": 48,
+    "totalTokens": 562,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 514,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 48,
+    "service_tier": "standard"
+  },
+  "ms": 4002
+}

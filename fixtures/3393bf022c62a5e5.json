@@ -1,0 +1,38 @@
+{
+  "key": "3393bf022c62a5e5",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Crop water requirements for regional crops have been quantified using calibrated crop models driven by long-term records from synoptic stations ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The field mentions the lysimeter network exists and its location/size, but does not state it was used to characterize soil hydraulic properties through experimental work\", \"rewrite\": \"Soil hydraulic properties in heavy clay soils have been investigated using a suction-cup lysimeter network on a 4-hectare experimental plot near Bečej.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1277,
+    "outputTokens": 121,
+    "totalTokens": 1398,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1277,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 121,
+    "service_tier": "standard"
+  },
+  "ms": 3815
+}

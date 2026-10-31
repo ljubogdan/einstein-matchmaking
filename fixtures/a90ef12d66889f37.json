@@ -1,0 +1,38 @@
+{
+  "key": "a90ef12d66889f37",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The company does not have the tools or know-how to characterise the foulant properly and suspects a combination of fats, proteins, and sugars is",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"},{\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"},{\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"},{\"claim\": 4, \"support\": \"partly\", \"reason\": \"The claim states the methods were 'validated on real dairy effluents' but the source only mentions validation using both 'synthetic suspensions' and 'real dairy effluents'; the framing suggests only dairy effluents were used for validation.\", \"rewrite\": \"The research group brings fouling characterisation methods and published models validated on synthetic suspensions and real dairy effluents, including prediction of flux decline across transmembrane pressures of 0.5 to 2.5 bar and temperatures of 15 to 45 degrees C.\"},{\"claim\": 5, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"},{\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"},{\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3630,
+    "outputTokens": 276,
+    "totalTokens": 3906,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3630,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 276,
+    "service_tier": "standard"
+  },
+  "ms": 2526
+}

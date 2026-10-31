@@ -1,0 +1,38 @@
+{
+  "key": "4edc953cb4a862e9",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: The university retains full academic use rights for research and teaching, which preserves our publication record [R0231 publications]; the 30-d",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words only list a count of publications; they say nothing about retained academic use rights.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 461,
+    "outputTokens": 37,
+    "totalTokens": 498,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 461,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 37,
+    "service_tier": "standard"
+  },
+  "ms": 1250
+}

@@ -1,0 +1,38 @@
+{
+  "key": "39c37e0d1db2b413",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): A pharma client returned non-conformance documentation because boxes did not meet the requirement of 3,2 kN BCT.\n  C138-CH1 detail: \"kutije nisu",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"The field states the researcher conducted multi-point humidity logging at converting plants correlated with BCT records, but does not state this researcher has any relationship with this company or knowledge of their situation.\", \"rewrite\": \"The company has no humidity control system and no sensors distributed across hall zones.\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"The researcher prefers collaborations with access to production-scale equipment, but the field does not state he has expressed a preference for specifically the Rotermat DC-420 or this company's equipment.\", \"rewrite\": \"Shoulder asymmetry on rotary die-cutters increases markedly when relative humidity exceeds 68%, and the researcher has expressed a preference for collaborations that involve access to production-scale equipment.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2810,
+    "outputTokens": 234,
+    "totalTokens": 3044,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2810,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 234,
+    "service_tier": "standard"
+  },
+  "ms": 4870
+}

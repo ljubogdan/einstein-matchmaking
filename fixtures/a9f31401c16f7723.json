@@ -1,0 +1,38 @@
+{
+  "key": "a9f31401c16f7723",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We want university ownership of results with a licence option for the company, as university ownership of results is our position; the company r",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"The words show publication count and recency but say nothing about protecting an active publication record.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 511,
+    "outputTokens": 38,
+    "totalTokens": 549,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 511,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 38,
+    "service_tier": "standard"
+  },
+  "ms": 4581
+}

@@ -1,0 +1,38 @@
+{
+  "key": "4cdbbc8ab73734f6",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Two developers and one GIS specialist can each devote up to one-third of their working time to development work.\n  C017 rd_capacity: \"dva progra",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"The claim states methods were 'calibrated with regression equations' but the source says regression equations were 'presented' as output, not used to calibrate the comparison itself. The comparison tested three methods against incubation values; regression equations were derived from results.\", \"rewrite\": \"Buffer pH methods have been compared against incubation lime requirement values with regression equations specific to chernozem texture classes presented to predict lime requirements in northern Vojvodina municipalities.\"}, {\"claim\": 4, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2448,
+    "outputTokens": 187,
+    "totalTokens": 2635,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2448,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 187,
+    "service_tier": "standard"
+  },
+  "ms": 6538
+}

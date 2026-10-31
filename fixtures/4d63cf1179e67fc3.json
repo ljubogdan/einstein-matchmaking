@@ -1,0 +1,38 @@
+{
+  "key": "4d63cf1179e67fc3",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: Our MBR fouling problem is a bounded applied question suited to a joint project [C088-CH2], and the researcher is open to joint projects [R0745 ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words describe a fouling problem in dairy plants but say nothing about the question being bounded or suited to a joint project.\"},{\"item\":2,\"backed\":true,\"reason\":\"\"},{\"item\":3,\"backed\":true,\"reason\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 815,
+    "outputTokens": 68,
+    "totalTokens": 883,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 815,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 68,
+    "service_tier": "standard"
+  },
+  "ms": 2314
+}

@@ -20,7 +20,7 @@ Challenges in this run that got no proposal, and why. Saying no is a result, not
 **Nearest candidate:** none: the challenge stopped before search  
 **Suggestion:** Not a question for a university researcher; handle it as a business or service request, and revisit if it becomes a technical problem.
 
-## C120-CH3: We only have two people who can write code and one of them is Milica who is going on maternity leave; we have three active contracts and wo…
+## C120-CH3: (not shown: the challenge's text mentions someone's personal situation)
 **Verdict:** not a research problem  
 **Why:** This is a routine business operations challenge involving workforce planning, hiring, and project delivery scheduling rather than an open research question. [C120-CH3]  
 **Nearest candidate:** none: the challenge stopped before search  

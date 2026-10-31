@@ -1,0 +1,38 @@
+{
+  "key": "5dc94de29fb78893",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: Contract research is the suggested format and fits this bounded diagnostic question [C088-CH2]. We want company ownership of results because fin",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words describe a desired outcome, not that contract research is a suggested format for bounded diagnostic questions.\"},{\"item\":2,\"backed\":true,\"reason\":\"\"},{\"item\":3,\"backed\":true,\"reason\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 738,
+    "outputTokens": 63,
+    "totalTokens": 801,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 738,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 63,
+    "service_tier": "standard"
+  },
+  "ms": 1380
+}

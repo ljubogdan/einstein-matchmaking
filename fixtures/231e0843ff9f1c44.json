@@ -1,0 +1,47 @@
+{
+  "key": "231e0843ff9f1c44",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Pair id: C061-CH1__R0231\n\nFit review: strong. Identify which oxidation pathway (autoxidation, photo-oxidation, enzymatic, or trace-metal-catalysed) is dominatin",
+  "items": [
+    {
+      "type": "reasoning",
+      "content": {
+        "text": "Let me draft the JSON for this collaboration proposal.",
+        "type": "input_text"
+      },
+      "encryptedContent": "EpUCCnwIExABGAIqQL8bWdd950ITZrkPAR58cR67sJypyT42FhP6/YPM4HaNPVTa0BFrOMFODAkcMwWlMIye+HpR6mSxKzm9/cdzkiwyEWNsYXVkZS1zb25uZXQtNC02OABCCHRoaW5raW5nWgw2NjU3Njc3MDczNzKoAazelNcGEgwb9A0Qhg/iiNwyH74aDL/RxLTxXdrDZ7YQpSIwFRK99807bAhy12QtF5ILvixc8SLIFzWkb89NRF06dgfZp+SD1DYvLfMkDyVcBzPuKkfiuJQlichvBvPaKOaDSfir5nOAVHUSD0LebTMzJTgivsLiYRx/vGrw0XCetcxWSbHYFHF+YErMZUXhCGCM42TEe4LwDVFOvRgB",
+      "summary": []
+    },
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"title\":\"Finding what makes the pumpkin seed oil go rancid and fixing it\",\"candidate\":\"\",\"problem\":[{\"subject\":\"C061-CH1\",\"text\":\"The oil hits a peroxide value above the acceptable threshold somewhere between three and five months after bottling, while competitors achieve 9–12 months on shelf.\",\"sources\":[{\"id\":\"C061-CH1\",\"field\":\"detail\",\"quote\":\"hits a peroxide value above the acceptable threshold somewhere between three and five months after bottling\"},{\"id\":\"C061-CH1\",\"field\":\"text\",\"quote\":\"competitors manage 9–12 months\"}],\"kind\":\"fact\"},{\"subject\":\"C061-CH1\",\"text\":\"The company spends roughly 180,000 RSD per year on returned and written-off stock from this issue alone and has not identified the dominant oxidation pathway.\",\"sources\":[{\"id\":\"C061-CH1\",\"field\":\"detail\",\"quote\":\"roughly 180,000 RSD per year on returned and written-off stock from this issue alone\"},{\"id\":\"C061-CH1\",\"field\":\"text\",\"quote\":\"we have no idea what oxidation pathway is hitting us fastest\"}],\"kind\":\"fact\"},{\"subject\":\"C061-CH1\",\"text\":\"The nitrogen flush equipment is a single nozzle above the fill point and the company is not sure how much residual oxygen is actually left in the headspace.\",\"sources\":[{\"id\":\"C061-CH1\",\"field\":\"detail\",\"quote\":\"flush equipment is basic — a single nozzle above the fill point — and we are not sure how much residual oxygen we are actually leaving in the headspace\"}],\"kind\":\"fact\"}],\"researchQuestions\":[\"Which oxidation pathway—autoxidation, photo-oxidation, enzymatic, or trace-metal-catalysed—accounts for the dominant share of peroxide accumulation across production batches, measured against fatty acid, tocopherol, and marker data from the same batches?\",\"What is the residual headspace oxygen concentration achieved by the current nitrogen flush, measured against the 2% threshold defined in published filling-line specifications?\",\"Do process changes to the nitrogen flush or storage temperature reduce the rate of peroxide accumulation to levels consistent with a 9-month shelf life, measured against peroxide value trajectories from untreated control bottles held in parallel?\"],\"plan\":[{\"phase\":\"Phase 1 – Baseline characterisation (months 1–2)\",\"work\":\"University lab runs GC-FID fatty acid profiling, HPLC-FLD tocopherol quantification, and Rancimat induction period on fresh oil samples prepared by the company lab technician across three recent batches.\",\"result\":\"A baseline dataset of fatty acid composition, tocopherol content, and oxidative stability index for three batches, delivered as a data report.\"},{\"phase\":\"Phase 2 – Pathway identification (months 3–5)\",\"work\":\"University lab measures peroxide value, p-anisidine value, and TBARS on time-series samples stored at two temperatures; company technician takes headspace oxygen readings at the bottling line using a rented portable oxygen analyser.\",\"result\":\"A kinetic dataset and pathway attribution report naming the dominant oxidation mechanism, with headspace oxygen measurements from the current flush setup.\"},{\"phase\":\"Phase 3 – Process change trials (months 6–9)\",\"work\":\"Company implements two modified flush protocols on the existing bottling line; company technician prepares and stores trial bottles; university lab measures oxidation markers at 30-day intervals on trial and control bottles.\",\"result\":\"A comparative dataset from trial and control bottles showing peroxide value trajectories under each flush condition, and a decision on which protocol to carry forward.\"},{\"phase\":\"Phase 4 – Recommendations and final report (months 10–12)\",\"work\":\"University PI integrates all data and drafts implementable process recommendations; company reviews draft within 30 days and may remove confidential production details before finalisation.\",\"result\":\"A final written report with ranked, implementable process recommendations and a projected shelf-life estimate for each recommended change.\"}],\"companyBrings\":[{\"subject\":\"C061\",\"text\":\"The company supplies oil samples across multiple batches and storage time points and provides access to the bottling line for headspace oxygen measurements.\",\"sources\":[{\"id\":\"C061\",\"field\":\"tech\",\"quote\":\"Dark glass bottling line with nitrogen flushing\"},{\"id\":\"C061\",\"field\":\"tech\",\"quote\":\"Peroxide value measurement by iodometric titration\"}],\"kind\":\"fact\"},{\"subject\":\"C061\",\"text\":\"A lab technician is available part-time for sample preparation and routine physical-chemical measurements including peroxide value and free fatty acid titration.\",\"sources\":[{\"id\":\"C061\",\"field\":\"rd_capacity\",\"quote\":\"one in-house lab technician who handles routine quality checks and can support external partners with sample preparation and basic physical-chemical measurements\"}],\"kind\":\"fact\"}],\"universityBrings\":[{\"subject\":\"R0231\",\"text\":\"The laboratory operates a GC-FID for fatty acid profiling, HPLC for tocopherol quantification, and a rancimat oxidative stability instrument needed for the pathway analysis.\",\"sources\":[{\"id\":\"R0231\",\"field\":\"bio\",\"quote\":\"GC-FID for fatty acid profiling, and HPLC for tocopherol quantification\"}],\"kind\":\"fact\"},{\"subject\":\"R0231\",\"text\":\"The research group has published on peroxide formation kinetics and headspace oxygen effects in cold-pressed seed oils, including filling-line specifications for small-scale cold-press operations.\",\"sources\":[{\"id\":\"SYN-PUB-02921\",\"field\":\"abstract\",\"quote\":\"practical filling-line specifications for small-scale cold-press operations, including a maximum residual oxygen threshold of 2% in the headspace\"}],\"kind\":\"fact\"}],\"whyThisPair\":[{\"subject\":\"C061-CH1__R0231\",\"text\":\"The company does not have gas chromatography equipment and has never done a fatty acid profile breakdown or a tocopherol content analysis in-house, which are the measurements needed to identify the dominant pathway.\",\"sources\":[{\"id\":\"C061-CH1\",\"field\":\"detail\",\"quote\":\"We do not have gas chromatography equipment and we have never done a fatty acid profile breakdown or a tocopherol content analysis in-house\"}],\"kind\":\"fact\"},{\"subject\":\"C061-CH1__R0231\",\"text\":\"The research group has studied peroxide kinetics, headspace oxygen effects, and tocopherol profiling in cold-pressed pumpkin seed oil and has carried out contract studies for domestic cold-press oil producers.\",\"sources\":[{\"id\":\"R0231\",\"field\":\"industry_experience\",\"quote\":\"carried out two short-term contract studies for domestic cold-press oil producers, covering quality benchmarking and labelling support for shelf-life claims\"}],\"kind\":\"fact\"},{\"subject\":\"C061-CH1__R0231\",\"text\":\"The company's bottling line and multi-batch sample archive provide the production-scale material the kinetic and headspace work requires, while the university contributes the analytical instruments and pathway attribution methods neither side can combine alone.\",\"sources\":[{\"id\":\"C061-CH1\",\"field\":\"detail\",\"quote\":\"Our cold-pressed pumpkin seed oil hits a peroxide value above the acceptable threshold somewhere between three and five months after bottling, depending on the batch\"},{\"id\":\"SYN-PUB-02918\",\"field\":\"abstract\",\"quote\":\"pseudo-first-order kinetic model was fitted to PV–time data at each temperature\"}],\"kind\":\"inference\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 1732,
+    "totalTokens": 1735,
+    "inputTokenDetails": {
+      "cached_tokens": 6296
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 3840,
+    "cache_read_input_tokens": 2456,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 3840,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 1732,
+    "service_tier": "standard"
+  },
+  "ms": 22443
+}

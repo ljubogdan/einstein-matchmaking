@@ -1,0 +1,38 @@
+{
+  "key": "9b41e0bd8fbfe58b",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We need a deployable module in time for our 2027 release, so results within ten months are essential [C047 plans]. Our dataset is proprietary op",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":true,\"reason\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 474,
+    "outputTokens": 20,
+    "totalTokens": 494,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 474,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 20,
+    "service_tier": "standard"
+  },
+  "ms": 4070
+}

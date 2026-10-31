@@ -1,0 +1,38 @@
+{
+  "key": "36aff668bb72e6d3",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Pair id: C143-CH2__R0385\n\nFit review: strong. Diagnose and resolve PostgreSQL cluster latency breaches under peak transactional load by redesigning query routin",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"issues\":[],\"unconfirmed\":[]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 15,
+    "totalTokens": 18,
+    "inputTokenDetails": {
+      "cached_tokens": 4344
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 4344,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 4344,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 15,
+    "service_tier": "standard"
+  },
+  "ms": 19306
+}

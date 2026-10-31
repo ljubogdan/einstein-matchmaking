@@ -1,0 +1,38 @@
+{
+  "key": "85e472bbb8aea212",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We want university ownership of results, with the company holding an option to licence, because the university's 9 publications on fouling mecha",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words only confirm 9 publications exist (latest 2024); they say nothing about a continuous research programme that new results would extend.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 484,
+    "outputTokens": 48,
+    "totalTokens": 532,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 484,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 48,
+    "service_tier": "standard"
+  },
+  "ms": 4476
+}

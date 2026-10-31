@@ -1,0 +1,38 @@
+{
+  "key": "be66dc0d7e73a22c",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: University ownership with an option to licence protects the researcher's publishing record and ensures the results can support further academic ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words only list 10 authored publications dated to 2024; they say nothing about ownership, licensing, publishing protection, PhD supervision, or exclusivity trade-offs.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 491,
+    "outputTokens": 55,
+    "totalTokens": 546,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 491,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 55,
+    "service_tier": "standard"
+  },
+  "ms": 7661
+}

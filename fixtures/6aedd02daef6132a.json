@@ -1,0 +1,38 @@
+{
+  "key": "6aedd02daef6132a",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The ultrafiltration step runs at only 55% of nominal throughput because membranes foul with residual biomass within 36 hours, forcing two cleani",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 5, \"support\": \"partly\", \"reason\": \"No mention of providing membrane samples from operating batches\", \"rewrite\": \"The company provides access to the production UF skid and a bench-scale fermentation setup.\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 10, \"support\": \"partly\", \"reason\": \"No source states that Ana Vuković supports on-site trials or the division of work roles as described\", \"rewrite\": \"The research group operates its AFM, UF rigs, and CIP test station, with the company providing batch logs and access to its production UF skid.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 316,
+    "totalTokens": 319,
+    "inputTokenDetails": {
+      "cached_tokens": 4713
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 4713,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 4713,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 316,
+    "service_tier": "standard"
+  },
+  "ms": 4728
+}

@@ -20,13 +20,14 @@ Shortlisted researchers the matchmakers skipped (1):
 
 - [R0128] on [C061-CH1]: notes are about another person; profile can't be trusted
 
-Shortlisted researchers with trap flags (1):
+Shortlisted researchers with trap flags (2):
 
 - [R0128] on [C061-CH1]: identity_conflict, same_name
+- [R1000] on [C047-CH1]: consulting_only
 
-Times the Critic stopped a claim (32, rewrites included; stopped claims go back to their author once), by check:
+Times the Critic stopped a claim (104, rewrites included; stopped claims go back to their author once), by check:
 
-- quote: 10 (e.g. profile:C001-CH1__R0817/2: quote not found in SYN-PUB-08881.abstract; profile:C001-CH1__R0817/2: quote not found in SYN-PUB-08881.abstract)
+- quote: 29 (e.g. C047-CH1__R0689/problem/1: quote not found in C047-CH1.detail; C088-CH2__R0745/whyThisPair/2: C088 has no field "contributions")
 - policy: 1 (e.g. profile:C061-CH1__R0922/2: ranks or praises a person)
-- numbers: 1 (e.g. profile:C032-CH1__R0071/2: 512 is not in any cited field)
-- support: 20 (e.g. C001-CH1__R1008/problem/1: The sentence claims 'confirmed attack captures have never been available from any site' but the field only states the specific clients mentioned have not provided them; it does not claim this is true of all sites everywhere.; C032-CH1__R1015/companyBrings/1: Field states 'We can share anonymised versions' but does not confirm availability for the project or commitment to share.)
+- numbers: 2 (e.g. profile:C022-CH3__R0765/3: 5 is not in any cited field; profile:C032-CH1__R0071/2: 512 is not in any cited field)
+- support: 72 (e.g. C001-CH1__R1015/whyThisPair/2: claim asserts company provides 'physical PLC simulators' but field only says 'Hardware-in-the-loop bench testing with physical PLC simulators' without confirming they are company-provided rather than part of the testing capability; C022-CH3__R0662/companyBrings/2: Field says 'two in-house developers' not 'one developer')

@@ -1,0 +1,38 @@
+{
+  "key": "1d5c7bc782da04dc",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The company can dedicate one junior developer to a project for up to three months per year, provided the topic connects directly to an active cl",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"The inference combines a company need (format variation handling) with a research group's work on data integration, but the fields do not establish that the research group's methods for data integration address format variations or are connected to solving this specific problem.\", \"rewrite\": \"The company needs a smarter way to detect and handle format variations automatically, while the research group develops methods for data integration over tabular sources.\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1900,
+    "outputTokens": 151,
+    "totalTokens": 2051,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1900,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 151,
+    "service_tier": "standard"
+  },
+  "ms": 5932
+}

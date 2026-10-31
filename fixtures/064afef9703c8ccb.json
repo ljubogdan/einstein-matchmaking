@@ -1,0 +1,38 @@
+{
+  "key": "064afef9703c8ccb",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C057-CH2: Ground truth for soil moisture costs too much: probes are expensive and we can't place them on every parcel.\nDetail: Soil moisture is probab",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Variogram-informed sample design and cross-validation workflows can optimize minimum sample sizes needed for spatial surveys.\",\"sources\":[{\"id\":\"SYN-PUB-07337\",\"field\":\"abstract\",\"quote\":\"sample design for spatial surveys (including variogram-informed minimum sample sizes)\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2295,
+    "outputTokens": 79,
+    "totalTokens": 2374,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2295,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 79,
+    "service_tier": "standard"
+  },
+  "ms": 8856
+}

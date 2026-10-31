@@ -1,0 +1,38 @@
+{
+  "key": "6580183c735a143a",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Evapotranspiration calculation and water balance modelling for irrigated crops in Vojvodina has been implemented using the FAO-56 method coupled",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"No evidence that soil water-holding capacity and hydraulic properties have been integrated into decision-support models for irrigation and drainage scheduling; only that hydraulic conductivity is a research topic and experimental facilities exist.\", \"rewrite\": \"Soil hydraulic properties in heavy clay soils have been experimentally characterized through lysimeter networks and other laboratory facilities in Vojvodina.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1325,
+    "outputTokens": 122,
+    "totalTokens": 1447,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1325,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 122,
+    "service_tier": "standard"
+  },
+  "ms": 9789
+}

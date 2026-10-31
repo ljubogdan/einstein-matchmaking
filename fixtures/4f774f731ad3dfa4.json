@@ -1,0 +1,38 @@
+{
+  "key": "4f774f731ad3dfa4",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The group has carried out contract studies for domestic cold-press oil producers covering quality benchmarking and shelf-life claims, and has pu",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"The fields support contract studies on quality benchmarking and shelf-life claims, and publication on headspace oxygen in cold-press operations, but do not state that the group has published on oxidation in small-scale cold-press operations specifically—only that one paper proposes filling-line specifications including headspace oxygen thresholds.\", \"rewrite\": \"The group has carried out contract studies for domestic cold-press oil producers covering quality benchmarking and shelf-life claims, and has published on headspace oxygen in small-scale cold-press operations.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1749,
+    "outputTokens": 161,
+    "totalTokens": 1910,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1749,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 161,
+    "service_tier": "standard"
+  },
+  "ms": 10074
+}

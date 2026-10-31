@@ -1,0 +1,47 @@
+{
+  "key": "942bc029c0d7c12d",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Round 1 of 6. Open with the term sheet you would prefer. action must be \"propose\".",
+  "items": [
+    {
+      "type": "reasoning",
+      "content": {
+        "text": "Let me craft an opening proposal for Zlatna Njiva.",
+        "type": "input_text"
+      },
+      "encryptedContent": "EpECCnwIExABGAIqQHX63Ei84sK+AMY5bg41VxKZLGnwDp94nm4ySjiBtmtPOtkGL9rZkVTNBpr3TkBC22BoxwihZDtq0dONj8AwYX8yEWNsYXVkZS1zb25uZXQtNC02OABCCHRoaW5raW5nWgw2NjU3Njc3MDczNzKoAaXdlNcGEgzfL4FtukYugMyENvoaDKK66v4eCLMagcW3vSIw0hs/NsZgoVTSrg1DKfk9oH8lT6f9iBblZLHY0SANWt2CckC2IoDaQsNXtdzVLdx6KkNjxiMyFZ13UVgyCd2nHOqo1LvY13isKM8MRnCgcgPPeFV2MLkg8CqX47I+Obg2U/a063WxS/x/FzH/0/YdezJaiGFBGAE=",
+      "summary": []
+    },
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"action\":\"propose\",\"sheet\":{\"engagement\":\"contract_research\",\"scope\":\"Identify dominant oxidation pathway in Zlatna Njiva cold-pressed pumpkin seed oil and deliver implementable process recommendations to extend shelf life.\",\"ip\":\"contract_research_company_owns\",\"exclusivity\":{\"field\":\"cold-pressed pumpkin seed oil production\",\"months\":12},\"publication\":{\"reviewDays\":60,\"companyMayRemoveConfidential\":true},\"backgroundIp\":[\"Company: bottling line specs, nitrogen flush process, peroxide value data\",\"Researcher: prior lipid oxidation methods and published protocols\"],\"contributions\":{\"company\":[\"Lab technician (part-time) for sample preparation and routine measurements\",\"Oil samples across multiple batches and storage time points\",\"Access to bottling line for headspace oxygen measurements\"],\"university\":[\"Principal investigator time (part-time) for oxidation pathway analysis\",\"Rancimat, GC-FID, HPLC-FLD equipment access for fatty acid, tocopherol and oxidation marker profiling\"]},\"money\":\"Company funds contract research; amount to be agreed\",\"timeline\":{\"months\":12,\"milestones\":[\"Month 2: fatty acid profile and tocopherol baseline complete\",\"Month 5: oxidation pathway identified, kinetic data delivered\",\"Month 9: process change trials completed with headspace oxygen data\",\"Month 12: final report with implementable recommendations delivered\"]},\"contact\":{\"company\":\"Quality and production manager\",\"university\":\"Principal investigator\"}},\"reason\":\"Residual oxygen in headspace critically influences oxidation rate [SYN-PUB-02921], and peroxide kinetics indicate autoxidation of polyunsaturated fatty acids as likely dominant pathway [SYN-PUB-02918], so we need the researcher's GC-FID and HPLC-FLD equipment to confirm this and get actionable process fixes. We want company ownership of results to protect our process know-how, a 60-day review window to remove confidential data, and milestones tied to specific deliverables to avoid the lack of structured progress that has been absent in past informal collaborations.\",\"citations\":[\"SYN-PUB-02921\",\"SYN-PUB-02918\"],\"evidence\":[{\"citation\":\"SYN-PUB-02921\",\"quote\":\"residual oxygen in the headspace critically influences oxidation rate, with a maximum residual oxygen threshold of 2% recommended for practical filling-line specifications in small-scale cold-press operations\"},{\"citation\":\"SYN-PUB-02918\",\"quote\":\"rate constants ranging from 0.018 to 0.091 meq O₂/(kg·day) depending on conditions and activation energy of 48.3 kJ/mol indicating autoxidation of polyunsaturated fatty acids rather than photosensitised oxidation\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 678,
+    "totalTokens": 681,
+    "inputTokenDetails": {
+      "cached_tokens": 3770
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 3770,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 26,
+      "ephemeral_1h_input_tokens": 3744
+    },
+    "output_tokens": 678,
+    "service_tier": "standard"
+  },
+  "ms": 8320
+}

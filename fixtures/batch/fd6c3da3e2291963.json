@@ -1,0 +1,38 @@
+{
+  "key": "fd6c3da3e2291963",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Underground cables installed between 1965 and 1990 appear on drawings with offsets of two to four metres or do not appear on any drawing at all.",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"The fields state they can contribute data, field testing time and practical evaluation, but do not specify that site access is provided across legacy network areas or that this covers areas with the unsolved problem of legacy networks.\", \"rewrite\": \"The company provides field testing time and a four-person engineering office contributing data and practical evaluation.\"}, {\"claim\": 5, \"support\": \"partly\", \"reason\": \"The field states they own and routinely use the RD8100, but does not mention that it will be used alongside GPR acquisition to cross-check detections.\", \"rewrite\": \"The company operates a Radiodetection RD8100 cable and pipe locator.\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"partly\", \"reason\": \"The fields show the company uses RD8100 routinely and provides field testing time and data, but do not explicitly state that they will supply paired RD8100 reference data or that this data will be used to build and validate a model.\", \"rewrite\": \"The researcher needs field access to legacy cable corridors and the company supplies field testing time and data.\"}, {\"claim\": 10, \"support\": \"partly\", \"reason\": \"The fields show the researcher uses MALA ProEx GPR and has GPU workstations for CNN training, and the company wants to reduce exploratory pits, but do not explicitly describe the division of labour (that the researcher will lead data acquisition and algorithm development while the company performs site coordination, label review, and verification pits).\", \"rewrite\": \"The researcher has GPR acquisition capabilities and algorithm development expertise; the company seeks to reduce exploratory pits and can provide field testing time.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 513,
+    "totalTokens": 516,
+    "inputTokenDetails": {
+      "cached_tokens": 4113
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 4113,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 4113,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 513,
+    "service_tier": "standard"
+  },
+  "ms": 10834
+}

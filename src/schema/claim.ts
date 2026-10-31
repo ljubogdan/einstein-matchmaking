@@ -23,6 +23,7 @@ const DraftClaim = Claim.omit({ id: true }).extend({ kind: z.enum(["fact", "infe
 /** The writer's structured answer: claims per section, plus forward-looking parts that state no facts. */
 export const Draft = z.object({
   title: z.string(),
+  candidate: z.string(), // industrial PhD only: who is hired, in one line; otherwise ""
   problem: z.array(DraftClaim),
   researchQuestions: z.array(z.string()),
   plan: z.array(z.object({ phase: z.string(), work: z.string(), result: z.string() })),
@@ -32,6 +33,17 @@ export const Draft = z.object({
 })
 export type Draft = z.infer<typeof Draft>
 export const CLAIM_SECTIONS = ["problem", "companyBrings", "universityBrings", "whyThisPair"] as const
+
+/** The plan reviewer's answer: what would stop the meeting, and agreed contributions no record states. */
+export const PlanReview = z.object({
+  issues: z.array(z.object({ where: z.string(), problem: z.string(), fix: z.string() })),
+  unconfirmed: z.array(z.string()),
+})
+export type PlanReview = z.infer<typeof PlanReview>
+
+/** The writer's fix after the plan review: only the forward-looking parts change. */
+export const PlanRewrite = Draft.pick({ researchQuestions: true, plan: true, candidate: true })
+export type PlanRewrite = z.infer<typeof PlanRewrite>
 
 /** The Critic's LLM support check, one entry per numbered claim: does the sentence say no more than its quotes? */
 export const SupportAnswer = z.object({

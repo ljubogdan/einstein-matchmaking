@@ -1,0 +1,38 @@
+{
+  "key": "e74d9dec3c8dd1d1",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Challenge C115-CH1: Our anti-cheat system flags about 900 accounts a day but our manual review team can only process 200 — legitimate players are getting banned",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"coreWork\":\"Build a more accurate automated decision model on 18 months of game telemetry that reduces false positives while catching cheaters, and adds explainability so moderators can triage faster — requiring supervised/semi-supervised anomaly detection on behavioural event logs with model interpretability output.\",\"reviews\":[{\"researcherId\":\"R0856\",\"verdict\":\"can_do\",\"reason\":\"Tadić's research group specialises in exactly this work — semi-supervised cheat and bot detection on game telemetry streams with prior industry deployment — and she has already done a full-cycle contracted engagement on a live game backend.\",\"evidence\":[{\"id\":\"SYN-PUB-06623\",\"field\":\"abstract\",\"quote\":\"applies one-class support vector machines (OC-SVM) to a labelled telemetry dataset of 48,000 sessions\"},{\"id\":\"R0856\",\"field\":\"industry_experience\",\"quote\":\"full cycle from data pipeline design to shadow-mode deployment evaluation of anomaly detection models on a live game backend\"}],\"format\":\"contract_research\"},{\"researcherId\":\"R0565\",\"verdict\":\"partly\",\"reason\":\"Fejsa covers imbalanced classification, threshold optimisation, and calibration — all relevant to reducing false positives — but his records show no game telemetry, behavioural sequence modelling, or explainability work needed for the moderator-facing component.\",\"evidence\":[{\"id\":\"SYN-PUB-06553\",\"field\":\"abstract\",\"quote\":\"threshold-selection criteria strongly affects classifier behaviour at deployment time\"},{\"id\":\"R0565\",\"field\":\"industry_experience\",\"quote\":\"consulting to two regional financial-sector organisations on credit scoring model evaluation and threshold-setting methodology\"}],\"format\":\"consulting\"},{\"researcherId\":\"R0305\",\"verdict\":\"can_do\",\"reason\":\"Grujić's group does supervised anomaly detection under severe class imbalance on tabular behavioural logs with ensemble methods and cost-sensitive learning, directly matching the false-positive reduction and pipeline design needs of this challenge.\",\"evidence\":[{\"id\":\"SYN-PUB-03782\",\"field\":\"abstract\",\"quote\":\"expected cost minimisation with an asymmetric penalty of 10:1 yields the best F1 on five of six datasets\"},{\"id\":\"R0305\",\"field\":\"bio\",\"quote\":\"supervised anomaly detection and classification under severe class imbalance in high-dimensional tabular datasets\"}],\"format\":\"contract_research\"},{\"researcherId\":\"R0571\",\"verdict\":\"cannot\",\"reason\":\"Malešević's work is on data pipeline reliability, schema drift, and API consistency — not on building classification or anomaly-scoring models for player behaviour.\",\"evidence\":[{\"id\":\"R0571\",\"field\":\"bio\",\"quote\":\"data quality assurance in distributed and real-time systems, with particular attention to API-mediated data flows, cross-source consistency validation\"}],\"format\":\"\"},{\"researcherId\":\"R1008\",\"verdict\":\"cannot\",\"reason\":\"Kiss specialises in unsupervised anomaly detection for ICS/SCADA network protocol traffic; her methods and domain are industrial control systems, not game player behavioural telemetry classification with explainability.\",\"evidence\":[{\"id\":\"R1008\",\"field\":\"bio\",\"quote\":\"unsupervised anomaly detection and one-class classification for industrial control system protocol traffic\"}],\"format\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 746,
+    "totalTokens": 749,
+    "inputTokenDetails": {
+      "cached_tokens": 7674
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 7674,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 7674,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 746,
+    "service_tier": "standard"
+  },
+  "ms": 10517
+}

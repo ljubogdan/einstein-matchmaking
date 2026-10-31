@@ -1,0 +1,38 @@
+{
+  "key": "679c5be99b9fd6d8",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Challenge C144-CH2: Downstream purification — specifically the ultrafiltration step — runs at only 55% of nominal throughput because the membranes foul with res",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"coreWork\":\"Diagnose and resolve ultrafiltration membrane fouling caused by residual biomass/cell debris in a protease fermentation broth, by improving pre-filtration and/or optimising UF operating conditions and CIP protocols to achieve 72-hour runs at nominal flux — core skill is membrane fouling characterisation and mitigation in bioprocess streams.\",\"reviews\":[{\"researcherId\":\"R0269\",\"verdict\":\"can_do\",\"reason\":\"Bogdanović's group works directly on UF membrane fouling in protein-rich bioprocess streams, CIP protocol development, and TMP management, with relevant equipment and prior industry contracts on exactly this type of problem.\",\"evidence\":[{\"id\":\"SYN-PUB-03384\",\"field\":\"abstract\",\"quote\":\"clarification and concentration of protein-rich bioprocess streams, with emphasis on mechanisms governing flux decline\"},{\"id\":\"SYN-PUB-03379\",\"field\":\"abstract\",\"quote\":\"pilot-scale cross-flow ultrafiltration system (10 m² polyethersulphone, 10 kDa)\"},{\"id\":\"R0269\",\"field\":\"industry_experience\",\"quote\":\"contract research for two regional dairy processing companies on CIP protocol optimisation for installed ultrafiltration lines\"}],\"format\":\"contract_research\"},{\"researcherId\":\"R0745\",\"verdict\":\"partly\",\"reason\":\"Marić has strong membrane fouling and pretreatment expertise relevant to diagnosing the fouling problem, but his work is focused on wastewater treatment rather than bioprocess/protease broth clarification, and he lacks records of bioprocess-specific CIP or pre-filtration work.\",\"evidence\":[{\"id\":\"SYN-PUB-08240\",\"field\":\"abstract\",\"quote\":\"Pre-screening of the feed stream through a 200 µm mesh reduced total fouling resistance by 34%\"},{\"id\":\"R0745\",\"field\":\"keywords\",\"quote\":\"membrane filtration, fouling, wastewater treatment, process intensification\"}],\"format\":\"joint_project\"},{\"researcherId\":\"R0654\",\"verdict\":\"partly\",\"reason\":\"Todorović has solid expertise in solid–liquid separation, crossflow filtration, and fouling characterisation, which is relevant to improving pre-filtration of cell debris, but his records are entirely in edible-oil processing, not bioprocess or fermentation broth streams.\",\"evidence\":[{\"id\":\"SYN-PUB-07419\",\"field\":\"abstract\",\"quote\":\"spiral-wound polyethersulfone ultrafiltration module ... tested for clarification\"},{\"id\":\"R0654\",\"field\":\"bio\",\"quote\":\"research group focuses on solid–liquid separation in edible-oil processing\"}],\"format\":\"consulting\"},{\"researcherId\":\"R0863\",\"verdict\":\"cannot\",\"reason\":\"Todić's expertise is in bioreactor scale-up and fermentation upstream process engineering; her records do not cover membrane fouling characterisation, pre-filtration design, or CIP protocol development.\",\"evidence\":[{\"id\":\"R0863\",\"field\":\"keywords\",\"quote\":\"stirred-tank bioreactor, scale-up, hydrodynamic similarity, mass-transfer coefficient, kLa characterisation\"}],\"format\":\"\"},{\"researcherId\":\"R0782\",\"verdict\":\"cannot\",\"reason\":\"Bulatović's work is in carbohydrate chemistry and arabinoxylan fractionation; his records show no expertise in membrane fouling mitigation or bioprocess clarification relevant to the challenge.\",\"evidence\":[{\"id\":\"R0782\",\"field\":\"keywords\",\"quote\":\"arabinoxylan, enzymatic hydrolysis, prebiotic oligosaccharides, cereal bran, xylanase\"}],\"format\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 829,
+    "totalTokens": 832,
+    "inputTokenDetails": {
+      "cached_tokens": 8141
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 8141,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 8141,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 829,
+    "service_tier": "standard"
+  },
+  "ms": 21606
+}

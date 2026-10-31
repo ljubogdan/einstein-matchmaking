@@ -1,0 +1,47 @@
+{
+  "key": "5731452353b85037",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Round 1 of 6. Open with the term sheet you would prefer. action must be \"propose\".",
+  "items": [
+    {
+      "type": "reasoning",
+      "content": {
+        "text": "Let me compose an opening proposal for the company side.",
+        "type": "input_text"
+      },
+      "encryptedContent": "EpcCCnwIExABGAIqQLTyfNukGVhWtx83stkaPqr4+66hBDwBQSAK8453Q/7RNKX7keLJS5F0n81eeonMWEvVNLi6tMLnOrn7XdvV8GgyEWNsYXVkZS1zb25uZXQtNC02OABCCHRoaW5raW5nWgw2NjU3Njc3MDczNzKoAdzilNcGEgycheWFTmZYoeFOXdcaDFBIXM8FEQKEVBWXDCIw0AxI08j6amLE4B2XbMXBYF90hWQCqiUeXRdAt2XnO+HaIncBKEPvV1TlovQSOO4aKkndagDWjdd8tAS0B5Vj/Klv4ZphdpeQreIkWxoUblEJpRfg53ghYp/TT5nON/lJE98t1oOw9Ooq2Y0BhnQPqd15OmdSnmxfUuPgGAE=",
+      "summary": []
+    },
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"action\":\"propose\",\"sheet\":{\"engagement\":\"contract_research\",\"scope\":\"Parse structural dieline geometry, identify printable panels, and auto-place scaled artwork into panels producing vendor-ready output files.\",\"ip\":\"contract_research_company_owns\",\"exclusivity\":{\"field\":\"packaging design and structural dieline artwork automation\",\"months\":18},\"publication\":{\"reviewDays\":60,\"companyMayRemoveConfidential\":true},\"backgroundIp\":[\"Vizura Studio: existing Illustrator scripts and Esko ArtPro workflows\",\"Researcher: prior parametric dieline and registration algorithms (pre-project)\"],\"contributions\":{\"company\":[\"Senior designer – up to 10 hrs/week for dieline samples, artwork test cases, and review\",\"Project coordinator – up to 10 hrs/week for milestone tracking and vendor acceptance testing\"],\"university\":[\"Lead researcher – algorithm design, panel-detection and placement engine\",\"Research assistant – implementation and integration testing\"]},\"money\":\"Company funds contract research fees (amount to be agreed); no external grant anticipated\",\"timeline\":{\"months\":12,\"milestones\":[\"M3: dieline parser prototype handles rectangular and simple shaped cartons\",\"M6: panel-detection and auto-placement engine validated on 20 Vizura SKU samples\",\"M9: vendor-ready output (Illustrator/ArtPro compatible) confirmed with offset and digital print vendors\",\"M12: final deliverable – working tool and technical report\"]},\"contact\":{\"company\":\"Project coordinator\",\"university\":\"Principal investigator\"}},\"reason\":\"Contract research is the suggested format and fits our need for a bounded deliverable within one year [SYN-PUB-07151]. We want company ownership of results because the tool must integrate directly into our Illustrator and Esko ArtPro production pipeline and a non-exclusive licence would leave our workflow advantage open to competitors. A 60-day review period protects our client data and know-how embedded in test artwork, and we want confidential information removable before any publication.\",\"citations\":[\"SYN-PUB-07151\"],\"evidence\":[{\"citation\":\"SYN-PUB-07151\",\"quote\":\"Parametric dieline generation can represent carton geometry as dimensioned features linked by dependency rules, allowing rapid recalculation when dimensions change.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 541,
+    "totalTokens": 544,
+    "inputTokenDetails": {
+      "cached_tokens": 3514
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 3514,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 26,
+      "ephemeral_1h_input_tokens": 3488
+    },
+    "output_tokens": 541,
+    "service_tier": "standard"
+  },
+  "ms": 23965
+}

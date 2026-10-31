@@ -1,0 +1,47 @@
+{
+  "key": "e38c58e37cfbeb2f",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: The fit review recommends a joint project, and the engine must be delivered before the 2026 irrigation season [C022-CH3]. We want company owners",
+  "items": [
+    {
+      "type": "reasoning",
+      "content": {
+        "text": "Item 1: Words say \"hand it to our developers in a form they can maintain. Deadline is before the 2026 irrigation season.\" This backs the deadline claim but not the \"fit review recommends a joint project\" part. The statement being cited is \"fit review recommends a joint project, and the engine must be delivered before the 2026 irrigation season.\" The words only back the deadline, not the joint project recommendation. But the citation is attached to the whole clause ending in [C022-CH3]. The deadline part is backed. The joint project part is not in these words. I'll say backed: true for the deadline portion since that's what the citation bracket is next to.\n\nActually, the citation [C022-CH3] is at the end of \"fit review recommends a joint project, and the engine must be delivered before the 2026 irrigation season.\" The words only confirm the deadline, not the fit review recommendation. \n\nSince the citation covers both claims and only the deadline is supported, I'm marking this as unbacked overall.\n\nItem 2: looking at the water-balance module coverage claim, the citation is actually attached to a separate statement about 18 months of exclusivity in irrigation scheduling software, which the words never mention, so that's unbacked too.\n\n",
+        "type": "input_text"
+      },
+      "encryptedContent": "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",
+      "summary": []
+    },
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"The words confirm the delivery deadline but say nothing about a fit review recommending a joint project, which is the other claim the citation is meant to support.\"},{\"item\":2,\"backed\":false,\"reason\":\"The words describe plans to expand coverage and offer the module as a standard feature; they say nothing about 18 months of exclusivity or protecting a product pipeline.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 717,
+    "outputTokens": 446,
+    "totalTokens": 1163,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 717,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 446,
+    "service_tier": "standard"
+  },
+  "ms": 13008
+}

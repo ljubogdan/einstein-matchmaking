@@ -1,0 +1,38 @@
+{
+  "key": "06367c1389474510",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Research on coupling hydrological models with Sentinel-1 SAR observations can constrain satellite-derived soil saturation estimates in drained a",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"Claim states dual-polarisation can support soil moisture discrimination in mixed crop-soil landscapes; field describes wetland mapping with vegetation types (reed, willow-poplar, grassland) but does not demonstrate soil moisture discrimination capability or application to crop-soil landscapes.\", \"rewrite\": \"Dual-polarisation SAR classification can distinguish vegetation water content and surface conditions that confound single-polarisation backscatter, with the VH/VV ratio proving effective for separating flooded woody vegetation from open water in wetland environments.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1662,
+    "outputTokens": 181,
+    "totalTokens": 1843,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1662,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 181,
+    "service_tier": "standard"
+  },
+  "ms": 13749
+}

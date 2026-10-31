@@ -1,0 +1,38 @@
+{
+  "key": "442fa83fac834b25",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): SecureEdge Labs will provide anonymised packet logs from three customer sites, averaging around four gigabytes per day per site, for model train",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"No mention of EdgeWatch edge hardware or deployment environment being contributed\", \"rewrite\": \"Four security engineers will be contributed for integration and field evaluation work.\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"DNP3 mentioned but Modbus and DNP3 not both explicitly paired together in one phrase as primary focus\", \"rewrite\": \"The research group brings unsupervised anomaly detection and online learning methods suited to constrained embedded environments, covering Modbus, DNP3, and industrial control system protocol traffic.\"}, {\"claim\": 4, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 5, \"support\": \"partly\", \"reason\": \"SYN-PUB-10239 does not mention SecureEdge Labs supplying operational site logs or EdgeWatch deployment environment; C032-CH1 does not mention the model performance or inference speed\", \"rewrite\": \"A combined 8-bit quantised, 25%-pruned model achieved inference at 0.9 ms per 10-second window on an ARM Cortex-A7 target.\"}, {\"claim\": 6, \"support\": \"partly\", \"reason\": \"BACnet not listed in research group's keywords, but no evidence they provide in-house BACnet parsers to research group or that SecureEdge supplies BACnet site logs for model development\", \"rewrite\": \"BACnet is not covered in the research group's prior published protocol work, and SecureEdge Labs uses in-house BACnet parsers for its EdgeWatch sensor.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2967,
+    "outputTokens": 398,
+    "totalTokens": 3365,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2967,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 398,
+    "service_tier": "standard"
+  },
+  "ms": 5826
+}

@@ -1,0 +1,38 @@
+{
+  "key": "71394bf5e690e802",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We accept 30-day review and 18-month exclusivity in exchange for university ownership with an option to assign: this protects SYN-PAT-049 backgr",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words only confirm SYN-PAT-049 exists as a granted patent; they say nothing about publication rights, review periods, exclusivity, or ownership options.\"},{\"item\":2,\"backed\":true,\"reason\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 690,
+    "outputTokens": 67,
+    "totalTokens": 757,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 690,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 67,
+    "service_tier": "standard"
+  },
+  "ms": 12503
+}

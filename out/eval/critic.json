@@ -1,6 +1,6 @@
 {
   "what": "20 planted false claims sent to the Critic as one check request (deterministic checks, then the support check)",
-  "date": "2026-10-30",
+  "date": "2026-10-31",
   "supportModel": "claude-haiku-4-5",
   "planted": 20,
   "caught": 20,

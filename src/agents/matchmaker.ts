@@ -5,6 +5,7 @@ import { FITS, type ProfileCard } from "../schema/profile"
 import { makePair, type Pair } from "../tools/cards"
 import type { Dataset } from "../tools/dataset"
 import type { PublicationIndex } from "../tools/search"
+import { applyFitReview, type FitDone } from "./fit-review"
 
 export const SHORTLIST = 5
 export type NomatchVerdict = "not a research problem" | "no good match" | "match exists but unavailable" | "no deal"
@@ -17,6 +18,7 @@ export type MatchmakerOptions = {
   index: PublicationIndex
   board: Board
   onPair: (pair: Pair, profile: ProfileCard) => void // joins the pair's negotiators and writer before the match is announced
+  reviewFit?: boolean // ask the fit reviewer before reserving; off for runs with code stand-ins
 }
 
 /** Why a card can't be paired, or undefined if it can. Fit is per challenge; nobody is ranked as a person. */
@@ -27,9 +29,10 @@ export function exclusion(card: ProfileCard): string | undefined {
   return undefined
 }
 
-/** Cards in the order a matchmaker tries them: pairable only, strong fit before partial, then search order. */
+/** Cards in the order a matchmaker tries them: pairable only, strong fit before partial, then the fit reviewer's order, then search order. */
 export function pairable(cards: ProfileCard[]): ProfileCard[] {
-  return cards.filter((c) => !exclusion(c)).sort((a, b) => FITS.indexOf(a.fit) - FITS.indexOf(b.fit) || a.rank - b.rank)
+  const order = (c: ProfileCard) => c.reviewOrder ?? Number.MAX_SAFE_INTEGER
+  return cards.filter((c) => !exclusion(c)).sort((a, b) => FITS.indexOf(a.fit) - FITS.indexOf(b.fit) || order(a) - order(b) || a.rank - b.rank)
 }
 
 type Slot = {
@@ -44,11 +47,12 @@ type Slot = {
 
 /**
  * Owns a slice of challenges. Search is code: the Analyst's terms go to BM25, the top researchers go to the Profiler,
- * and the first pairable card is reserved with the version read at shortlist time. A failed write (another matchmaker
+ * the fit reviewer says who could do the work, and the first pairable card is reserved with the version read at
+ * shortlist time. A failed write (another matchmaker
  * reserved first) or a researcher held elsewhere becomes `prenup.reservation.conflict`; on the Arbiter's decision the
  * loser re-matches by itself, as it does after a no-deal. Nothing left -> `prenup.nomatch`.
  */
-export function createMatchmaker({ name, challengeIds, data, index, board, onPair }: MatchmakerOptions): Human {
+export function createMatchmaker({ name, challengeIds, data, index, board, onPair, reviewFit = false }: MatchmakerOptions): Human {
   const mine = new Set(challengeIds)
   const slots = new Map<string, Slot>()
 
@@ -68,7 +72,22 @@ export function createMatchmaker({ name, challengeIds, data, index, board, onPai
             const slot = slots.get(card.challengeId)
             if (!mine.has(card.challengeId) || !slot) return
             slot.cards.push(card)
-            if (slot.cards.length === slot.size) choose(card.challengeId)
+            if (slot.cards.length < slot.size) return
+            const cards = pairable(slot.cards)
+            if (reviewFit && cards.length > 0) emit("prenup.fit.check", { challengeId: card.challengeId, cards })
+            else choose(card.challengeId)
+          },
+        },
+      },
+      {
+        specification: on("prenup.fit.done"),
+        processor: {
+          apply: ({ event }) => {
+            const done = event.payload as FitDone
+            const slot = slots.get(done.challengeId)
+            if (!mine.has(done.challengeId) || !slot) return
+            slot.cards = slot.cards.map((card) => applyFitReview(card, done))
+            choose(done.challengeId)
           },
         },
       },

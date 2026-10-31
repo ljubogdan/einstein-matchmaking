@@ -1,0 +1,38 @@
+{
+  "key": "cc66ed9973b2bb3e",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We need a result we can embed in ProtoSense and release in our fifth hardware variant planned for late 2025, so company ownership of results is ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words confirm the fifth hardware variant plan but say nothing about company ownership of results being essential for product integration.\"},{\"item\":2,\"backed\":true,\"reason\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 674,
+    "outputTokens": 53,
+    "totalTokens": 727,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 674,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 53,
+    "service_tier": "standard"
+  },
+  "ms": 1252
+}

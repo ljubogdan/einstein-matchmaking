@@ -1,0 +1,38 @@
+{
+  "key": "05735ae71f1b5806",
+  "model": "claude-haiku-4-5",
+  "prompt": "Challenge C144-CH2: Downstream purification — specifically the ultrafiltration step — runs at only 55% of nominal throughput because the membranes foul with res",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"claims\":[{\"claim\":1,\"text\":\"Spiral-wound polyethersulfone ultrafiltration modules show irreversible fouling after 8 h, with a two-step cleaning sequence (0.3 % citric acid, then 0.5 % NaOH) restoring 94 % of clean-water flux.\",\"sources\":[{\"id\":\"SYN-PUB-07419\",\"field\":\"abstract\",\"quote\":\"Irreversible fouling after 8 h was quantified at 18 % flux loss; a two-step cleaning sequence (0.3 % citric acid, then 0.5 % NaOH) restored 94 % of clean-water flux\"}]},{\"claim\":2,\"text\":\"Edible oil processing employs dead-end and cross-flow filtration with filter-aid characterization, and solid-liquid separation staging is described in industrial practice.\",\"sources\":[{\"id\":\"SYN-PUB-07417\",\"field\":\"abstract\",\"quote\":\"dead-end and cross-flow filtration, including compressible cake theory and the role of filter aids\"}]}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2615,
+    "outputTokens": 259,
+    "totalTokens": 2874,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2615,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 259,
+    "service_tier": "standard"
+  },
+  "ms": 10796
+}

@@ -1,0 +1,38 @@
+{
+  "key": "d81fe865e1fe536f",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (inference): The company has no humidity control system and no sensors distributed across hall zones.\n  C138-CH1 detail: \"Nemamo sistem za kontrolu vlaž",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":2,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1879,
+    "outputTokens": 40,
+    "totalTokens": 1919,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1879,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 40,
+    "service_tier": "standard"
+  },
+  "ms": 2261
+}

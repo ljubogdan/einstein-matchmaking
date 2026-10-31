@@ -1,0 +1,38 @@
+{
+  "key": "975e1db9f72892ea",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Membrane fouling in dairy wastewater involves formation of compressible gel layers dominated by emulsified fats and proteins, which can be chara",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"SYN-PUB-08240 describes emulsified oil droplets forming a compressible gel layer, but does not mention proteins as part of the fouling composition\", \"rewrite\": \"Membrane fouling in dairy wastewater involves formation of compressible gel layers dominated by emulsified fats, which can be characterized through scanning electron microscopy, ATR-FTIR spectroscopy, and hydraulic resistance analysis.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"The source states pre-screening reduced fouling resistance by 34% but does not explain the mechanism as removing primary foulants before they reach the membrane\", \"rewrite\": \"Pre-treatment through feed screening at 200 micrometers can reduce total fouling resistance by 34% in fat-rich wastewater.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1969,
+    "outputTokens": 227,
+    "totalTokens": 2196,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1969,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 227,
+    "service_tier": "standard"
+  },
+  "ms": 15071
+}

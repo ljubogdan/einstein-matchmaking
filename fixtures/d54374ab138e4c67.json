@@ -1,0 +1,38 @@
+{
+  "key": "d54374ab138e4c67",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We can accept company ownership of the results so the company can implement the protocol without licensing friction, provided the university ret",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"The words only identify SYN-PAT-026 as a granted patent title; they do not state that it remains university background IP or that it is not transferred.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 540,
+    "outputTokens": 56,
+    "totalTokens": 596,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 540,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 56,
+    "service_tier": "standard"
+  },
+  "ms": 3764
+}

@@ -1,0 +1,38 @@
+{
+  "key": "4d7f09a0a36bcc11",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: Company ownership with university academic-use rights meets our core need to maintain and extend the calculator in our portal without restrictio",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Words say the collaboration was not formalized and no joint result was published, but say nothing about a 2019 pilot specifically.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 493,
+    "outputTokens": 47,
+    "totalTokens": 540,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 493,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 47,
+    "service_tier": "standard"
+  },
+  "ms": 6772
+}

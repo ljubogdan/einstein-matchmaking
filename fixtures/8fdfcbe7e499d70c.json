@@ -1,0 +1,38 @@
+{
+  "key": "8fdfcbe7e499d70c",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The company holds several terabytes of Modbus and BACnet packet captures from consenting clients, available as training data.\n  C001-CH1 detail:",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"Claim mentions 'available anomaly detection approaches' but fields do not show the company has surveyed or has access to anomaly detection methods; one engineer has only been reading about it for six months.\", \"rewrite\": \"Model design draws on anomaly detection; data and deployment context come from several terabytes of captures and hardware-in-the-loop bench testing with physical PLC simulators.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1466,
+    "outputTokens": 153,
+    "totalTokens": 1619,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1466,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 153,
+    "service_tier": "standard"
+  },
+  "ms": 1638
+}

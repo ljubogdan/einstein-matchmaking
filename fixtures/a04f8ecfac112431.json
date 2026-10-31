@@ -1,0 +1,38 @@
+{
+  "key": "a04f8ecfac112431",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The company provides access to the production UF skid and a bench-scale fermentation setup.\n  C144 tech: \"Ultrafiltration and diafiltration usin",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"No source states that the research group operates an AFM, UF rigs, and CIP test station, or that the company provides batch logs and access to its production UF skid. The R0269 bio field confirms the group operates these tools, but C144-CH2 detail only mentions that the company has batch logs; it does not state the company provides them to the research group or that the group has access to the production UF skid.\", \"rewrite\": \"The research group operates its AFM, UF rigs, and CIP test station.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1509,
+    "outputTokens": 168,
+    "totalTokens": 1677,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1509,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 168,
+    "service_tier": "standard"
+  },
+  "ms": 8099
+}

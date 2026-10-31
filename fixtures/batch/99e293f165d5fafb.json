@@ -1,0 +1,47 @@
+{
+  "key": "99e293f165d5fafb",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Round 2 of 6. The company side proposes (Contract research is the right format given the bounded six-month scope and the company's need for a deployable result.",
+  "items": [
+    {
+      "type": "reasoning",
+      "content": {
+        "text": "Key issues: ip should be uni_owns or at least company_owns_uni_academic_use, not contract_research_company_owns. Publication 60 days is acceptable. Exclusivity 12 months is too long - should be narrower. I'll counter: change ip to company_owns_uni_academic_use (we keep academic use rights) and reduce exclusivity to 6 months.",
+        "type": "input_text"
+      },
+      "encryptedContent": "EqYECnwIExABGAIqQKabS07vdTGLppIWLb6usjZhBou4T+jcHj+4ZYDkroC7WIfPE8pKYOm1DStHppSpRnDCX64LFktcMk4ald46FCwyEWNsYXVkZS1zb25uZXQtNC02OABCCHRoaW5raW5nWgw2NjU3Njc3MDczNzKoAfbilNcGEgyjYhKaMDa96xb8p9waDLz9w1dxQMoY9wqBLCIwU/EX1a9TUIZORkRyQbaJ71VFtbxw2eOxsMUfBhFakCqZMFhxqRJOpbbFzEYe7dDjKtcC1+YbTGfo3U0KU+7bxmPKE5zVB5RNfWp/8LVoodgnMEumnwlvMsVTIlEW5AQ+y+w65iEGmpmhz43bFTVihntOsi4+VfwEbRjLx8tNdX/aFR2NDj1ezQnUlO0UEdW9VRmqBPc4oTguUiZl/CtUTBjcVYhos2bH49ZoEUAz1/+4Ksq2w5il4D+yJ0cT1PG7RFBTQaz/HwUkit5ooCsclUA1NH+gc07HJcWA9TSTWRtvdaL+5VL0LayKNgF8HKtKRbe/SIk2CahIcJfGfjsHC+a0yRIv/Z/VvPAQb4+ZQtuyPvo+fN8Jqaiw5UJOMjGP5z2Mt2yup085O4chfatU5vaY0VO7cdIDDfD9c3DuiLpzR+vOhiotWcrSwA51PMaehFi5Nd7R076xxacxWhUBXfisOOmO0Tnv3CFs1Bj3IPp708gGo52Sgpt7EoKlHx06IFRGVP9pv7x3nxgB",
+      "summary": []
+    },
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"action\":\"propose\",\"sheet\":{\"engagement\":\"contract_research\",\"scope\":\"Build an explainable semi-supervised anomaly detection model on VoxelRealm's 18-month BehaviorWatch telemetry to reduce false-positive bans and accelerate moderator triage.\",\"ip\":\"company_owns_uni_academic_use\",\"exclusivity\":{\"field\":\"multiplayer game anti-cheat and player behaviour moderation\",\"months\":6},\"publication\":{\"reviewDays\":60,\"companyMayRemoveConfidential\":true},\"backgroundIp\":[\"VoxelRealm: BehaviorWatch v2 system and all prior player behavioural datasets\",\"University: prior anomaly detection methods and published semi-supervised learning frameworks (SYN-PRJ-0080, SYN-PRJ-0081)\"],\"contributions\":{\"company\":[\"5 engineers at 20% time for integration and data access\",\"Anonymised 18-month event log dataset (approx. 2.3M records)\",\"AWS/PostgreSQL infrastructure access for model testing\"],\"university\":[\"Lead researcher (principal investigator, full engagement)\",\"Research assistant for data pipeline and model development\"]},\"money\":\"Company funds contract research fees and infrastructure costs; amount to be agreed\",\"timeline\":{\"months\":6,\"milestones\":[\"Month 1: data pipeline set up, baseline BehaviorWatch v2 performance benchmarked\",\"Month 3: semi-supervised model prototype delivered, false-positive rate vs detection trade-off report\",\"Month 5: explainability layer integrated, moderator triage tool demo\",\"Month 6: final model, documentation, and handover to engineering team\"]},\"contact\":{\"company\":\"Lead Game Engineer (integration owner, single point of contact)\",\"university\":\"Principal Investigator\"}},\"reason\":\"We accept contract_research format and 60-day review. We want company_owns_uni_academic_use so the university retains the right to use results for research and teaching, which is essential for our publishing obligations and dataset diversity goals [R0856 publications]; our position is also that 6 months of exclusivity is proportionate to a six-month project, keeping the field narrow enough not to block thesis work or other engagements.\",\"citations\":[\"R0856 publications\"],\"evidence\":[{\"citation\":\"R0856 publications\",\"quote\":\"9 authored publications, latest 2026\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 638,
+    "totalTokens": 641,
+    "inputTokenDetails": {
+      "cached_tokens": 4116
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 4116,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 477,
+      "ephemeral_1h_input_tokens": 3639
+    },
+    "output_tokens": 638,
+    "service_tier": "standard"
+  },
+  "ms": 11134
+}

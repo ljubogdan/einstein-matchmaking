@@ -1,0 +1,38 @@
+{
+  "key": "4ff6385bbbeee7af",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: We need results we can embed in our ProtoSense module and the forthcoming fifth hardware variant with dedicated security processor [C001 plans],",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":true,\"reason\":\"\"},{\"item\":2,\"backed\":false,\"reason\":\"Words describe engineering capacity and NDA-covered access to traffic archives, not clients sharing data under NDA requiring publication review to protect it.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 675,
+    "outputTokens": 60,
+    "totalTokens": 735,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 675,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 60,
+    "service_tier": "standard"
+  },
+  "ms": 10452
+}

@@ -1,0 +1,38 @@
+{
+  "key": "d00755aa35069de5",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The ProtoSense module watches Modbus and BACnet traffic but lacks a reliable method to flag deviations, partly because no client has provided a ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"Method evaluated on synthetic dataset, not stated to be evaluated on synthetic attack scenarios specifically\", \"rewrite\": \"Anomalies are identified by measuring reconstruction error against learned normal patterns, without requiring labelled attack data, a method evaluated on a synthetic dataset.\"}, {\"claim\": 4, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 5, \"support\": \"partly\", \"reason\": \"Fields mention hardware-in-the-loop bench testing with PLC simulators but do not specify who maintains them or confirm university researcher involvement in model development\", \"rewrite\": \"The project involves work by company engineers, who maintain hardware-in-the-loop testing capabilities with physical PLC simulators.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2254,
+    "outputTokens": 223,
+    "totalTokens": 2477,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2254,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 223,
+    "service_tier": "standard"
+  },
+  "ms": 2262
+}

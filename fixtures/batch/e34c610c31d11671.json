@@ -1,0 +1,38 @@
+{
+  "key": "e34c610c31d11671",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Item 1. Reason: Contract research fits a bounded technical problem with a clear answer needed within a year [SYN-PUB-03384]. We want company ownership of result",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"item\":1,\"backed\":false,\"reason\":\"Citation is a paper about ultrafiltration membranes; it says nothing about contract research fitting bounded technical problems or timelines.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 491,
+    "outputTokens": 47,
+    "totalTokens": 538,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 491,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 47,
+    "service_tier": "standard"
+  },
+  "ms": 20280
+}

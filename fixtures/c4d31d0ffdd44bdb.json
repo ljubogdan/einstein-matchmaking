@@ -1,0 +1,38 @@
+{
+  "key": "c4d31d0ffdd44bdb",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The practical outcome sought is either a low-cost proxy for field-level moisture or a smarter sensor placement strategy that gets acceptable cov",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"The fields do not state that the university group contributes the data-fusion workflow or that company data scientists deliver outputs; the paper presents the workflow and AgroLens processes Sentinel-2 through their pipeline, but no attribution to a university group or explicit division of labor is given.\", \"rewrite\": \"A data-fusion workflow combines Sentinel-1 C-band backscatter with Sentinel-2 surface reflectance; the company processes satellite data through its own cloud pipeline.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2590,
+    "outputTokens": 194,
+    "totalTokens": 2784,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2590,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 194,
+    "service_tier": "standard"
+  },
+  "ms": 2231
+}

@@ -1,0 +1,38 @@
+{
+  "key": "6a8fa87df45284cf",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): A composite health index methodology aggregates dissolved gas analysis results, oil quality parameters, and load history statistics into a singl",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"The source says the index identifies assets 'within two years of failure' with 91% accuracy, not that it 'correctly identifies transformer assets' as a general risk score across populations.\", \"rewrite\": \"A composite health index methodology aggregates dissolved gas analysis results, oil quality parameters, and load history statistics into a single risk score that correctly identifies assets within two years of failure with 91% accuracy across transformer populations exceeding 400 units.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1201,
+    "outputTokens": 118,
+    "totalTokens": 1319,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1201,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 118,
+    "service_tier": "standard"
+  },
+  "ms": 12608
+}

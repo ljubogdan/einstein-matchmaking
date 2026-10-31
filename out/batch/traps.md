@@ -25,9 +25,9 @@ Shortlisted researchers with trap flags (2):
 - [R0976] on [C036-CH2]: same_name
 - [R0090] on [C143-CH2]: consulting_only
 
-Times the Critic stopped a claim (121, rewrites included; stopped claims go back to their author once), by check:
+Times the Critic stopped a claim (144, rewrites included; stopped claims go back to their author once), by check:
 
-- quote: 48 (e.g. profile:C017-CH3__R0013/1: quote not found in R0013.keywords; profile:C017-CH3__R0013/1: quote not found in R0013.keywords)
-- policy: 4 (e.g. C075-CH3__R1023/terms/contributions: ranks or praises a person; C126-CH1__R0965/terms/contributions: ranks or praises a person)
-- numbers: 8 (e.g. C115-CH1__R0856/companyBrings/1: 2.3 is not in any cited field; C138-CH1__R0753/problem/3: 15,000 is not in any cited field)
-- support: 61 (e.g. C017-CH3__R0013/universityBrings/1: Field states regression equations were developed for chernozem texture classes to predict lime requirements in specific municipalities, not that methods have been 'compared and calibrated locally' as an ongoing process or applied to all northern Vojvodina.; C017-CH3__R0013/whyThisPair/2: Field does not state that the researcher's study was limited to chernozem samples or that this contrasts with the company's soil types; it only states 48 chernozem samples were used but does not compare this to company's parcel conditions.)
+- quote: 52 (e.g. C017-CH3__R0013/companyBrings/1: quote not found in C017.rd_capacity; C124-CH2__R0181/whyThisPair/1: quote not found in SYN-PUB-02347.abstract)
+- policy: 1 (e.g. C145-CH1__R0925/terms/money: money must be 'to be agreed' or a funding route, never an amount)
+- numbers: 11 (e.g. C115-CH1__R0856/companyBrings/1: 2.3 is not in any cited field; C115-CH1__R0856/companyBrings/1: 2.3 is not in any cited field)
+- support: 80 (e.g. C017-CH3__R0013/companyBrings/2: PostGIS database is not mentioned in the field; C017-CH3__R0013/universityBrings/1: Methods were compared and calibrated, but the field does not state they were calibrated 'locally'—it says regional recalibration is necessary before adoption)

@@ -1,0 +1,38 @@
+{
+  "key": "9c28c5b7a8a440d9",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Capacitance probe installations cost 600 to 900 euros per point, and a single 500-hectare farm may need eight to twelve points to capture soil v",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"Field mentions 'ten' probes as baseline, but claim says 'two or three probes instead of ten' which overstates by comparing to ten rather than the eight to twelve mentioned earlier\", \"rewrite\": \"The practical outcome sought is either a satellite-derived field-level moisture proxy or a placement strategy that achieves acceptable coverage with fewer probes.\"}, {\"claim\": 4, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 5, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"partly\", \"reason\": \"Fields show company has PostGIS and probe data, but do not state that the research group's model requires parcel boundaries and in-situ readings for adaptation and validation—this is inference about model requirements not found in the sources\", \"rewrite\": \"The company holds field-scale parcel boundaries through its PostGIS database and has in-situ probe readings from the Kikinda network.\"}, {\"claim\": 9, \"support\": \"no\", \"reason\": \"Sources do not specify which tasks the university group vs. company data scientists perform, nor do they describe the division of labor as SAR decomposition vs. pipeline integration\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 4013,
+    "outputTokens": 389,
+    "totalTokens": 4402,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 4013,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 389,
+    "service_tier": "standard"
+  },
+  "ms": 3418
+}

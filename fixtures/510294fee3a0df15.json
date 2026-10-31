@@ -1,0 +1,38 @@
+{
+  "key": "510294fee3a0df15",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Membrane fouling in dairy wastewater involves formation of compressible gel layers dominated by emulsified fats, which can be characterized thro",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"The sources characterize fouling layer composition and mention emulsified fats/oil droplets and gel layers separately, but do not explicitly state that the gel layers are 'dominated by' emulsified fats in the same context where the characterization methods are described.\", \"rewrite\": \"Membrane fouling in dairy wastewater involves formation of compressible gel layers and emulsified fats, which can be characterized through scanning electron microscopy, ATR-FTIR spectroscopy, and hydraulic resistance analysis.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1590,
+    "outputTokens": 158,
+    "totalTokens": 1748,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1590,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 158,
+    "service_tier": "standard"
+  },
+  "ms": 10110
+}

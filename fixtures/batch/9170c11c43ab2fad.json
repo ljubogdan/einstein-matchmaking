@@ -1,0 +1,38 @@
+{
+  "key": "9170c11c43ab2fad",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The company can dedicate one junior developer to a project for up to three months, provided the topic connects directly to an active client prob",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"Claim says 'up to three months' but field specifies 'up to three months per year'\", \"rewrite\": \"The company can dedicate one junior developer to a project for up to three months per year, provided the topic connects directly to an active client problem.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"The fields show the company needs a smarter way to detect format variations and the research group has analysed schema matching patterns in ERP exports, but do not state that the research group has analysed schema matching patterns specifically in ERP export files or that there is a connection between their work and this company need\", \"rewrite\": \"The company needs a smarter way to detect and handle format variations automatically, while the research group develops methods for data integration over tabular sources.\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"Fields support pre-matching normalisation rules and legacy warehouse management system integration, but do not confirm that the core work involves automated schema matching and ETL transformation over legacy exports or that these prior works directly inform this engagement\", \"rewrite\": \"The work draws on prior work on pre-matching normalisation rules and on integration of legacy warehouse management system exports with a new ERP platform.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 2354,
+    "outputTokens": 315,
+    "totalTokens": 2669,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 2354,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 315,
+    "service_tier": "standard"
+  },
+  "ms": 7178
+}

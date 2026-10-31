@@ -1,0 +1,38 @@
+{
+  "key": "9c54556ec6016b94",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): A single city-block LiDAR flight produces raw point clouds in the range of 80 GB, and a full urban dataset takes between five and seven days end",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"No field states the company provides sample datasets or access for integration and testing; the field only describes their own internal use of a cluster with twelve workstations.\", \"rewrite\": \"The company runs a local processing cluster with twelve workstations for their own processing needs.\"}, {\"claim\": 5, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"partly\", \"reason\": \"The company needs a pipeline that parallelises LAStools and PDAL steps; the research group built a tile-parallel GPU pipeline for ground filtering and feature extraction, but no field states it uses or parallelises LAStools or PDAL specifically.\", \"rewrite\": \"The company needs either a faster automated pipeline or a cost model for burst cloud compute, and the research group has built and benchmarked a tile-parallel GPU pipeline for ground filtering and feature extraction.\"}, {\"claim\": 9, \"support\": \"partly\", \"reason\": \"No field states that the company supplies datasets to the research group or that the research group depends on the company's datasets; the fields only show the company has datasets and the research group uses test datasets from Vojvodina municipalities.\", \"rewrite\": \"The research group works on test datasets from Vojvodina municipalities and requires large-scale industry datasets; the company supplies urban LiDAR datasets up to 120 GB, and the research associate does pipeline design and benchmarking work that the company's one-day-per-week developer capacity cannot cover alone.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 462,
+    "totalTokens": 465,
+    "inputTokenDetails": {
+      "cached_tokens": 5326
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 5326,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 5326,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 462,
+    "service_tier": "standard"
+  },
+  "ms": 15190
+}

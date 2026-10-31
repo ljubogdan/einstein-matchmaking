@@ -1,0 +1,38 @@
+{
+  "key": "6abe66338764d535",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The PostgreSQL cluster records latency of 320 to 450 ms during evening peaks, breaching the 200 ms SLA the company has committed to clients.\n  C",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"field mentions Grafana and Prometheus but does not confirm they provide operational query traces and workload logs required for research\", \"rewrite\": \"The company operates Grafana and Prometheus monitoring across its PostgreSQL cluster.\"}, {\"claim\": 5, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"partly\", \"reason\": \"fields establish researcher's expertise in latency-bounded scheduling and team's research capacity, but do not confirm the specific role division described or that team owns deployment and load testing\", \"rewrite\": \"The researcher has expertise in latency-bounded scheduling for distributed transactional systems, and the engineering team has capacity to conduct research and experimental work in a sandbox environment.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 316,
+    "totalTokens": 319,
+    "inputTokenDetails": {
+      "cached_tokens": 4460
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 4460,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 4460,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 316,
+    "service_tier": "standard"
+  },
+  "ms": 13662
+}

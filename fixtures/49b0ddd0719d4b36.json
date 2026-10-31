@@ -1,0 +1,38 @@
+{
+  "key": "49b0ddd0719d4b36",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Dissolved gas analysis of power transformers can be combined with historical load profiles from SCADA systems to predict incipient failures up t",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Field does not specify that accuracy is limited to identifying assets within two years of failure; it only states the index 'correctly identifies assets within two years of failure with 91% accuracy' without confirming this is the specific timeframe of predictive capability.\", \"rewrite\": \"A composite health index methodology aggregates dissolved gas analysis results, oil quality parameters, and load history statistics into a single risk score that correctly identifies transformer assets with 91% accuracy across populations exceeding 400 units.\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1607,
+    "outputTokens": 170,
+    "totalTokens": 1777,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1607,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 170,
+    "service_tier": "standard"
+  },
+  "ms": 15513
+}

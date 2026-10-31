@@ -1,0 +1,38 @@
+{
+  "key": "9eabf122b051131a",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The ProtoSense module watches Modbus and BACnet traffic but has no method to flag deviations because no client has ever provided a packet captur",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"partly\", \"reason\": \"The sentence states the ProtoSense module 'has no method to flag deviations because no client has ever provided a packet capture containing a confirmed attack', but the field explains the actual reason is lack of labelled malicious data for training a supervised classifier, not absence of a method entirely. The field states they need 'something that learns what normal looks like' (implying a method exists conceptually), and the lack of attack examples is one problem among several.\", \"rewrite\": \"The ProtoSense module watches Modbus and BACnet traffic but lacks a reliable method to flag deviations, partly because no client has provided a packet capture containing a confirmed attack.\"}, {\"claim\": 2, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 3, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 4, \"support\": \"partly\", \"reason\": \"The sentence specifies the captures are 'Modbus and BACnet packet captures' but the field only mentions 'captures from consenting clients' without specifying the protocols.\", \"rewrite\": \"The company has collected several terabytes of packet captures from consenting clients over the past three years for use in the project.\"}, {\"claim\": 5, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 6, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 7, \"support\": \"partly\", \"reason\": \"The sentence claims the method was 'evaluated across multiple ICS attack categories' but the field states it was 'evaluated on a synthetic dataset' covering specific scenarios, not across multiple real ICS attack categories.\", \"rewrite\": \"Anomalies are identified by measuring reconstruction error against learned normal patterns, without requiring labelled attack data, a method evaluated on synthetic attack scenarios.\"}, {\"claim\": 8, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 9, \"support\": \"partly\", \"reason\": \"The inference states the company's captures 'provide the real-world data the research needs for evaluation', but the field indicates the research was evaluated on a 'synthetic dataset generated from a real-world programmable logic controller testbed', not on the company's real-world captures.\", \"rewrite\": \"The researcher's published work on unsupervised detection specifically for Modbus traffic covers the method development the company cannot do alone, and the company's multi-terabyte site captures could provide additional real-world validation data.\"}, {\"claim\": 10, \"support\": \"partly\", \"reason\": \"The sentence assumes division of labour and specific roles (university researcher does 'core model development and explainability work', company does 'hardware porting and firmware integration'), but neither the technical field nor the capacity field specifies this arrangement or that this division of work will occur.\", \"rewrite\": \"The project involves model development by the university researcher and potential hardware and firmware integration work by company engineers using the ProtoSense codebase and hardware bench.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3382,
+    "outputTokens": 696,
+    "totalTokens": 4078,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3382,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 696,
+    "service_tier": "standard"
+  },
+  "ms": 7044
+}

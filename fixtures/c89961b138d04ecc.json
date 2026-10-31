@@ -1,0 +1,38 @@
+{
+  "key": "c89961b138d04ecc",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): ArmaturaSec's ProtoSense module must flag abnormal Modbus and BACnet traffic, but the company has zero examples of malicious traffic, making sup",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":2,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":3,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":4,\"support\":\"partly\",\"reason\":\"NDA status not stated in field\",\"rewrite\":\"The company holds several terabytes of Modbus and BACnet packet captures from consenting clients, available as training data.\"},{\"claim\":5,\"support\":\"partly\",\"reason\":\"Field says 'one to two engineers part-time' but claim says 'one to two engineers part-time and a hardware-in-the-loop bench testing environment' – the word 'and' suggests both are provided as resources, but the capacity field only mentions engineers and references hardware separately; hardware exists but not clearly stated as part of what they dedicate to the project\",\"rewrite\":\"The company provides one to two engineers part-time to a collaborative project, with access to traffic archives, their hardware bench, and existing firmware codebase under NDA.\"},{\"claim\":6,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":7,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":8,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":9,\"support\":\"partly\",\"reason\":\"Field does not state the researcher has anomaly detection expertise; only that an engineer has been reading about it for six months\",\"rewrite\":\"Model design draws on available anomaly detection approaches; data and deployment context come from several terabytes of captures and hardware-in-the-loop bench testing with physical PLC simulators.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 4035,
+    "outputTokens": 363,
+    "totalTokens": 4398,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 4035,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 363,
+    "service_tier": "standard"
+  },
+  "ms": 7145
+}

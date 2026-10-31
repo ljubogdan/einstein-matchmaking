@@ -1,0 +1,38 @@
+{
+  "key": "51c9cbb9c2e9ae34",
+  "model": "claude-sonnet-4-6",
+  "prompt": "Round 4 of 6. The company side proposes (We accept the 30-day review period as a trade for stronger IP terms: we want an option to assign rather than merely lic",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"action\":\"accept\",\"sheet\":{\"engagement\":\"contract_research\",\"scope\":\"Diagnose UF membrane fouling causes and develop improved pre-filtration and CIP protocols to achieve 72-hour runs at nominal flux.\",\"ip\":\"uni_owns_option_to_assign\",\"exclusivity\":{\"field\":\"contract production of industrial-grade bacterial proteases\",\"months\":12},\"publication\":{\"reviewDays\":30,\"companyMayRemoveConfidential\":true},\"backgroundIp\":[\"Ferment-Pro: existing UF/CIP protocols and two-year batch pressure/flow dataset\",\"Researcher: SYN-PAT-026 inline CIP endpoint method; know-how from SYN-PRJ-0260 and SYN-PRJ-0261\"],\"contributions\":{\"company\":[\"Process development technologist (part-time) for bench trials and data access\",\"Access to production-scale pressure/flow logs and membrane samples\",\"UF skid and CIP consumables on-site\"],\"university\":[\"Membrane fouling characterisation using AFM and bench-scale CIP test station\",\"Expertise in TMP management and CIP protocol optimisation\",\"Bench-scale crossflow UF rig for controlled fouling trials using authentic industrial feed streams\"]},\"money\":\"Company funds contract research; amount to be agreed\",\"timeline\":{\"months\":12,\"milestones\":[\"M3: Fouling characterisation complete, root-cause report delivered\",\"M6: Improved pre-filtration and CIP protocol prototype tested at bench scale\",\"M9: Protocol validated on Ferment-Pro production skid, flux data reviewed\",\"M12: Final report with optimised operating procedure and cost-reduction assessment\"]},\"contact\":{\"company\":\"Process Development Technologist\",\"university\":\"Principal Investigator, Department of Chemical Engineering\"}},\"reason\":\"The sheet meets our core needs: university ownership with an option to assign gives the company a clear path while protecting our background IP, publication rights are preserved with a 30-day review, SYN-PAT-026 is ring-fenced, and the company provides authentic industrial feed streams essential to our work [R0269 notes].\",\"citations\":[\"R0269 notes\",\"R0269 patents\"],\"evidence\":[{\"citation\":\"R0269 notes\",\"quote\":\"Bogdanović has a strong preference for collaborations that involve access to authentic industrial process streams rather than model solutions alone, as her group considers industrially realistic feed complexity essential for meaningful fouling studies.\"},{\"citation\":\"R0269 patents\",\"quote\":\"SYN-PAT-026 \\\"Method for inline determination of cleaning-in-place endpoint in ultrafiltration systems using combined permeate UV absorbance and conductivity criteria\\\" (granted)\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 3,
+    "outputTokens": 610,
+    "totalTokens": 613,
+    "inputTokenDetails": {
+      "cached_tokens": 5063
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 3,
+    "cache_creation_input_tokens": 1166,
+    "cache_read_input_tokens": 3897,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 1166,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 610,
+    "service_tier": "standard"
+  },
+  "ms": 10758
+}

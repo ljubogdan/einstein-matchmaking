@@ -414,6 +414,17 @@ function apply(e) {
       log(e, `${p.researcherId} card for ${p.challengeId}: fit ${p.fit}${p.flags.length ? `, flags: ${p.flags.map((f) => f.kind).join(", ")}` : ""}`)
       tick()
       break
+    case "prenup.fit.done":
+      for (const r of p.reviews) {
+        const card = challenge(p.challengeId).cards[r.researcherId]
+        if (card) card.fit = r.fit
+      }
+      log(e, `fit review for ${p.challengeId}: ${p.reviews.map((r) => `${r.researcherId} ${r.fit}`).join(", ") || "no change"}`)
+      tick()
+      break
+    case "prenup.plan.reviewed":
+      log(e, `plan review for ${p.pairId}: ${p.issues.length} problems sent back to the writer, ${p.unconfirmed.length} contributions to confirm`)
+      break
     case "prenup.eval.planted":
       S.faults = { list: p.faults.map((f) => ({ ...f, seq: next() })), claims: {}, verdicts: {} }
       log(e, `planted ${p.faults.length} false claims, built by code from real records`)
@@ -650,7 +661,7 @@ function renderPair() {
   if (focused?.matches?.("[data-draft]") && $("pair").contains(focused)) return
   const tabs = [...S.pairs.values()]
   if (tabs.length === 0) {
-    return void ($("pair").innerHTML = `<div class="hero">${icon("arrows")}<h3>Watch an agreement form</h3><p>Press <b>Run the demo set</b>: four company challenges are matched to researchers, contested, negotiated and fact-checked, live.</p></div>`)
+    return void ($("pair").innerHTML = `<div class="hero">${icon("arrows")}<h3>Watch an agreement form</h3><p>Press <b>Run the demo set</b>: eight company challenges are matched to researchers, contested, negotiated and fact-checked, live.</p></div>`)
   }
   const p = S.pairs.get(S.focus) ?? tabs.at(-1)
   const [challengeId, researcherId] = p.pairId.split("__")

@@ -1,0 +1,38 @@
+{
+  "key": "ee5463c0e79fd95c",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): Ultrafiltration membrane flux decline in cross-flow systems has been characterized using mechanistic blocking models to distinguish cake formati",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\": [{\"claim\": 1, \"support\": \"yes\", \"reason\": \"\", \"rewrite\": \"\"}, {\"claim\": 2, \"support\": \"partly\", \"reason\": \"Field shows cut-off and pressure used but does not establish that they affect flux loss rate or demonstrate the relationship between these variables and selectivity/flux loss.\", \"rewrite\": \"Membrane cut-off selection and transmembrane pressure were evaluated during filtration of biopolymer hydrolysates containing high solids concentrations.\"}, {\"claim\": 3, \"support\": \"partly\", \"reason\": \"Field shows 81% recovery of DP 3-6 fraction but does not demonstrate that contamination from larger species was reduced by diafiltration; the contamination level (DP 7-9 at <8% area) is reported for ultrafiltration before diafiltration.\", \"rewrite\": \"Diafiltration following ultrafiltration can achieve high recovery of target fractions in biorefinery streams.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1914,
+    "outputTokens": 226,
+    "totalTokens": 2140,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1914,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 226,
+    "service_tier": "standard"
+  },
+  "ms": 28239
+}

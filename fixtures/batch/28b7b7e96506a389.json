@@ -1,0 +1,38 @@
+{
+  "key": "28b7b7e96506a389",
+  "model": "claude-haiku-4-5",
+  "prompt": "Claim 1 (fact): The company provides access to four years of episode transcripts and campaign performance logs.\n  C145-CH1 detail: \"We have episode transcripts ",
+  "items": [
+    {
+      "type": "message",
+      "role": "assistant",
+      "content": {
+        "text": "{\"checks\":[{\"claim\":1,\"support\":\"yes\",\"reason\":\"\",\"rewrite\":\"\"},{\"claim\":2,\"support\":\"partly\",\"reason\":\"The inference requires that the researcher works on semantic classification for Serbian using transformer models, but the bio only mentions dense retrieval and question answering for text processing; semantic classification for Serbian is not explicitly stated in the bio.\",\"rewrite\":\"The researcher works on dense retrieval and question answering using transformer-based embedding models, which are methods that could be applied to embed episode transcripts and match them to ad intent signals.\"}]}",
+        "type": "output_text"
+      }
+    }
+  ],
+  "tokenUsage": {
+    "inputTokens": 1424,
+    "outputTokens": 122,
+    "totalTokens": 1546,
+    "inputTokenDetails": {
+      "cached_tokens": 0
+    },
+    "outputTokenDetails": {
+      "reasoning_tokens": 0
+    }
+  },
+  "providerUsage": {
+    "input_tokens": 1424,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 122,
+    "service_tier": "standard"
+  },
+  "ms": 6034
+}

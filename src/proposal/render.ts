@@ -1,14 +1,14 @@
 import type { Verdict } from "../agents/critic"
-import type { Claim, Draft } from "../schema/claim"
+import type { Claim, Draft, PlanReview } from "../schema/claim"
 import type { NegotiationMove } from "../schema/termsheet"
 import type { Pair } from "../tools/cards"
 import { ENGAGEMENT_LABELS } from "./terms"
 
 // verdicts = final ones; first = before the writer's rewrite, so the page shows where the Critic stepped in.
-type Input = { pair: Pair; draft: Draft; claims: Claim[]; verdicts: Verdict[]; first: Verdict[]; moves: NegotiationMove[]; agreed: NegotiationMove }
+type Input = { pair: Pair; draft: Draft; claims: Claim[]; verdicts: Verdict[]; first: Verdict[]; moves: NegotiationMove[]; agreed: NegotiationMove; review: PlanReview }
 
 /** One page per pair (prenup-proposal). Only claims the Critic passed are printed; header facts come straight from the data. */
-export function renderProposal({ pair, draft, claims, verdicts, first, moves, agreed }: Input): string {
+export function renderProposal({ pair, draft, claims, verdicts, first, moves, agreed, review }: Input): string {
   const { company: c, researcher: r, challenge: ch } = pair
   const passed = new Set(verdicts.filter((v) => v.verdict === "pass").map((v) => v.claimId))
   const stopped = first.filter((v) => v.verdict !== "pass")
@@ -27,6 +27,10 @@ export function renderProposal({ pair, draft, claims, verdicts, first, moves, ag
   const term = (key: string) => (passed.has(`${pair.pairId}/terms/${key}`) ? claims.find((cl) => cl.id === `${pair.pairId}/terms/${key}`) : undefined)
   const engagement = term("engagement") ? ENGAGEMENT_LABELS[agreed.sheet.engagement] : "not agreed (blocked by the Critic)"
   const isProject = agreed.sheet.engagement !== "industrial_phd"
+  // Format and contacts are in the header and the milestones in the plan: the Critic checks them, the page says them once.
+  const agreedTerms = section("terms")
+    .filter((cl) => !/\/terms\/(?:engagement|contact)$/.test(cl.id))
+    .map((cl) => `- ${cl.id.endsWith("/terms/timeline") ? `Timeline: ${agreed.sheet.timeline.months} months, as in the plan.` : cl.text}`)
 
   return [
     `# ${draft.title}`,
@@ -34,7 +38,8 @@ export function renderProposal({ pair, draft, claims, verdicts, first, moves, ag
     `**Company:** ${c.name} [${c.id}], ${c.sector}, ${c.employees} employees, ${c.location}.  `,
     `**Researcher:** ${r.name}, ${r.title}, ${r.faculty}, ${r.department} [${r.id}].  `,
     `**Format:** ${engagement}  `,
-    `**Supervisors / contacts:** ${agreed.sheet.contact.university} (academic) and ${agreed.sheet.contact.company} (company)`,
+    `**Supervisors / contacts:** ${agreed.sheet.contact.university} (academic) and ${agreed.sheet.contact.company} (company)  `,
+    ...(draft.candidate ? [`**Candidate:** ${draft.candidate}  `] : []),
     "",
     "### The problem",
     bullets("problem"),
@@ -57,12 +62,19 @@ export function renderProposal({ pair, draft, claims, verdicts, first, moves, ag
     bullets("whyThisPair"),
     "",
     "### Agreed up front",
-    bullets("terms"),
+    "Negotiated by an agent for each side from its records, as a starting point; neither side has seen it yet.",
+    "",
+    ...(agreedTerms.length ? agreedTerms : ["- (no term passed the Critic)"]),
+    ...(term("money") ? [] : ["- Money: to be agreed; the Critic removed an amount, because the agents don't set money."]),
+    ...(review.unconfirmed.length ? ["", `**To confirm at the meeting** (no record says so): ${review.unconfirmed.join("; ")}.`] : []),
     "",
     "<details><summary>How we got here</summary>",
     "",
     `Negotiation on challenge ${ch.id}, ${moves.length} moves:`,
     ...moves.map((m) => `- Round ${m.round}, ${m.side}: ${m.action}${m.changes.length ? ` (changed ${m.changes.join(", ")})` : ""}. ${m.reason}`),
+    "",
+    `Plan review: ${review.issues.length ? `${review.issues.length} problems sent back to the writer:` : "no problems found."}`,
+    ...review.issues.map((issue) => `- ${issue.where}: ${issue.problem}`),
     "",
     `Checked: ${verdicts.length} claims; the Critic stopped ${stopped.length}${stopped.length ? ", and each went back to the writer once:" : "."}`,
     ...stopped.map((v) => `- ${v.claimId.split("/").slice(1).join("/")}: ${v.check}, ${v.reason} -> ${outcome(v)}`),
